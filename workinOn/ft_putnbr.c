@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathaliekhouri <nathaliekhouri@student.    +#+  +:+       +#+        */
+/*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 16:16:14 by pmartins          #+#    #+#             */
-/*   Updated: 2020/04/16 15:36:33 by nathaliekho      ###   ########.fr       */
+/*   Updated: 2020/09/08 18:21:36 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 #include <stdio.h>
 #include <unistd.h>
 
+void			ft_putchar(char c);
 void	ft_putnbr(int nb)
 {
 	long a;
-	
-
 	a = nb;
 	if (a < 0)
 	{
@@ -30,6 +29,7 @@ void	ft_putnbr(int nb)
 	if (a / 10 > 0)
 	{
 		ft_putnbr(a / 10);
-	}//else ((a % 10) + 48);
-	write(1, &a, 1);
+	}
+	ft_putchar((a % 10) + 48);
+		
 }

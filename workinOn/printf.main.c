@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/02 16:31:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/09 14:33:32 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,22 @@ void			ft_putbnr_fd(int nb, int fd);
 
 int main()
 {
-	int numero = 1511;
-	int nbr = +11188;
-	int hexa = 12;
+	int return_printf= 0;
+	int return_ft_printf= 0;
+	unsigned int numero = 5.1111111111;
+	int nbr = -11188;
+	unsigned int hexa = 12;
 	char bob[] = "wrecking";
 	char h = 'h';
-	float	keeper = 2.12345633;
-	double	duo = 2.1234563377777;
+	int	duo = 2.1234563377777;
 	char *test = "teste";
-	printf("....int:%i........char:%0c.Float:%0f.\n", numero, h, keeper);
-	printf(".String:%0s....Double:%fhexa:%x.\n", bob, duo, hexa);
-	printf("Pointer:%p.Percentage:%%.int:%d.unsgDecInt:%u.\n", &test, nbr, numero);
-	//ft_printf("1-The int:%i The D :%d The Float:%f\n", numero, numero, keeper);
+	printf("....int:%-.i....intDandI:%-10d.hexa:%-x.\n", numero, duo, hexa);
+	printf("int:%-10d.unsgDecInt:%-10u\n",  nbr, numero);
+	printf(".String:%-.10s........char:%-10c.Pointer:%-10p.Percentage:%%.\n", bob,  h ,&test);
+	return_printf = printf("12345%-10i..%-10s==space\n", nbr, bob);
+	return_ft_printf = ft_printf("12345%-10i..%-10s==space\n", nbr, bob);
+	printf("return_printf:%i\n", return_printf);
+	printf("return_ft_printf:%i\n", return_ft_printf);
 			  
 			//printf("\nthis is the RETURN of ft_printf:%i\n", test);
 }

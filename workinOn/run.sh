@@ -1,1 +1,1 @@
-gcc -Wall -Wextra -Werror *.c ./src/*.c  *.h ./src/*.h
+gcc -Wall -Wextra -Werror -g *.c ./src/*.c  *.h ./src/*.h 
