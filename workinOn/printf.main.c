@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/09 14:33:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/11 15:10:18 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@ int main()
 	char h = 'h';
 	int	duo = 2.1234563377777;
 	char *test = "teste";
-	printf("....int:%-.i....intDandI:%-10d.hexa:%-x.\n", numero, duo, hexa);
-	printf("int:%-10d.unsgDecInt:%-10u\n",  nbr, numero);
-	printf(".String:%-.10s........char:%-10c.Pointer:%-10p.Percentage:%%.\n", bob,  h ,&test);
-	return_printf = printf("12345%-10i..%-10s==space\n", nbr, bob);
-	return_ft_printf = ft_printf("12345%-10i..%-10s==space\n", nbr, bob);
+	printf("....int:%-i....intDandI:%-10d.hexa:%-x.\n", numero, duo, hexa);
+	ft_printf("....int:%-i....intDandI:%-10d.hexa:%-x.\n", numero, duo, hexa);
+	printf("int:%-10d.unsgDecInt:%-10u.\n",  nbr, numero);
+	ft_printf("int:%-10d.unsgDecInt:%-10u.\n",  nbr, numero);
+	printf(".String:%-.10s........char:%-10c.Pointer:%-30p.Percentage:%%.\n", bob,  h ,&test);
+	      return_printf = printf("12345++%.010i..%.010s==space--\n", nbr, bob);
+	return_ft_printf = ft_printf("12345++%.010i..%.10s==space--\n", nbr, bob);
 	printf("return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
 			  
