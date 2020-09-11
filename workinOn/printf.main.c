@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/11 15:10:18 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/11 17:00:10 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
 	unsigned int numero = 5.1111111111;
 	int nbr = -11188;
 	unsigned int hexa = 12;
-	char bob[] = "wrecking";
+	char bob[] = "wrekingbal";
 	char h = 'h';
 	int	duo = 2.1234563377777;
 	char *test = "teste";
@@ -42,8 +42,8 @@ int main()
 	printf("int:%-10d.unsgDecInt:%-10u.\n",  nbr, numero);
 	ft_printf("int:%-10d.unsgDecInt:%-10u.\n",  nbr, numero);
 	printf(".String:%-.10s........char:%-10c.Pointer:%-30p.Percentage:%%.\n", bob,  h ,&test);
-	      return_printf = printf("12345++%.010i..%.010s==space--\n", nbr, bob);
-	return_ft_printf = ft_printf("12345++%.010i..%.10s==space--\n", nbr, bob);
+	      return_printf = printf("12345++%.11i..%.20s==space--\n", nbr, bob);
+	return_ft_printf = ft_printf("12345++%.11i..%.20s==space--\n", nbr, bob);
 	printf("return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
 			  

@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 14:44:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/11 15:11:02 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/11 16:57:52 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int				ft_atoi(const char *str);
 void			ft_putstr(char *s);
 void			ft_putchar(char c);
 void			ft_putnbr(int nb);
+int dealing_zero(const char *fmt, int *aux, va_list list){
+	
+}
 int dealing_precision(const char *fmt, int *aux, va_list list)
 {
 	int index;
@@ -88,23 +91,29 @@ int dealing_precision(const char *fmt, int *aux, va_list list)
 			}
 		}
 		if((fmt[*aux] == 's'))
-				{
-					*aux = *aux +1;
-					int j;
-					char *i;
-					int y;
-					int help;
-					help = 0;
-					j = ft_atoi(tobeconv);
-					i = va_arg(list, char*);
-					 y = ft_strlen(i);
-					/*j = j - y;
-					while(help < j){
-						ft_putchar('0');
-						help++;
-					}
-					ft_putstr(i);*/
+		{
+			*aux = *aux +1;
+			int j;
+			char *i;
+			int y;
+			int help;
+			help = 0;
+			j = ft_atoi(tobeconv);
+			i = va_arg(list, char*);
+			y = ft_strlen(i);
+			if( y < j){
+				while(i[help] != '\0'){
+				ft_putchar(i[help]);
+				help++;
 				}
+			}
+			if( y > j){
+				while(help < j){
+				ft_putchar(i[help]);
+				help++;
+				}
+			}
+		}
 	}
 	
 	
@@ -304,12 +313,12 @@ int	find_flag(const char *fmt, int *aux, va_list list)
 	if(fmt[*aux] == '.'){
 		*aux = *aux +1;
 		returned = dealing_precision(fmt, &*aux, list);
-	}/*
-	if(fmt[*aux] == '0'){
-		returned = dealing_zero(fmt, &aux, list);
 	}
+	if(fmt[*aux] == '0'){
+		returned = dealing_zero(fmt, &*aux, list);
+	}/*
 	if(fmt[*aux] == '*'){
-		returned = dealing_star(fmt, &aux, list);
+		returned = dealing_star(fmt, &*aux, list);
 	}*/
 	return(returned);
 }
