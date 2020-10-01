@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 20:43:30 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/30 15:08:29 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/30 18:08:28 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ void	init_bdr(bdr *star){
 	star->yndex2 = 0;
 	star->retminus1 = 0;
 	star->ret_minustotal = 0;
+	star->ret_dealing = 0;
 	star->bugfix = 0;
-//	star->ret_sortie = 0;
+	star->ret_sortie = 0;
 
 //	star->returned_s = 0;
 	
 }
 // fazer uma função que conta argumentos
-/*int	count_args(const char *fmt, bdr *star)
+/*int	count_chars2(const char *fmt, bdr *star)
 {
 	while(fmt[star->yndex] != '\0')
 	{
@@ -211,21 +212,33 @@ int	ft_print_int_wnumb(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
+	int y;
 	char *character;
 	help = 0;
 	j = 0;
+	y = 0;
 	j = ft_atoi(tobeconv);
 	star->hold = va_arg(star->list, int);
-	character = ft_itoa(star->hold );
+	character = ft_itoa(star->hold);
 	ft_putnbr(star->hold);
 	star->hold = ft_strlen(character);
+	y = star->hold;
 	j = j - star->hold;
 	while(help < j){
 		ft_putchar(' ');
 		help++;
 	}
-	star->keeper = star->hold + help;
+/*	printf("keeper:%d", star->keeper);
+	printf("j:%d", j);
+	printf("hold:%d\n", star->hold);*/
+	
+	star->keeper =  j + y;
+	
+	/*printf("keeper:%d", star->keeper);
+	printf("j:%d", j);
+	printf("hold:%d\n", star->hold);*/
 	free(character);
+	
 	return(star->keeper);
 }
 int	dealing_minus(const char *fmt, int *aux, bdr *star)
@@ -267,8 +280,10 @@ int	dealing_minus(const char *fmt, int *aux, bdr *star)
 				if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 				{
 					*aux = *aux +1;
-
 					star->ret__ = ft_print_int_wnumb(tobeconv, &*star);
+					star->ret_minustotal = star->ret_minustotal + star->ret__ ;
+					star->ret__ = 0;
+				//	printf("retwnum:%d\n", star->ret_minustotal);
 					/*int j;
 					int i;
 					int y;
@@ -331,7 +346,8 @@ int	dealing_minus(const char *fmt, int *aux, bdr *star)
 				}
 			}	
 			free(tobeconv);
-			return(star->ret_minustotal + star->ret__ );// movi aqui temporariamente pq faltam o resto		
+		//	printf("ret:%d\n", star->ret_minustotal);
+			return(star->ret_minustotal);// movi aqui temporariamente pq faltam o resto		
 		}
 
 	/*}

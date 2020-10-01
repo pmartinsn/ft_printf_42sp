@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/30 15:02:29 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/30 17:34:49 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ typedef struct
 	int chars_counted;
 	int	ret_minustotal;
 	int retminus1;
+	int ret_dealing;
 	int bugfix;
-//	int ret_sortie;
+	int ret_sortie;
 //	int returned_s;
 } 	bdr;
 
