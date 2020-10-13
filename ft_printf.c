@@ -6,12 +6,18 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 20:43:30 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/30 18:08:28 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/13 16:08:35 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./src/ft_printf.h"
 
+void	init_tail(s_param *tail){
+
+	tail->hold = 0;
+	tail->keeper = 0;
+
+}
 void	init_bdr(bdr *star){
 	star->returned_s = 0;
 	star->hold = 0;
@@ -22,6 +28,8 @@ void	init_bdr(bdr *star){
 	star->kpr5 = 0;
 	star->kpr6 = 0;
 	star->kpr7 = 0;
+	star->kpr8 = 0;
+//	star->kpr9 = 0;
 	star->ret_p = 0;
 	star->ret__ = 0;
 	star->count_arg = 0;
@@ -49,6 +57,94 @@ void	init_bdr(bdr *star){
 	}
 	return(star->count_arg);
 }*/
+int count_variables2(const char *fmt, s_param *tail)
+{
+	int	ax;
+	ax = 0;
+	while (fmt[ax] != '%' && fmt[ax])
+	{
+		ax++;
+		while((fmt[ax] == '%') && (fmt[ax +1] != '%'))
+		{
+			ax++;
+			while(fmt[ax] != '%')
+			{
+				if( (fmt[ax] == 'd') | (fmt[ax] == 'i') | (fmt[ax] == 'c'))
+				{
+					tail->hold= va_arg(tail->list2, int);
+					tail->helpint = ft_itoa(tail->hold);
+					tail->hold=ft_strlen(tail->helpint);
+					free(tail->helpint);
+					tail->keeper = tail->keeper + tail->hold;
+					tail->hold = 0;
+					ax++;
+				}
+				if(fmt[ax] == 's')
+				{
+					tail->aux_outnbr = va_arg(tail->list2, char*);
+					tail->hold = ft_strlen(tail->aux_outnbr);
+					tail->keeper = tail->keeper + tail->hold;
+					tail->hold = 0;
+					ax++;					
+				}
+				if(fmt[ax] == 'x')
+				{
+					size_t	num;
+					char *character;
+					num = va_arg(tail->list2, size_t);
+					character = ft_itoa_base(num, 16, 'a');
+					tail->hold= ft_strlen(character);
+					free(character);
+					tail->keeper = tail->keeper + tail->hold;
+					tail->hold = 0;	
+					ax++;			
+				}
+				if(fmt[ax] == 'X')
+				{
+					size_t	num;
+					char *character;
+					num = va_arg(tail->list2, size_t);
+					character = ft_itoa_base(num, 16, 'A');
+					tail->hold= ft_strlen(character);
+					free(character);
+					tail->keeper = tail->keeper + tail->hold;
+					tail->hold = 0;	
+					ax++;			
+				}
+				if(fmt[ax] == 'u')
+				{
+					size_t	num;
+					char *character;
+					num = va_arg(tail->list2, size_t);
+					character = ft_itoa_base(num, 10, 'a');
+					tail->hold= ft_strlen(character);
+					free(character);
+					tail->keeper = tail->keeper + tail->hold;
+					tail->hold = 0;
+					ax++;				
+				}
+				if(fmt[ax] == 'p')
+				{
+					//igual a xis numeros
+					tail->keeper = tail->keeper + 8;//guess;
+					ax++;
+				}
+				ax++;
+			}
+		}
+	}
+}
+int	count_variables1(const char *fmt, .../*, bdr *star*/)
+{
+	s_param tail;
+	int		result;
+	init_bdr(&tail);
+	va_start(tail.list2, fmt);
+	result = count_variables2(fmt, &tail);
+	//star.returned_s = 0;
+	va_end(tail.list2);
+	return(result);
+}
 int	count_chars(const char *fmt, bdr *star)
 {
 	while(fmt[star->yndex] != '\0')
@@ -212,38 +308,30 @@ int	ft_print_int_wnumb(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
-	int y;
+
 	char *character;
 	help = 0;
 	j = 0;
-	y = 0;
 	j = ft_atoi(tobeconv);
-	star->hold = va_arg(star->list, int);
-	character = ft_itoa(star->hold);
-	ft_putnbr(star->hold);
-	star->hold = ft_strlen(character);
-	y = star->hold;
-	j = j - star->hold;
-	while(help < j){
+	star->kpr8 = va_arg(star->list, int);
+	character = ft_itoa(star->kpr8);
+	ft_putnbr(star->kpr8);
+	star->kpr8 = ft_strlen(character);
+	j = j - star->kpr8;
+	while(help < j)
+	{
 		ft_putchar(' ');
 		help++;
 	}
-/*	printf("keeper:%d", star->keeper);
-	printf("j:%d", j);
-	printf("hold:%d\n", star->hold);*/
-	
-	star->keeper =  j + y;
-	
-	/*printf("keeper:%d", star->keeper);
-	printf("j:%d", j);
-	printf("hold:%d\n", star->hold);*/
+//	printf("retunr:%d\n", star->ret__);
+	star->ret__ =  j + star->kpr8 - ft_strlen(tobeconv);
 	free(character);
-	
-	return(star->keeper);
-}
+//	printf("retunr:%d\n", star->ret__);
+	return(star->ret__);
+}//Agora não funciona mais this motherfucker
+
 int	dealing_minus(const char *fmt, int *aux, bdr *star)
 {
-	//printf("\nentrou dealing minustotal:%i\n",star->ret_minustotal );
 	int index;
 	char *tobeconv;
 	
@@ -252,103 +340,99 @@ int	dealing_minus(const char *fmt, int *aux, bdr *star)
 	tobeconv = malloc(*aux * 3);
 	if((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
 	{
-	///	printf("\nentrou dealing minus\n");
 		star->retminus1 = no_flags(fmt, &*aux, &*star);
 		star->ret_minustotal = star->ret_minustotal + star->retminus1;
 		star->retminus1 = 0;
 	}
-	// tem qe descobrir se tem um numero depois...
-	//se só tiver o '-' não faz nada, se tiver algum numero depois ai ele dá eesse valor em espaçosmenos a quantidade de caracteres na variavel
-		
 	if((fmt[*aux] != '0') && (fmt[*aux]  >= '1' && fmt[*aux]  <= '9') )
-		
-			{	//printf("entrou na verificação\n");	
+	{	//printf("entrou na verificação\n");	
+		tobeconv[index]= fmt[*aux];
+		index++;
+		*aux = *aux + 1;
+		while(fmt[*aux]  >= '0' && fmt[*aux]  <= '9')
+		{
 			tobeconv[index]= fmt[*aux];
 			index++;
 			*aux = *aux + 1;
-			if(fmt[*aux]  >= '0' && fmt[*aux]  <= '9')
-			{
-				tobeconv[index]= fmt[*aux];
-				index++;
-				*aux = *aux + 1;
-			}
-			if((fmt[*aux] != '1') | (fmt[*aux] != '2') | (fmt[*aux] != '3')
-			| (fmt[*aux] != '4') | (fmt[*aux] != '5') | (fmt[*aux] != '6')
-			| (fmt[*aux] != '7') | (fmt[*aux] != '8') | (fmt[*aux] != '9')
-			| (fmt[*aux] != '0'))
-			{
-				if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
-				{
-					*aux = *aux +1;
-					star->ret__ = ft_print_int_wnumb(tobeconv, &*star);
-					star->ret_minustotal = star->ret_minustotal + star->ret__ ;
-					star->ret__ = 0;
-				//	printf("retwnum:%d\n", star->ret_minustotal);
-					/*int j;
-					int i;
-					int y;
-					int help;
-					char *character;
-					help = 0;
-					j = ft_atoi(tobeconv);
-					i = va_arg(star->list, int);
-					character = ft_itoa(i);
-					y = ft_strlen(character);
-					j = j - y;
-					ft_putnbr(i);
-					while(help < j){
-						ft_putchar(' ');
-						help++;
-					}*/
-				}
-				if((fmt[*aux] == 's'))
-				{
-					*aux = *aux +1;
-					int j;
-					char *i;
-					int y;
-					int help;
-					help = 0;
-					j = ft_atoi(tobeconv);
-					i = va_arg(star->list, char*);
-					 y = ft_strlen(i);
-					j = j - y;
-					ft_putstr(i);
-					while(help < j){
-						ft_putchar(' ');
-						help++;
-					}
-				}
-				if(fmt[*aux] == 'c')
-				{
-					*aux = *aux +1;
-					int j;
-					int i;
-					char charr;
-					int help;
-					help = 0;
-					j = ft_atoi(tobeconv);
-					i = va_arg(star->list, int);
-					charr = (char)i;
-					j = j - 1;
-					ft_putchar(charr);
-					while(help < j){
-						ft_putchar(' ');
-						help++;
-					}
-				}
-				if((fmt[*aux] == 'p'))
-				{//FALTA RESOLVER ISSO AQUI MOOÇAAAA
-					
-					*aux = *aux +1;
-					
-					}
-				}
-			}	
-			free(tobeconv);
-		//	printf("ret:%d\n", star->ret_minustotal);
-			return(star->ret_minustotal);// movi aqui temporariamente pq faltam o resto		
 		}
+		if((fmt[*aux] != '1') | (fmt[*aux] != '2') | (fmt[*aux] != '3')
+		| (fmt[*aux] != '4') | (fmt[*aux] != '5') | (fmt[*aux] != '6')
+		| (fmt[*aux] != '7') | (fmt[*aux] != '8') | (fmt[*aux] != '9')
+		| (fmt[*aux] != '0'))
+		{
+			if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+			{
+				*aux = *aux +1;
+				star->ret__ = ft_print_int_wnumb(tobeconv, &*star);
+				star->ret_minustotal = star->ret_minustotal + star->ret__;
+				star->ret__ = 0;
+			//	star->keeper = 0;
+			//	printf("retwnum:%d\n", star->ret_minustotal);
+				/*int j;
+				int i;
+				int y;
+				int help;
+				char *character;
+				help = 0;
+				j = ft_atoi(tobeconv);
+				i = va_arg(star->list, int);
+				character = ft_itoa(i);
+				y = ft_strlen(character);
+				j = j - y;
+				ft_putnbr(i);
+				while(help < j){
+					ft_putchar(' ');
+					help++;
+				}*/
+			}
+			if((fmt[*aux] == 's'))
+			{
+				*aux = *aux +1;
+				int j;
+				char *i;
+				int y;
+				int help;
+				help = 0;
+				j = ft_atoi(tobeconv);
+				i = va_arg(star->list, char*);
+					y = ft_strlen(i);
+				j = j - y;
+				ft_putstr(i);
+				while(help < j){
+					ft_putchar(' ');
+					help++;
+				}
+			}
+			if(fmt[*aux] == 'c')
+			{
+				*aux = *aux +1;
+				int j;
+				int i;
+				char charr;
+				int help;
+				help = 0;
+				j = ft_atoi(tobeconv);
+				i = va_arg(star->list, int);
+				charr = (char)i;
+				j = j - 1;
+				ft_putchar(charr);
+				while(help < j){
+					ft_putchar(' ');
+					help++;
+				}
+			}
+			if((fmt[*aux] == 'p'))
+			{//FALTA RESOLVER ISSO AQUI MOOÇAAAA
+				
+				*aux = *aux +1;
+				
+				}
+			}
+		}	
+		free(tobeconv);
+	//	printf("ret:%d\n", star->ret_minustotal);
+		return(star->ret_minustotal);// movi aqui temporariamente pq faltam o resto		
+	}
 
 	/*}
 	if(fmt[*aux] == '.'){
@@ -359,14 +443,15 @@ int	dealing_minus(const char *fmt, int *aux, bdr *star)
 int	find_flag(const char *fmt, int *aux, bdr *star)
 {	
 	int returned_ff = 0;
-	int temp = 0;
+//	int temp = 0;
 	if(fmt[*aux] == '-')
 	{
 		*aux = *aux +1;
 	//	printf("\nentrou  no if do find flag\n");
-		returned_ff = dealing_minus(fmt, &*aux, &*star); 
-		temp = temp + returned_ff;
-		returned_ff = 0;
+	/*	returned_ff*/star->ret_minustotal = dealing_minus(fmt, &*aux, &*star); 
+		returned_ff = star->ret_minustotal + returned_ff;
+	//	star->ret_minustotal = star->ret_minustotal + returned_ff;
+		star->ret_minustotal = 0;
 	}
 	/*if(fmt[*aux] == '.'){
 		*aux = *aux +1;
@@ -379,30 +464,32 @@ int	find_flag(const char *fmt, int *aux, bdr *star)
 	if(fmt[*aux] == '*'){
 		returned = dealing_star(fmt, &*aux,star->list);
 	}*/
-	return(temp);
+	return(returned_ff);
 }
 int sortie(const char *fmt, int *aux, bdr *star)
 {
 	int returned_sortie;
 	int returned_sortie2;
+	int rett;
 	
 	returned_sortie = 0;
-	returned_sortie2 = 0;	
+	returned_sortie2 = 0;
+	rett = 0;	
 	if((fmt[*aux] == '-') | (fmt[*aux] == '.')| (fmt[*aux] == '0') 
 	|(fmt[*aux] == '*'))
 	{
 		returned_sortie = find_flag(fmt, &*aux, &*star);
-	//	star->ret_sortie =  star->ret_sortie + returned_sortie;
-	//	returned_sortie = 0;
+		rett =  rett + returned_sortie;
+		returned_sortie = 0;
 	}else//FALTA INCLUIR SEM FLAGS MAS COM NUMEROS
 	{
 	//	printf("\naux antes das flags:%i\n", *aux);
 		returned_sortie2 = no_flags(fmt, &*aux, &*star);
-	//	star->ret_sortie =  star->ret_sortie + returned_sortie2;
-	//	returned_sortie2 = 0;
+		rett =  rett + returned_sortie2;
+		returned_sortie2 = 0;
 		/*caso ele não achei flags pra onde vai? */
 	}
-return(returned_sortie + returned_sortie2);
+return(/*returned_sortie + returned_sortie2*/rett);
 }
 
 int					get_info(const char *fmt, bdr *star)
@@ -426,6 +513,8 @@ int					get_info(const char *fmt, bdr *star)
 			aux++;
 //			printf("\nbefore sortie:%s\n",fmt);
 			star->returned_s = sortie(fmt, &aux, &*star);
+		//	star->returned_s = star->returned_s + star->ret_sortie;
+		//	star->ret_sortie = 0;
 			//return(returned);
 		}
 		if (fmt[aux] != '\0' && fmt[aux] != '%')
@@ -435,7 +524,7 @@ int					get_info(const char *fmt, bdr *star)
 			aux++;
 		}
 	}
-//	star->returned_s = star->returned_s ;
+//	index = star->returned_s + star->chars_counted ;
 	return (star->returned_s + star->chars_counted);
 }
 int				ft_printf(const char *fmt, ...)
@@ -447,6 +536,7 @@ int				ft_printf(const char *fmt, ...)
 	init_bdr(&star);
 	va_start(star.list, fmt);
 	result = get_info(fmt, &star);
+	star.returned_s = 0;
 	va_end(star.list);
 	
 //	y = count_args(fmt, &star);

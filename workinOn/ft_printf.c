@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 14:44:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/11 16:57:52 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/11 17:27:22 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int				ft_atoi(const char *str);
 void			ft_putstr(char *s);
 void			ft_putchar(char c);
 void			ft_putnbr(int nb);
-int dealing_zero(const char *fmt, int *aux, va_list list){
-	
-}
+/*int dealing_zero(const char *fmt, int *aux, va_list list)
+{
+	return(*aux);
+}*/
 int dealing_precision(const char *fmt, int *aux, va_list list)
 {
 	int index;
@@ -314,9 +315,10 @@ int	find_flag(const char *fmt, int *aux, va_list list)
 		*aux = *aux +1;
 		returned = dealing_precision(fmt, &*aux, list);
 	}
-	if(fmt[*aux] == '0'){
-		returned = dealing_zero(fmt, &*aux, list);
-	}/*
+	//if(fmt[*aux] == '0'){
+	//	returned = dealing_zero(fmt, &*aux, list);
+	//}
+	/*
 	if(fmt[*aux] == '*'){
 		returned = dealing_star(fmt, &*aux, list);
 	}*/

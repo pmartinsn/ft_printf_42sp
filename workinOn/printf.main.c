@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/11 17:00:10 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/09/11 17:30:13 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int main()
 	char h = 'h';
 	int	duo = 2.1234563377777;
 	char *test = "teste";
-	printf("....int:%-i....intDandI:%-10d.hexa:%-x.\n", numero, duo, hexa);
+	printf("....int:%020i....intDandI:%020d.hexa:%x.\n", numero, duo, hexa);
 	ft_printf("....int:%-i....intDandI:%-10d.hexa:%-x.\n", numero, duo, hexa);
-	printf("int:%-10d.unsgDecInt:%-10u.\n",  nbr, numero);
+	printf("int:%0d.unsgDecInt:%0u.\n",  nbr, numero);
 	ft_printf("int:%-10d.unsgDecInt:%-10u.\n",  nbr, numero);
 	printf(".String:%-.10s........char:%-10c.Pointer:%-30p.Percentage:%%.\n", bob,  h ,&test);
 	      return_printf = printf("12345++%.11i..%.20s==space--\n", nbr, bob);

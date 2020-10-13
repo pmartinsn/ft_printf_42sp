@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/30 17:34:49 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/13 15:30:31 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct
 	int kpr5;
 	int kpr6;
 	int kpr7;
+	int kpr8;
+//	int kpr9;
 	int	ret_p;
 	int ret__;
 	int	count_arg;
@@ -45,6 +47,16 @@ typedef struct
 	int ret_sortie;
 //	int returned_s;
 } 	bdr;
+
+typedef struct
+{
+	va_list	list2;
+	char	*helpint;
+	char	*aux_outnbr;
+	int	hold;
+	int	keeper;
+	
+} 	s_param;
 
 
 void			ft_putnbr(int nb);
