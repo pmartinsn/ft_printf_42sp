@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/13 15:30:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/22 14:09:03 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct
 	int	yndex;
 	int	yndex2;
 	int chars_counted;
+	int variables_counted;
 	int	ret_minustotal;
 	int retminus1;
 	int ret_dealing;
@@ -55,6 +56,8 @@ typedef struct
 	char	*aux_outnbr;
 	int	hold;
 	int	keeper;
+	int hnbr;
+	int nbr;
 	
 } 	s_param;
 
@@ -68,8 +71,9 @@ char			*ft_strdup(const char *src);
 int				ft_strlen(const char *str);
 int				ft_printf(const char *fmt, ...);
 void			init_bdr(bdr *star);
-int				no_flags(const char *fmt, int *aux, bdr *star);
-int				find_flag(const char *fmt, int *aux, bdr *star);
+void				no_minus_flags(const char *fmt, int *aux, bdr *star);
+void				no_flags(const char *fmt, int *aux, bdr *star);
+void				find_flag(const char *fmt, int *aux, bdr *star);
 int				sortie(const char *fmt, int *aux, bdr *star);
 int				get_info(const char *fmt, bdr *star);
 int				print_int_noflag(/* int *aux,*/ bdr *star);
@@ -84,10 +88,17 @@ int				print_percent_noflag(bdr *star);
 int				print_x_noflag( bdr *star);
 int				print_X_noflag( bdr *star);
 int				print_u_noflag(bdr *star);
-int				dealing_minus(const char *fmt, int *aux, bdr *star);
+void				dealing_minus(const char *fmt, int *aux, bdr *star);
+void	init_tail(s_param *tail);
+void	init_bdr(bdr *star);
+int	ft_print_int_wnumb(char *tobeconv, bdr *star);
+void				nfw_nbr(const char *fmt, int *aux, bdr *star);
+void	ft_print_int_minuswnumb(char *tobeconv, bdr *star);
+int find_number_value(const char *fmt, int *ax, s_param *tail);
+int count_variables2(const char *fmt, s_param *tail);
+int	count_variables1(const char *fmt, ...);
+int	count_chars(const char *fmt, bdr *star);
 
 //size_t			ft_strlen(const char *str);
 
 #endif
-
-
