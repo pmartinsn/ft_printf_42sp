@@ -17,8 +17,6 @@ int	count_chars(const char *fmt, bdr *star)
 			if((fmt[star->yndex] == '-') | (fmt[star->yndex] == '.') |
 			(fmt[star->yndex] == '0') | (fmt[star->yndex] == '*'))
 				star->bugfix++;
-			/*if(fmt[star->yndex]  >= '1' && fmt[star->yndex]  <= '9')
-					star->bugfix++;*/
 		}
 		star->yndex++;
 	}

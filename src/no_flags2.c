@@ -24,35 +24,26 @@ int	print_X_noflag(bdr *star)
 	free(character);
 	return(star->kpr7);
 }
-int		no_flags2(const char *fmt, int *aux, bdr *star)
+void	no_flags2(const char *fmt, int *aux, bdr *star)
 {
 	if(fmt[*aux] == 'p')
 	{
 		*aux = *aux +1;
-		star->kpr3 = print_p_noflag(&*star);
-		star->ret_p = star->ret_p + star->kpr3;
-		star->kpr5 = 0;
+		print_p_noflag(&*star);
 	}
 	if(fmt[*aux] == 'u')
 	{
 		*aux = *aux +1;
-		star->kpr5 = print_u_noflag(&*star);
-		star->ret_p = star->ret_p + star->kpr5;
-		star->kpr5 = 0;
+		print_u_noflag(&*star);
 	}
 	if(fmt[*aux] == 'x')
 	{
 		*aux = *aux +1;
-		star->kpr6 = print_x_noflag(&*star);
-		star->ret_p = star->ret_p + star->kpr6;
-		star->kpr6 = 0;
+		print_x_noflag(&*star);
 	}
 	if(fmt[*aux] == 'X')
 	{
 		*aux = *aux +1;
-		star->kpr7 = print_X_noflag(&*star);
-		star->ret_p = star->ret_p + star->kpr7;
-		star->kpr7 = 0;
+		print_X_noflag(&*star);
 	}
-	return(star->ret_p);
 }

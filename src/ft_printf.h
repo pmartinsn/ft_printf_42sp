@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/22 14:09:03 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/22 14:33:45 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ typedef struct
 	int	yndex2;
 	int chars_counted;
 	int variables_counted;
-	int	ret_minustotal;
+/*	int	ret_minustotal;
 	int retminus1;
-	int ret_dealing;
+	int ret_dealing;*/
 	int bugfix;
 	int ret_sortie;
 //	int returned_s;
@@ -82,7 +82,7 @@ int				print_p_noflag(/* int *aux,*/ bdr *star);
 //int	count_args(const char *fmt, bdr *star);
 int				count_chars(const char *fmt, bdr *star);
 int				print_char_noflag(bdr *star);
-int				no_flags2(const char *fmt, int *aux, bdr *star);
+void	no_flags2(const char *fmt, int *aux, bdr *star);
 char			*ft_itoa_base(size_t nb, int base, char updown/*, bdr *star*/);
 int				print_percent_noflag(bdr *star);
 int				print_x_noflag( bdr *star);

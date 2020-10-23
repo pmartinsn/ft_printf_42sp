@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/22 14:06:25 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/23 13:07:44 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ int main()
 	char 			h = 'h';
 	int				duo = 12345.1;
 //	char 			*test = "teste";
+	      return_printf = printf("%%12345%s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
+	return_ft_printf = ft_printf("%%12345%s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
+	printf("...return_printf:%i\n", return_printf);
+	printf("return_ft_printf:%i\n", return_ft_printf);
+	      return_printf = printf("%%%%%%%%%%12\n");
+	return_ft_printf = ft_printf("%%%%%%%%%%12\n");
+	printf("...return_printf:%i\n", return_printf);
+	printf("return_ft_printf:%i\n", return_ft_printf);
 		      return_printf = printf("%-12c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
 	    return_ft_printf = ft_printf("%-12c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
 	printf("...return_printf:%i\n", return_printf);
@@ -58,12 +66,16 @@ int main()
 	  	    return_ft_printf = ft_printf("%i.%i.\n",duo,nbr);
 printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-		      return_printf = printf("%c%c%c%c%c%c%c%c\n",h,h,h,h,h,h,h,h);
-	    return_ft_printf = ft_printf("%c%c%c%c%c%c%c%c\n",h,h,h,h,h,h,h,h);
+		      return_printf = printf("12345%c%c%c%c%c%c%c%c\n",h,h,h,h,h,h,h,h);
+	    return_ft_printf = ft_printf("12345%c%c%c%c%c%c%c%c\n",h,h,h,h,h,h,h,h);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-	      return_printf = printf("%s%-s%-s%-i\n",nan,jan,limit,nbr);
-	return_ft_printf = ft_printf("%s%-s%-s%-i\n",nan,jan,limit,nbr);
+	      return_printf = printf("%%%%%%%%%%%%.%s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
+	return_ft_printf = ft_printf("%%%%%%%%%%%%.%s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
+	printf("...return_printf:%i\n", return_printf);
+	printf("return_ft_printf:%i\n", return_ft_printf);
+	      return_printf = printf("%s123%%4567891s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
+	return_ft_printf = ft_printf("%s1234567891s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
 			  

@@ -28,9 +28,9 @@ void	init_bdr(bdr *star){
 	star->count_arg = 0;
 	star->yndex = 0;
 	star->yndex2 = 0;
-	star->retminus1 = 0;
+/*	star->retminus1 = 0;
 	star->ret_minustotal = 0;
-	star->ret_dealing = 0;
+	star->ret_dealing = 0;*/
 	star->bugfix = 0;
 	star->ret_sortie = 0;
 

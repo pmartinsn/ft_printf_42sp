@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 20:43:30 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/22 13:58:18 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/23 12:57:14 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	dealing_minus(const char *fmt, int *aux, bdr *star)
 	char *tobeconv;
 	
 	index= 0;
-	star->ret_minustotal = 0;
+//	star->ret_minustotal = 0;
 	tobeconv = malloc(*aux * 3);
 	if((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
 	{
@@ -183,20 +183,13 @@ void	find_flag(const char *fmt, int *aux, bdr *star)
 }
 int sortie(const char *fmt, int *aux, bdr *star)
 {
-//	int returned_sortie;
-//	int returned_sortie2;
 	int rett;
-	
-//	returned_sortie = 0;
-//	returned_sortie2 = 0;
+
 	rett = 0;	
 	if((fmt[*aux] == '-') | (fmt[*aux] == '.')| (fmt[*aux] == '0') 
 	|(fmt[*aux] == '*'))
 	{
-		//returned_sortie = 
 		find_flag(fmt, &*aux, &*star);
-	/*	rett =  rett + returned_sortie;
-		returned_sortie = 0;*/
 	}if((fmt[*aux] != '0') && (fmt[*aux]  >= '1' && fmt[*aux]  <= '9'))
 		nfw_nbr(fmt, &*aux, &*star);//SEM FLAGS MAS COM NUMEROS
 	else
@@ -217,7 +210,7 @@ int					get_info(const char *fmt, bdr *star)
 	
 	aux = 0;
 	star->chars_counted = count_chars(fmt, &*star);
-//	printf("--------saida chars:%i\n",star->chars_counted);
+	printf("--------saida chars:%i\n",star->chars_counted);
 	while (fmt[aux])
 	{	
 		if((fmt[aux] == '%') && fmt[aux +1] == '%')
@@ -245,22 +238,15 @@ int				ft_printf(const char *fmt, ...)
 	bdr star;
 	int		result;
 	int		result2;
-	 result = 0;
-	 result2 = 0;
-//	int y;
-//star.chars_counted = count_chars(fmt, &star);
+	
+	result = 0;
+	result2 = 0;
 	init_bdr(&star);
 	star.variables_counted = count_variables1(fmt);
-//	printf("----saida variaveis:%i\n",star.variables_counted);
-	
+	printf("----saida variaveis:%i\n",star.variables_counted);
 	va_start(star.list, fmt);
 	result = get_info(fmt, &star);
 	va_end(star.list);
-	
 	result2 = star.variables_counted + result;
-//	y = count_args(fmt, &star);
-//	printf("\nresult antes:%i\n", result);
-//	result = result - y;
-//	printf("\nresult depois:%i\n", result);
-	return(result2);// + star.chars_counted);
+	return(result2);
 }
