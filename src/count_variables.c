@@ -53,8 +53,11 @@ int count_variables2(const char *fmt, s_param *tail)
 		{
 			if((fmt[ax] == '%') && (fmt[ax + 1] == '%'))
 			{
-				aux = aux + 2;
-				/*
+				//ax = ax + 1;
+//TEM QUE DIFERENCIAR QUANDO TEM E QUANDO NAO TEM
+//VARIAVEL, OU ELE PODE QUEBRAR 
+//ṔULOU A VARIAVEL E "ESQUECEU DE CONTAR ELA"
+// TEM QUE PULAR SÓ OS NUMEROS PARES! É ISSO
 				int i = 0;
 				int y = ax;
 				while(fmt[y] == '%')
@@ -62,11 +65,16 @@ int count_variables2(const char *fmt, s_param *tail)
 					y++;
 					i++;
 				}
-				if( y % 2 == 0 )
+				if( i % 2 == 0 )
 				{
-					ax = ax -i;
-
-				}*/
+					ax = ax + i;
+				}
+				else
+				{
+					i = i - 1;
+					ax = ax + i;
+				}
+				
 			}
 			if((fmt[ax] == '%') && (fmt[ax + 1] != '%'))
 			{
@@ -252,10 +260,11 @@ int count_variables2(const char *fmt, s_param *tail)
 						else
 							tail->keeper = tail->keeper + 1;
 						break;	
-					}
+					}//VERIFICAR COLO ESSAS VARIAVEIS INCLUENCIAM NA IMPRESSÃO PRA FAZER A CONTA
+					//DE SOMAR O IMPRESO
 					if((fmt[ax] == '-') | (fmt[ax] == '.') | (fmt[ax] == '0') | (fmt[ax] == '*'))
 						ax++;
-					if(fmt[ax]  >= '1' && fmt[ax]  <= '9')
+					if(fmt[ax]  >= '0' && fmt[ax]  <= '9')
 						ax++;
 				}
 			}
