@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 20:43:30 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/27 07:38:04 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/27 15:16:05 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,7 +210,7 @@ int					get_info(const char *fmt, bdr *star)
 	
 	aux = 0;
 	star->chars_counted = count_chars(fmt, &*star);
-	printf("--------saida chars:%i\n",star->chars_counted);
+//	printf("--------saida chars:%i\n",star->chars_counted);
 	while (fmt[aux])
 	{	
 		if((fmt[aux] == '%') && fmt[aux +1] == '%')
@@ -243,7 +243,7 @@ int				ft_printf(const char *fmt, ...)
 	result2 = 0;
 	init_bdr(&star);
 	star.variables_counted = count_variables1(fmt);
-	printf("----saida variaveis:%i\n",star.variables_counted);
+//	printf("----saida variaveis:%i\n",star.variables_counted);
 	va_start(star.list, fmt);
 	result = get_info(fmt, &star);
 	va_end(star.list);

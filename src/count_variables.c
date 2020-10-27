@@ -128,6 +128,7 @@ int count_variables2(const char *fmt, s_param *tail)
 							}
 							tail->nbr = find_number_value(fmt, &help, &*tail);	
 						}
+					//	printf("%s",&fmt[ax]);
 						tail->aux_outnbr = va_arg(tail->list2, char*);
 						tail->hold = ft_strlen(tail->aux_outnbr);
 						if(tail->hold >= tail->nbr)
@@ -240,6 +241,7 @@ int count_variables2(const char *fmt, s_param *tail)
 					}
 					if (fmt[ax] == 'c')
 					{
+						tail->nbr = va_arg(tail->list2, int);
 						tail->nbr = 0;
 						if(fmt[ax -1] >= '0' && fmt[ax - 1]  <= '9')
 						{ 
