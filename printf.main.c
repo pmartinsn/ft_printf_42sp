@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/26 19:06:44 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/27 13:44:12 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,28 @@ int main()
 	char 			h = 'h';
 	int				duo = 12345;
 //	char 			*test = "teste";
-		      return_printf = printf("%-12c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
-	    return_ft_printf = ft_printf("%-12c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
+			      return_printf = printf("%20i.%10i.\n",duo,nbr);
+	  	    return_ft_printf = ft_printf("%20i.%10i.\n",duo,nbr);
+printf("...XXXXXXXXXXXXXXreturn_printf:%i\n", return_printf);
+	printf("XXXXXXXXXXreturn_ft_printf:%i\n", return_ft_printf);
+		      return_printf = printf("%-11c%-c%-c\n",h,h,h);
+	    return_ft_printf = ft_printf("%-11c%-c%-c\n",h,h,h);
+	printf("..............--------return_printf:%i\n", return_printf);
+	printf("...........--------return_ft_printf:%i\n", return_ft_printf);
+	      return_printf = printf("%%12%s%-s%-s%-i%c%c\n",nan,jan,limit,nbr,h,h);
+	return_ft_printf = ft_printf("%%12%s%-s%-s%-i%c%c\n",nan,jan,limit,nbr,h,h);
+	printf("...............return_printf:%i\n", return_printf);
+	printf("............return_ft_printf:%i\n", return_ft_printf);
+	         	      return_printf = printf("%-c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
+	           return_ft_printf = ft_printf("%-c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
+	printf("...............return_printf:%i\n", return_printf);
+	printf("------------return_ft_printf:%i\n", return_ft_printf);
+	      return_printf = printf("%s%-s%-s%-i%c%c\n",nan,jan,limit,nbr,h,h);
+	return_ft_printf = ft_printf("%s%-s%-s%-i%c%c\n",nan,jan,limit,nbr,h,h);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-	      return_printf = printf("%s%%%%%%%-s%-s%-i%c%c\n",nan,jan,limit,nbr,h,h);
-	return_ft_printf = ft_printf("%s%%%%%%%-s%-s%-i%c%c\n",nan,jan,limit,nbr,h,h);
-	printf("...return_printf:%i\n", return_printf);
-	printf("return_ft_printf:%i\n", return_ft_printf);
-	      return_printf = printf("%%12345%s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
-	return_ft_printf = ft_printf("%%12345%s%-s%-s%-i%c%c%c%c%c%c%c%c\n",nan,jan,limit,nbr,h,h,h,h,h,h,h,h);
-	printf("...return_printf:%i\n", return_printf);
-	printf("return_ft_printf:%i\n", return_ft_printf);
-		      return_printf = printf("%12c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
-	    return_ft_printf = ft_printf("%12c%-c%-c%-c%-c%-c\n",h,h,h,h,h,h);
-	printf("...return_printf:%i\n", return_printf);
-	printf("return_ft_printf:%i\n", return_ft_printf);
+
+
 /*	      return_printf = printf("%-c%c%-c--%-i.%-i.%-i123----.%s123-%%%%%%456789%%%%123456789%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%c\n",h,h,h,duo,nbr, nbr, nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
 	return_ft_printf = ft_printf("%-c%c%-c--%-i.%-i.%-i123----.%s123-%%%%%%456789%%%%123456789%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%c\n",h,h,h,duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
 	printf("...return_printf:%i\n", return_printf);
@@ -62,14 +68,11 @@ int main()
 	return_ft_printf = ft_printf("%-c%-c%-c%-i111.%-i.%-i.%-s%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,h,h,duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);*/
-		      return_printf = printf("%-10i%-i%-i%-i\n",nbr,duo,duo,nbr);
-	    return_ft_printf = ft_printf("%-10i%-i%-i%-i\n",nbr,duo,duo,nbr);
-	printf("...return_printf:%i\n", return_printf);
-	printf("return_ft_printf:%i\n", return_ft_printf);
-			      return_printf = printf("%i.%i.\n",duo,nbr);
-	  	    return_ft_printf = ft_printf("%i.%i.\n",duo,nbr);
-printf("...return_printf:%i\n", return_printf);
-	printf("return_ft_printf:%i\n", return_ft_printf);
+		      return_printf = printf("%-i%-i\n",nbr,duo);
+	    return_ft_printf = ft_printf("%-i%-i\n",nbr,duo);
+	printf(".................return_printf:%i\n", return_printf);
+	printf("..............return_ft_printf:%i\n", return_ft_printf);
+
 		      return_printf = printf("12345%c%c%c%c%c%c%c%c\n",h,h,h,h,h,h,h,h);
 	    return_ft_printf = ft_printf("12345%c%c%c%c%c%c%c%c\n",h,h,h,h,h,h,h,h);
 	printf("...return_printf:%i\n", return_printf);
@@ -86,6 +89,11 @@ printf("...return_printf:%i\n", return_printf);
 	    return_ft_printf = ft_printf("%%%%%%%%%%12\n");
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
+			      return_printf = printf("%%%%%%%%%%\n");
+	    return_ft_printf = ft_printf("%%%%%%%%%%\n");
+	printf("...return_printf:%i\n", return_printf);
+	printf("return_ft_printf:%i\n", return_ft_printf);
+	
 			  
 			//printf("\nthis is the RETURN of ft_printf:%i\n", test);
 }

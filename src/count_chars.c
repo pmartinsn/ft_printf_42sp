@@ -4,8 +4,9 @@ int	count_chars(const char *fmt, bdr *star)
 {
 	int index = 0;
 	int args = 0;
-	while(fmt[index] != '\0')
-	{
+	while(fmt[index])
+	{ //printf("%s",&fmt[index]);
+		
 		if(fmt[index]== '%')
 		{
 			index++;
@@ -49,20 +50,20 @@ int	count_chars(const char *fmt, bdr *star)
 				//	ax = ax + i;
 				}
 			}
+		/*	if(fmt[index] == '\n')
+			break;*/
 			
 			/*if((fmt[index] == '-') | (fmt[index] == '.') |
 			(fmt[index] == '0') | (fmt[index] == '*'))
 				star->bugfix++;
 			if(fmt[index] >= '0' && fmt[index]  <= '9')
 				star->bugfix++;*/
-		}
-		if(fmt[index]== '\0')
-				break;
+		}		
 		index++;
-		
 	}
-	if(star->yndex2 > 1)
-		index = index- star->yndex2;
+	index = ft_strlen(fmt);
+	if(star->yndex2 >= 1)
+		index = index - star->yndex2;
 	index = index -(args * 2);;
 	return(index - star->bugfix);
 }

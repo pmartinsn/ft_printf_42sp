@@ -24,7 +24,8 @@ int find_number_value(const char *fmt, int *ax, s_param *tail)
 			| (fmt[*ax] != '0'))
 			{
 
-				tail->hnbr= ft_atoi(tobeconv);	
+				tail->hnbr= ft_atoi(tobeconv);
+				break;	
 			}
 			
 		}
@@ -107,10 +108,10 @@ int count_variables2(const char *fmt, s_param *tail)
 						else
 						{
 							tail->keeper = tail->keeper + tail->nbr;
-							tail->helpint = ft_itoa(tail->nbr);
-							tail->keeper = tail->keeper - ft_strlen(tail->helpint);
+						//	tail->helpint = ft_itoa(tail->nbr);
+						//	tail->keeper = tail->keeper - ft_strlen(tail->helpint);
 							tail->nbr = 0;
-							free(tail->helpint);
+						//	free(tail->helpint);
 						}
 						break;
 					}
@@ -137,10 +138,10 @@ int count_variables2(const char *fmt, s_param *tail)
 						else
 						{
 							tail->keeper = tail->keeper + tail->nbr;
-							tail->helpint = ft_itoa(tail->nbr);
-							tail->keeper = tail->keeper - ft_strlen(tail->helpint);
+						//	tail->helpint = ft_itoa(tail->nbr);
+						//	tail->keeper = tail->keeper - ft_strlen(tail->helpint);
 							tail->nbr = 0;
-							free(tail->helpint);
+						//	free(tail->helpint);
 						}
 						break;
 					}
@@ -171,10 +172,10 @@ int count_variables2(const char *fmt, s_param *tail)
 						else
 						{
 							tail->keeper = tail->keeper + tail->nbr;
-							tail->helpint = ft_itoa(tail->nbr);
-							tail->keeper = tail->keeper - ft_strlen(tail->helpint);
+						//	tail->helpint = ft_itoa(tail->nbr);
+						//	tail->keeper = tail->keeper - ft_strlen(tail->helpint);
 							tail->nbr = 0;
-							free(tail->helpint);
+						//	free(tail->helpint);
 						}
 						break;			
 					}
@@ -205,10 +206,10 @@ int count_variables2(const char *fmt, s_param *tail)
 						else
 						{
 							tail->keeper = tail->keeper + tail->nbr;
-							tail->helpint = ft_itoa(tail->nbr);
-							tail->keeper = tail->keeper - ft_strlen(tail->helpint);
+//tiro isso agora no count chars						//	tail->helpint = ft_itoa(tail->nbr);
+						//	tail->keeper = tail->keeper - ft_strlen(tail->helpint);
 							tail->nbr = 0;
-							free(tail->helpint);
+						//	free(tail->helpint);
 						}
 						break;
 					}
@@ -230,10 +231,10 @@ int count_variables2(const char *fmt, s_param *tail)
 						else
 						{
 							tail->keeper = tail->keeper + tail->nbr;
-							tail->helpint = ft_itoa(tail->nbr);
-							tail->keeper = tail->keeper - ft_strlen(tail->helpint);
+						///	tail->helpint = ft_itoa(tail->nbr);
+							//tail->keeper = tail->keeper - ft_strlen(tail->helpint);
 							tail->nbr = 0;
-							free(tail->helpint);
+						//	free(tail->helpint);
 						}
 						break;
 					}
@@ -252,10 +253,10 @@ int count_variables2(const char *fmt, s_param *tail)
 						if(tail->nbr >= 1)
 						{
 							tail->keeper = tail->keeper + tail->nbr;
-							tail->helpint = ft_itoa(tail->nbr);
-							tail->keeper = tail->keeper - ft_strlen(tail->helpint);
+						//	tail->helpint = ft_itoa(tail->nbr);
+						//	tail->keeper = tail->keeper - ft_strlen(tail->helpint);
 							tail->nbr = 0;
-							free(tail->helpint);
+						//	free(tail->helpint);
 						}
 						else
 							tail->keeper = tail->keeper + 1;
