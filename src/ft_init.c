@@ -11,7 +11,8 @@ void	init_tail(s_param *tail){
 
 }
 void	init_bdr(bdr *star){
-	star->returned_s = 0;
+//	star->returned = 0;
+	star->count = 0;
 	star->variables_counted = 0;
 	star->hold = 0;
 	star->keeper = 0;

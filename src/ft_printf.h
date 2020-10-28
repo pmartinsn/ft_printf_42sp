@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/22 14:33:45 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/28 17:41:53 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 # include <inttypes.h>
+
 typedef struct
 {
 	va_list	list;
+	int count;
 	int returned_s;
 	char	*aux_outnbr;
 	char	*helpint;
@@ -46,7 +48,7 @@ typedef struct
 	int ret_dealing;*/
 	int bugfix;
 	int ret_sortie;
-//	int returned_s;
+	int returned;
 } 	bdr;
 
 typedef struct
@@ -61,10 +63,12 @@ typedef struct
 	
 } 	s_param;
 
+//extern int returned = 0;
 
-void			ft_putnbr(int nb);
-void			ft_putchar(char c);
-void			ft_putstr(char *s);
+void			ft_putnbr(int nb, bdr *star);
+//void			ft_putchar(char c);
+void	ft_putchar( char c, bdr *star);
+void			ft_putstr(char *s,  bdr *star);
 char			*ft_itoa(int n);
 int				ft_atoi(const char *str);
 char			*ft_strdup(const char *src);
@@ -94,6 +98,12 @@ void	init_bdr(bdr *star);
 int	ft_print_int_wnumb(char *tobeconv, bdr *star);
 void				nfw_nbr(const char *fmt, int *aux, bdr *star);
 void	ft_print_int_minuswnumb(char *tobeconv, bdr *star);
+void	print_s_wnumb(char *tobeconv, bdr *star);
+void	print_s_minuswnumb(char *tobeconv, bdr *star);
+void	print_char_minuswnumb(char *tobeconv, bdr *star);
+void	print_char_wnumb(char *tobeconv, bdr *star);
+void	print_p_minuswnumb(char *tobeconv, bdr *star);
+void	print_p_wnumb(char *tobeconv, bdr *star);
 int find_number_value(const char *fmt, int *ax, s_param *tail);
 int count_variables2(const char *fmt, s_param *tail);
 int	count_variables1(const char *fmt, ...);

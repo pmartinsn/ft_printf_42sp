@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 16:07:39 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/12 21:29:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/28 17:30:20 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void	ft_putstr(char *s)
+void	ft_putstr(char *s,  bdr *star)
 {
 	int i;
 
@@ -25,5 +25,6 @@ void	ft_putstr(char *s)
 	{
 		write(1, &s[i], 1);
 		i++;
+		star->count = star->count +1;
 	}
 }

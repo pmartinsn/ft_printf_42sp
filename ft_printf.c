@@ -6,12 +6,12 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 20:43:30 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/27 15:16:05 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/28 17:28:28 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./src/ft_printf.h"
-
+///nfw = no flags with numbers
 void				nfw_nbr(const char *fmt, int *aux, bdr *star)
 {
 	int index;
@@ -38,7 +38,22 @@ void				nfw_nbr(const char *fmt, int *aux, bdr *star)
 				if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 				{
 					*aux = *aux +1;
-					star->ret__ = ft_print_int_wnumb(tobeconv, &*star);
+					ft_print_int_wnumb(tobeconv, &*star);
+					while(fmt[*aux] != '%' && fmt[*aux] != '\0')
+					{
+					ft_putchar(fmt[*aux],  &*star);
+						*aux = *aux +1;
+					}
+				}
+				if(fmt[*aux] == 's')
+				{
+					*aux = *aux +1;
+					print_s_wnumb(tobeconv, &*star);
+					while(fmt[*aux] != '%' && fmt[*aux] != '\0')
+					{
+					ft_putchar(fmt[*aux],  &*star);
+						*aux = *aux +1;
+					}
 				}
 			}
 		}
@@ -55,6 +70,7 @@ void	dealing_minus(const char *fmt, int *aux, bdr *star)
 	index= 0;
 //	star->ret_minustotal = 0;
 	tobeconv = malloc(*aux * 3);
+	
 	if((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
 	{
 		//star->retminus1 = 
@@ -62,6 +78,7 @@ void	dealing_minus(const char *fmt, int *aux, bdr *star)
 		/*star->ret_minustotal = star->ret_minustotal + star->retminus1;
 		star->retminus1 = 0;*/
 	}
+	
 	if((fmt[*aux] != '0') && (fmt[*aux]  >= '1' && fmt[*aux]  <= '9') )
 	{	//printf("entrou na verificação\n");	
 		tobeconv[index]= fmt[*aux];
@@ -82,42 +99,20 @@ void	dealing_minus(const char *fmt, int *aux, bdr *star)
 				{
 					*aux = *aux +1;
 					ft_print_int_minuswnumb(tobeconv, &*star);
-					
-				//	 SÓ INVERTER A ORDEM DE IMPRESSÃO PARA FAZER AS OUTRAS
-				//	printf("retwnum:%d\n", star->ret_minustotal);
-					/*int j;
-					int i;
-					int y;
-					int help;
-					char *character;
-					help = 0;
-					j = ft_atoi(tobeconv);
-					i = va_arg(star->list, int);
-					character = ft_itoa(i);
-					y = ft_strlen(character);
-					j = j - y;
-					ft_putnbr(i);
-					while(help < j){
-						ft_putchar(' ');
-						help++;
-					}*/
+						while(fmt[*aux] != '%' && fmt[*aux] != '\0')
+					{
+					ft_putchar(fmt[*aux],  &*star);
+						*aux = *aux +1;
+					}
 				}
 				if((fmt[*aux] == 's'))
 				{
 					*aux = *aux +1;
-					int j;
-					char *i;
-					int y;
-					int help;
-					help = 0;
-					j = ft_atoi(tobeconv);
-					i = va_arg(star->list, char*);
-						y = ft_strlen(i);
-					j = j - y;
-					ft_putstr(i);
-					while(help < j){
-						ft_putchar(' ');
-						help++;
+					print_s_minuswnumb(tobeconv, &*star);
+					while(fmt[*aux] != '%' && fmt[*aux] != '\0')
+					{
+					ft_putchar(fmt[*aux],  &*star);
+						*aux = *aux +1;
 					}
 				}
 				if(fmt[*aux] == 'c')
@@ -132,9 +127,9 @@ void	dealing_minus(const char *fmt, int *aux, bdr *star)
 					i = va_arg(star->list, int);
 					charr = (char)i;
 					j = j - 1;
-					ft_putchar(charr);
+					ft_putchar(charr,  &*star);
 					while(help < j){
-						ft_putchar(' ');
+						ft_putchar(' ',  &*star);
 						help++;
 					}
 				}
@@ -216,7 +211,7 @@ int					get_info(const char *fmt, bdr *star)
 		if((fmt[aux] == '%') && fmt[aux +1] == '%')
 		{
 			aux = aux + 2;
-			ft_putchar('%');
+			ft_putchar('%',  &*star);
 		}
 		if((fmt[aux] == '%') && (fmt[aux +1] != '%'))
 		{
@@ -226,7 +221,7 @@ int					get_info(const char *fmt, bdr *star)
 		if (fmt[aux] != '\0' && fmt[aux] != '%')
 		{
 			//printf("%i",i);
-			ft_putchar(fmt[aux]);
+			ft_putchar(fmt[aux],  &*star);
 			aux++;
 		}
 	}
@@ -236,17 +231,18 @@ int					get_info(const char *fmt, bdr *star)
 int				ft_printf(const char *fmt, ...)
 {
 	bdr star;
-	int		result;
-	int		result2;
+//	int		result;
+//	int		result2;
 	
-	result = 0;
-	result2 = 0;
+//	result = 0;
+//	result2 = 0;
 	init_bdr(&star);
-	star.variables_counted = count_variables1(fmt);
+//	star.variables_counted = count_variables1(fmt);
 //	printf("----saida variaveis:%i\n",star.variables_counted);
 	va_start(star.list, fmt);
-	result = get_info(fmt, &star);
+	//result = 
+	get_info(fmt, &star);
 	va_end(star.list);
-	result2 = star.variables_counted + result;
-	return(result2);
+//	result2 = star.variables_counted + result;
+	return(star.count);
 }
