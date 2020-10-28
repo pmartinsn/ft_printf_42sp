@@ -43,14 +43,14 @@ int count_variables2(const char *fmt, s_param *tail)
 	while((fmt[ax] != '\0'))
 	{
 		if((fmt[ax] == '%') && (fmt[ax +1] != '%') && (fmt[ax +1] != '\0'))
-		aux++;
+			aux++;
 		ax++;
 	}
-	if(aux >= 2)
-	{
+	if(aux >= 1)
+	{	aux = ax;
 		ax = 0;
 		tail->keeper = 0;
-		while((fmt[ax] != '\0') && fmt)
+		while(ax <= aux/*(fmt[ax] != '\0') && fmt*/)
 		{
 			if((fmt[ax] == '%') && (fmt[ax + 1] == '%'))
 			{
@@ -146,7 +146,41 @@ int count_variables2(const char *fmt, s_param *tail)
 						}
 						break;
 					}
-					if((fmt[ax] == 'X') || (fmt[ax] == 'x'))
+					if(fmt[ax] == 'X') 
+					{
+						if(fmt[ax -1] >= '0' && fmt[ax - 1]  <= '9')
+						{ 
+							int help = 0;
+							help = ax;
+							help--;
+							while(fmt[help] >= '0' && fmt[help] <= '9')
+							{
+								help--;
+							}
+							tail->nbr = find_number_value(fmt, &help, &*tail);	
+						}
+						size_t	num;
+						char *character;
+						num = va_arg(tail->list2, size_t);
+						character = ft_itoa_base(num, 16, 'A');
+						tail->hold= ft_strlen(character);
+						free(character);
+						if(tail->hold >= tail->nbr)
+						{
+							tail->keeper = tail->keeper + tail->hold;
+							tail->hold = 0;
+						}
+						else
+						{
+							tail->keeper = tail->keeper + tail->nbr;
+						//	tail->helpint = ft_itoa(tail->nbr);
+						//	tail->keeper = tail->keeper - ft_strlen(tail->helpint);
+							tail->nbr = 0;
+						//	free(tail->helpint);
+						}
+						break;			
+					}
+					if(fmt[ax] == 'x')
 					{
 						if(fmt[ax -1] >= '0' && fmt[ax - 1]  <= '9')
 						{ 
@@ -216,6 +250,8 @@ int count_variables2(const char *fmt, s_param *tail)
 					}
 					if(fmt[ax] == 'p')
 					{
+						tail->nbr = va_arg(tail->list2, size_t);
+						tail->nbr = 0;
 						if(fmt[ax -1] >= '0' && fmt[ax - 1]  <= '9')
 						{ 
 							int help = 0;
