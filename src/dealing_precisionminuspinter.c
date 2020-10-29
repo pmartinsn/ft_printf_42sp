@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	ft_print_int_wnumb(char *tobeconv, bdr *star)
+void	ft_print_int_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -18,14 +18,14 @@ void	ft_print_int_wnumb(char *tobeconv, bdr *star)
 		j =  j - star->ret__;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar('0',  &*star);
 		help++;
 	}
 	ft_putnbr(star->kpr8, &*star);
 	free(character);
 
 }
-void	print_s_wnumb(char *tobeconv, bdr *star)
+void	print_s_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -41,12 +41,12 @@ void	print_s_wnumb(char *tobeconv, bdr *star)
 		else j =  j -star->hold;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar('0',  &*star);
 		help++;
 	}
 	ft_putstr(star->aux_outnbr, &*star);
 }
-void	print_char_wnumb(char *tobeconv, bdr *star)
+void	print_char_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -64,12 +64,12 @@ void	print_char_wnumb(char *tobeconv, bdr *star)
 		else j =  j - 1;
 	while(help < j)
 	{
-		ft_putchar(' ', &*star);
+		ft_putchar('0', &*star);
 		help++;
 	}
 	ft_putchar(charr,  &*star);
 }
-void	print_p_wnumb(char *tobeconv, bdr *star)
+/*void	print_p_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -86,14 +86,14 @@ void	print_p_wnumb(char *tobeconv, bdr *star)
 		else j =  j - 14;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar('0',  &*star);
 		help++;
 	}
 	ft_putstr("0x", &*star);
 	ft_putstr(character, &*star);
 	free(character);
-}
-void	print_u_wnumb(char *tobeconv,bdr *star)
+}*/
+void	print_u_pre(char *tobeconv,bdr *star)
 {
 	int help;
 	int j;
@@ -111,14 +111,14 @@ void	print_u_wnumb(char *tobeconv,bdr *star)
 		else j =  j -star->kpr5;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar('0',  &*star);
 		help++;
 	}
 	ft_putstr(character, &*star);
 	free(character);
 }
 
-void	print_x_wnumb(char *tobeconv, bdr *star)
+void	print_x_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -136,13 +136,13 @@ void	print_x_wnumb(char *tobeconv, bdr *star)
 		else j =  j -star->kpr6;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar('0',  &*star);
 		help++;
 	}
 	ft_putstr(character, &*star);
 	free(character);
 }
-void	print_X_wnumb(char *tobeconv, bdr *star)
+void	print_X_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -160,7 +160,7 @@ void	print_X_wnumb(char *tobeconv, bdr *star)
 		else j =  j -star->kpr6;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar('0',  &*star);
 		help++;
 	}
 	ft_putstr(character, &*star);

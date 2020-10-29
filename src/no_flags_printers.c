@@ -51,7 +51,6 @@ int	print_u_noflag(bdr *star)
 }
 int	print_x_noflag( bdr *star)
 {
-//	printf("\nentrou  no x\n");
 	size_t	num;
 	char *character;
 	num = va_arg(star->list, size_t);
@@ -63,7 +62,6 @@ int	print_x_noflag( bdr *star)
 }
 int	print_X_noflag(bdr *star)
 {
-//	printf("\nentrou  no X\n");
 	size_t	num;
 	char *character;
 	num = va_arg(star->list, size_t);
@@ -73,6 +71,8 @@ int	print_X_noflag(bdr *star)
 	free(character);
 	return(star->kpr7);
 }
+
+
 
 
 

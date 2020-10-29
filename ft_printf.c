@@ -6,181 +6,34 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 20:43:30 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/28 17:28:28 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/29 10:58:19 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./src/ft_printf.h"
-///nfw = no flags with numbers
-void				nfw_nbr(const char *fmt, int *aux, bdr *star)
-{
-	int index;
-	char *tobeconv;
-	
-	index= 0;
-	tobeconv = malloc(*aux * 3);
-	if((fmt[*aux] != '0') && (fmt[*aux]  >= '1' && fmt[*aux]  <= '9') )
-	{	//printf("entrou na verificação\n");	
-		tobeconv[index]= fmt[*aux];
-		index++;
-		*aux = *aux + 1;
-		while(fmt[*aux]  >= '0' && fmt[*aux]  <= '9')
-		{
-			tobeconv[index]= fmt[*aux];
-			index++;
-			*aux = *aux + 1;
-		
-			if((fmt[*aux] != '1') | (fmt[*aux] != '2') | (fmt[*aux] != '3')
-			| (fmt[*aux] != '4') | (fmt[*aux] != '5') | (fmt[*aux] != '6')
-			| (fmt[*aux] != '7') | (fmt[*aux] != '8') | (fmt[*aux] != '9')
-			| (fmt[*aux] != '0'))
-			{
-				if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
-				{
-					*aux = *aux +1;
-					ft_print_int_wnumb(tobeconv, &*star);
-					while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-					{
-					ft_putchar(fmt[*aux],  &*star);
-						*aux = *aux +1;
-					}
-				}
-				if(fmt[*aux] == 's')
-				{
-					*aux = *aux +1;
-					print_s_wnumb(tobeconv, &*star);
-					while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-					{
-					ft_putchar(fmt[*aux],  &*star);
-						*aux = *aux +1;
-					}
-				}
-			}
-		}
-	}
-	free(tobeconv);
-}
 
-
-void	dealing_minus(const char *fmt, int *aux, bdr *star)
-{
-	int index;
-	char *tobeconv;
-	
-	index= 0;
-//	star->ret_minustotal = 0;
-	tobeconv = malloc(*aux * 3);
-	
-	if((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
-	{
-		//star->retminus1 = 
-		no_flags(fmt, &*aux, &*star);
-		/*star->ret_minustotal = star->ret_minustotal + star->retminus1;
-		star->retminus1 = 0;*/
-	}
-	
-	if((fmt[*aux] != '0') && (fmt[*aux]  >= '1' && fmt[*aux]  <= '9') )
-	{	//printf("entrou na verificação\n");	
-		tobeconv[index]= fmt[*aux];
-		index++;
-		*aux = *aux + 1;
-		while(fmt[*aux]  >= '0' && fmt[*aux]  <= '9')
-		{
-			tobeconv[index]= fmt[*aux];
-			index++;
-			*aux = *aux + 1;
-		
-			if((fmt[*aux] != '1') | (fmt[*aux] != '2') | (fmt[*aux] != '3')
-			| (fmt[*aux] != '4') | (fmt[*aux] != '5') | (fmt[*aux] != '6')
-			| (fmt[*aux] != '7') | (fmt[*aux] != '8') | (fmt[*aux] != '9')
-			| (fmt[*aux] != '0'))
-			{
-				if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
-				{
-					*aux = *aux +1;
-					ft_print_int_minuswnumb(tobeconv, &*star);
-						while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-					{
-					ft_putchar(fmt[*aux],  &*star);
-						*aux = *aux +1;
-					}
-				}
-				if((fmt[*aux] == 's'))
-				{
-					*aux = *aux +1;
-					print_s_minuswnumb(tobeconv, &*star);
-					while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-					{
-					ft_putchar(fmt[*aux],  &*star);
-						*aux = *aux +1;
-					}
-				}
-				if(fmt[*aux] == 'c')
-				{
-					*aux = *aux +1;
-					int j;
-					int i;
-					char charr;
-					int help;
-					help = 0;
-					j = ft_atoi(tobeconv);
-					i = va_arg(star->list, int);
-					charr = (char)i;
-					j = j - 1;
-					ft_putchar(charr,  &*star);
-					while(help < j){
-						ft_putchar(' ',  &*star);
-						help++;
-					}
-				}
-				if((fmt[*aux] == 'p'))
-				{//FALTA RESOLVER ISSO AQUI MOOÇAAAA
-					
-					*aux = *aux +1;
-					
-					}
-				}
-			}
-		}	
-		free(tobeconv);
-	}
-
-	/*}
-	if(fmt[*aux] == '.'){
-	}
-	
-		
-}*/
 void	find_flag(const char *fmt, int *aux, bdr *star)
 {	
-//	int returned_ff = 0;
-//	int temp = 0;
 	if(fmt[*aux] == '-')
 	{
 		*aux = *aux +1;
 		 dealing_minus(fmt, &*aux, &*star); 
-	//	returned_ff = star->ret_minustotal + returned_ff;
-	//	star->ret_minustotal = star->ret_minustotal + returned_ff;
-	//	star->ret_minustotal = 0;
 	}
-	/*if(fmt[*aux] == '.'){
+	else if(fmt[*aux] == '.'){
 		*aux = *aux +1;
-		returned_ff = dealing_precision(fmt, &*aux, star->list);
-	}*/
+		dealing_precision(fmt, &*aux, &*star);
+	}
 	//if(fmt[*aux] == '0'){
-	//	returned = dealing_zero(fmt, &*aux, star->list);
+	//	returned = dealing_zero(fmt, &*aux, &*star);
 	//}
 	/*
 	if(fmt[*aux] == '*'){
-		returned = dealing_star(fmt, &*aux,star->list);
+		returned = dealing_star(fmt, &*aux,&*star);
 	}*/
 //	return(returned_ff);
 }
 int sortie(const char *fmt, int *aux, bdr *star)
-{
-	int rett;
-
-	rett = 0;	
+{	
 	if((fmt[*aux] == '-') | (fmt[*aux] == '.')| (fmt[*aux] == '0') 
 	|(fmt[*aux] == '*'))
 	{
@@ -189,14 +42,9 @@ int sortie(const char *fmt, int *aux, bdr *star)
 		nfw_nbr(fmt, &*aux, &*star);//SEM FLAGS MAS COM NUMEROS
 	else
 	{
-	//	printf("\naux antes das flags:%i\n", *aux);
-	//	returned_sortie2 = 
 		no_flags(fmt, &*aux, &*star);
-	/*	rett =  rett + returned_sortie2;
-		returned_sortie2 = 0;*/
-		/*caso ele não achei flags pra onde vai? */
 	}
-return(/*returned_sortie + returned_sortie2*/rett);
+return(0);
 }
 
 int					get_info(const char *fmt, bdr *star)
@@ -204,8 +52,6 @@ int					get_info(const char *fmt, bdr *star)
 	int	aux;
 	
 	aux = 0;
-	star->chars_counted = count_chars(fmt, &*star);
-//	printf("--------saida chars:%i\n",star->chars_counted);
 	while (fmt[aux])
 	{	
 		if((fmt[aux] == '%') && fmt[aux +1] == '%')
@@ -225,8 +71,8 @@ int					get_info(const char *fmt, bdr *star)
 			aux++;
 		}
 	}
-//	index = star->returned_s + star->chars_counted ;
-	return (star->chars_counted /*+ star->variables_counted*/);
+
+	return (0);
 }
 int				ft_printf(const char *fmt, ...)
 {

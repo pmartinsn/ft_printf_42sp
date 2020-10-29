@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/28 17:41:53 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/29 10:55:48 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct
 	int	count_arg;
 	int	yndex;
 	int	yndex2;
-	int chars_counted;
 	int variables_counted;
 /*	int	ret_minustotal;
 	int retminus1;
@@ -95,7 +94,7 @@ int				print_u_noflag(bdr *star);
 void				dealing_minus(const char *fmt, int *aux, bdr *star);
 void	init_tail(s_param *tail);
 void	init_bdr(bdr *star);
-int	ft_print_int_wnumb(char *tobeconv, bdr *star);
+void	ft_print_int_wnumb(char *tobeconv, bdr *star);
 void				nfw_nbr(const char *fmt, int *aux, bdr *star);
 void	ft_print_int_minuswnumb(char *tobeconv, bdr *star);
 void	print_s_wnumb(char *tobeconv, bdr *star);
@@ -104,11 +103,23 @@ void	print_char_minuswnumb(char *tobeconv, bdr *star);
 void	print_char_wnumb(char *tobeconv, bdr *star);
 void	print_p_minuswnumb(char *tobeconv, bdr *star);
 void	print_p_wnumb(char *tobeconv, bdr *star);
+void	print_u_wnumb(char *tobeconv,bdr *star);
+void	print_u_minuswnumb(char *tobeconv,bdr *star);
+void	print_x_wnumb(char *tobeconv, bdr *star);
+void	print_x_minuswnumb(char *tobeconv, bdr *star);
+void	print_X_wnumb(char *tobeconv, bdr *star);
+void	print_X_minuswnumb(char *tobeconv, bdr *star);
 int find_number_value(const char *fmt, int *ax, s_param *tail);
 int count_variables2(const char *fmt, s_param *tail);
 int	count_variables1(const char *fmt, ...);
 int	count_chars(const char *fmt, bdr *star);
-
+void	dealing_precision(const char *fmt, int *aux, bdr *star);
+void	print_X_pre(char *tobeconv, bdr *star);
+void	print_x_pre(char *tobeconv, bdr *star);
+void	print_u_pre(char *tobeconv,bdr *star);
+void	print_s_pre(char *tobeconv, bdr *star);
+void	ft_print_int_pre(char *tobeconv, bdr *star);
+void	print_char_pre(char *tobeconv, bdr *star);
 //size_t			ft_strlen(const char *str);
 
 #endif

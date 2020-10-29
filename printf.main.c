@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/28 17:26:19 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/29 09:55:19 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 	int 			return_printf= 0;
 	int 			return_ft_printf= 0;
 	unsigned int 	numero = 13;
-	int				nbr = 111111;
+	int				nbr = 123;
 	unsigned int 	hexa = 22222;
 //	char 			bob[] = "won";
 	char 			nan[] = "12345";
@@ -36,12 +36,13 @@ int main()
 	char 			h = 'h';
 	int				duo = 13;
 	char 			*test = "teste";
-		     return_printf = printf("%10icdxX111.%-i.%-i.%-s%-20s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",duo,nbr, nbr, nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
-       return_ft_printf = ft_printf("%10icdxX111.%-i.%-i.%-s%-20s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
+		     return_printf = printf("%-.3icdxX111...%-5i...%-3i....%-s%-20s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",duo,nbr, nbr, nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
+       return_ft_printf = ft_printf("%-.3icdxX111...%-5i...%-3i....%-s%-20s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-		 return_printf = printf("%10c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
-	return_ft_printf = ft_printf("%10c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
+
+		 return_printf = printf("%5c.%-p.%-u.%-x.%.10X.%-x.%X..%-x.%-X.%-c\n",h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
+   return_ft_printf = ft_printf("%5c.%-p.%-u.%-x.%.10X.%-x.%X..%-x.%-X.%-c\n",h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
 					      return_printf = printf("%i%i%-i%-i%-i\n",nbr, nbr,duo,nbr, nbr);
@@ -140,10 +141,11 @@ printf("XXXXXXXXXXXXXXreturn_ft_printf:%i\n", return_ft_printf);
 	    return_ft_printf = ft_printf("%%%%%%%%%%\n");
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-	     return_printf = printf("%-c%-c%-c%-i111.%-i.%-i.%-s%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,h,h,duo,nbr, nbr, nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
-   return_ft_printf = ft_printf("%-c%-c%-c%-i111.%-i.%-i.%-s%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,h,h,duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
+	     return_printf = printf("%-5c%-c%-c%-5i111.%-5i.%-i.%-s%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,h,h,duo,nbr, nbr, nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
+   return_ft_printf = ft_printf("%-5c%-c%-c%-5i111.%-5i.%-i.%-s%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,h,h,duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
+
 			  
 			//printf("\nthis is the RETURN of ft_printf:%i\n", test);
 }
