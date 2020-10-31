@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dealing_minus.c                                    :+:      :+:    :+:   */
+/*   dealing_width_caller.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/30 17:46:16 by pmartins         ###   ########.fr       */
+/*   Created: 2020/10/30 16:41:46 by pmartins          #+#    #+#             */
+/*   Updated: 2020/10/30 17:15:44 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	dealing_minus(const char *fmt, int *aux, bdr *star)
+void	dealing_width(const char *fmt, int *aux, bdr *star)
 {
-	char *tobeconv;
-	
-	tobeconv = malloc(*aux * 3);
-	verify_flags_minus(fmt, &*aux, &*star);
-	tobeconv = converter( tobeconv, fmt, &*aux);
+	if(fmt[*aux] == '.')
+		check_and_pass(fmt, &*aux, &*star);
 	if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux +1;
-		ft_print_int_minuswnumb(tobeconv, &*star);
+		ft_print_int_width( &*star);
 		print_while(fmt, &*aux, &*star);
 	}
 	else if(fmt[*aux] == 's')
 	{
 		*aux = *aux +1;
-		print_s_minuswnumb(tobeconv, &*star);
+		print_s_width(&*star);			
 		print_while(fmt, &*aux, &*star);
 	}
 	else if(fmt[*aux] == 'c')
 	{
 		*aux = *aux +1;
-		print_char_minuswnumb(tobeconv, &*star);
+		print_char_width(&*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	else dealing_minus_two(tobeconv, fmt, &*aux, &*star);
-	free(tobeconv);
+	else
+		dealing_width_two(fmt, &*aux, &*star);
 }

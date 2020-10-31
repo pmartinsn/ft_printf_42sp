@@ -6,23 +6,11 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 10:44:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/15 08:18:02 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/10/30 18:42:23 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//static char		*ft_long_number(char *str/*, bdr *star*/)
-/*{
-	int i;
-
-	i = 0;
-	if (ft_strlen(str) > 8 && str[i] != 'p')
-		i = ft_strlen(str) - 8;
-	while (str[i] == '0' && i < ft_strlen(str) - 1)
-		i++;
-	return (&str[i]);
-}*/
 
 char			*ft_itoa_base(size_t nb, int base, char updown/*, bdr *star*/)
 {
@@ -47,5 +35,5 @@ char			*ft_itoa_base(size_t nb, int base, char updown/*, bdr *star*/)
 		nb = nb / base;
 		cont_num--;
 	}
-	return (str/*ft_long_number(str, star)*/);
+	return (str);
 }

@@ -7,7 +7,8 @@ void	dealing_precision(const char *fmt, int *aux, bdr *star)
 	
 	index= 0;
 	tobeconv = malloc(*aux * 3);
-	if((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
+	if((fmt[*aux] == 'd') | (fmt[*aux] == 'i')| (fmt[*aux] == 'u') 
+	|(fmt[*aux] == 'x')|(fmt[*aux] == 'X'))
 	{
 		no_flags(fmt, &*aux, &*star);
 	}
@@ -22,27 +23,35 @@ void	dealing_precision(const char *fmt, int *aux, bdr *star)
 			index++;
 			*aux = *aux + 1;
 		}
-		if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+	}
+	if((fmt[*aux] == '0') | (fmt[*aux +1] == 's'))
+		*aux = *aux +2;
+	if((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+	{
+		*aux = *aux +1;
+		ft_print_int_pre(tobeconv, &*star);
+		while(fmt[*aux] != '%' && fmt[*aux] != '\0')
 		{
+		ft_putchar(fmt[*aux],  &*star);
 			*aux = *aux +1;
-			ft_print_int_pre(tobeconv, &*star);
-			while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-			{
-			ft_putchar(fmt[*aux],  &*star);
-				*aux = *aux +1;
-			}
 		}
-		else if(fmt[*aux] == 's')
+	}
+	else if(fmt[*aux] == 's')
+	{
+		int i;
+
+		i = 0;
+		*aux = *aux +1;
+		i = find_number_value(tobeconv, &*star);
+		if(i >= 1)
+			print_s_noflag(&*star);				
+		while(fmt[*aux] != '%' && fmt[*aux] != '\0')
 		{
+		ft_putchar(fmt[*aux],  &*star);
 			*aux = *aux +1;
-			print_s_pre(tobeconv, &*star);
-			while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-			{
-			ft_putchar(fmt[*aux],  &*star);
-				*aux = *aux +1;
-			}
 		}
-		else if(fmt[*aux] == 'c')
+	}
+		/*else if(fmt[*aux] == 'c')
 		{
 			*aux = *aux +1;
 			print_char_pre(tobeconv, &*star);
@@ -52,7 +61,7 @@ void	dealing_precision(const char *fmt, int *aux, bdr *star)
 				*aux = *aux +1;
 			}
 		}
-		/*else if(fmt[*aux] == 'p')
+		else if(fmt[*aux] == 'p')
 		{
 			*aux = *aux +1;
 			print_p_pre(tobeconv, &*star);
@@ -63,38 +72,37 @@ void	dealing_precision(const char *fmt, int *aux, bdr *star)
 			
 			}
 		}*/
-		else if(fmt[*aux] == 'u')
+	else if(fmt[*aux] == 'u')
+	{
+		*aux = *aux +1;
+		print_u_pre(tobeconv, &*star);
+		while(fmt[*aux] != '%' && fmt[*aux] != '\0')
 		{
+			ft_putchar(fmt[*aux],  &*star);
 			*aux = *aux +1;
-			print_u_pre(tobeconv, &*star);
-			while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-			{
-				ft_putchar(fmt[*aux],  &*star);
-				*aux = *aux +1;
-			
-			}
+		
 		}
-		else if(fmt[*aux] == 'x')
-		{
-			*aux = *aux +1;
-			print_x_pre(tobeconv, &*star);
-			while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-			{
-				ft_putchar(fmt[*aux],  &*star);
-				*aux = *aux +1;
-			
-			}
-		}
-		else if(fmt[*aux] == 'X')
-		{
-			*aux = *aux +1;
-			print_X_pre(tobeconv, &*star);
-			while(fmt[*aux] != '%' && fmt[*aux] != '\0')
-			{
-				ft_putchar(fmt[*aux],  &*star);
-				*aux = *aux +1;
-			}
-		}
-	free(tobeconv);	
 	}
+	else if(fmt[*aux] == 'x')
+	{
+		*aux = *aux +1;
+		print_x_pre(tobeconv, &*star);
+		while(fmt[*aux] != '%' && fmt[*aux] != '\0')
+		{
+			ft_putchar(fmt[*aux],  &*star);
+			*aux = *aux +1;
+		
+		}
+	}
+	else if(fmt[*aux] == 'X')
+	{
+		*aux = *aux +1;
+		print_X_pre(tobeconv, &*star);
+		while(fmt[*aux] != '%' && fmt[*aux] != '\0')
+		{
+			ft_putchar(fmt[*aux],  &*star);
+			*aux = *aux +1;
+		}
+	}
+free(tobeconv);	
 }

@@ -1,51 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   no_flag_but_wnumbers.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/30 18:41:07 by pmartins          #+#    #+#             */
+/*   Updated: 2020/10/30 18:41:08 by pmartins         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-void	ft_print_int_wnumb(char *tobeconv, bdr *star)
-{
-	int help;
-	int j;
-
-	char *character;
-	help = 0;
-	j = 0;
-	j = ft_atoi(tobeconv);
-	star->kpr8 = va_arg(star->list, int);
-	character = ft_itoa(star->kpr8);
-	star->ret__ = ft_strlen(character);
-	if(star->ret__ > j)
-		j = star->ret__;
-		else
-		j =  j - star->ret__;
-	while(help < j)
-	{
-		ft_putchar(' ',  &*star);
-		help++;
-	}
-	ft_putnbr(star->kpr8, &*star);
-	free(character);
-
-}
-void	print_s_wnumb(char *tobeconv, bdr *star)
-{
-	int help;
-	int j;
-
-
-	help = 0;
-	j = 0;
-	j = ft_atoi(tobeconv);
-	star->aux_outnbr = va_arg(star->list, char*);
-	star->hold = ft_strlen(star->aux_outnbr);
-	if(star->hold > j)
-		j = star->hold;
-		else j =  j -star->hold;
-	while(help < j)
-	{
-		ft_putchar(' ',  &*star);
-		help++;
-	}
-	ft_putstr(star->aux_outnbr, &*star);
-}
 void	print_char_wnumb(char *tobeconv, bdr *star)
 {
 	int help;
@@ -61,7 +27,7 @@ void	print_char_wnumb(char *tobeconv, bdr *star)
 	charr = (char)i;
 	if( j < 1)
 		j = 1;
-		else j =  j - 1;
+		else j = j - 1;
 	while(help < j)
 	{
 		ft_putchar(' ', &*star);
@@ -69,16 +35,19 @@ void	print_char_wnumb(char *tobeconv, bdr *star)
 	}
 	ft_putchar(charr,  &*star);
 }
+
 void	print_p_wnumb(char *tobeconv, bdr *star)
 {
-	int help;
-	int j;
-	
+	int		help;
+	int		j;
+	size_t	num;
+	char	*character;
+
 	help = 0;
 	j = 0;
+	num = 0;
 	j = ft_atoi(tobeconv);
-	size_t	num;
-	char *character;
+	character ="tryme";
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'a');
 	if( j < 14)
@@ -86,23 +55,26 @@ void	print_p_wnumb(char *tobeconv, bdr *star)
 		else j =  j - 14;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar(' ', &*star);
 		help++;
 	}
 	ft_putstr("0x", &*star);
 	ft_putstr(character, &*star);
 	free(character);
 }
+
 void	print_u_wnumb(char *tobeconv,bdr *star)
 {
-	int help;
-	int j;
-	
+	int		help;
+	int		j;
+	size_t	num;
+	char	*character;
+
 	help = 0;
 	j = 0;
+	num = 0;
 	j = ft_atoi(tobeconv);
-	size_t	num;
-	char *character;
+	character ="tryme";
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 10, 'a');
 	star->kpr5= ft_strlen(character);
@@ -111,7 +83,7 @@ void	print_u_wnumb(char *tobeconv,bdr *star)
 		else j =  j -star->kpr5;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar(' ', &*star);
 		help++;
 	}
 	ft_putstr(character, &*star);
@@ -120,14 +92,16 @@ void	print_u_wnumb(char *tobeconv,bdr *star)
 
 void	print_x_wnumb(char *tobeconv, bdr *star)
 {
-	int help;
-	int j;
-	
+	int		help;
+	int		j;
+	size_t	num;
+	char	*character;
+
 	help = 0;
 	j = 0;
+	num = 0;
 	j = ft_atoi(tobeconv);
-	size_t	num;
-	char *character;
+	character ="tryme";
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'a');
 	star->kpr6= ft_strlen(character);
@@ -136,31 +110,34 @@ void	print_x_wnumb(char *tobeconv, bdr *star)
 		else j =  j -star->kpr6;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar(' ', &*star);
 		help++;
 	}
 	ft_putstr(character, &*star);
 	free(character);
 }
+
 void	print_X_wnumb(char *tobeconv, bdr *star)
 {
-	int help;
-	int j;
-	
+	int		help;
+	int		j;
+	size_t	num;
+	char	*character;
+
 	help = 0;
 	j = 0;
+	num = 0;
 	j = ft_atoi(tobeconv);
-	size_t	num;
-	char *character;
+	character ="tryme";
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'A');
 	star->kpr6= ft_strlen(character);
 	if(star->kpr6 > j)
 		j = star->kpr6;
-		else j =  j -star->kpr6;
+		else j = j -star->kpr6;
 	while(help < j)
 	{
-		ft_putchar(' ',  &*star);
+		ft_putchar(' ', &*star);
 		help++;
 	}
 	ft_putstr(character, &*star);

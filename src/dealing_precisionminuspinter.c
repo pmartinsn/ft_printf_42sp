@@ -25,7 +25,7 @@ void	ft_print_int_pre(char *tobeconv, bdr *star)
 	free(character);
 
 }
-void	print_s_pre(char *tobeconv, bdr *star)
+/*void	print_s_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -69,7 +69,7 @@ void	print_char_pre(char *tobeconv, bdr *star)
 	}
 	ft_putchar(charr,  &*star);
 }
-/*void	print_p_pre(char *tobeconv, bdr *star)
+void	print_p_pre(char *tobeconv, bdr *star)
 {
 	int help;
 	int j;
@@ -165,4 +165,9 @@ void	print_X_pre(char *tobeconv, bdr *star)
 	}
 	ft_putstr(character, &*star);
 	free(character);
+}
+int find_number_value(char *tobeconv, bdr *star)
+{	
+	star->yndex= ft_atoi(tobeconv);
+	return(star->yndex);
 }

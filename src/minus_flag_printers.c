@@ -132,7 +132,7 @@ void	print_x_minuswnumb(char *tobeconv, bdr *star)
 	free(character);
 	if(star->kpr6 > j)
 		j = star->kpr6;
-		else j =  j -star->kpr6;
+		else j =  j - star->kpr6;
 	while(help < j)
 	{
 		ft_putchar(' ',  &*star);
