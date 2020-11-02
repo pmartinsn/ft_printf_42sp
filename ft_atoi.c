@@ -6,17 +6,18 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 11:59:07 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/12 21:27:33 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/02 13:59:38 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
+#include "ft_printf.two.h"
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int sinal;
-	int numero;
+	int	i;
+	int	sinal;
+	int	numero;
 
 	i = 0;
 	sinal = 1;

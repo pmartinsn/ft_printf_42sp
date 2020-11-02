@@ -6,11 +6,12 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 11:30:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/12 21:28:50 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/02 13:59:51 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
+#include "ft_printf.two.h"
 
 static int			ft_len(int n)
 {

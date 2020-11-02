@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 16:07:39 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/28 17:30:20 by pmartins         ###   ########.fr       */
+/*   Created: 2020/01/27 10:23:23 by pmartins          #+#    #+#             */
+/*   Updated: 2020/11/02 14:00:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "ft_printf.h"
+#include "ft_printf.two.h"
 
-void	ft_putstr(char *s,  bdr *star)
+char	*ft_strdup(const char *src)
 {
-	int i;
+	int		i;
+	int		j;
+	char	*ptr;
 
-	i = 0;
-	while (s && s[i] != '\0')
+	j = 0;
+	i = ft_strlen((char*)src);
+	if (!(ptr = malloc(sizeof(char) * i + 1)))
+		return (0);
+	while (j < i)
 	{
-		write(1, &s[i], 1);
-		i++;
-		star->count = star->count +1;
+		ptr[j] = src[j];
+		j++;
 	}
+	ptr[j] = '\0';
+	return (ptr);
 }

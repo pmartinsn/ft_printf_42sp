@@ -6,13 +6,14 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 10:44:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/30 18:42:23 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/02 13:59:47 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_printf.two.h"
 
-char			*ft_itoa_base(size_t nb, int base, char updown/*, bdr *star*/)
+char			*ft_itoa_base(size_t nb, int base, char updown)
 {
 	int				cont_num;
 	size_t			aux;
@@ -26,7 +27,7 @@ char			*ft_itoa_base(size_t nb, int base, char updown/*, bdr *star*/)
 	if (!str)
 		return (NULL);
 	str[cont_num--] = '\0';
-	while(cont_num >= 0)
+	while (cont_num >= 0)
 	{
 		if ((nb % base) < 10)
 			str[cont_num] = (nb % base) + '0';

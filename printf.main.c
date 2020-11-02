@@ -6,11 +6,12 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/10/30 16:23:57 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:01:31 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./src/ft_printf.h"
+#include "ft_printf.h"
+#include "ft_printf.two.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>

@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   print_while.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/27 10:23:23 by pmartins          #+#    #+#             */
-/*   Updated: 2020/09/13 12:20:51 by pmartins         ###   ########.fr       */
+/*   Created: 2020/10/30 16:40:00 by pmartins          #+#    #+#             */
+/*   Updated: 2020/11/02 14:18:19 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_printf.two.h"
 
-char	*ft_strdup(const char *src)
+void	print_while(const char *fmt, int *aux, t_bdr *star)
 {
-	int		i;
-	int		j;
-	char	*ptr;
-
-	j = 0;
-	i = ft_strlen((char*)src);
-	if (!(ptr = malloc(sizeof(char) * i + 1)))
-		return (0);
-	while (j < i)
+	while (fmt[*aux] != '%' && fmt[*aux] != '\0')
 	{
-		ptr[j] = src[j];
-		j++;
+		ft_putchar(fmt[*aux], &*star);
+		*aux = *aux + 1;
 	}
-	ptr[j] = '\0';
-	return (ptr);
 }
