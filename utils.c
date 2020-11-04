@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/02 14:20:12 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 10:27:21 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 {
-	int	i;
+	char	*tbv;
+	int		i;
 
+	tbv = malloc(*aux * 3);
 	*aux = *aux + 1;
 	if (fmt[*aux] == '0')
 		*aux = *aux + 1;
@@ -32,24 +34,7 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 			i++;
 		}
 	}
-}
-
-void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
-{
-	if ((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
-	{
-		no_flags(fmt, &*aux, &*star);
-	}
-	if (fmt[*aux] == '.')
-	{
-		*aux = *aux + 1;
-		dealing_precision(fmt, &*aux, &*star);
-	}
-	if (fmt[*aux] == '*')
-	{
-		*aux = *aux + 1;
-		dealing_width_m(fmt, &*aux, &*star);
-	}
+	free(tbv);
 }
 
 void	dealing_width_two(const char *fmt, int *aux, t_bdr *star)
@@ -98,4 +83,24 @@ char	*converter(char *tobeconv, const char *fmt, int *aux)
 		}
 	}
 	return (tobeconv);
+}
+
+void	print_per_minwnbr(char *tbv, t_bdr *star)
+{
+	int j;
+	int help;
+
+	j = 0;
+	help = 0;
+	j = ft_atoi(tbv);
+	ft_putchar('%', &*star);
+	if (j < 1)
+		j = 1;
+	else
+		j = j - 1;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
 }

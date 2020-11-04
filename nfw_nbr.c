@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:27:23 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/02 14:32:44 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 09:07:49 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,13 @@ void	verify_nfw_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 		print_u_wnumb(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	else if (fmt[*aux] == 'x')
+	else
+		vry_nfw_three(tobeconv, fmt, &*aux, &*star);
+}
+
+void	vry_nfw_three(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
+{
+	if (fmt[*aux] == 'x')
 	{
 		*aux = *aux + 1;
 		print_x_wnumb(tobeconv, &*star);
@@ -61,6 +67,12 @@ void	verify_nfw_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		print_xx_wnumb(tobeconv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+	else if (fmt[*aux] == '%')
+	{
+		*aux = *aux + 1;
+		print_per_wnbr(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
 }
