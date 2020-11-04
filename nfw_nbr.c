@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:27:23 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 09:07:49 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 16:56:55 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,28 @@ void	vry_nfw_three(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 	else if (fmt[*aux] == '%')
 	{
 		*aux = *aux + 1;
-		print_per_wnbr(tobeconv, &*star);
+		pri_per_wnbr(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
+	else
+		vry_nfw_four(tobeconv, fmt, &*aux, &*star);
+}
+
+void	vry_nfw_four(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
+{
+	char	*tbv;
+
+	tbv = malloc(*aux * 3);
+	if (fmt[*aux] == '.')
+	{
+		*aux = *aux + 1;
+		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+			tbv = converter(tbv, fmt, &*aux);
+		*aux = *aux + 1;
+		pri_pre_wnbr(tobeconv, tbv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+	free(tbv);
 }
 
 void	nfw_nbr(const char *fmt, int *aux, t_bdr *star)

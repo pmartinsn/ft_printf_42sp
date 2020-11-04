@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 11:02:24 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 15:53:06 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,16 @@ int		find_number_value(char *tobeconv, t_bdr *star);
 int		print_u_noflag(t_bdr *star);
 int		print_char_noflag(t_bdr *star);
 void	print_per_minwnbr(char *tbv, t_bdr *star);
-void	print_per_wnbr(char *tbv, t_bdr *star);
 void	vry_nfw_three(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 void	print_per_zero(char *tbv, t_bdr *star);
 void	print_per_m(char *tbv, t_bdr *star);
-//void	dealing_per_m(const char *fmt, int *aux, t_bdr *star);
+void	pri_pre_wnbr(char *tbv, char *tbvv, t_bdr *star);
+void	print_per_m(char *tbv, t_bdr *star);
+void	print_per_wnbr(char *tbv, t_bdr *star);
+void	pri_per_wnbr(char *tbv, t_bdr *star);
+void	pri_per_zerownbr(char *tbv, t_bdr *star);
+void	vry_nfw_four(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
+void	pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star);
+void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star);
 
 #endif

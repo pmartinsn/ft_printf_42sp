@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/02 14:01:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 16:52:40 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,73 +18,93 @@
 #include <stdlib.h>
 
 int	ft_printf(const char *fmt, ...);
-
-
-
-
-
 int main()
 {
-	int 			return_printf= 0;
-	int 			return_ft_printf= 0;
+	//int 	return_printf = 0;
+	//int 	return_ft_printf = 0;
+	char 			bob[] = "bombastic";
+	   //    printf("String teste:%%5%%\n");
+		//	 return_printf = printf("%5%");
+      // return_ft_printf =
+	ft_printf("%.5s\n", bob);
+	ft_printf("%5s\n", bob);
+	ft_printf("%-5s\n", bob);
+	ft_printf("%.3s\n", bob);
+	ft_printf("%7.5s\n", bob);
+	
+}
+	//printf("...return_printf:%i\n", return_printf);
+	//printf("return_ft_printf:%i\n", return_ft_printf);
+	// printf("String teste:%%-5%%\n");
+	// return_printf = printf("%-5%");
+       //return_ft_printf = 
+	 //  ft_printf("%-5%");
+	/*printf("...return_printf:%i\n", return_printf);
+	printf("return_ft_printf:%i\n", return_ft_printf);
+}*/
+/*	
 	unsigned int 	numero = 243;
 	int				nbr = 64;
 	unsigned int 	hexa = 22222;
-//	char 			bob[] = "won";
+	
 	char 			nan[] = "12345";
 	char 			jan[] = "ABCDE";
 	char 			limit[] ="help";
 	char 			h = 'h';
 	int				duo = 18;
-	char 			*test = "teste";
-
-			 return_printf = printf("%-*d.....lllll%-*.0i%-*.0s%-*.0x%-*c.%-*p%-*.0udxX.llllAQ.AQ%.x.%.5X.%-x.%X..AQ%i.AQ%.d.%10c%s%.sAQ%.s\n",5,nbr, 5, numero, 15,jan,5, hexa,5,h,24,&test,5, numero,hexa, hexa,  hexa, hexa ,hexa, hexa,h, jan, jan, jan);
-       return_ft_printf = ft_printf("%-*d.....lllll%-*.0i%-*.0s%-*.0x%-*c.%-*p%-*.0udxX.llllAQ.AQ%.x.%.5X.%-x.%X..AQ%i.AQ%.d.%10c%s%.sAQ%.s\n",5,nbr, 5, numero, 15,jan,5,hexa,5,h,24,&test,5, numero,hexa, hexa,  hexa, hexa , hexa, hexa,h, jan, jan, jan);
+	char 			*test = "teste";*/
+	
+    /*         printf("String teste:%%-*\n");
+			 return_printf = printf("%*d%*.0i%*.0s%*.0x%*c.%*p%*.0u%.x.%.5X.%x\n",5,nbr, 5, numero, 15,jan,5, hexa,5,h,24,&test,5, numero,hexa, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-*d%-*.0i%-*.0s%-*.0x%-*c.%-*p%-*.0u%.x.%.5X.%-x\n",5,nbr, 5, numero, 15,jan,5, hexa,5,h,24,&test,5, numero,hexa, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-		     return_printf = printf("%-.3icdxX111...%-5i...%-3i....%-s%-20s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",duo,nbr, nbr, nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
-       return_ft_printf = ft_printf("%-.3icdxX111...%-5i...%-3i....%-s%-20s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
+	printf("String teste:%%-3\n");
+		     return_printf = printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-
-		 return_printf = printf("%-5x%5c.%-15p.%-10u.%-5x.%.5X.%-x.%X..%-x.%-X.%20c\n",hexa,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
-   return_ft_printf = ft_printf("%-5x%5c.%-15p.%-10u.%-5x.%.5X.%-x.%X..%-x.%-X.%20c\n",hexa,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
+	printf("String teste:%%3\n");
+		     return_printf = printf("%3i%2s%2c.%2p.%2u.%2x.%2X.%2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%3i%2s%2c.%2p.%2u.%2x.%2X.%2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-					      return_printf = printf("%i%i%-i%-i%-i\n",nbr, nbr,duo,nbr, nbr);
-	                return_ft_printf = ft_printf("%i%i%-i%-i%-i\n",nbr, nbr,duo,nbr, nbr);
+	printf("String teste:%%-03\n");
+		     return_printf = printf("%-03i%-02s%-02c.%-02p.%-02u.%-02x.%-02X.%-02d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-03i%-02s%-02c.%-02p.%-02u.%-02x.%-02X.%-02d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-				      return_printf = printf("%i%s%-s%-i%-i%-i\n",nbr,jan, jan,duo,nbr, nbr);
-	        return_ft_printf = ft_printf("%i%s%-s%-i%-i%-i\n", nbr, jan, jan, duo, nbr, nbr);
+	printf("String teste:%%-0.\n");
+		     return_printf = printf("%-0.3i%-0.2s%-0.2c.%-0.2p.%-0.2u.%-0.2x.%-0.2X.%-0.2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-.03i%-0.2s%-0.2c.%-0.2p.%-0.2u.%-0.2x.%-0.2X.%-0.2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-			      return_printf = printf("%i%s%-s%-i%-i%-i\n",nbr,jan, jan,duo,nbr, nbr);
-	        return_ft_printf = ft_printf("%i%s%-s%-i%-i%-i\n", nbr, jan, jan, duo, nbr, nbr);
+		printf("String teste:%%-0.\n");
+		     return_printf = printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-		      return_printf = printf("%-s%c%-c%-i%-i%-i%s%s\n",jan,h,h,duo,nbr, nbr, nan,jan);
-	    return_ft_printf = ft_printf("%-s%c%-c%-i%-i%-i%s%s\n",jan,h,h,duo,nbr, nbr,nan,jan );
+		     return_printf = printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-
-				 return_printf = printf("%u\n",numero);
-	       return_ft_printf = ft_printf("%u\n",numero);
+		     return_printf = printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-				 return_printf = printf("%X\n",hexa);
-	       return_ft_printf = ft_printf("%X\n",hexa);
+		     return_printf = printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-				     return_printf = printf("%x\n",hexa);
-	       return_ft_printf = ft_printf("%x\n",hexa);
+		     return_printf = printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-			     return_printf = printf("%-p\n",&test);
-	       return_ft_printf = ft_printf("%-p\n",&test);
+		     return_printf = printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
+       return_ft_printf = ft_printf("%-3i%-2s%-2c.%-2p.%-2u.%-2x.%-2X.%-2d\n", nbr, jan, h, &test, numero, hexa, hexa, hexa);
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-				     return_printf = printf("%%\n");
+				  return_printf = printf("%%\n");
 	       return_ft_printf = ft_printf("%%\n");
 	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
@@ -150,11 +170,11 @@ printf("XXXXXXXXXXXXXXreturn_ft_printf:%i\n", return_ft_printf);
 	     return_printf = printf("%-5c%-c%-c%-5i111.%-5i.%-i.%-s%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,h,h,duo,nbr, nbr, nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa ,hexa, hexa,h);
    return_ft_printf = ft_printf("%-5c%-c%-c%-5i111.%-5i.%-i.%-s%-s.%-s.%-i.%-c.%-p.%-u.%-x.%-X.%-x.%X..%-x.%-X.%-c\n",h,h,h,duo,nbr, nbr,nan,jan,limit,nbr,h,&test, numero, hexa, hexa,  hexa, hexa , hexa, hexa,h);
 	printf("...return_printf:%i\n", return_printf);
-	printf("return_ft_printf:%i\n", return_ft_printf);
+	printf("return_ft_printf:%i\n", return_ft_printf);*/
 
 			  
 			//printf("\nthis is the RETURN of ft_printf:%i\n", test);
-}
+//}
 
 /*int	print_x_noflag( bdr *star)
 {

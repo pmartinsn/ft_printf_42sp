@@ -1,0 +1,2869 @@
+WARNING: The return values reported here may be bugged on some systems.
+          See https://github.com/gavinfielder/pft/issues/11
+          Run in non-fork mode (-X) to ensure accurate return value
+          reporting, set IGNORE_RETURN_VALUE=1 in options-config.ini,
+          or run test_pipes.sh to see if your system has this bug.
+          This bug does not affect the pass/fail result of a test, nor
+          the function output--only the reported return value.
+
+
+Test   7 (pct_5w) : FAILED.
+    First line of code: {return test("%5%");}
+      expected return value : 5
+      your return value     : 0
+      expected output : "    %"
+      your output     : ""
+      expected (nonprintable as hex) : "    %"
+      actual   (nonprintable as hex) : ""
+
+Test   8 (pct_5wlj) : FAILED.
+    First line of code: {return test("%-5%");}
+      expected return value : 5
+      your return value     : 0
+      expected output : "%    "
+      your output     : ""
+      expected (nonprintable as hex) : "%    "
+      actual   (nonprintable as hex) : ""
+
+Test   9 (pct_5wzp) : FAILED.
+    First line of code: {return test("%05%");}
+      expected return value : 5
+      your return value     : 0
+      expected output : "0000%"
+      your output     : ""
+      expected (nonprintable as hex) : "0000%"
+      actual   (nonprintable as hex) : ""
+
+Test  10 (pct_5wljzp) : FAILED.
+    First line of code: {return test("%-05%");}
+      expected return value : 5
+      your return value     : 0
+      expected output : "%    "
+      your output     : ""
+      expected (nonprintable as hex) : "%    "
+      actual   (nonprintable as hex) : ""
+
+Test  26 (s_space_padded_over_field_width) : FAILED.
+    First line of code: {return test("%5s", "goes over");}
+      expected return value : 9
+      your return value     : 19
+      expected output : "goes over"
+      your output     : "         goes over"
+      expected (nonprintable as hex) : "goes over"
+      actual   (nonprintable as hex) : "         goes over"
+
+Test  29 (s_space_padded_over_field_width_lj) : FAILED.
+    First line of code: {return test("%-5s", "goes over");}
+      expected return value : 9
+      your return value     : 19
+      expected output : "goes over"
+      your output     : "goes over         "
+      expected (nonprintable as hex) : "goes over"
+      actual   (nonprintable as hex) : "goes over         "
+
+Test  31 (s_string_prec_trunc) : FAILED.
+    First line of code: {return test("%.3s", "hello");}
+      expected return value : 3
+      your return value     : 5
+      expected output : "hel"
+      your output     : "hello"
+      expected (nonprintable as hex) : "hel"
+      actual   (nonprintable as hex) : "hello"
+
+Test  34 (s_two_strings_prec_2trunc) : FAILED.
+    First line of code: {return test("%.3s%.2s", "holla", "bitch");}
+      expected return value : 5
+      your return value     : 11
+      expected output : "holbi"
+      your output     : "hollabitch"
+      expected (nonprintable as hex) : "holbi"
+      actual   (nonprintable as hex) : "hollabitch"
+
+Test  35 (s_two_strings_prec_1trunc_a) : FAILED.
+    First line of code: {return test("%.2s%.7s", "hello", "world");}
+      expected return value : 7
+      your return value     : 11
+      expected output : "heworld"
+      your output     : "helloworld"
+      expected (nonprintable as hex) : "heworld"
+      actual   (nonprintable as hex) : "helloworld"
+
+Test  36 (s_two_strings_prec_1trunc_b) : FAILED.
+    First line of code: {return test("%.7s%.2s", "hello", "world");}
+      expected return value : 7
+      your return value     : 11
+      expected output : "hellowo"
+      your output     : "helloworld"
+      expected (nonprintable as hex) : "hellowo"
+      actual   (nonprintable as hex) : "helloworld"
+
+Test  38 (s_string_prec_width_notrunc) : FAILED.
+    First line of code: {return test("%7.5s", "yolo");}
+      expected return value : 7
+      your return value     : 3
+      expected output : "   yolo"
+      your output     : ".5s"
+      expected (nonprintable as hex) : "   yolo"
+      actual   (nonprintable as hex) : ".5s"
+
+Test  39 (s_string_prec_width_trunc) : FAILED.
+    First line of code: {return test("%7.5s", "bombastic");}
+      expected return value : 7
+      your return value     : 3
+      expected output : "  bomba"
+      your output     : ".5s"
+      expected (nonprintable as hex) : "  bomba"
+      actual   (nonprintable as hex) : ".5s"
+	  //feito até aqui
+	  	BOTAR UMA CAIIIIIIXAAAALAAATAAA QUIIIII
+
+Test  40 (s_string_prec_width_notrunc_lj) : FAILED.
+    First line of code: {return test("%-7.5s", "yolo");}
+      expected return value : 7
+      your return value     : 3
+      expected output : "yolo   "
+      your output     : ".5s"
+      expected (nonprintable as hex) : "yolo   "
+      actual   (nonprintable as hex) : ".5s"
+
+Test  41 (s_string_prec_width_trunc_lj) : FAILED.
+    First line of code: {return test("%-7.5s", "tubular");}
+      expected return value : 7
+      your return value     : 3
+      expected output : "tubul  "
+      your output     : ".5s"
+      expected (nonprintable as hex) : "tubul  "
+      actual   (nonprintable as hex) : ".5s"
+
+Test  42 (s_two_s_prec_width_2fit_0trunc) : FAILED.
+    First line of code: {return test("%7.7s%7.7s", "hello", "world");}
+      expected return value : 15
+      your return value     : 6
+      expected output : "  hello  world"
+      your output     : ".7s.7s"
+      expected (nonprintable as hex) : "  hello  world"
+      actual   (nonprintable as hex) : ".7s.7s"
+
+Test  43 (s_two_s_prec_width_1fit_a_0trunc) : FAILED.
+    First line of code: {return test("%3.7s%7.7s", "hello", "world");}
+      expected return value : 13
+      your return value     : 6
+      expected output : "hello  world"
+      your output     : ".7s.7s"
+      expected (nonprintable as hex) : "hello  world"
+      actual   (nonprintable as hex) : ".7s.7s"
+
+Test  44 (s_two_s_prec_width_1fit_b_0trunc) : FAILED.
+    First line of code: {return test("%7.7s%3.7s", "hello", "world");}
+      expected return value : 13
+      your return value     : 6
+      expected output : "  helloworld"
+      your output     : ".7s.7s"
+      expected (nonprintable as hex) : "  helloworld"
+      actual   (nonprintable as hex) : ".7s.7s"
+
+Test  45 (s_two_s_prec_width_0fit_0trunc) : FAILED.
+    First line of code: {return test("%3.7s%3.7s", "hello", "world");}
+      expected return value : 11
+      your return value     : 6
+      expected output : "helloworld"
+      your output     : ".7s.7s"
+      expected (nonprintable as hex) : "helloworld"
+      actual   (nonprintable as hex) : ".7s.7s"
+
+Test  46 (s_two_s_prec_width_2fit_1trunc_a) : FAILED.
+    First line of code: {return test("%7.3s%7.7s", "hello", "world");}
+      expected return value : 15
+      your return value     : 6
+      expected output : "    hel  world"
+      your output     : ".3s.7s"
+      expected (nonprintable as hex) : "    hel  world"
+      actual   (nonprintable as hex) : ".3s.7s"
+
+Test  47 (s_two_s_prec_width_1fit_a_1trunc_a) : FAILED.
+    First line of code: {return test("%3.3s%7.7s", "hello", "world");}
+      expected return value : 11
+      your return value     : 6
+      expected output : "hel  world"
+      your output     : ".3s.7s"
+      expected (nonprintable as hex) : "hel  world"
+      actual   (nonprintable as hex) : ".3s.7s"
+
+Test  48 (s_two_s_prec_width_1fit_b_1trunc_a) : FAILED.
+    First line of code: {return test("%7.3s%3.7s", "hello", "world");}
+      expected return value : 13
+      your return value     : 6
+      expected output : "    helworld"
+      your output     : ".3s.7s"
+      expected (nonprintable as hex) : "    helworld"
+      actual   (nonprintable as hex) : ".3s.7s"
+
+Test  49 (s_two_s_prec_width_0fit_1trunc_a) : FAILED.
+    First line of code: {return test("%3.3s%3.7s", "hello", "world");}
+      expected return value : 8
+      your return value     : 6
+      expected output : "helworld"
+      your output     : ".3s.7s"
+      expected (nonprintable as hex) : "helworld"
+      actual   (nonprintable as hex) : ".3s.7s"
+
+Test  50 (s_two_s_prec_width_2fit_1trunc_b) : FAILED.
+    First line of code: {return test("%7.7s%7.3s", "hello", "world");}
+      expected return value : 15
+      your return value     : 6
+      expected output : "  hello    wor"
+      your output     : ".7s.3s"
+      expected (nonprintable as hex) : "  hello    wor"
+      actual   (nonprintable as hex) : ".7s.3s"
+
+Test  51 (s_two_s_prec_width_1fit_a_1trunc_b) : FAILED.
+    First line of code: {return test("%3.7s%7.3s", "hello", "world");}
+      expected return value : 13
+      your return value     : 6
+      expected output : "hello    wor"
+      your output     : ".7s.3s"
+      expected (nonprintable as hex) : "hello    wor"
+      actual   (nonprintable as hex) : ".7s.3s"
+
+Test  52 (s_two_s_prec_width_1fit_b_1trunc_b) : FAILED.
+    First line of code: {return test("%7.7s%3.3s", "hello", "world");}
+      expected return value : 11
+      your return value     : 6
+      expected output : "  hellowor"
+      your output     : ".7s.3s"
+      expected (nonprintable as hex) : "  hellowor"
+      actual   (nonprintable as hex) : ".7s.3s"
+
+Test  53 (s_two_s_prec_width_0fit_1trunc_b) : FAILED.
+    First line of code: {return test("%3.7s%3.3s", "hello", "world");}
+      expected return value : 8
+      your return value     : 6
+      expected output : "hellowor"
+      your output     : ".7s.3s"
+      expected (nonprintable as hex) : "hellowor"
+      actual   (nonprintable as hex) : ".7s.3s"
+
+Test  54 (s_two_s_prec_width_2fit_2trunc) : FAILED.
+    First line of code: {return test("%7.3s%7.3s", "hello", "world");}
+      expected return value : 15
+      your return value     : 6
+      expected output : "    hel    wor"
+      your output     : ".3s.3s"
+      expected (nonprintable as hex) : "    hel    wor"
+      actual   (nonprintable as hex) : ".3s.3s"
+
+Test  55 (s_two_s_prec_width_1fit_a_2trunc) : FAILED.
+    First line of code: {return test("%3.3s%7.3s", "hello", "world");}
+      expected return value : 11
+      your return value     : 6
+      expected output : "hel    wor"
+      your output     : ".3s.3s"
+      expected (nonprintable as hex) : "hel    wor"
+      actual   (nonprintable as hex) : ".3s.3s"
+
+Test  56 (s_two_s_prec_width_1fit_b_2trunc) : FAILED.
+    First line of code: {return test("%7.3s%3.3s", "hello", "world");}
+      expected return value : 11
+      your return value     : 6
+      expected output : "    helwor"
+      your output     : ".3s.3s"
+      expected (nonprintable as hex) : "    helwor"
+      actual   (nonprintable as hex) : ".3s.3s"
+
+Test  57 (s_two_s_prec_width_0fit_2trunc) : FAILED.
+    First line of code: {return test("%3.3s%3.3s", "hello", "world");}
+      expected return value : 6
+      your return value     : 6
+      expected output : "helwor"
+      your output     : ".3s.3s"
+      expected (nonprintable as hex) : "helwor"
+      actual   (nonprintable as hex) : ".3s.3s"
+
+Test  58 (s_two_s_prec_width_2trunc) : FAILED.
+    First line of code: {return test("%3s%3s", "hello", "world");}
+      expected return value : 11
+      your return value     : 22
+      expected output : "helloworld"
+      your output     : "     hello     world"
+      expected (nonprintable as hex) : "helloworld"
+      actual   (nonprintable as hex) : "     hello     world"
+
+Test  61 (s_null_basic_string_expansion) : FAILED.
+    First line of code: {return test("hello, %s.", NULL);}
+    SEGFAULT
+
+Test  62 (s_null_only_string_expansion) : FAILED.
+    First line of code: {return test("%s", NULL);}
+    SEGFAULT
+
+Test  63 (s_null_space_padded_field_width) : FAILED.
+    First line of code: {return test("%32s", NULL);}
+    SEGFAULT
+
+Test  64 (s_null_space_padded_over_field_width) : FAILED.
+    First line of code: {return test("%2s", NULL);}
+    SEGFAULT
+
+Test  65 (s_null_space_padded_field_width_lj) : FAILED.
+    First line of code: {return test("%-32s", NULL);}
+    SEGFAULT
+
+Test  66 (s_null_space_padded_field_width2_lj) : FAILED.
+    First line of code: {return test("%-16s", NULL);}
+    SEGFAULT
+
+Test  67 (s_null_space_padded_over_field_width_lj) : FAILED.
+    First line of code: {return test("%-3s", NULL);}
+    SEGFAULT
+
+Test  69 (s_null_string_prec_trunc) : FAILED.
+    First line of code: {return test("%.3s", "NULL");}
+      expected return value : 3
+      your return value     : 4
+      expected output : "NUL"
+      your output     : "NULL"
+      expected (nonprintable as hex) : "NUL"
+      actual   (nonprintable as hex) : "NULL"
+
+Test  73 (s_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%3s", s_hidden);}
+      expected return value : 6
+      your return value     : 13
+      expected output : "hi low"
+      your output     : "      hi low"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : "      hi low"
+
+Test  77 (s_prec_03_no_width_s_hidden) : FAILED.
+    First line of code: {return test("%.03s", s_hidden);}
+      expected return value : 3
+      your return value     : 0
+      expected output : "hi "
+      your output     : ""
+      expected (nonprintable as hex) : "hi "
+      actual   (nonprintable as hex) : ""
+
+Test  78 (s_prec_09_no_width_s_hidden) : FAILED.
+    First line of code: {return test("%.09s", s_hidden);}
+      expected return value : 6
+      your return value     : 0
+      expected output : "hi low"
+      your output     : ""
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : ""
+
+Test  79 (s_prec_03_no_width_s_null) : FAILED.
+    First line of code: {return test("%.03s", NULL);}
+      expected return value : 3
+      your return value     : 0
+      expected output : "(nu"
+      your output     : ""
+      expected (nonprintable as hex) : "(nu"
+      actual   (nonprintable as hex) : ""
+
+Test  80 (s_prec_09_no_width_s_null) : FAILED.
+    First line of code: {return test("%.09s", NULL);}
+      expected return value : 6
+      your return value     : 0
+      expected output : "(null)"
+      your output     : ""
+      expected (nonprintable as hex) : "(null)"
+      actual   (nonprintable as hex) : ""
+
+Test  85 (s_prec_0_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%3.s", s_hidden);}
+      expected return value : 3
+      your return value     : 2
+      expected output : "   "
+      your output     : ".s"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : ".s"
+
+Test  86 (s_prec_0_width_10_s_hidden) : FAILED.
+    First line of code: {return test("%10.s", s_hidden);}
+      expected return value : 11
+      your return value     : 2
+      expected output : "          "
+      your output     : ".s"
+      expected (nonprintable as hex) : "          "
+      actual   (nonprintable as hex) : ".s"
+
+Test  87 (s_prec_0_width_3_s_null) : FAILED.
+    First line of code: {return test("%3.s", NULL);}
+      expected return value : 3
+      your return value     : 2
+      expected output : "   "
+      your output     : ".s"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : ".s"
+
+Test  88 (s_prec_0_width_10_s_null) : FAILED.
+    First line of code: {return test("%10.s", NULL);}
+      expected return value : 11
+      your return value     : 2
+      expected output : "          "
+      your output     : ".s"
+      expected (nonprintable as hex) : "          "
+      actual   (nonprintable as hex) : ".s"
+
+Test  89 (s_prec_0_width_1_s_nullchar) : FAILED.
+    First line of code: {return test("%1.s", "
+      expected return value : 1
+      your return value     : 2
+      expected output : " "
+      your output     : ".s"
+      expected (nonprintable as hex) : " "
+      actual   (nonprintable as hex) : ".s"
+
+Test  90 (s_prec_0_width_2_s_nullchar) : FAILED.
+    First line of code: {return test("%2.s", "
+      expected return value : 2
+      your return value     : 2
+      expected output : "  "
+      your output     : ".s"
+      expected (nonprintable as hex) : "  "
+      actual   (nonprintable as hex) : ".s"
+
+Test  91 (s_prec_0_width_9_s_nullchar) : FAILED.
+    First line of code: {return test("%9.s", "
+      expected return value : 9
+      your return value     : 2
+      expected output : "         "
+      your output     : ".s"
+      expected (nonprintable as hex) : "         "
+      actual   (nonprintable as hex) : ".s"
+
+Test  92 (s_prec_0_lj_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%-3.s", s_hidden);}
+      expected return value : 3
+      your return value     : 2
+      expected output : "   "
+      your output     : ".s"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : ".s"
+
+Test  93 (s_prec_0_lj_width_8_s_hidden) : FAILED.
+    First line of code: {return test("%-8.s", s_hidden);}
+      expected return value : 8
+      your return value     : 2
+      expected output : "        "
+      your output     : ".s"
+      expected (nonprintable as hex) : "        "
+      actual   (nonprintable as hex) : ".s"
+
+Test  94 (s_prec_0_lj_width_3_s_null) : FAILED.
+    First line of code: {return test("%-3.s", NULL);}
+      expected return value : 3
+      your return value     : 2
+      expected output : "   "
+      your output     : ".s"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : ".s"
+
+Test  95 (s_prec_0_lj_width_8_s_null) : FAILED.
+    First line of code: {return test("%-8.s", NULL);}
+      expected return value : 8
+      your return value     : 2
+      expected output : "        "
+      your output     : ".s"
+      expected (nonprintable as hex) : "        "
+      actual   (nonprintable as hex) : ".s"
+
+Test  96 (s_prec_0_lj_width_1_s_nullchar) : FAILED.
+    First line of code: {return test("%-1.s", "
+      expected return value : 1
+      your return value     : 2
+      expected output : " "
+      your output     : ".s"
+      expected (nonprintable as hex) : " "
+      actual   (nonprintable as hex) : ".s"
+
+Test  97 (s_prec_0_lj_width_2_s_nullchar) : FAILED.
+    First line of code: {return test("%-2.s", "
+      expected return value : 2
+      your return value     : 2
+      expected output : "  "
+      your output     : ".s"
+      expected (nonprintable as hex) : "  "
+      actual   (nonprintable as hex) : ".s"
+
+Test  98 (s_prec_0_lj_width_6_s_nullchar) : FAILED.
+    First line of code: {return test("%-6.s", "
+      expected return value : 6
+      your return value     : 2
+      expected output : "      "
+      your output     : ".s"
+      expected (nonprintable as hex) : "      "
+      actual   (nonprintable as hex) : ".s"
+
+Test  99 (s_prec_1_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%3.1s", s_hidden);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "  h"
+      your output     : ".1s"
+      expected (nonprintable as hex) : "  h"
+      actual   (nonprintable as hex) : ".1s"
+
+Test 100 (s_prec_1_width_10_s_hidden) : FAILED.
+    First line of code: {return test("%10.1s", s_hidden);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "         h"
+      your output     : ".1s"
+      expected (nonprintable as hex) : "         h"
+      actual   (nonprintable as hex) : ".1s"
+
+Test 101 (s_prec_1_width_3_s_null) : FAILED.
+    First line of code: {return test("%3.1s", NULL);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "  ("
+      your output     : ".1s"
+      expected (nonprintable as hex) : "  ("
+      actual   (nonprintable as hex) : ".1s"
+
+Test 102 (s_prec_1_width_9_s_null) : FAILED.
+    First line of code: {return test("%9.1s", NULL);}
+      expected return value : 9
+      your return value     : 3
+      expected output : "        ("
+      your output     : ".1s"
+      expected (nonprintable as hex) : "        ("
+      actual   (nonprintable as hex) : ".1s"
+
+Test 103 (s_prec_1_lj_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%-3.1s", s_hidden);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "h  "
+      your output     : ".1s"
+      expected (nonprintable as hex) : "h  "
+      actual   (nonprintable as hex) : ".1s"
+
+Test 104 (s_prec_1_lj_width_10_s_hidden) : FAILED.
+    First line of code: {return test("%-10.1s", s_hidden);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "h         "
+      your output     : ".1s"
+      expected (nonprintable as hex) : "h         "
+      actual   (nonprintable as hex) : ".1s"
+
+Test 105 (s_prec_1_lj_width_3_s_null) : FAILED.
+    First line of code: {return test("%-3.1s", NULL);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "(  "
+      your output     : ".1s"
+      expected (nonprintable as hex) : "(  "
+      actual   (nonprintable as hex) : ".1s"
+
+Test 106 (s_prec_1_lj_width_9_s_null) : FAILED.
+    First line of code: {return test("%-9.1s", NULL);}
+      expected return value : 9
+      your return value     : 3
+      expected output : "(        "
+      your output     : ".1s"
+      expected (nonprintable as hex) : "(        "
+      actual   (nonprintable as hex) : ".1s"
+
+Test 107 (s_prec_1_lj_width_3_s_nullchar) : FAILED.
+    First line of code: {return test("%-3.1s", "
+      expected return value : 3
+      your return value     : 3
+      expected output : "   "
+      your output     : ".1s"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : ".1s"
+
+Test 108 (s_prec_1_lj_width_6_s_nullchar) : FAILED.
+    First line of code: {return test("%-6.1s", "
+      expected return value : 6
+      your return value     : 3
+      expected output : "      "
+      your output     : ".1s"
+      expected (nonprintable as hex) : "      "
+      actual   (nonprintable as hex) : ".1s"
+
+Test 109 (s_prec_perfect_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%3.6s", s_hidden);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "hi low"
+      your output     : ".6s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : ".6s"
+
+Test 110 (s_prec_perfect_width_20_s_hidden) : FAILED.
+    First line of code: {return test("%20.6s", s_hidden);}
+      expected return value : 22
+      your return value     : 3
+      expected output : "              hi low"
+      your output     : ".6s"
+      expected (nonprintable as hex) : "              hi low"
+      actual   (nonprintable as hex) : ".6s"
+
+Test 111 (s_prec_perfect_width_3_s_null) : FAILED.
+    First line of code: {return test("%3.6s", NULL);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "(null)"
+      your output     : ".6s"
+      expected (nonprintable as hex) : "(null)"
+      actual   (nonprintable as hex) : ".6s"
+
+Test 112 (s_prec_perfect_width_20_s_null) : FAILED.
+    First line of code: {return test("%20.6s", NULL);}
+      expected return value : 22
+      your return value     : 3
+      expected output : "              (null)"
+      your output     : ".6s"
+      expected (nonprintable as hex) : "              (null)"
+      actual   (nonprintable as hex) : ".6s"
+
+Test 113 (s_prec_perfect_width_3_s_nullchar) : FAILED.
+    First line of code: {return test("%3.6s", "
+      expected return value : 3
+      your return value     : 3
+      expected output : "   "
+      your output     : ".6s"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : ".6s"
+
+Test 114 (s_prec_perfect_width_6_s_nullchar) : FAILED.
+    First line of code: {return test("%6.6s", "
+      expected return value : 6
+      your return value     : 3
+      expected output : "      "
+      your output     : ".6s"
+      expected (nonprintable as hex) : "      "
+      actual   (nonprintable as hex) : ".6s"
+
+Test 115 (s_prec_perfect_lj_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%-3.6s", s_hidden);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "hi low"
+      your output     : ".6s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : ".6s"
+
+Test 116 (s_prec_perfect_lj_width_20_s_hidden) : FAILED.
+    First line of code: {return test("%-20.6s", s_hidden);}
+      expected return value : 22
+      your return value     : 3
+      expected output : "hi low              "
+      your output     : ".6s"
+      expected (nonprintable as hex) : "hi low              "
+      actual   (nonprintable as hex) : ".6s"
+
+Test 117 (s_prec_8_lj_width_3_s_hidden) : FAILED.
+    First line of code: {return test("%-3.8s", s_hidden);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "hi low"
+      your output     : ".8s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : ".8s"
+
+Test 118 (s_prec_8_lj_width_10_s_hidden) : FAILED.
+    First line of code: {return test("%-10.8s", s_hidden);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "hi low    "
+      your output     : ".8s"
+      expected (nonprintable as hex) : "hi low    "
+      actual   (nonprintable as hex) : ".8s"
+
+Test 119 (s_prec_8_lj_width_3_s_null) : FAILED.
+    First line of code: {return test("%-3.8s", NULL);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "(null)"
+      your output     : ".8s"
+      expected (nonprintable as hex) : "(null)"
+      actual   (nonprintable as hex) : ".8s"
+
+Test 120 (s_prec_8_lj_width_10_s_null) : FAILED.
+    First line of code: {return test("%-10.8s", NULL);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "(null)    "
+      your output     : ".8s"
+      expected (nonprintable as hex) : "(null)    "
+      actual   (nonprintable as hex) : ".8s"
+
+Test 122 (s_prec_09_lj_s_hidden_notrunc) : FAILED.
+    First line of code: {return test("%-.09s", s_hidden);}
+      expected return value : 6
+      your return value     : 0
+      expected output : "hi low"
+      your output     : ""
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : ""
+
+Test 123 (s_undefbehav_0_2zero) : FAILED.
+    First line of code: {return test("%00s", s_hidden);}
+      expected return value : 6
+      your return value     : 2
+      expected output : "hi low"
+      your output     : "0s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : "0s"
+
+Test 124 (s_undefbehav_0_3zero) : FAILED.
+    First line of code: {return test("%000s", s_hidden);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "hi low"
+      your output     : "00s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : "00s"
+
+Test 125 (s_undefbehav_0_4zero) : FAILED.
+    First line of code: {return test("%0000s", s_hidden);}
+      expected return value : 6
+      your return value     : 4
+      expected output : "hi low"
+      your output     : "000s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : "000s"
+
+Test 126 (s_undefbehav_0_lj_2zero) : FAILED.
+    First line of code: {return test("%-00s", s_hidden);}
+      expected return value : 6
+      your return value     : 2
+      expected output : "hi low"
+      your output     : "0s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : "0s"
+
+Test 127 (s_undefbehav_0_zero_lj_zero) : FAILED.
+    First line of code: {return test("%0-0s", s_hidden);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "hi low"
+      your output     : "-0s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : "-0s"
+
+Test 128 (s_undefbehav_0_2zero_lj) : FAILED.
+    First line of code: {return test("%00-s", s_hidden);}
+      expected return value : 6
+      your return value     : 3
+      expected output : "hi low"
+      your output     : "0-s"
+      expected (nonprintable as hex) : "hi low"
+      actual   (nonprintable as hex) : "0-s"
+
+Test 130 (s_undefbehav_0_width_9) : FAILED.
+    First line of code: {return test("%09s", s_hidden);}
+      expected return value : 9
+      your return value     : 6
+      expected output : "000hi low"
+      your output     : "hi low"
+      expected (nonprintable as hex) : "000hi low"
+      actual   (nonprintable as hex) : "hi low"
+
+Test 132 (s_undefbehav_lj_0_width_9) : FAILED.
+    First line of code: {return test("%-09s", s_hidden);}
+      expected return value : 9
+      your return value     : 6
+      expected output : "hi low   "
+      your output     : "hi low"
+      expected (nonprintable as hex) : "hi low   "
+      actual   (nonprintable as hex) : "hi low"
+
+Test 149 (i_width_pos_nofit) : FAILED.
+    First line of code: {return test("%4i", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "     94827"
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "     94827"
+
+Test 150 (i_width_neg_nofit) : FAILED.
+    First line of code: {return test("%4i", -2464);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-2464"
+      your output     : "     -2464"
+      expected (nonprintable as hex) : "-2464"
+      actual   (nonprintable as hex) : "     -2464"
+
+Test 156 (i_width_pos_nofit_lj) : FAILED.
+    First line of code: {return test("%-4i", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "94827     "
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "94827     "
+
+Test 157 (i_width_neg_nofit_lj) : FAILED.
+    First line of code: {return test("%-4i", -2464);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-2464"
+      your output     : "-2464     "
+      expected (nonprintable as hex) : "-2464"
+      actual   (nonprintable as hex) : "-2464     "
+
+Test 159 (i_prec_fits_neg) : FAILED.
+    First line of code: {return test("%.6i", -3);}
+      expected return value : 7
+      your return value     : 6
+      expected output : "-000003"
+      your output     : "0000-3"
+      expected (nonprintable as hex) : "-000003"
+      actual   (nonprintable as hex) : "0000-3"
+
+Test 162 (i_prec_exactfit_neg) : FAILED.
+    First line of code: {return test("%.4i", -2372);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-2372"
+      your output     : "00000-2372"
+      expected (nonprintable as hex) : "-2372"
+      actual   (nonprintable as hex) : "00000-2372"
+
+Test 163 (i_prec_nofit_pos) : FAILED.
+    First line of code: {return test("%.3i", 13862);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "13862"
+      your output     : "0000013862"
+      expected (nonprintable as hex) : "13862"
+      actual   (nonprintable as hex) : "0000013862"
+
+Test 164 (i_prec_nofit_neg) : FAILED.
+    First line of code: {return test("%.3i",-23646);}
+      expected return value : 6
+      your return value     : 13
+      expected output : "-23646"
+      your output     : "000000-23646"
+      expected (nonprintable as hex) : "-23646"
+      actual   (nonprintable as hex) : "000000-23646"
+
+Test 166 (i_zp_neg_fits) : FAILED.
+    First line of code: {return test("%07i", -54);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "-000054"
+      your output     : "0000-54"
+      expected (nonprintable as hex) : "-000054"
+      actual   (nonprintable as hex) : "0000-54"
+
+Test 170 (i_zp_neg_minus1fit) : FAILED.
+    First line of code: {return test("%04i", -4825);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-4825"
+      your output     : "00000-4825"
+      expected (nonprintable as hex) : "-4825"
+      actual   (nonprintable as hex) : "00000-4825"
+
+Test 171 (i_prec_width_fit_fit_pos) : FAILED.
+    First line of code: {return test("%8.5i", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00034"
+      your output     : ".5i"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : ".5i"
+
+Test 172 (i_prec_width_fit_fit_neg) : FAILED.
+    First line of code: {return test("%10.5i", -216);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "    -00216"
+      your output     : ".5i"
+      expected (nonprintable as hex) : "    -00216"
+      actual   (nonprintable as hex) : ".5i"
+
+Test 173 (i_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5i", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5i"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5i"
+
+Test 174 (i_prec_width_nofit_fit_pos) : FAILED.
+    First line of code: {return test("%8.3i", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    8375"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 175 (i_prec_width_nofit_fit_neg) : FAILED.
+    First line of code: {return test("%8.3i", -8473);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   -8473"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "   -8473"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 176 (i_prec_width_fit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.7i", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7i"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7i"
+
+Test 177 (i_prec_width_fit_nofit_neg) : FAILED.
+    First line of code: {return test("%3.7i", -2375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-0002375"
+      your output     : ".7i"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : ".7i"
+
+Test 178 (i_prec_width_nofit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.3i", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 179 (i_prec_width_nofit_nofit_neg) : FAILED.
+    First line of code: {return test("%3.3i", -8462);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "-8462"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 180 (i_prec_width_fit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.5i", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00034   "
+      your output     : ".5i"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : ".5i"
+
+Test 181 (i_prec_width_fit_fit_neg_lj) : FAILED.
+    First line of code: {return test("%-10.5i", -216);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "-00216    "
+      your output     : ".5i"
+      expected (nonprintable as hex) : "-00216    "
+      actual   (nonprintable as hex) : ".5i"
+
+Test 182 (i_prec_width_fit_fit_zero_lj) : FAILED.
+    First line of code: {return test("%-8.5i", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00000   "
+      your output     : ".5i"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : ".5i"
+
+Test 183 (i_prec_width_nofit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.3i", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "8375    "
+      your output     : ".3i"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : ".3i"
+
+Test 184 (i_prec_width_nofit_fit_neg_lj) : FAILED.
+    First line of code: {return test("%-8.3i", -8473);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-8473   "
+      your output     : ".3i"
+      expected (nonprintable as hex) : "-8473   "
+      actual   (nonprintable as hex) : ".3i"
+
+Test 185 (i_prec_width_fit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.7i", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7i"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7i"
+
+Test 186 (i_prec_width_fit_nofit_neg_lj) : FAILED.
+    First line of code: {return test("%-3.7i", -2375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-0002375"
+      your output     : ".7i"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : ".7i"
+
+Test 187 (i_prec_width_nofit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.3i", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 188 (i_prec_width_nofit_nofit_neg_lj) : FAILED.
+    First line of code: {return test("%-3.3i", -8462);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "-8462"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 189 (i_prec_width_ff_pos_zp) : FAILED.
+    First line of code: {return test("%08.5i", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00034"
+      your output     : ".5i"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : ".5i"
+
+Test 190 (i_prec_width_ff_neg_zp) : FAILED.
+    First line of code: {return test("%010.5i", -216);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "    -00216"
+      your output     : ".5i"
+      expected (nonprintable as hex) : "    -00216"
+      actual   (nonprintable as hex) : ".5i"
+
+Test 191 (i_prec_width_ff_zero_zp) : FAILED.
+    First line of code: {return test("%08.5i", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5i"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5i"
+
+Test 192 (i_prec_width_nf_pos_zp) : FAILED.
+    First line of code: {return test("%08.3i", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    8375"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 193 (i_prec_width_nf_neg_zp) : FAILED.
+    First line of code: {return test("%08.3i", -8473);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   -8473"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "   -8473"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 194 (i_prec_width_fn_pos_zp) : FAILED.
+    First line of code: {return test("%03.7i", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7i"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7i"
+
+Test 195 (i_prec_width_fn_neg_zp) : FAILED.
+    First line of code: {return test("%03.7i", -2375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-0002375"
+      your output     : ".7i"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : ".7i"
+
+Test 196 (i_prec_width_nn_pos_zp) : FAILED.
+    First line of code: {return test("%03.3i", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 197 (i_prec_width_nn_neg_zp) : FAILED.
+    First line of code: {return test("%03.3i", -8462);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "-8462"
+      your output     : ".3i"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : ".3i"
+
+Test 198 (i_prec_width_ff_pos_lj_zp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5i", 34);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00034   "
+      your output     : "-8.5i"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : "-8.5i"
+
+Test 199 (i_prec_width_ff_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-10.5i", -216);}
+      expected return value : 11
+      your return value     : 6
+      expected output : "-00216    "
+      your output     : "-10.5i"
+      expected (nonprintable as hex) : "-00216    "
+      actual   (nonprintable as hex) : "-10.5i"
+
+Test 200 (i_prec_width_ff_zero_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5i", 0);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00000   "
+      your output     : "-8.5i"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "-8.5i"
+
+Test 201 (i_prec_width_nf_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3i", 8375);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "8375    "
+      your output     : "-8.3i"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : "-8.3i"
+
+Test 202 (i_prec_width_nf_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3i", -8473);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "-8473   "
+      your output     : "-8.3i"
+      expected (nonprintable as hex) : "-8473   "
+      actual   (nonprintable as hex) : "-8.3i"
+
+Test 203 (i_prec_width_fn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.7i", 3267);}
+      expected return value : 7
+      your return value     : 5
+      expected output : "0003267"
+      your output     : "-3.7i"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "-3.7i"
+
+Test 204 (i_prec_width_fn_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.7i", -2375);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "-0002375"
+      your output     : "-3.7i"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : "-3.7i"
+
+Test 205 (i_prec_width_nn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3i", 6983);}
+      expected return value : 4
+      your return value     : 5
+      expected output : "6983"
+      your output     : "-3.3i"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "-3.3i"
+
+Test 206 (i_prec_width_nn_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3i", -8462);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-8462"
+      your output     : "-3.3i"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : "-3.3i"
+
+Test 209 (i_prec0val0_implicit) : FAILED.
+    First line of code: {return test("%.i", 0);}
+      expected return value : 0
+      your return value     : 1
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test 210 (i_prec0val0_w) : FAILED.
+    First line of code: {return test("%5.0i", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0i"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0i"
+
+Test 211 (i_prec0val0_w_impl) : FAILED.
+    First line of code: {return test("%5.i", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".i"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".i"
+
+Test 212 (i_prec0val0_wlj) : FAILED.
+    First line of code: {return test("%-5.0i", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0i"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0i"
+
+Test 213 (i_prec0val0_wlj_impl) : FAILED.
+    First line of code: {return test("%-5.i", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".i"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".i"
+
+Test 227 (d_width_pos_nofit) : FAILED.
+    First line of code: {return test("%4d", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "     94827"
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "     94827"
+
+Test 228 (d_width_neg_nofit) : FAILED.
+    First line of code: {return test("%4d", -2464);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-2464"
+      your output     : "     -2464"
+      expected (nonprintable as hex) : "-2464"
+      actual   (nonprintable as hex) : "     -2464"
+
+Test 234 (d_width_pos_nofit_lj) : FAILED.
+    First line of code: {return test("%-4d", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "94827     "
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "94827     "
+
+Test 235 (d_width_neg_nofit_lj) : FAILED.
+    First line of code: {return test("%-4d", -2464);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-2464"
+      your output     : "-2464     "
+      expected (nonprintable as hex) : "-2464"
+      actual   (nonprintable as hex) : "-2464     "
+
+Test 237 (d_prec_fits_neg) : FAILED.
+    First line of code: {return test("%.6d", -3);}
+      expected return value : 7
+      your return value     : 6
+      expected output : "-000003"
+      your output     : "0000-3"
+      expected (nonprintable as hex) : "-000003"
+      actual   (nonprintable as hex) : "0000-3"
+
+Test 240 (d_prec_exactfit_neg) : FAILED.
+    First line of code: {return test("%.4d", -2372);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-2372"
+      your output     : "00000-2372"
+      expected (nonprintable as hex) : "-2372"
+      actual   (nonprintable as hex) : "00000-2372"
+
+Test 241 (d_prec_nofit_pos) : FAILED.
+    First line of code: {return test("%.3d", 13862);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "13862"
+      your output     : "0000013862"
+      expected (nonprintable as hex) : "13862"
+      actual   (nonprintable as hex) : "0000013862"
+
+Test 242 (d_prec_nofit_neg) : FAILED.
+    First line of code: {return test("%.3d",-23646);}
+      expected return value : 6
+      your return value     : 13
+      expected output : "-23646"
+      your output     : "000000-23646"
+      expected (nonprintable as hex) : "-23646"
+      actual   (nonprintable as hex) : "000000-23646"
+
+Test 244 (d_zp_neg_fits) : FAILED.
+    First line of code: {return test("%07d", -54);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "-000054"
+      your output     : "0000-54"
+      expected (nonprintable as hex) : "-000054"
+      actual   (nonprintable as hex) : "0000-54"
+
+Test 248 (d_zp_neg_minus1fit) : FAILED.
+    First line of code: {return test("%04d", -4825);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "-4825"
+      your output     : "00000-4825"
+      expected (nonprintable as hex) : "-4825"
+      actual   (nonprintable as hex) : "00000-4825"
+
+Test 249 (d_prec_width_fit_fit_pos) : FAILED.
+    First line of code: {return test("%8.5d", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00034"
+      your output     : ".5d"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : ".5d"
+
+Test 250 (d_prec_width_fit_fit_neg) : FAILED.
+    First line of code: {return test("%10.5d", -216);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "    -00216"
+      your output     : ".5d"
+      expected (nonprintable as hex) : "    -00216"
+      actual   (nonprintable as hex) : ".5d"
+
+Test 251 (d_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5d", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5d"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5d"
+
+Test 252 (d_prec_width_nofit_fit_pos) : FAILED.
+    First line of code: {return test("%8.3d", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    8375"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 253 (d_prec_width_nofit_fit_neg) : FAILED.
+    First line of code: {return test("%8.3d", -8473);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   -8473"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "   -8473"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 254 (d_prec_width_fit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.7d", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7d"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7d"
+
+Test 255 (d_prec_width_fit_nofit_neg) : FAILED.
+    First line of code: {return test("%3.7d", -2375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-0002375"
+      your output     : ".7d"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : ".7d"
+
+Test 256 (d_prec_width_nofit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.3d", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 257 (d_prec_width_nofit_nofit_neg) : FAILED.
+    First line of code: {return test("%3.3d", -8462);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "-8462"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 258 (d_prec_width_fit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.5d", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00034   "
+      your output     : ".5d"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : ".5d"
+
+Test 259 (d_prec_width_fit_fit_neg_lj) : FAILED.
+    First line of code: {return test("%-10.5d", -216);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "-00216    "
+      your output     : ".5d"
+      expected (nonprintable as hex) : "-00216    "
+      actual   (nonprintable as hex) : ".5d"
+
+Test 260 (d_prec_width_fit_fit_zero_lj) : FAILED.
+    First line of code: {return test("%-8.5d", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00000   "
+      your output     : ".5d"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : ".5d"
+
+Test 261 (d_prec_width_nofit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.3d", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "8375    "
+      your output     : ".3d"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : ".3d"
+
+Test 262 (d_prec_width_nofit_fit_neg_lj) : FAILED.
+    First line of code: {return test("%-8.3d", -8473);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-8473   "
+      your output     : ".3d"
+      expected (nonprintable as hex) : "-8473   "
+      actual   (nonprintable as hex) : ".3d"
+
+Test 263 (d_prec_width_fit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.7d", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7d"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7d"
+
+Test 264 (d_prec_width_fit_nofit_neg_lj) : FAILED.
+    First line of code: {return test("%-3.7d", -2375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-0002375"
+      your output     : ".7d"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : ".7d"
+
+Test 265 (d_prec_width_nofit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.3d", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 266 (d_prec_width_nofit_nofit_neg_lj) : FAILED.
+    First line of code: {return test("%-3.3d", -8462);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "-8462"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 267 (d_prec_width_ff_pos_zp) : FAILED.
+    First line of code: {return test("%08.5d", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00034"
+      your output     : ".5d"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : ".5d"
+
+Test 268 (d_prec_width_ff_neg_zp) : FAILED.
+    First line of code: {return test("%010.5d", -216);}
+      expected return value : 11
+      your return value     : 3
+      expected output : "    -00216"
+      your output     : ".5d"
+      expected (nonprintable as hex) : "    -00216"
+      actual   (nonprintable as hex) : ".5d"
+
+Test 269 (d_prec_width_ff_zero_zp) : FAILED.
+    First line of code: {return test("%08.5d", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5d"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5d"
+
+Test 270 (d_prec_width_nf_pos_zp) : FAILED.
+    First line of code: {return test("%08.3d", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    8375"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 271 (d_prec_width_nf_neg_zp) : FAILED.
+    First line of code: {return test("%08.3d", -8473);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   -8473"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "   -8473"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 272 (d_prec_width_fn_pos_zp) : FAILED.
+    First line of code: {return test("%03.7d", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7d"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7d"
+
+Test 273 (d_prec_width_fn_neg_zp) : FAILED.
+    First line of code: {return test("%03.7d", -2375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "-0002375"
+      your output     : ".7d"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : ".7d"
+
+Test 274 (d_prec_width_nn_pos_zp) : FAILED.
+    First line of code: {return test("%03.3d", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 275 (d_prec_width_nn_neg_zp) : FAILED.
+    First line of code: {return test("%03.3d", -8462);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "-8462"
+      your output     : ".3d"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : ".3d"
+
+Test 276 (d_prec_width_ff_pos_lj_zp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5d", 34);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00034   "
+      your output     : "-8.5d"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : "-8.5d"
+
+Test 277 (d_prec_width_ff_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-10.5d", -216);}
+      expected return value : 11
+      your return value     : 6
+      expected output : "-00216    "
+      your output     : "-10.5d"
+      expected (nonprintable as hex) : "-00216    "
+      actual   (nonprintable as hex) : "-10.5d"
+
+Test 278 (d_prec_width_ff_zero_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5d", 0);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00000   "
+      your output     : "-8.5d"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "-8.5d"
+
+Test 279 (d_prec_width_nf_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3d", 8375);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "8375    "
+      your output     : "-8.3d"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : "-8.3d"
+
+Test 280 (d_prec_width_nf_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3d", -8473);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "-8473   "
+      your output     : "-8.3d"
+      expected (nonprintable as hex) : "-8473   "
+      actual   (nonprintable as hex) : "-8.3d"
+
+Test 281 (d_prec_width_fn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.7d", 3267);}
+      expected return value : 7
+      your return value     : 5
+      expected output : "0003267"
+      your output     : "-3.7d"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "-3.7d"
+
+Test 282 (d_prec_width_fn_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.7d", -2375);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "-0002375"
+      your output     : "-3.7d"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : "-3.7d"
+
+Test 283 (d_prec_width_nn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3d", 6983);}
+      expected return value : 4
+      your return value     : 5
+      expected output : "6983"
+      your output     : "-3.3d"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "-3.3d"
+
+Test 284 (d_prec_width_nn_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3d", -8462);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-8462"
+      your output     : "-3.3d"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : "-3.3d"
+
+Test 286 (d_prec0val0_implicit) : FAILED.
+    First line of code: {return test("%.d", 0);}
+      expected return value : 0
+      your return value     : 1
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test 287 (d_prec0val0_w) : FAILED.
+    First line of code: {return test("%5.0d", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0d"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0d"
+
+Test 288 (d_prec0val0_w_impl) : FAILED.
+    First line of code: {return test("%5.d", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".d"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".d"
+
+Test 289 (d_prec0val0_wlj) : FAILED.
+    First line of code: {return test("%-5.0d", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0d"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0d"
+
+Test 290 (d_prec0val0_wlj_impl) : FAILED.
+    First line of code: {return test("%-5.d", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".d"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".d"
+
+Test 298 (u_width_pos_nofit) : FAILED.
+    First line of code: {return test("%4u", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "     94827"
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "     94827"
+
+Test 302 (u_width_pos_nofit_lj) : FAILED.
+    First line of code: {return test("%-4u", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "94827     "
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "94827     "
+
+Test 306 (u_prec_nofit_pos) : FAILED.
+    First line of code: {return test("%.3u", 13862);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "13862"
+      your output     : "0000013862"
+      expected (nonprintable as hex) : "13862"
+      actual   (nonprintable as hex) : "0000013862"
+
+Test 310 (u_prec_width_fit_fit_pos) : FAILED.
+    First line of code: {return test("%8.5u", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00034"
+      your output     : ".5u"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : ".5u"
+
+Test 311 (u_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5u", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5u"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5u"
+
+Test 312 (u_prec_width_nofit_fit_pos) : FAILED.
+    First line of code: {return test("%8.3u", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    8375"
+      your output     : ".3u"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : ".3u"
+
+Test 313 (u_prec_width_fit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.7u", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7u"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7u"
+
+Test 314 (u_prec_width_nofit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.3u", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3u"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3u"
+
+Test 315 (u_prec_width_fit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.5u", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00034   "
+      your output     : ".5u"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : ".5u"
+
+Test 316 (u_prec_width_fit_fit_zero_lj) : FAILED.
+    First line of code: {return test("%-8.5u", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00000   "
+      your output     : ".5u"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : ".5u"
+
+Test 317 (u_prec_width_nofit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.3u", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "8375    "
+      your output     : ".3u"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : ".3u"
+
+Test 318 (u_prec_width_fit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.7u", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7u"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7u"
+
+Test 319 (u_prec_width_nofit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.3u", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3u"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3u"
+
+Test 320 (u_prec_width_ff_pos_zp) : FAILED.
+    First line of code: {return test("%08.5u", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00034"
+      your output     : ".5u"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : ".5u"
+
+Test 321 (u_prec_width_ff_zero_zp) : FAILED.
+    First line of code: {return test("%08.5u", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5u"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5u"
+
+Test 322 (u_prec_width_nf_pos_zp) : FAILED.
+    First line of code: {return test("%08.3u", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    8375"
+      your output     : ".3u"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : ".3u"
+
+Test 323 (u_prec_width_fn_pos_zp) : FAILED.
+    First line of code: {return test("%03.7u", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0003267"
+      your output     : ".7u"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : ".7u"
+
+Test 324 (u_prec_width_nn_pos_zp) : FAILED.
+    First line of code: {return test("%03.3u", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "6983"
+      your output     : ".3u"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : ".3u"
+
+Test 325 (u_prec_width_ff_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5u", 34);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00034   "
+      your output     : "-8.5u"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : "-8.5u"
+
+Test 326 (u_prec_width_ff_zero_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5u", 0);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00000   "
+      your output     : "-8.5u"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "-8.5u"
+
+Test 327 (u_prec_width_nf_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3u", 8375);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "8375    "
+      your output     : "-8.3u"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : "-8.3u"
+
+Test 328 (u_prec_width_fn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.7u", 3267);}
+      expected return value : 7
+      your return value     : 5
+      expected output : "0003267"
+      your output     : "-3.7u"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "-3.7u"
+
+Test 329 (u_prec_width_nn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3u", 6983);}
+      expected return value : 4
+      your return value     : 5
+      expected output : "6983"
+      your output     : "-3.3u"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "-3.3u"
+
+Test 331 (u_prec0val0_implicit) : FAILED.
+    First line of code: {return test("%.u", 0);}
+      expected return value : 0
+      your return value     : 1
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test 332 (u_prec0val0_w) : FAILED.
+    First line of code: {return test("%5.0u", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0u"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0u"
+
+Test 333 (u_prec0val0_w_impl) : FAILED.
+    First line of code: {return test("%5.u", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".u"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".u"
+
+Test 334 (u_prec0val0_wlj) : FAILED.
+    First line of code: {return test("%-5.0u", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0u"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0u"
+
+Test 335 (u_prec0val0_wlj_impl) : FAILED.
+    First line of code: {return test("%-5.u", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".u"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".u"
+
+Test 343 (x_width_pos_nofit) : FAILED.
+    First line of code: {return test("%2x", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "1726b"
+      your output     : "     1726b"
+      expected (nonprintable as hex) : "1726b"
+      actual   (nonprintable as hex) : "     1726b"
+
+Test 347 (x_width_pos_nofit_lj) : FAILED.
+    First line of code: {return test("%-4x", 9648627);}
+      expected return value : 6
+      your return value     : 13
+      expected output : "9339f3"
+      your output     : "9339f3      "
+      expected (nonprintable as hex) : "9339f3"
+      actual   (nonprintable as hex) : "9339f3      "
+
+Test 351 (x_prec_nofit_pos) : FAILED.
+    First line of code: {return test("%.3x", 938862);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "e536e"
+      your output     : "00000e536e"
+      expected (nonprintable as hex) : "e536e"
+      actual   (nonprintable as hex) : "00000e536e"
+
+Test 354 (x_zp_pos_exactfit) : FAILED.
+    First line of code: {return test("%03x", 698334);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "aa7de"
+      your output     : "00000aa7de"
+      expected (nonprintable as hex) : "aa7de"
+      actual   (nonprintable as hex) : "00000aa7de"
+
+Test 355 (x_prec_width_fit_fit_pos) : FAILED.
+    First line of code: {return test("%8.5x", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00022"
+      your output     : ".5x"
+      expected (nonprintable as hex) : "   00022"
+      actual   (nonprintable as hex) : ".5x"
+
+Test 356 (x_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5x", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5x"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5x"
+
+Test 357 (x_prec_width_nofit_fit_pos) : FAILED.
+    First line of code: {return test("%8.3x", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    20b7"
+      your output     : ".3x"
+      expected (nonprintable as hex) : "    20b7"
+      actual   (nonprintable as hex) : ".3x"
+
+Test 358 (x_prec_width_fit_nofit_pos) : FAILED.
+    First line of code: {return test("%2.7x", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0000cc3"
+      your output     : ".7x"
+      expected (nonprintable as hex) : "0000cc3"
+      actual   (nonprintable as hex) : ".7x"
+
+Test 359 (x_prec_width_nofit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.3x", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "1b47"
+      your output     : ".3x"
+      expected (nonprintable as hex) : "1b47"
+      actual   (nonprintable as hex) : ".3x"
+
+Test 360 (x_prec_width_fit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.5x", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00022   "
+      your output     : ".5x"
+      expected (nonprintable as hex) : "00022   "
+      actual   (nonprintable as hex) : ".5x"
+
+Test 361 (x_prec_width_fit_fit_zero_lj) : FAILED.
+    First line of code: {return test("%-8.5x", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00000   "
+      your output     : ".5x"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : ".5x"
+
+Test 362 (x_prec_width_nofit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.3x", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "20b7    "
+      your output     : ".3x"
+      expected (nonprintable as hex) : "20b7    "
+      actual   (nonprintable as hex) : ".3x"
+
+Test 363 (x_prec_width_fit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-2.7x", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0000cc3"
+      your output     : ".7x"
+      expected (nonprintable as hex) : "0000cc3"
+      actual   (nonprintable as hex) : ".7x"
+
+Test 364 (x_prec_width_nofit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.3x", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "1b47"
+      your output     : ".3x"
+      expected (nonprintable as hex) : "1b47"
+      actual   (nonprintable as hex) : ".3x"
+
+Test 365 (x_prec_width_ff_pos_zp) : FAILED.
+    First line of code: {return test("%08.5x", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00022"
+      your output     : ".5x"
+      expected (nonprintable as hex) : "   00022"
+      actual   (nonprintable as hex) : ".5x"
+
+Test 366 (x_prec_width_ff_zero_zp) : FAILED.
+    First line of code: {return test("%08.5x", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5x"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5x"
+
+Test 367 (x_prec_width_nf_pos_zp) : FAILED.
+    First line of code: {return test("%08.3x", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    20b7"
+      your output     : ".3x"
+      expected (nonprintable as hex) : "    20b7"
+      actual   (nonprintable as hex) : ".3x"
+
+Test 368 (x_prec_width_fn_pos_zp) : FAILED.
+    First line of code: {return test("%02.7x", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0000cc3"
+      your output     : ".7x"
+      expected (nonprintable as hex) : "0000cc3"
+      actual   (nonprintable as hex) : ".7x"
+
+Test 369 (x_prec_width_nn_pos_zp) : FAILED.
+    First line of code: {return test("%03.3x", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "1b47"
+      your output     : ".3x"
+      expected (nonprintable as hex) : "1b47"
+      actual   (nonprintable as hex) : ".3x"
+
+Test 370 (x_prec_width_ff_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5x", 34);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00022   "
+      your output     : "-8.5x"
+      expected (nonprintable as hex) : "00022   "
+      actual   (nonprintable as hex) : "-8.5x"
+
+Test 371 (x_prec_width_ff_zero_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5x", 0);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00000   "
+      your output     : "-8.5x"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "-8.5x"
+
+Test 372 (x_prec_width_nf_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3x", 8375);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "20b7    "
+      your output     : "-8.3x"
+      expected (nonprintable as hex) : "20b7    "
+      actual   (nonprintable as hex) : "-8.3x"
+
+Test 373 (x_prec_width_fn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-2.7x", 3267);}
+      expected return value : 7
+      your return value     : 5
+      expected output : "0000cc3"
+      your output     : "-2.7x"
+      expected (nonprintable as hex) : "0000cc3"
+      actual   (nonprintable as hex) : "-2.7x"
+
+Test 374 (x_prec_width_nn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3x", 6983);}
+      expected return value : 4
+      your return value     : 5
+      expected output : "1b47"
+      your output     : "-3.3x"
+      expected (nonprintable as hex) : "1b47"
+      actual   (nonprintable as hex) : "-3.3x"
+
+Test 376 (x_prec0val0_implicit) : FAILED.
+    First line of code: {return test("%.x", 0);}
+      expected return value : 0
+      your return value     : 1
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test 377 (x_prec0val0_w) : FAILED.
+    First line of code: {return test("%5.0x", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0x"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0x"
+
+Test 378 (x_prec0val0_w_impl) : FAILED.
+    First line of code: {return test("%5.x", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".x"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".x"
+
+Test 379 (x_prec0val0_wlj) : FAILED.
+    First line of code: {return test("%-5.0x", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0x"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0x"
+
+Test 380 (x_prec0val0_wlj_impl) : FAILED.
+    First line of code: {return test("%-5.x", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".x"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".x"
+
+Test 388 (X_width_pos_nofit) : FAILED.
+    First line of code: {return test("%2X", 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "1726B"
+      your output     : "     1726B"
+      expected (nonprintable as hex) : "1726B"
+      actual   (nonprintable as hex) : "     1726B"
+
+Test 392 (X_width_pos_nofit_lj) : FAILED.
+    First line of code: {return test("%-4X", 9648627);}
+      expected return value : 6
+      your return value     : 13
+      expected output : "9339F3"
+      your output     : "9339F3      "
+      expected (nonprintable as hex) : "9339F3"
+      actual   (nonprintable as hex) : "9339F3      "
+
+Test 396 (X_prec_nofit_pos) : FAILED.
+    First line of code: {return test("%.3X", 938862);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "E536E"
+      your output     : "00000E536E"
+      expected (nonprintable as hex) : "E536E"
+      actual   (nonprintable as hex) : "00000E536E"
+
+Test 399 (X_zp_pos_exactfit) : FAILED.
+    First line of code: {return test("%03X", 698334);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "AA7DE"
+      your output     : "00000AA7DE"
+      expected (nonprintable as hex) : "AA7DE"
+      actual   (nonprintable as hex) : "00000AA7DE"
+
+Test 400 (X_prec_width_fit_fit_pos) : FAILED.
+    First line of code: {return test("%8.5X", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00022"
+      your output     : ".5X"
+      expected (nonprintable as hex) : "   00022"
+      actual   (nonprintable as hex) : ".5X"
+
+Test 401 (X_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5X", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5X"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5X"
+
+Test 402 (X_prec_width_nofit_fit_pos) : FAILED.
+    First line of code: {return test("%8.3X", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    20B7"
+      your output     : ".3X"
+      expected (nonprintable as hex) : "    20B7"
+      actual   (nonprintable as hex) : ".3X"
+
+Test 403 (X_prec_width_fit_nofit_pos) : FAILED.
+    First line of code: {return test("%2.7X", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0000CC3"
+      your output     : ".7X"
+      expected (nonprintable as hex) : "0000CC3"
+      actual   (nonprintable as hex) : ".7X"
+
+Test 404 (X_prec_width_nofit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.3X", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "1B47"
+      your output     : ".3X"
+      expected (nonprintable as hex) : "1B47"
+      actual   (nonprintable as hex) : ".3X"
+
+Test 405 (X_prec_width_fit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.5X", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00022   "
+      your output     : ".5X"
+      expected (nonprintable as hex) : "00022   "
+      actual   (nonprintable as hex) : ".5X"
+
+Test 406 (X_prec_width_fit_fit_zero_lj) : FAILED.
+    First line of code: {return test("%-8.5X", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "00000   "
+      your output     : ".5X"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : ".5X"
+
+Test 407 (X_prec_width_nofit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.3X", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "20B7    "
+      your output     : ".3X"
+      expected (nonprintable as hex) : "20B7    "
+      actual   (nonprintable as hex) : ".3X"
+
+Test 408 (X_prec_width_fit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-2.7X", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0000CC3"
+      your output     : ".7X"
+      expected (nonprintable as hex) : "0000CC3"
+      actual   (nonprintable as hex) : ".7X"
+
+Test 409 (X_prec_width_nofit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.3X", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "1B47"
+      your output     : ".3X"
+      expected (nonprintable as hex) : "1B47"
+      actual   (nonprintable as hex) : ".3X"
+
+Test 410 (X_prec_width_ff_pos_zp) : FAILED.
+    First line of code: {return test("%08.5X", 34);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00022"
+      your output     : ".5X"
+      expected (nonprintable as hex) : "   00022"
+      actual   (nonprintable as hex) : ".5X"
+
+Test 411 (X_prec_width_ff_zero_zp) : FAILED.
+    First line of code: {return test("%08.5X", 0);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "   00000"
+      your output     : ".5X"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : ".5X"
+
+Test 412 (X_prec_width_nf_pos_zp) : FAILED.
+    First line of code: {return test("%08.3X", 8375);}
+      expected return value : 8
+      your return value     : 3
+      expected output : "    20B7"
+      your output     : ".3X"
+      expected (nonprintable as hex) : "    20B7"
+      actual   (nonprintable as hex) : ".3X"
+
+Test 413 (X_prec_width_fn_pos_zp) : FAILED.
+    First line of code: {return test("%02.7X", 3267);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0000CC3"
+      your output     : ".7X"
+      expected (nonprintable as hex) : "0000CC3"
+      actual   (nonprintable as hex) : ".7X"
+
+Test 414 (X_prec_width_nn_pos_zp) : FAILED.
+    First line of code: {return test("%03.3X", 6983);}
+      expected return value : 4
+      your return value     : 3
+      expected output : "1B47"
+      your output     : ".3X"
+      expected (nonprintable as hex) : "1B47"
+      actual   (nonprintable as hex) : ".3X"
+
+Test 415 (X_prec_width_ff_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5X", 34);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00022   "
+      your output     : "-8.5X"
+      expected (nonprintable as hex) : "00022   "
+      actual   (nonprintable as hex) : "-8.5X"
+
+Test 416 (X_prec_width_ff_zero_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5X", 0);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "00000   "
+      your output     : "-8.5X"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "-8.5X"
+
+Test 417 (X_prec_width_nf_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3X", 8375);}
+      expected return value : 8
+      your return value     : 5
+      expected output : "20B7    "
+      your output     : "-8.3X"
+      expected (nonprintable as hex) : "20B7    "
+      actual   (nonprintable as hex) : "-8.3X"
+
+Test 418 (X_prec_width_fn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-2.7X", 3267);}
+      expected return value : 7
+      your return value     : 5
+      expected output : "0000CC3"
+      your output     : "-2.7X"
+      expected (nonprintable as hex) : "0000CC3"
+      actual   (nonprintable as hex) : "-2.7X"
+
+Test 419 (X_prec_width_nn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3X", 6983);}
+      expected return value : 4
+      your return value     : 5
+      expected output : "1B47"
+      your output     : "-3.3X"
+      expected (nonprintable as hex) : "1B47"
+      actual   (nonprintable as hex) : "-3.3X"
+
+Test 421 (X_prec0val0_implicit) : FAILED.
+    First line of code: {return test("%.X", 0);}
+      expected return value : 0
+      your return value     : 1
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test 422 (X_prec0val0_w) : FAILED.
+    First line of code: {return test("%5.0X", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0X"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0X"
+
+Test 423 (X_prec0val0_w_impl) : FAILED.
+    First line of code: {return test("%5.X", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".X"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".X"
+
+Test 424 (X_prec0val0_wlj) : FAILED.
+    First line of code: {return test("%-5.0X", 0);}
+      expected return value : 5
+      your return value     : 3
+      expected output : "     "
+      your output     : ".0X"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".0X"
+
+Test 425 (X_prec0val0_wlj_impl) : FAILED.
+    First line of code: {return test("%-5.X", 0);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "     "
+      your output     : ".X"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : ".X"
+
+Test 427 (p_null_width_fit) : FAILED.
+    First line of code: {return test("%5p", NULL);}
+      expected return value : 5
+      your return value     : 18
+      expected output : "  0x0"
+      your output     : "              0x0"
+      expected (nonprintable as hex) : "  0x0"
+      actual   (nonprintable as hex) : "              0x0"
+
+Test 428 (p_null_width_nofit) : FAILED.
+    First line of code: {return test("%2p", NULL);}
+      expected return value : 3
+      your return value     : 18
+      expected output : "0x0"
+      your output     : "              0x0"
+      expected (nonprintable as hex) : "0x0"
+      actual   (nonprintable as hex) : "              0x0"
+
+Test 429 (p_void) : FAILED.
+    First line of code: {return test("%.p", NULL);}
+      expected return value : 2
+      your return value     : 3
+      expected output : "0x"
+      your output     : "0x0"
+      expected (nonprintable as hex) : "0x"
+      actual   (nonprintable as hex) : "0x0"
+
+Test 430 (p_void_width_fit) : FAILED.
+    First line of code: {return test("%5.p", NULL);}
+      expected return value : 5
+      your return value     : 2
+      expected output : "   0x"
+      your output     : ".p"
+      expected (nonprintable as hex) : "   0x"
+      actual   (nonprintable as hex) : ".p"
+
+Test 431 (p_void_width_nofit) : FAILED.
+    First line of code: {return test("%2.p", NULL);}
+      expected return value : 2
+      your return value     : 2
+      expected output : "0x"
+      your output     : ".p"
+      expected (nonprintable as hex) : "0x"
+      actual   (nonprintable as hex) : ".p"
+
+Test 432 (p_ftfc_literal_9w_prec2_undefbehav) : FAILED.
+    First line of code: {return test("%9.2p
+", 1234);}
+      expected return value : 11
+      your return value     : 4
+      expected output : "    0x4d2
+"
+      your output     : ".2p
+"
+      expected (nonprintable as hex) : "    0x4d2\x0a"
+      actual   (nonprintable as hex) : ".2p\x0a"
+
+Test 433 (p_ftfc_literal_2w_prec9_undefbehav) : FAILED.
+    First line of code: {return test("%2.9p
+", 1234);}
+      expected return value : 13
+      your return value     : 4
+      expected output : "0x0000004d2
+"
+      your output     : ".9p
+"
+      expected (nonprintable as hex) : "0x0000004d2\x0a"
+      actual   (nonprintable as hex) : ".9p\x0a"
+
+Test 434 (p_ftfc_zero_prec5_undefbehav) : FAILED.
+    First line of code: {return test("%.5p", 0);}
+      expected return value : 7
+      your return value     : 3
+      expected output : "0x00000"
+      your output     : "0x0"
+      expected (nonprintable as hex) : "0x00000"
+      actual   (nonprintable as hex) : "0x0"
+
+Test 435 (p_ftfc_zero_prec0_undefbehav) : FAILED.
+    First line of code: {return test("%.0p", 0);}
+      expected return value : 2
+      your return value     : 0
+      expected output : "0x"
+      your output     : ""
+      expected (nonprintable as hex) : "0x"
+      actual   (nonprintable as hex) : ""
+
+Test 436 (p_ftfc_5w_throwswarning) : FAILED.
+    First line of code: {return test("%5p", 0);}
+      expected return value : 5
+      your return value     : 18
+      expected output : "  0x0"
+      your output     : "              0x0"
+      expected (nonprintable as hex) : "  0x0"
+      actual   (nonprintable as hex) : "              0x0"
+
+Test 438 (p_width_fit) : FAILED.
+    First line of code: {return test("%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 1012
+      your return value     : 972
+      expected output : "                                                           0x10544b1b8                                                           0x10544b1b9          "
+      your output     : "                                                        0x10544b1b8                                                        0x10544b1b9                "
+      expected (nonprintable as hex) : "                                                           0x10544b1b8                                                           0x10544b1b9          "
+      actual   (nonprintable as hex) : "                                                        0x10544b1b8                                                        0x10544b1b9                "
+
+Test 439 (p_width_nofit) : FAILED.
+    First line of code: {return test("%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);}
+      expected return value : 156
+      your return value     : 363
+      expected output : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      your output     : "              0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4"
+      expected (nonprintable as hex) : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      actual   (nonprintable as hex) : "              0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4"
+
+Test 440 (p_width_16) : FAILED.
+    First line of code: {return test("%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 222
+      your return value     : 182
+      expected output : "     0x10544b1b8     0x10544b1b9     0x10544b1ba     0x10544b1bc     0x10544b1c0     0x10544b1c4     0x10544b1c8     0x10544b1d0     0x10544b1d8     0"
+      your output     : "  0x10544b1b8  0x10544b1b9  0x10544b1ba  0x10544b1bc  0x10544b1c0  0x10544b1c4  0x10544b1c8  0x10544b1d0  0x10544b1d8  0x10544b1e0  0x10544b1e8  0x105"
+      expected (nonprintable as hex) : "     0x10544b1b8     0x10544b1b9     0x10544b1ba     0x10544b1bc     0x10544b1c0     0x10544b1c4     0x10544b1c8     0x10544b1d0     0x10544b1d8     0"
+      actual   (nonprintable as hex) : "  0x10544b1b8  0x10544b1b9  0x10544b1ba  0x10544b1bc  0x10544b1c0  0x10544b1c4  0x10544b1c8  0x10544b1d0  0x10544b1d8  0x10544b1e0  0x10544b1e8  0x105"
+
+Test 441 (p_width_8) : FAILED.
+    First line of code: {return test("%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);}
+      expected return value : 156
+      your return value     : 363
+      expected output : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      your output     : "              0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4"
+      expected (nonprintable as hex) : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      actual   (nonprintable as hex) : "              0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4"
+
+Test 442 (p_width_32) : FAILED.
+    First line of code: {return test("%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 455
+      your return value     : 415
+      expected output : "                     0x10544b1b8                     0x10544b1b9                     0x10544b1ba                     0x10544b1bc                     0"
+      your output     : "                  0x10544b1b8                  0x10544b1b9                  0x10544b1ba                  0x10544b1bc                  0x10544b1c0     "
+      expected (nonprintable as hex) : "                     0x10544b1b8                     0x10544b1b9                     0x10544b1ba                     0x10544b1bc                     0"
+      actual   (nonprintable as hex) : "                  0x10544b1b8                  0x10544b1b9                  0x10544b1ba                  0x10544b1bc                  0x10544b1c0     "
+
+Test 443 (p_width_fit_lj) : FAILED.
+    First line of code: {return test("%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 1012
+      your return value     : 972
+      expected output : "0x10544b1b8                                                           0x10544b1b9                                                           0x10544b1b"
+      your output     : "0x10544b1b8                                                        0x10544b1b9                                                        0x10544b1ba     "
+      expected (nonprintable as hex) : "0x10544b1b8                                                           0x10544b1b9                                                           0x10544b1b"
+      actual   (nonprintable as hex) : "0x10544b1b8                                                        0x10544b1b9                                                        0x10544b1ba     "
+
+Test 444 (p_width_nofit_lj) : FAILED.
+    First line of code: {return test("%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 156
+      your return value     : 363
+      expected output : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      your output     : "0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4              "
+      expected (nonprintable as hex) : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      actual   (nonprintable as hex) : "0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4              "
+
+Test 445 (p_width_16_lj) : FAILED.
+    First line of code: {return test("%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 222
+      your return value     : 182
+      expected output : "0x10544b1b8     0x10544b1b9     0x10544b1ba     0x10544b1bc     0x10544b1c0     0x10544b1c4     0x10544b1c8     0x10544b1d0     0x10544b1d8     0x1054"
+      your output     : "0x10544b1b8  0x10544b1b9  0x10544b1ba  0x10544b1bc  0x10544b1c0  0x10544b1c4  0x10544b1c8  0x10544b1d0  0x10544b1d8  0x10544b1e0  0x10544b1e8  0x10544"
+      expected (nonprintable as hex) : "0x10544b1b8     0x10544b1b9     0x10544b1ba     0x10544b1bc     0x10544b1c0     0x10544b1c4     0x10544b1c8     0x10544b1d0     0x10544b1d8     0x1054"
+      actual   (nonprintable as hex) : "0x10544b1b8  0x10544b1b9  0x10544b1ba  0x10544b1bc  0x10544b1c0  0x10544b1c4  0x10544b1c8  0x10544b1d0  0x10544b1d8  0x10544b1e0  0x10544b1e8  0x10544"
+
+Test 446 (p_width_8_lj) : FAILED.
+    First line of code: {return test("%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 156
+      your return value     : 363
+      expected output : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      your output     : "0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4              "
+      expected (nonprintable as hex) : "0x10544b1b80x10544b1b90x10544b1ba0x10544b1bc0x10544b1c00x10544b1c40x10544b1c80x10544b1d00x10544b1d80x10544b1e00x10544b1e80x10544b1f0"
+      actual   (nonprintable as hex) : "0x10544b1b8              0x10544b1b9              0x10544b1ba              0x10544b1bc              0x10544b1c0              0x10544b1c4              "
+
+Test 447 (p_width_32_lj) : FAILED.
+    First line of code: {return test("%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 455
+      your return value     : 415
+      expected output : "0x10544b1b8                     0x10544b1b9                     0x10544b1ba                     0x10544b1bc                     0x10544b1c0           "
+      your output     : "0x10544b1b8                  0x10544b1b9                  0x10544b1ba                  0x10544b1bc                  0x10544b1c0                  0x105"
+      expected (nonprintable as hex) : "0x10544b1b8                     0x10544b1b9                     0x10544b1ba                     0x10544b1bc                     0x10544b1c0           "
+      actual   (nonprintable as hex) : "0x10544b1b8                  0x10544b1b9                  0x10544b1ba                  0x10544b1bc                  0x10544b1c0                  0x105"
+
+Test 501 (nocrash_nullarg_2) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%0s", NULL); }
+    SEGFAULT
+
+Test 504 (nocrash_nullarg_5) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%-s", NULL); }
+    SEGFAULT
+
+Test 506 (nocrash_nullarg_9) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%23s", NULL); }
+    SEGFAULT
+
+Test 520 (nocrash_nullarg_23) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%s", NULL); }
+    SEGFAULT
+
+Test 526 (nocrash_mandatory_wformat_undefbehav_04) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%021s", NULL);}
+    SEGFAULT
+
+Test 527 (nocrash_mandatory_wformat_undefbehav_05) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%02s", NULL);}
+    SEGFAULT
+
+Test 528 (nocrash_mandatory_wformat_undefbehav_06) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%-021s", NULL);}
+    SEGFAULT
+
+Test 529 (nocrash_mandatory_wformat_undefbehav_07) : FAILED.
+    (nocrash test: automatically passes provided no unexpected failure)
+    First line of code: {return test("%-03s", NULL);}
+    SEGFAULT
+
+Test 627 (moul_s_4) : FAILED.
+    First line of code: {char *str = NULL; return test("%s!", str);}
+    SEGFAULT
+
+Test 707 (moul_prec_1) : FAILED.
+    First line of code: {return test("%%-5.3s LYDI == |%-5.3s|
+", "LYDI");}
+      expected return value : 25
+      your return value     : 23
+      expected output : "%-5.3s LYDI == |LYD  |
+"
+      your output     : "%-5.3s LYDI == |.3s|
+"
+      expected (nonprintable as hex) : "%-5.3s LYDI == |LYD  |\x0a"
+      actual   (nonprintable as hex) : "%-5.3s LYDI == |.3s|\x0a"
+
+Test 708 (moul_prec_3) : FAILED.
+    First line of code: {return test("%%04.5i 42 == |%04.5i|
+", 42);}
+      expected return value : 23
+      your return value     : 20
+      expected output : "%04.5i 42 == |00042|
+"
+      your output     : "%04.5i 42 == |.5i|
+"
+      expected (nonprintable as hex) : "%04.5i 42 == |00042|\x0a"
+      actual   (nonprintable as hex) : "%04.5i 42 == |.5i|\x0a"
+
+Test 709 (moul_prec_4) : FAILED.
+    First line of code: {return test("%%04.3i 42 == |%04.3i|
+", 42);}
+      expected return value : 22
+      your return value     : 20
+      expected output : "%04.3i 42 == | 042|
+"
+      your output     : "%04.3i 42 == |.3i|
+"
+      expected (nonprintable as hex) : "%04.3i 42 == | 042|\x0a"
+      actual   (nonprintable as hex) : "%04.3i 42 == |.3i|\x0a"
+
+Test 710 (moul_prec_5) : FAILED.
+    First line of code: {return test("%%04.2i 42 == |%04.2i|
+", 42);}
+      expected return value : 22
+      your return value     : 20
+      expected output : "%04.2i 42 == |  42|
+"
+      your output     : "%04.2i 42 == |.2i|
+"
+      expected (nonprintable as hex) : "%04.2i 42 == |  42|\x0a"
+      actual   (nonprintable as hex) : "%04.2i 42 == |.2i|\x0a"
+
+Test 722 (moul_notmandatory_star_1) : FAILED.
+    First line of code: {return test("%%-*.3s LYDI == |%-*.3s|
+", 5, "LYDI");}
+    SEGFAULT
+
+Test 728 (new2019_star_3) : FAILED.
+    First line of code: {return test("%*s", 3, "hello");}
+      expected return value : 5
+      your return value     : 11
+      expected output : "hello"
+      your output     : "     hello"
+      expected (nonprintable as hex) : "hello"
+      actual   (nonprintable as hex) : "     hello"
+
+Test 729 (new2019_star_4) : FAILED.
+    First line of code: {return test("%.*s", 3, "hello");}
+      expected return value : 3
+      your return value     : 0
+      expected output : "hel"
+      your output     : ""
+      expected (nonprintable as hex) : "hel"
+      actual   (nonprintable as hex) : ""
+
+Test 731 (new2019_star_6) : FAILED.
+    First line of code: {return test("%-*.*s", 7, 3, "yolo");}
+    SEGFAULT
+
+Test 732 (new2019_star_7) : FAILED.
+    First line of code: {return test("%*i", 4, 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "     94827"
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "     94827"
+
+Test 734 (new2019_star_9) : FAILED.
+    First line of code: {return test("%.*i", 6, -3);}
+      expected return value : 7
+      your return value     : 6
+      expected output : "-000003"
+      your output     : "    -3"
+      expected (nonprintable as hex) : "-000003"
+      actual   (nonprintable as hex) : "    -3"
+
+Test 735 (new2019_star_10) : FAILED.
+    First line of code: {return test("%0*i", 7, -54);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "-000054"
+      your output     : "    -54"
+      expected (nonprintable as hex) : "-000054"
+      actual   (nonprintable as hex) : "    -54"
+
+Test 736 (new2019_negstar_1) : FAILED.
+    First line of code: {return test("%*s", -32, "abc");}
+      expected return value : 35
+      your return value     : 6
+      expected output : "abc                             "
+      your output     : "   abc"
+      expected (nonprintable as hex) : "abc                             "
+      actual   (nonprintable as hex) : "   abc"
+
+Test 737 (new2019_negstar_2) : FAILED.
+    First line of code: {return test("%-*s", -32, "abc");}
+      expected return value : 35
+      your return value     : 6
+      expected output : "abc                             "
+      your output     : "abc   "
+      expected (nonprintable as hex) : "abc                             "
+      actual   (nonprintable as hex) : "abc   "
+
+Test 738 (new2019_negstar_3) : FAILED.
+    First line of code: {return test("%*s", -3, "hello");}
+      expected return value : 5
+      your return value     : 11
+      expected output : "hello"
+      your output     : "     hello"
+      expected (nonprintable as hex) : "hello"
+      actual   (nonprintable as hex) : "     hello"
+
+Test 739 (new2019_negstar_4) : FAILED.
+    First line of code: {return test("%.*s", -3, "hello");}
+      expected return value : 5
+      your return value     : 0
+      expected output : "hello"
+      your output     : ""
+      expected (nonprintable as hex) : "hello"
+      actual   (nonprintable as hex) : ""
+
+Test 740 (new2019_negstar_5) : FAILED.
+    First line of code: {return test("%-*.*s", -7, -3, "yolo");}
+    SEGFAULT
+
+Test 741 (new2019_negstar_6) : FAILED.
+    First line of code: {return test("%*i", -4, 94827);}
+      expected return value : 5
+      your return value     : 11
+      expected output : "94827"
+      your output     : "     94827"
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "     94827"
+
+Test 742 (new2019_negstar_7) : FAILED.
+    First line of code: {return test("%*i", -14, 94827);}
+      expected return value : 15
+      your return value     : 11
+      expected output : "94827         "
+      your output     : "     94827"
+      expected (nonprintable as hex) : "94827         "
+      actual   (nonprintable as hex) : "     94827"
+
+Test 743 (new2019_negstar_8) : FAILED.
+    First line of code: {return test("%.*i", -6, -3);}
+      expected return value : 2
+      your return value     : 4
+      expected output : "-3"
+      your output     : "  -3"
+      expected (nonprintable as hex) : "-3"
+      actual   (nonprintable as hex) : "  -3"
+
+Test 744 (new2019_negstar_9) : FAILED.
+    First line of code: {return test("%0*i", -7, -54);}
+      expected return value : 7
+      your return value     : 6
+      expected output : "-54    "
+      your output     : "   -54"
+      expected (nonprintable as hex) : "-54    "
+      actual   (nonprintable as hex) : "   -54"
+

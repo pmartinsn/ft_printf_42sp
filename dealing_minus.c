@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 08:09:50 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 16:40:52 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,16 @@ void	dealing_minus_three(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		print_x_minuswnumb(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	else if (fmt[*aux] == 'X')
+	else
+		dealing_minus_four(tbv, fmt, &*aux, &*star);
+}
+
+void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
+{
+	char	*tbvv;
+
+	tbvv = malloc(*aux * 3);
+	if (fmt[*aux] == 'X')
 	{
 		*aux = *aux + 1;
 		print_xx_minuswnumb(tbv, &*star);
@@ -81,56 +90,14 @@ void	dealing_minus_three(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		print_per_minwnbr(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-}
-
-void	print_x_minuswnumb(char *tobeconv, t_bdr *star)
-{
-	int		help;
-	int		j;
-	size_t	num;
-	char	*character;
-
-	help = 0;
-	j = 0;
-	j = ft_atoi(tobeconv);
-	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'a');
-	star->kpr6 = ft_strlen(character);
-	ft_putstr(character, &*star);
-	free(character);
-	if (star->kpr6 > j)
-		j = star->kpr6;
-	else
-		j = j - star->kpr6;
-	while (help < j)
+	else if (fmt[*aux] == '.')
 	{
-		ft_putchar(' ', &*star);
-		help++;
+		*aux = *aux + 1;
+		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+			tbvv = converter(tbvv, fmt, &*aux);
+		*aux = *aux + 1;
+		pri_min_pre_wnbr(tbv, tbvv, &*star);
+		print_while(fmt, &*aux, &*star);
 	}
-}
-
-void	print_xx_minuswnumb(char *tobeconv, t_bdr *star)
-{
-	int		help;
-	int		j;
-	size_t	num;
-	char	*character;
-
-	help = 0;
-	j = 0;
-	j = ft_atoi(tobeconv);
-	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'A');
-	star->kpr6 = ft_strlen(character);
-	ft_putstr(character, &*star);
-	free(character);
-	if (star->kpr6 > j)
-		j = star->kpr6;
-	else
-		j = j - star->kpr6;
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
+	free(tbvv);
 }

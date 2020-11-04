@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 10:41:04 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 14:42:44 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	dea_zero_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 	else if (fmt[*aux] == '%')
 	{
 		*aux = *aux + 1;
-		print_per_minwnbr(tobeconv, &*star);
+		pri_per_zerownbr(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
 }
