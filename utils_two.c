@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 10:40:54 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 11:02:18 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		dealing_width_m(fmt, &*aux, &*star);
-	}else if (fmt[*aux] == '%')
+	}/*else if (fmt[*aux] == '%')
 	{
 		*aux = *aux + 1;
 		dealing_per_m(fmt, &*aux, &*star);
-	}
+	}*/
 }
 
-
-//verificar o zero com numero
+/*void	dealing_per_m(const char *fmt, int *aux, t_bdr *star)
+{
 	
+}*/
