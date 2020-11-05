@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 10:44:03 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 12:15:28 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 13:54:46 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,13 @@ int		print_s_minuswnumb(char *tobeconv, t_bdr *star)
 	j = ft_atoi(tobeconv);
 	if(!(star->aux_outnbr = va_arg(star->list, char*)))
 	{
+		j = j - 6;
 		ft_putstr("(null)", &*star);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
 		return (0);
 	}
 	star->hold = ft_strlen(star->aux_outnbr);
