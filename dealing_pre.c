@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 09:27:04 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 09:49:03 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	dealing_preci_two(char *tbv, const char *fmt, int *aux, t_bdr *star)
 {
 	if (fmt[*aux] == 's')
 	{
+		*aux = *aux + 1;
 		print_s_pre(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
