@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:40:59 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 13:40:22 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 13:43:07 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int		print_s_wnumb(char *tobeconv, t_bdr *star)
 			help++;
 		}
 		ft_putstr("(null)", &*star);
-		//star->count = star->count - 2;
 		return (0);
 	}
 	star->hold = ft_strlen(star->aux_outnbr);
