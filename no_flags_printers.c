@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:39:44 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 11:49:55 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 11:52:08 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	print_s_noflag(t_bdr *star)
 {
 	if(!(star->aux_outnbr = va_arg(star->list, char*)))
-		return (NULL);
+		return (0);
 	star->hold = ft_strlen(star->aux_outnbr);
 	ft_putstr(star->aux_outnbr, &*star);
 	return (star->hold);
