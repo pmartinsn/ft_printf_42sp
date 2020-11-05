@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 15:30:48 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 09:40:24 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	print_s_pre(char *tobeconv, t_bdr *star)
 	j = ft_atoi(tobeconv);
 	star->aux_outnbr = va_arg(star->list, char*);
 	star->hold = ft_strlen(star->aux_outnbr);
-	while (help < j)
+	while ((help < j) && star->aux_outnbr[help] != '\0')
 	{
 		ft_putchar(star->aux_outnbr[help], &*star);
 		help++;
