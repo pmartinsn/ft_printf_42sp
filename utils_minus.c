@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:52:13 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 08:19:19 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 08:40:44 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
 	else if (fmt[*aux] == '0')
 	{
 		*aux = *aux + 1;
-		dealing_min_zero_m(fmt, &*aux, &*star);
+		deal_min_zero_perc(fmt, &*aux, &*star);
 	}
 }
 
@@ -68,7 +68,7 @@ void	deal_min_zero_perc(const char *fmt, int *aux, t_bdr *star)
 	char *tbv;
 
 	tbv = malloc(*aux * 3);
-	tbv = converter(fmt, &*aux, &*star);
+	tbv = converter(tbv, fmt, &*aux);
 	if(fmt[*aux] == '%')
 	{
 		*aux = *aux + 1;
