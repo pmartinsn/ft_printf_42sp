@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:40:59 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 13:35:12 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 13:38:43 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		print_s_wnumb(char *tobeconv, t_bdr *star)
 	j = ft_atoi(tobeconv);
 	if(!(star->aux_outnbr = va_arg(star->list, char*)))
 	{
-		j = j + 2;
+		j = j - 4;
 		while (help < j)
 		{
 			ft_putchar(' ', &*star);
