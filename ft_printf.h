@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 09:30:15 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 12:16:43 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	init_bdr(t_bdr *star);
 void	ft_print_int_wnumb(char *tobeconv, t_bdr *star);
 void	nfw_nbr(const char *fmt, int *aux, t_bdr *star);
 void	ft_print_int_minuswnumb(char *tobeconv, t_bdr *star);
-void	print_s_wnumb(char *tobeconv, t_bdr *star);
-void	print_s_minuswnumb(char *tobeconv, t_bdr *star);
+int		print_s_wnumb(char *tobeconv, t_bdr *star);
+int		print_s_minuswnumb(char *tobeconv, t_bdr *star);
 void	print_char_minuswnumb(char *tobeconv, t_bdr *star);
 void	print_char_wnumb(char *tobeconv, t_bdr *star);
 void	print_p_minuswnumb(char *tobeconv, t_bdr *star);
@@ -114,7 +114,7 @@ void	print_per_wnbr(char *tbv, t_bdr *star);
 void	pri_per_wnbr(char *tbv, t_bdr *star);
 void	pri_per_zerownbr(char *tbv, t_bdr *star);
 void	vry_nfw_four(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
-void	pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star);
+int		pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star);
 void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	deal_min_zero_perc(const char *fmt, int *aux, t_bdr *star);
 int		malloc_index(const char *fmt, int *aux);
