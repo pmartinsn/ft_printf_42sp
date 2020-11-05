@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 09:30:20 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 10:07:07 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	print_per_minwnbr(char *tbv, t_bdr *star)
 		j = 1;
 	else
 		j = j - 1;
-	while (help < j)
+	while ((help < j) && star->aux_outnbr[help] != '\0')
 	{
 		ft_putchar(' ', &*star);
 		help++;
