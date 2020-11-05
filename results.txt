@@ -9,23 +9,30 @@ WARNING: The return values reported here may be bugged on some systems.
 
 Test  63 (s_null_space_padded_field_width) : FAILED.
     First line of code: {return test("%32s", NULL);}
-    SEGFAULT
-
-Test  64 (s_null_space_padded_over_field_width) : FAILED.
-    First line of code: {return test("%2s", NULL);}
-    SEGFAULT
+      expected return value : 35
+      your return value     : 6
+      expected output : "                          (null)"
+      your output     : "(null)"
+      expected (nonprintable as hex) : "                          (null)"
+      actual   (nonprintable as hex) : "(null)"
 
 Test  65 (s_null_space_padded_field_width_lj) : FAILED.
     First line of code: {return test("%-32s", NULL);}
-    SEGFAULT
+      expected return value : 35
+      your return value     : 6
+      expected output : "(null)                          "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "(null)                          "
+      actual   (nonprintable as hex) : "(null)"
 
 Test  66 (s_null_space_padded_field_width2_lj) : FAILED.
     First line of code: {return test("%-16s", NULL);}
-    SEGFAULT
-
-Test  67 (s_null_space_padded_over_field_width_lj) : FAILED.
-    First line of code: {return test("%-3s", NULL);}
-    SEGFAULT
+      expected return value : 17
+      your return value     : 6
+      expected output : "(null)          "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "(null)          "
+      actual   (nonprintable as hex) : "(null)"
 
 Test  77 (s_prec_03_no_width_s_hidden) : FAILED.
     First line of code: {return test("%.03s", s_hidden);}
@@ -63,11 +70,21 @@ Test  88 (s_prec_0_width_10_s_null) : FAILED.
 
 Test  94 (s_prec_0_lj_width_3_s_null) : FAILED.
     First line of code: {return test("%-3.s", NULL);}
-    SEGFAULT
+      expected return value : 3
+      your return value     : 6
+      expected output : "   "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : "(null)"
 
 Test  95 (s_prec_0_lj_width_8_s_null) : FAILED.
     First line of code: {return test("%-8.s", NULL);}
-    SEGFAULT
+      expected return value : 8
+      your return value     : 6
+      expected output : "        "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "        "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 101 (s_prec_1_width_3_s_null) : FAILED.
     First line of code: {return test("%3.1s", NULL);}
@@ -79,11 +96,21 @@ Test 102 (s_prec_1_width_9_s_null) : FAILED.
 
 Test 105 (s_prec_1_lj_width_3_s_null) : FAILED.
     First line of code: {return test("%-3.1s", NULL);}
-    SEGFAULT
+      expected return value : 3
+      your return value     : 6
+      expected output : "(  "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "(  "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 106 (s_prec_1_lj_width_9_s_null) : FAILED.
     First line of code: {return test("%-9.1s", NULL);}
-    SEGFAULT
+      expected return value : 9
+      your return value     : 6
+      expected output : "(        "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "(        "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 111 (s_prec_perfect_width_3_s_null) : FAILED.
     First line of code: {return test("%3.6s", NULL);}
@@ -93,13 +120,14 @@ Test 112 (s_prec_perfect_width_20_s_null) : FAILED.
     First line of code: {return test("%20.6s", NULL);}
     SEGFAULT
 
-Test 119 (s_prec_8_lj_width_3_s_null) : FAILED.
-    First line of code: {return test("%-3.8s", NULL);}
-    SEGFAULT
-
 Test 120 (s_prec_8_lj_width_10_s_null) : FAILED.
     First line of code: {return test("%-10.8s", NULL);}
-    SEGFAULT
+      expected return value : 11
+      your return value     : 6
+      expected output : "(null)    "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "(null)    "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 122 (s_prec_09_lj_s_hidden_notrunc) : FAILED.
     First line of code: {return test("%-.09s", s_hidden);}
@@ -300,7 +328,12 @@ Test 181 (i_prec_width_fit_fit_neg_lj) : FAILED.
 
 Test 182 (i_prec_width_fit_fit_zero_lj) : FAILED.
     First line of code: {return test("%-8.5i", 0);}
-    SEGFAULT
+      expected return value : 8
+      your return value     : 6
+      expected output : "00000   "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 183 (i_prec_width_nofit_fit_pos_lj) : FAILED.
     First line of code: {return test("%-8.3i", 8375);}
@@ -507,11 +540,21 @@ Test 211 (i_prec0val0_w_impl) : FAILED.
 
 Test 212 (i_prec0val0_wlj) : FAILED.
     First line of code: {return test("%-5.0i", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 7
+      expected output : "     "
+      your output     : "(null)i"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)i"
 
 Test 213 (i_prec0val0_wlj_impl) : FAILED.
     First line of code: {return test("%-5.i", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 6
+      expected output : "     "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 227 (d_width_pos_nofit) : FAILED.
     First line of code: {return test("%4d", 94827);}
@@ -649,7 +692,12 @@ Test 259 (d_prec_width_fit_fit_neg_lj) : FAILED.
 
 Test 260 (d_prec_width_fit_fit_zero_lj) : FAILED.
     First line of code: {return test("%-8.5d", 0);}
-    SEGFAULT
+      expected return value : 8
+      your return value     : 6
+      expected output : "00000   "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 261 (d_prec_width_nofit_fit_pos_lj) : FAILED.
     First line of code: {return test("%-8.3d", 8375);}
@@ -856,11 +904,21 @@ Test 288 (d_prec0val0_w_impl) : FAILED.
 
 Test 289 (d_prec0val0_wlj) : FAILED.
     First line of code: {return test("%-5.0d", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 7
+      expected output : "     "
+      your output     : "(null)d"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)d"
 
 Test 290 (d_prec0val0_wlj_impl) : FAILED.
     First line of code: {return test("%-5.d", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 6
+      expected output : "     "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 298 (u_width_pos_nofit) : FAILED.
     First line of code: {return test("%4u", 94827);}
@@ -915,7 +973,12 @@ Test 315 (u_prec_width_fit_fit_pos_lj) : FAILED.
 
 Test 316 (u_prec_width_fit_fit_zero_lj) : FAILED.
     First line of code: {return test("%-8.5u", 0);}
-    SEGFAULT
+      expected return value : 8
+      your return value     : 6
+      expected output : "00000   "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 317 (u_prec_width_nofit_fit_pos_lj) : FAILED.
     First line of code: {return test("%-8.3u", 8375);}
@@ -1038,11 +1101,21 @@ Test 333 (u_prec0val0_w_impl) : FAILED.
 
 Test 334 (u_prec0val0_wlj) : FAILED.
     First line of code: {return test("%-5.0u", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 7
+      expected output : "     "
+      your output     : "(null)u"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)u"
 
 Test 335 (u_prec0val0_wlj_impl) : FAILED.
     First line of code: {return test("%-5.u", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 6
+      expected output : "     "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 343 (x_width_pos_nofit) : FAILED.
     First line of code: {return test("%2x", 94827);}
@@ -1106,7 +1179,12 @@ Test 360 (x_prec_width_fit_fit_pos_lj) : FAILED.
 
 Test 361 (x_prec_width_fit_fit_zero_lj) : FAILED.
     First line of code: {return test("%-8.5x", 0);}
-    SEGFAULT
+      expected return value : 8
+      your return value     : 6
+      expected output : "00000   "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 362 (x_prec_width_nofit_fit_pos_lj) : FAILED.
     First line of code: {return test("%-8.3x", 8375);}
@@ -1229,11 +1307,21 @@ Test 378 (x_prec0val0_w_impl) : FAILED.
 
 Test 379 (x_prec0val0_wlj) : FAILED.
     First line of code: {return test("%-5.0x", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 7
+      expected output : "     "
+      your output     : "(null)x"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)x"
 
 Test 380 (x_prec0val0_wlj_impl) : FAILED.
     First line of code: {return test("%-5.x", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 6
+      expected output : "     "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 388 (X_width_pos_nofit) : FAILED.
     First line of code: {return test("%2X", 94827);}
@@ -1297,7 +1385,12 @@ Test 405 (X_prec_width_fit_fit_pos_lj) : FAILED.
 
 Test 406 (X_prec_width_fit_fit_zero_lj) : FAILED.
     First line of code: {return test("%-8.5X", 0);}
-    SEGFAULT
+      expected return value : 8
+      your return value     : 6
+      expected output : "00000   "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 407 (X_prec_width_nofit_fit_pos_lj) : FAILED.
     First line of code: {return test("%-8.3X", 8375);}
@@ -1420,11 +1513,21 @@ Test 423 (X_prec0val0_w_impl) : FAILED.
 
 Test 424 (X_prec0val0_wlj) : FAILED.
     First line of code: {return test("%-5.0X", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 7
+      expected output : "     "
+      your output     : "(null)X"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)X"
 
 Test 425 (X_prec0val0_wlj_impl) : FAILED.
     First line of code: {return test("%-5.X", 0);}
-    SEGFAULT
+      expected return value : 5
+      your return value     : 6
+      expected output : "     "
+      your output     : "(null)"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "(null)"
 
 Test 427 (p_null_width_fit) : FAILED.
     First line of code: {return test("%5p", NULL);}
@@ -1501,103 +1604,88 @@ Test 436 (p_ftfc_5w_throwswarning) : FAILED.
 Test 438 (p_width_fit) : FAILED.
     First line of code: {return test("%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p%70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 1012
       your return value     : 972
-      expected output : "                                                           0x10e8761b8                                                           0x10e8761b9          "
-      your output     : "                                                        0x10e8761b8                                                        0x10e8761b9                "
-      expected (nonprintable as hex) : "                                                           0x10e8761b8                                                           0x10e8761b9          "
-      actual   (nonprintable as hex) : "                                                        0x10e8761b8                                                        0x10e8761b9                "
+      expected output : "                                                           0x10947b1b8                                                           0x10947b1b9          "
+      your output     : "                                                        0x10947b1b8                                                        0x10947b1b9                "
+      expected (nonprintable as hex) : "                                                           0x10947b1b8                                                           0x10947b1b9          "
+      actual   (nonprintable as hex) : "                                                        0x10947b1b8                                                        0x10947b1b9                "
 
 Test 439 (p_width_nofit) : FAILED.
     First line of code: {return test("%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p%5p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);}
       expected return value : 156
       your return value     : 363
-      expected output : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      your output     : "              0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4"
-      expected (nonprintable as hex) : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      actual   (nonprintable as hex) : "              0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4"
+      expected output : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      your output     : "              0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4"
+      expected (nonprintable as hex) : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      actual   (nonprintable as hex) : "              0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4"
 
 Test 440 (p_width_16) : FAILED.
     First line of code: {return test("%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p%16p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 222
       your return value     : 182
-      expected output : "     0x10e8761b8     0x10e8761b9     0x10e8761ba     0x10e8761bc     0x10e8761c0     0x10e8761c4     0x10e8761c8     0x10e8761d0     0x10e8761d8     0"
-      your output     : "  0x10e8761b8  0x10e8761b9  0x10e8761ba  0x10e8761bc  0x10e8761c0  0x10e8761c4  0x10e8761c8  0x10e8761d0  0x10e8761d8  0x10e8761e0  0x10e8761e8  0x10e"
-      expected (nonprintable as hex) : "     0x10e8761b8     0x10e8761b9     0x10e8761ba     0x10e8761bc     0x10e8761c0     0x10e8761c4     0x10e8761c8     0x10e8761d0     0x10e8761d8     0"
-      actual   (nonprintable as hex) : "  0x10e8761b8  0x10e8761b9  0x10e8761ba  0x10e8761bc  0x10e8761c0  0x10e8761c4  0x10e8761c8  0x10e8761d0  0x10e8761d8  0x10e8761e0  0x10e8761e8  0x10e"
+      expected output : "     0x10947b1b8     0x10947b1b9     0x10947b1ba     0x10947b1bc     0x10947b1c0     0x10947b1c4     0x10947b1c8     0x10947b1d0     0x10947b1d8     0"
+      your output     : "  0x10947b1b8  0x10947b1b9  0x10947b1ba  0x10947b1bc  0x10947b1c0  0x10947b1c4  0x10947b1c8  0x10947b1d0  0x10947b1d8  0x10947b1e0  0x10947b1e8  0x109"
+      expected (nonprintable as hex) : "     0x10947b1b8     0x10947b1b9     0x10947b1ba     0x10947b1bc     0x10947b1c0     0x10947b1c4     0x10947b1c8     0x10947b1d0     0x10947b1d8     0"
+      actual   (nonprintable as hex) : "  0x10947b1b8  0x10947b1b9  0x10947b1ba  0x10947b1bc  0x10947b1c0  0x10947b1c4  0x10947b1c8  0x10947b1d0  0x10947b1d8  0x10947b1e0  0x10947b1e8  0x109"
 
 Test 441 (p_width_8) : FAILED.
     First line of code: {return test("%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p%8p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);}
       expected return value : 156
       your return value     : 363
-      expected output : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      your output     : "              0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4"
-      expected (nonprintable as hex) : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      actual   (nonprintable as hex) : "              0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4"
+      expected output : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      your output     : "              0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4"
+      expected (nonprintable as hex) : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      actual   (nonprintable as hex) : "              0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4"
 
 Test 442 (p_width_32) : FAILED.
     First line of code: {return test("%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 455
       your return value     : 415
-      expected output : "                     0x10e8761b8                     0x10e8761b9                     0x10e8761ba                     0x10e8761bc                     0"
-      your output     : "                  0x10e8761b8                  0x10e8761b9                  0x10e8761ba                  0x10e8761bc                  0x10e8761c0     "
-      expected (nonprintable as hex) : "                     0x10e8761b8                     0x10e8761b9                     0x10e8761ba                     0x10e8761bc                     0"
-      actual   (nonprintable as hex) : "                  0x10e8761b8                  0x10e8761b9                  0x10e8761ba                  0x10e8761bc                  0x10e8761c0     "
+      expected output : "                     0x10947b1b8                     0x10947b1b9                     0x10947b1ba                     0x10947b1bc                     0"
+      your output     : "                  0x10947b1b8                  0x10947b1b9                  0x10947b1ba                  0x10947b1bc                  0x10947b1c0     "
+      expected (nonprintable as hex) : "                     0x10947b1b8                     0x10947b1b9                     0x10947b1ba                     0x10947b1bc                     0"
+      actual   (nonprintable as hex) : "                  0x10947b1b8                  0x10947b1b9                  0x10947b1ba                  0x10947b1bc                  0x10947b1c0     "
 
 Test 443 (p_width_fit_lj) : FAILED.
     First line of code: {return test("%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 1012
       your return value     : 972
-      expected output : "0x10e8761b8                                                           0x10e8761b9                                                           0x10e8761b"
-      your output     : "0x10e8761b8                                                        0x10e8761b9                                                        0x10e8761ba     "
-      expected (nonprintable as hex) : "0x10e8761b8                                                           0x10e8761b9                                                           0x10e8761b"
-      actual   (nonprintable as hex) : "0x10e8761b8                                                        0x10e8761b9                                                        0x10e8761ba     "
+      expected output : "0x10947b1b8                                                           0x10947b1b9                                                           0x10947b1b"
+      your output     : "0x10947b1b8                                                        0x10947b1b9                                                        0x10947b1ba     "
+      expected (nonprintable as hex) : "0x10947b1b8                                                           0x10947b1b9                                                           0x10947b1b"
+      actual   (nonprintable as hex) : "0x10947b1b8                                                        0x10947b1b9                                                        0x10947b1ba     "
 
 Test 444 (p_width_nofit_lj) : FAILED.
     First line of code: {return test("%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p%-5p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 156
       your return value     : 363
-      expected output : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      your output     : "0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4              "
-      expected (nonprintable as hex) : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      actual   (nonprintable as hex) : "0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4              "
+      expected output : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      your output     : "0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4              "
+      expected (nonprintable as hex) : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      actual   (nonprintable as hex) : "0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4              "
 
 Test 445 (p_width_16_lj) : FAILED.
     First line of code: {return test("%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p%-16p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 222
       your return value     : 182
-      expected output : "0x10e8761b8     0x10e8761b9     0x10e8761ba     0x10e8761bc     0x10e8761c0     0x10e8761c4     0x10e8761c8     0x10e8761d0     0x10e8761d8     0x10e8"
-      your output     : "0x10e8761b8  0x10e8761b9  0x10e8761ba  0x10e8761bc  0x10e8761c0  0x10e8761c4  0x10e8761c8  0x10e8761d0  0x10e8761d8  0x10e8761e0  0x10e8761e8  0x10e87"
-      expected (nonprintable as hex) : "0x10e8761b8     0x10e8761b9     0x10e8761ba     0x10e8761bc     0x10e8761c0     0x10e8761c4     0x10e8761c8     0x10e8761d0     0x10e8761d8     0x10e8"
-      actual   (nonprintable as hex) : "0x10e8761b8  0x10e8761b9  0x10e8761ba  0x10e8761bc  0x10e8761c0  0x10e8761c4  0x10e8761c8  0x10e8761d0  0x10e8761d8  0x10e8761e0  0x10e8761e8  0x10e87"
+      expected output : "0x10947b1b8     0x10947b1b9     0x10947b1ba     0x10947b1bc     0x10947b1c0     0x10947b1c4     0x10947b1c8     0x10947b1d0     0x10947b1d8     0x1094"
+      your output     : "0x10947b1b8  0x10947b1b9  0x10947b1ba  0x10947b1bc  0x10947b1c0  0x10947b1c4  0x10947b1c8  0x10947b1d0  0x10947b1d8  0x10947b1e0  0x10947b1e8  0x10947"
+      expected (nonprintable as hex) : "0x10947b1b8     0x10947b1b9     0x10947b1ba     0x10947b1bc     0x10947b1c0     0x10947b1c4     0x10947b1c8     0x10947b1d0     0x10947b1d8     0x1094"
+      actual   (nonprintable as hex) : "0x10947b1b8  0x10947b1b9  0x10947b1ba  0x10947b1bc  0x10947b1c0  0x10947b1c4  0x10947b1c8  0x10947b1d0  0x10947b1d8  0x10947b1e0  0x10947b1e8  0x10947"
 
 Test 446 (p_width_8_lj) : FAILED.
     First line of code: {return test("%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p%-8p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 156
       your return value     : 363
-      expected output : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      your output     : "0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4              "
-      expected (nonprintable as hex) : "0x10e8761b80x10e8761b90x10e8761ba0x10e8761bc0x10e8761c00x10e8761c40x10e8761c80x10e8761d00x10e8761d80x10e8761e00x10e8761e80x10e8761f0"
-      actual   (nonprintable as hex) : "0x10e8761b8              0x10e8761b9              0x10e8761ba              0x10e8761bc              0x10e8761c0              0x10e8761c4              "
+      expected output : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      your output     : "0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4              "
+      expected (nonprintable as hex) : "0x10947b1b80x10947b1b90x10947b1ba0x10947b1bc0x10947b1c00x10947b1c40x10947b1c80x10947b1d00x10947b1d80x10947b1e00x10947b1e80x10947b1f0"
+      actual   (nonprintable as hex) : "0x10947b1b8              0x10947b1b9              0x10947b1ba              0x10947b1bc              0x10947b1c0              0x10947b1c4              "
 
 Test 447 (p_width_32_lj) : FAILED.
     First line of code: {return test("%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 455
       your return value     : 415
-      expected output : "0x10e8761b8                     0x10e8761b9                     0x10e8761ba                     0x10e8761bc                     0x10e8761c0           "
-      your output     : "0x10e8761b8                  0x10e8761b9                  0x10e8761ba                  0x10e8761bc                  0x10e8761c0                  0x10e"
-      expected (nonprintable as hex) : "0x10e8761b8                     0x10e8761b9                     0x10e8761ba                     0x10e8761bc                     0x10e8761c0           "
-      actual   (nonprintable as hex) : "0x10e8761b8                  0x10e8761b9                  0x10e8761ba                  0x10e8761bc                  0x10e8761c0                  0x10e"
-
-Test 506 (nocrash_nullarg_9) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%23s", NULL); }
-    SEGFAULT
+      expected output : "0x10947b1b8                     0x10947b1b9                     0x10947b1ba                     0x10947b1bc                     0x10947b1c0           "
+      your output     : "0x10947b1b8                  0x10947b1b9                  0x10947b1ba                  0x10947b1bc                  0x10947b1c0                  0x109"
+      expected (nonprintable as hex) : "0x10947b1b8                     0x10947b1b9                     0x10947b1ba                     0x10947b1bc                     0x10947b1c0           "
+      actual   (nonprintable as hex) : "0x10947b1b8                  0x10947b1b9                  0x10947b1ba                  0x10947b1bc                  0x10947b1c0                  0x109"
 
 Test 507 (nocrash_nullarg_10) : FAILED.
     (nocrash test: automatically passes provided no unexpected failure)
     First line of code: {return test("%.s", NULL); }
-    SEGFAULT
-
-Test 528 (nocrash_mandatory_wformat_undefbehav_06) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%-021s", NULL);}
-    SEGFAULT
-
-Test 529 (nocrash_mandatory_wformat_undefbehav_07) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%-03s", NULL);}
     SEGFAULT
 
 Test 708 (moul_prec_3) : FAILED.
