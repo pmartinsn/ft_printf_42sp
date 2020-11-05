@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:52:13 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 10:22:56 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 11:28:58 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	star->aux_outnbr = va_arg(star->list, char*);
 	star->hold = ft_strlen(star->aux_outnbr);
 	j = j - i;
-	while (help < i)
+	while ((help < i) && star->aux_outnbr[help] != '\0')
 	{
 		ft_putchar(star->aux_outnbr[help], &*star);
 		help++;

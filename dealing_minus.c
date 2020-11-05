@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 09:31:27 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 11:25:16 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tbvv;
 
-	tbvv = malloc(*aux * 3);
+	tbvv = malloc(malloc_index(fmt, &*aux));
 	if (fmt[*aux] == 'X')
 	{
 		*aux = *aux + 1;
