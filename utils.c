@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 10:27:21 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 09:30:20 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	dealing_width_two(const char *fmt, int *aux, t_bdr *star)
 
 char	*converter(char *tobeconv, const char *fmt, int *aux)
 {
-	int	index;
+	int index;
 
 	if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
 	{
@@ -83,6 +83,27 @@ char	*converter(char *tobeconv, const char *fmt, int *aux)
 		}
 	}
 	return (tobeconv);
+}
+
+int		malloc_index(const char *fmt, int *aux)
+{
+	int	index;
+	int i;
+
+	index = 0;
+	i = 0;
+	i = *aux;
+	if ((fmt[i] != '0') && (fmt[i] >= '1' && fmt[i] <= '9'))
+	{
+		index++;
+		i++;
+		while (fmt[i] >= '0' && fmt[i] <= '9')
+		{
+			index++;
+			i++;
+		}
+	}
+	return (index);
 }
 
 void	print_per_minwnbr(char *tbv, t_bdr *star)

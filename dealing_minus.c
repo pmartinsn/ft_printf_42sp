@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 16:40:52 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 09:31:27 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	dealing_minus(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
 
-	tobeconv = malloc(*aux * 3);
 	verify_flags_minus(fmt, &*aux, &*star);
+	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{

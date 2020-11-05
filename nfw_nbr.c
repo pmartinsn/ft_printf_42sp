@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:27:23 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 16:56:55 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/05 09:34:07 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	vry_nfw_four(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tbv;
 
-	tbv = malloc(*aux * 3);
+	tbv = malloc(malloc_index(fmt, &*aux));
 	if (fmt[*aux] == '.')
 	{
 		*aux = *aux + 1;
@@ -100,7 +100,7 @@ void	nfw_nbr(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
 
-	tobeconv = malloc(*aux * 3);
+	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = verify_nfw(tobeconv, fmt, &*aux, &*star);
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
