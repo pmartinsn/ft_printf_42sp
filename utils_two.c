@@ -6,30 +6,12 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 15:54:39 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/04 17:47:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf.two.h"
-
-void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
-{
-	if ((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
-	{
-		no_flags(fmt, &*aux, &*star);
-	}
-	else if (fmt[*aux] == '.')
-	{
-		*aux = *aux + 1;
-		dealing_precision(fmt, &*aux, &*star);
-	}
-	else if (fmt[*aux] == '*')
-	{
-		*aux = *aux + 1;
-		dealing_width_m(fmt, &*aux, &*star);
-	}
-}
 
 void	pri_per_zerownbr(char *tbv, t_bdr *star)
 {
