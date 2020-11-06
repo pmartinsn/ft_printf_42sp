@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 09:49:03 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/06 10:42:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,29 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 		no_flags(fmt, &*aux, &*star);
 	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
-	if ((fmt[*aux] == '0') | (fmt[*aux + 1] == 's'))
-		*aux = *aux + 2;
+	if (fmt[*aux] == '0')/* && (fmt[*aux + 1] == 's'))*/
+	{//	*aux = *aux + 2;
+		//j = j ;char	*tbvv;
+		*aux = *aux + 1;
+		char	*tbvv;
+		tbvv = malloc(malloc_index(fmt, &*aux));
+		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+			tbvv = converter(tbvv, fmt, &*aux);
+		if (fmt[*aux] == 's')
+		{
+			int i;
+			i = 0;
+			*aux = *aux + 1;
+			star->hold = ft_atoi(tbvv);
+			star->aux_outnbr = va_arg(star->list, char*);
+			while (i < star->hold)
+			{
+				ft_putchar(' ', &*star);
+				i++;
+			}
+		}
+		free(tbvv);
+	}
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
