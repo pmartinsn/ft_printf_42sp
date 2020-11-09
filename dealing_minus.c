@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 15:18:59 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 17:02:27 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	int		i;
 //	char	*tbv;
 	char	*tbvv;
-
+printf("teste");
 	help = 0;
 	j = 0;
 	i = 0;

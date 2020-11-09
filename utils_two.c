@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 14:25:13 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 17:03:58 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pri_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	int	help;
 	int	j;
 	int	i;
-
+printf("xiiii");
 	help = 0;
 	j = 0;
 	i = 0;
