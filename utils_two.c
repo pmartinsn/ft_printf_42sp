@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 13:18:29 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 14:25:13 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pri_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
 	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-				star->aux_outnbr = "(null)";
+				star->aux_outnbr = "(null)";;
 	star->hold = ft_strlen(star->aux_outnbr);
 	if (star->hold < i)
 		j = j - star->hold;

@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 13:03:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 14:43:34 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	else if (fmt[*aux] == '.')
 	{
 		*aux = *aux + 1;
+		if (fmt[*aux] == '0')
+			d_pre_zer(tbv, fmt, &*aux, &*star);
 		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
 		{
 			tbvv = converter(tbvv, fmt, &*aux);
@@ -106,6 +108,44 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		}
 		
 		print_while(fmt, &*aux, &*star);
+	}
+	free(tbvv);
+}
+
+void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
+{
+	int		help;
+	int		j;
+	int		i;
+//	char	*tbv;
+	char	*tbvv;
+
+	help = 0;
+	j = 0;
+	i = 0;
+	*aux = *aux + 1;
+//	tbv = malloc(malloc_index(fmt, &*aux));
+	tbvv = malloc(malloc_index(fmt, &*aux));
+	tbvv = converter(tbvv, fmt, &*aux);
+	j = ft_atoi(tbv);
+	i = ft_atoi(tbvv);
+	if (!(star->aux_outnbr = va_arg(star->list, char*)))
+				star->aux_outnbr = "(null)";
+	star->hold = ft_strlen(star->aux_outnbr);
+	if (star->hold < i)
+		j = j - star->hold;
+	else
+		j = j - i;
+	while ((help < i) && star->aux_outnbr[help] != '\0')
+	{
+		ft_putchar(star->aux_outnbr[help], &*star);
+		help++;
+	}
+	help = 0;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
 	}
 	free(tbvv);
 }
