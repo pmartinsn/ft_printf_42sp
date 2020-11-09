@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 18:33:15 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 18:48:36 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 		if ((fmt[*aux] >= '0' && fmt[*aux] <= '9'))
 		{
 			tbvv = converter(tbvv, fmt, &*aux);
-			*aux = *aux + 1;
+			if(*tbvv == '0')
+				*aux = *aux + 1;
 		}
 		if (fmt[*aux] == 's')
 		{
