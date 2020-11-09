@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/04 16:52:40 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 15:11:24 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ int main()
 	   //    printf("String teste:%%5%%\n");
 		//	 return_printf = printf("%5%");
       // return_ft_printf =
-	ft_printf("%.5s\n", bob);
+	   printf("%-.00s\n", bob);
+	/*ft_printf("%-03s\n", bob);
 	ft_printf("%5s\n", bob);
 	ft_printf("%-5s\n", bob);
 	ft_printf("%.3s\n", bob);
-	ft_printf("%7.5s\n", bob);
+	ft_printf("%7.5s\n", bob);*/
 	
 }
 	//printf("...return_printf:%i\n", return_printf);
