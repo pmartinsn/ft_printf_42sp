@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 14:43:34 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 14:57:52 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	j = 0;
 	i = 0;
 	*aux = *aux + 1;
-//	tbv = malloc(malloc_index(fmt, &*aux));
+//	tbv = malloc(malloc_index(fmt, &*aux));1111
 	tbvv = malloc(malloc_index(fmt, &*aux));
 	tbvv = converter(tbvv, fmt, &*aux);
 	j = ft_atoi(tbv);
