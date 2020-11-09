@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 17:30:16 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 18:09:48 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,32 @@
 void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
-
+printf("entrei");
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i') | (fmt[*aux] == 'u')
 	| (fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
 		no_flags(fmt, &*aux, &*star);
 	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
-	if (fmt[*aux] == '0')/* && (fmt[*aux + 1] == 's'))*/
-	{//	*aux = *aux + 2;
-		//j = j ;char	*tbvv;
-		*aux = *aux + 1;
-		//d_pre_zer(tobeconv, fmt, &*aux, &*star);
+	if (fmt[*aux] == '0')
+	{
 		char	*tbvv;
+
+		*aux = *aux + 1;
 		tbvv = malloc(malloc_index(fmt, &*aux));
 		if ((fmt[*aux] >= '0' && fmt[*aux] <= '9'))
 			tbvv = converter(tbvv, fmt, &*aux);
 		if (fmt[*aux] == 's')
 		{
 			int	i;
-			int	help;
 
 			i = 0;
-			help = 0;
 			*aux = *aux + 1;
 			star->hold = ft_atoi(tbvv);
 			if (!(star->aux_outnbr = va_arg(star->list, char*)))
 				star->aux_outnbr = "(null)";
-			while ((i < star->hold) && star->aux_outnbr[help] != '\0')
+			while ((i < star->hold) && star->aux_outnbr[i] != '\0')
 			{
-			
-				ft_putchar(star->aux_outnbr[help], &*star);
-				help++;
+				ft_putchar(star->aux_outnbr[i], &*star);
 				i++;
 			}
 		}

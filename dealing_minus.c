@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 17:15:23 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 18:07:06 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		print_while(fmt, &*aux, &*star);
 	}
 	else if (fmt[*aux] == '.')
-	{
+	{//cai aqui se tiver dois numeros um antes e um depois do "."
 		*aux = *aux + 1;
 		if (fmt[*aux] == '0')
 			d_pre_zer(tbv, fmt, &*aux, &*star);
