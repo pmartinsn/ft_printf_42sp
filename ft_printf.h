@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 12:16:43 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 11:37:53 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,6 @@ int		pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star);
 void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	deal_min_zero_perc(const char *fmt, int *aux, t_bdr *star);
 int		malloc_index(const char *fmt, int *aux);
+void	pri_nbr_pre(char *tbv, t_bdr *star);
 
 #endif
