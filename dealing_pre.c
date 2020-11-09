@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 10:43:20 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/09 10:47:16 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 			while (i < star->hold)
 			{
 				ft_putchar(star->aux_outnbr[help], &*star);
+				help++;
 				i++;
 			}
 		}
