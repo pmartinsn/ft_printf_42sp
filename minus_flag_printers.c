@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 10:44:03 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 13:54:46 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/10 11:52:55 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ void	ft_print_int_minuswnumb(char *tobeconv, t_bdr *star)
 	character = ft_itoa(star->kpr8);
 	ft_putnbr(star->kpr8, &*star);
 	star->kpr8 = ft_strlen(character);
-	if (star->kpr8 > j)
-		j = star->kpr8;
-	else
-		j = j - star->kpr8;
+	j = j - star->kpr8;
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
