@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:40:59 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/05 13:43:07 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/10 11:29:56 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_print_int_wnumb(char *tobeconv, t_bdr *star)
 	star->kpr8 = va_arg(star->list, int);
 	character = ft_itoa(star->kpr8);
 	star->ret__ = ft_strlen(character);
-	if (star->ret__ > j)
+	/*if (star->ret__ > j)
 		j = star->ret__;
-	else
+	else*/
 		j = j - star->ret__;
 	while (help < j)
 	{
