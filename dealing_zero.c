@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/10 10:42:12 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/10 11:11:01 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,9 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 		print_s_zero(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	if ((fmt[*aux] == '0'))
+	if ((fmt[*aux] == '0') || (fmt[*aux] == '-'))
 	{
 		ft_jumpzero(fmt, &*aux);
-		/*if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
-		{	
-			tbv = malloc(malloc_index(fmt, &*aux));
-			tbv = converter(tbv, fmt, &*aux);
-			if (fmt[*aux] == 's')
-			{
-				*aux = *aux + 1;
-				print_s_zero(tbv, &*star);
-				print_while(fmt, &*aux, &*star);
-			}
-		}*/
 		if (fmt[*aux] == 's')
 		{
 			*aux = *aux + 1;
