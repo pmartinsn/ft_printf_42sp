@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 14:31:52 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/10 10:02:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ void	deal_min_zero_perc(const char *fmt, int *aux, t_bdr *star);
 int		malloc_index(const char *fmt, int *aux);
 void	pri_nbr_pre(char *tbv, t_bdr *star);
 void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star);
+void	ft_jumpzero(const char *fmt, int *aux);
 
 #endif
