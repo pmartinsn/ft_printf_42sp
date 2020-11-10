@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/10 12:04:54 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:19:06 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_print_int_pre(char *tobeconv, t_bdr *star)
 	else
 	{
 		ft_putchar('-', &*star);
-		j = j - 1;
+		j = j + 1;
 		while (help < j)
 		{
 			ft_putchar('0', &*star);
