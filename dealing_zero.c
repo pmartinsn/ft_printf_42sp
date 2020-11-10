@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/10 10:03:59 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/10 10:42:12 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,33 @@
 void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
+	//char	*tbv;
 
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i') | (fmt[*aux] == 'u')
 	| (fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
 		no_flags(fmt, &*aux, &*star);
 	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
+	if (fmt[*aux] == 's')
+	{
+		*aux = *aux + 1;
+		print_s_zero(tobeconv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
 	if ((fmt[*aux] == '0'))
 	{
 		ft_jumpzero(fmt, &*aux);
+		/*if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+		{	
+			tbv = malloc(malloc_index(fmt, &*aux));
+			tbv = converter(tbv, fmt, &*aux);
+			if (fmt[*aux] == 's')
+			{
+				*aux = *aux + 1;
+				print_s_zero(tbv, &*star);
+				print_while(fmt, &*aux, &*star);
+			}
+		}*/
 		if (fmt[*aux] == 's')
 		{
 			*aux = *aux + 1;
@@ -73,8 +91,39 @@ void	dea_zero_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 
 void	ft_jumpzero(const char *fmt, int *aux)
 {
-	while (fmt[*aux] == '0')
+	while ((fmt[*aux] == '0') || (fmt[*aux] == '-'))
 	{
 		*aux = *aux + 1;
 	}
+}
+
+void	print_s_zero(char *tbv,  t_bdr *star)
+{
+	int	help;
+	int	j;
+
+	help = 0;
+	j = 0;
+	j = ft_atoi(tbv);
+	if(!(star->aux_outnbr = va_arg(star->list, char*)))
+	{
+		j = j - 6;
+		ft_putstr("(null)", &*star);
+		while (help < j)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+	}
+	star->hold = ft_strlen(star->aux_outnbr);
+	if (star->hold > j)
+		j = 0;
+	else
+		j = j - star->hold;
+	while (help < j)
+	{
+		ft_putchar('0', &*star);
+		help++;
+	}
+	ft_putstr(star->aux_outnbr, &*star);
 }
