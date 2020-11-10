@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/10 12:19:06 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/10 12:25:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_print_int_pre(char *tobeconv, t_bdr *star)
 		j = star->ret__;
 	else*/
 	j = j - star->ret__;
-	if(star->kpr8 > 0)
+	if(star->kpr8 >= 0)
 	{
 		while (help < j)
 		{
