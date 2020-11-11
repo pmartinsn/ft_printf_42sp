@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 18:18:11 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 11:02:37 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,18 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
 		{
 			tbvv = converter(tbvv, fmt, &*aux);
-			*aux = *aux + 1;
-			pri_min_pre_wnbr(tbv, tbvv, &*star);
-		}
-		else
-		{
-			*aux = *aux + 1;
-			pri_nbr_pre(tbv, &*star);
+			//*aux = *aux + 1;
+			if (fmt[*aux] == 's')
+			{
+				*aux = *aux + 1;
+				pri_min_pre_wnbr(tbv, tbvv, &*star);
+				//pri_nbr_pre(tbv, &*star);
+			}
+			else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+			{
+				*aux = *aux + 1;
+				p_min_pre_i(tbv, tbvv, &*star);
+			}
 		}
 		print_while(fmt, &*aux, &*star);
 	}
@@ -147,4 +152,68 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		help++;
 	}
 	free(tbvv);
+}
+
+void	p_min_pre_i(char *tbv, char *tbvv, t_bdr *star)
+{
+	int	help;
+	int	j;
+	int	i;
+
+	help = 0;
+	j = 0;
+	i = 0;
+	star->keeper = 0;
+	j = ft_atoi(tbv);
+	i = ft_atoi(tbvv);
+	star->kpr8 = va_arg(star->list, int);
+	star->aux_outnbr = ft_itoa(star->kpr8);
+	star->hold = ft_strlen(star->aux_outnbr);
+/*	if (star->hold > i)
+		j = j - star->hold;
+	else*/
+	star->keeper = i;
+	j = j - i;
+	if (star->kpr8 >= 0)
+	{
+		star->keeper = star->keeper - star->hold;
+		while (help < star->keeper)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		ft_putnbr(star->kpr8, &*star);
+		help = 0;
+		if (star->hold >= i)
+			j = j - (star->hold - i);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+	}
+	else
+	{
+		ft_putchar('-', &*star);
+		star->keeper = star->keeper - star->hold;
+		star->keeper = star->keeper + 1;
+		while (help < star->keeper)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		star->kpr8 = star->kpr8 * -1;
+		ft_putnbr(star->kpr8, &*star);
+		help = 0;
+		if (star->hold >= i)
+			j = j - (star->hold - i);
+		else
+			j = j - 1;
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+	}
+	free (star->aux_outnbr);
 }
