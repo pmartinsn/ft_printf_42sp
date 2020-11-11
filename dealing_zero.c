@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 13:19:34 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 14:02:22 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 	}
 	if ((fmt[*aux] == '0') || (fmt[*aux] == '-'))
 	{
+		if (fmt[*aux] == '-')
+		{
+			*aux = *aux + 1;
+			dealing_minus(fmt, &*aux, &*star);
+			print_while(fmt, &*aux, &*star);
+		}
 		ft_jumpzero(fmt, &*aux);
 		if (fmt[*aux] == 's')
 		{
