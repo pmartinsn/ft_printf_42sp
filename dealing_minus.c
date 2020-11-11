@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 11:02:37 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 11:07:17 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,18 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 			{
 				*aux = *aux + 1;
 				pri_min_pre_wnbr(tbv, tbvv, &*star);
-				//pri_nbr_pre(tbv, &*star);
+				
 			}
 			else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 			{
 				*aux = *aux + 1;
 				p_min_pre_i(tbv, tbvv, &*star);
 			}
+		}
+		else
+		{
+			*aux = *aux + 1;
+			pri_nbr_pre(tbv, &*star);
 		}
 		print_while(fmt, &*aux, &*star);
 	}
