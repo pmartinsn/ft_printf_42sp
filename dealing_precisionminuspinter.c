@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/10 12:25:25 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 16:09:12 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,31 @@ void	ft_print_int_pre(char *tobeconv, t_bdr *star)
 	/*if (star->ret__ > j)
 		j = star->ret__;
 	else*/
-	j = j - star->ret__;
-	if(star->kpr8 >= 0)
+	if (j > 0)
 	{
-		while (help < j)
+		j = j - star->ret__;
+		if(star->kpr8 >= 0)
 		{
-			ft_putchar('0', &*star);
-			help++;
+			while (help < j)
+			{
+				ft_putchar('0', &*star);
+				help++;
+			}
+			ft_putnbr(star->kpr8, &*star);
 		}
-		ft_putnbr(star->kpr8, &*star);
-	}
-	else
-	{
-		ft_putchar('-', &*star);
-		j = j + 1;
-		while (help < j)
+		else
 		{
-			ft_putchar('0', &*star);
-			help++;
+			ft_putchar('-', &*star);
+			j = j + 1;
+			while (help < j)
+			{
+				ft_putchar('0', &*star);
+				help++;
+			}
+			star->kpr8 = star->kpr8 * -1;
+			ft_putnbr(star->kpr8, &*star);
 		}
-		star->kpr8 = star->kpr8 * -1;
-		ft_putnbr(star->kpr8, &*star);
 	}
-	
 	free(character);
 }
 
