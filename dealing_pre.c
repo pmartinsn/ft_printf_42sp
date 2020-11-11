@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 16:02:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 18:28:56 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
 
-	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i') | (fmt[*aux] == 'u')
-	| (fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
+	if ((fmt[*aux] == 'u') | (fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
 		no_flags(fmt, &*aux, &*star);
+	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+	{
+		*aux = *aux + 1;
+		p_int_pre(&*star);
+	}
 	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
+	
 	if (fmt[*aux] == '0')
 	{
 		char	*tbvv;
@@ -99,4 +104,15 @@ void	dealing_preci_three(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		print_xx_pre(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
+}
+
+void	p_int_pre(t_bdr *star)
+{
+	star->hold = va_arg(star->list, int);
+	star->helpint = ft_itoa(star->hold);
+	if (star->hold != 0)
+		ft_putnbr(star->hold, &*star);
+	star->hold = ft_strlen(star->helpint);
+	star->keeper = star->keeper + star->hold;
+	free(star->helpint);
 }
