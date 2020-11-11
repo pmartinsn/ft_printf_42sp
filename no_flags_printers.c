@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:39:44 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 16:24:06 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 18:21:36 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	print_int_noflag(t_bdr *star)
 {
 	star->hold = va_arg(star->list, int);
 	star->helpint = ft_itoa(star->hold);
-	if (star->hold != 0)
-		ft_putnbr(star->hold, &*star);
+	//if (star->hold != 0)
+	ft_putnbr(star->hold, &*star);
 	star->hold = ft_strlen(star->helpint);
 	star->keeper = star->keeper + star->hold;
 	free(star->helpint);
