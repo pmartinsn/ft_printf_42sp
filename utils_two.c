@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/10 15:54:40 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 09:26:26 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,22 +106,50 @@ void	p_nbr_pre_i(char *tbv, char *tbvv, t_bdr *star)
 	star->kpr8 = va_arg(star->list, int);
 	star->aux_outnbr = ft_itoa(star->kpr8);
 	star->hold = ft_strlen(star->aux_outnbr);
-	/*if (star->hold < i)
+/*	if (star->hold > i)
 		j = j - star->hold;
 	else*/
-	j = j - i;
-	while (help < j)
+		j = j - i;
+	if(star->kpr8 >= 0)
 	{
-		ft_putchar(' ', &*star);
-		help++;
+		if (star->hold >= i)
+			j = j - (star->hold - i);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+		help = 0;
+		i = i - star->hold;
+		while (help < i)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		ft_putnbr(star->kpr8, &*star);
 	}
-	help = 0;
-	i = i - star->hold;
-	while (help < i)
+	else
 	{
-		ft_putchar('0', &*star);
-		help++;
+		if (star->hold >= i)
+			j = j - (star->hold - i);
+		else
+			j = j - 1;
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+		help = 0;
+		ft_putchar('-', &*star);
+		i = i - star->hold;
+		i = i + 1;
+		while (help < i)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		star->kpr8 = star->kpr8 * -1;
+		ft_putnbr(star->kpr8, &*star);
 	}
-	ft_putnbr(star->kpr8, &*star);
 	free (star->aux_outnbr);
 }
