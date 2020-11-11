@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 11:07:17 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/11 17:57:15 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,12 +110,12 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 				*aux = *aux + 1;
 				p_min_pre_i(tbv, tbvv, &*star);
 			}
-		}
+		}/*
 		else
 		{
 			*aux = *aux + 1;
 			pri_nbr_pre(tbv, &*star);
-		}
+		}*/
 		print_while(fmt, &*aux, &*star);
 	}
 	free(tbvv);
@@ -138,23 +138,50 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	tbvv = converter(tbvv, fmt, &*aux);
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
-	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-				star->aux_outnbr = "(null)";
-	star->hold = ft_strlen(star->aux_outnbr);
-	if (star->hold < i)
-		j = j - star->hold;
-	else
-		j = j - i;
-	while ((help < i) && star->aux_outnbr[help] != '\0')
+	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
+		*aux = *aux + 1;
+		star->keeper = va_arg(star->list, int);
+		star->aux_outnbr = ft_itoa(star->keeper);
+		star->hold = ft_strlen(star->aux_outnbr);
+		if (star->hold < i)
+			j = j - star->hold;
+		else
+			j = j - i;
+		while ((help < i) && star->aux_outnbr[help] != '\0')
+		{
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
+		}
+		help = 0;
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+	free(star->aux_outnbr);
 	}
-	help = 0;
-	while (help < j)
+	else if (fmt[*aux] == 's')
 	{
-		ft_putchar(' ', &*star);
-		help++;
+		*aux = *aux + 1;
+		if (!(star->aux_outnbr = va_arg(star->list, char*)))
+					star->aux_outnbr = "(null)";
+		star->hold = ft_strlen(star->aux_outnbr);
+		if (star->hold < i)
+			j = j - star->hold;
+		else
+			j = j - i;
+		while ((help < i) && star->aux_outnbr[help] != '\0')
+		{
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
+		}
+		help = 0;
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}	
 	}
 	free(tbvv);
 }
