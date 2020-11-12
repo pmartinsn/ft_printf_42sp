@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 18:33:28 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 15:06:11 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,12 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 			if(*tbvv == 0)
 				*aux = *aux + 1;
 		}
-		if (fmt[*aux] == 's')
+		else if (fmt[*aux] == 'u') 
+			{
+				*aux = *aux + 1;
+				pri_pre_u_wzero(tobeconv, &*star);
+			}
+		else if (fmt[*aux] == 's')
 		{
 			int	i;
 
@@ -115,4 +120,35 @@ void	pri_i_pre_n(t_bdr *star)
 	star->hold = ft_strlen(star->helpint);
 	star->keeper = star->keeper + star->hold;
 	free(star->helpint);
+}
+
+void	pri_pre_u_wzero(char *tbv, t_bdr *star)
+{
+	int		help;
+	int		j;
+	size_t	num;
+
+	help = 0;
+	j = 0;
+	j = ft_atoi(tbv);
+	num = 0;
+	num = va_arg(star->list, size_t);
+	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
+	star->kpr5 = ft_strlen(star->aux_outnbr);
+	//if (star->kpr5 >= i)
+	j = j - star->kpr5;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
+//	help = 0;
+	/*i = i - star->kpr5;
+	while (help < i)
+	{
+		ft_putchar('0', &*star);
+		help++;
+	}*/
+	//ft_putstr(star->aux_outnbr, &*star);
+	free(star->aux_outnbr);
 }
