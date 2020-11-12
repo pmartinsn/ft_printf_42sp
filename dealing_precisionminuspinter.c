@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 09:37:38 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 11:09:39 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ void	print_u_pre(char *tobeconv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 10, 'a');
 	star->kpr5 = ft_strlen(character);
-	if (star->kpr5 > j)
+	/*if (star->kpr5 > j)
 		j = star->kpr5;
-	else
-		j = j - star->kpr5;
+	else*/
+	j = j - star->kpr5;
 	while (help < j)
 	{
 		ft_putchar('0', &*star);
