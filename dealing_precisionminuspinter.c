@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 11:09:39 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 17:00:33 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ void	print_x_pre(char *tobeconv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'a');
 	star->kpr6 = ft_strlen(character);
-	if (star->kpr6 > j)
+	/*if (star->kpr6 > j)
 		j = star->kpr6;
-	else
-		j = j - star->kpr6;
+	else*/
+	j = j - star->kpr6;
 	while (help < j)
 	{
 		ft_putchar('0', &*star);
@@ -121,10 +121,10 @@ void	print_xx_pre(char *tobeconv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'A');
 	star->kpr6 = ft_strlen(character);
-	if (star->kpr6 > j)
+	/*if (star->kpr6 > j)
 		j = star->kpr6;
-	else
-		j = j - star->kpr6;
+	else*/
+	j = j - star->kpr6;
 	while (help < j)
 	{
 		ft_putchar('0', &*star);
