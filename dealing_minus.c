@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 10:18:30 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 10:21:45 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,11 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	else if (fmt[*aux] == '.')
 	{//cai aqui se tiver dois numeros um antes e um depois do "."
 		*aux = *aux + 1;
+		if (fmt[*aux] == 's')
+		{
+			*aux = *aux + 1;
+			pri_nbr_pre(tbv, &*star);
+		}
 		if (fmt[*aux] == '0')
 		{
 			*aux = *aux + 1;
@@ -100,7 +105,7 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 			{
 				*aux = *aux + 1;
 				pri_nbr_pre(tbv, &*star);
-			}
+			}		
 			else if ((fmt[*aux] == 'i')| (fmt[*aux] == 'd'))
 			{
 				*aux = *aux + 1;
