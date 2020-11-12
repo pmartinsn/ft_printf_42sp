@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 14:10:44 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 14:27:52 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,9 +285,7 @@ void	mim_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	int		j;
 	int		i;
 	size_t	num;
-	//char	*character;
 
-//printf("xiiii");
 	help = 0;
 	j = 0;
 	i = 0;
