@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 15:58:55 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 17:50:50 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,18 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 	char	*tobeconv;
 	
 	tobeconv = malloc(malloc_index(fmt, &*aux));
-	if ((fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
-		no_flags(fmt, &*aux, &*star);
+	if (fmt[*aux] == 'x') 
+	{
+		*aux = *aux + 1;
+		pri_pre_x_wzero(tobeconv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+	if (fmt[*aux] == 'X') 
+	{
+		*aux = *aux + 1;
+		pri_pre_xx_wzero(tobeconv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
@@ -71,6 +81,18 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 		{
 			*aux = *aux + 1;
 			pri_pre_u_wzero(tobeconv, &*star);
+			print_while(fmt, &*aux, &*star);
+		}
+		else if (fmt[*aux] == 'x') 
+		{
+			*aux = *aux + 1;
+			pri_pre_x_wzero(tobeconv, &*star);
+			print_while(fmt, &*aux, &*star);
+		}
+		else if (fmt[*aux] == 'X') 
+		{
+			*aux = *aux + 1;
+			pri_pre_xx_wzero(tobeconv, &*star);
 			print_while(fmt, &*aux, &*star);
 		}
 		free(tbvv);
@@ -150,20 +172,52 @@ void	pri_pre_u_wzero(char *tbv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-	//if (star->kpr5 >= i)
-	//j = j - star->kpr5;
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
 		help++;
 	}
-//	help = 0;
-	/*i = i - star->kpr5;
-	while (help < i)
+	free(star->aux_outnbr);
+}
+
+void	pri_pre_x_wzero(char *tbv, t_bdr *star)
+{
+	int		help;
+	int		j;
+	size_t	num;
+
+	help = 0;
+	j = 0;
+	j = ft_atoi(tbv);
+	num = 0;
+	num = va_arg(star->list, size_t);
+	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
+	star->kpr5 = ft_strlen(star->aux_outnbr);
+	while (help < j)
 	{
-		ft_putchar('0', &*star);
+		ft_putchar(' ', &*star);
 		help++;
-	}*/
-	//ft_putstr(star->aux_outnbr, &*star);
+	}
+	free(star->aux_outnbr);
+}
+
+void	pri_pre_xx_wzero(char *tbv, t_bdr *star)
+{
+	int		help;
+	int		j;
+	size_t	num;
+
+	help = 0;
+	j = 0;
+	j = ft_atoi(tbv);
+	num = 0;
+	num = va_arg(star->list, size_t);
+	star->aux_outnbr = ft_itoa_base(num, 16, 'A');
+	star->kpr5 = ft_strlen(star->aux_outnbr);
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
 	free(star->aux_outnbr);
 }
