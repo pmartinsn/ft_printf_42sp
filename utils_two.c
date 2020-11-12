@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 11:42:46 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 12:07:31 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,10 +172,12 @@ void	pri_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-	/*if (star->hold < i)
+/*	if (star->hold < i)
 		j = j - star->hold;
 	else*/
 	j = j - i;
+	if (star->kpr5 >= i)
+		j = j - (star->kpr5 - i);
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
