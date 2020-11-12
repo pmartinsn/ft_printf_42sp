@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 09:42:10 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 10:18:30 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,21 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	{//cai aqui se tiver dois numeros um antes e um depois do "."
 		*aux = *aux + 1;
 		if (fmt[*aux] == '0')
-			d_pre_zer(tbv, fmt, &*aux, &*star);
+		{
+			*aux = *aux + 1;
+			if (fmt[*aux] == 's')
+			{
+				*aux = *aux + 1;
+				pri_nbr_pre(tbv, &*star);
+			}
+			else if ((fmt[*aux] == 'i')| (fmt[*aux] == 'd'))
+			{
+				*aux = *aux + 1;
+				p_int_pre_zero(tbv, &*star);
+			}
+			else
+				d_pre_zer(tbv, fmt, &*aux, &*star);
+		}
 		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
 		{
 			tbvv = converter(tbvv, fmt, &*aux);
@@ -111,11 +125,11 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 				p_min_pre_i(tbv, tbvv, &*star);
 			}
 		}
-		else
+		/*if (fmt[*aux] != '\0')
 		{
 			*aux = *aux + 1;
 			pri_nbr_pre(tbv, &*star);
-		}
+		}*/
 		print_while(fmt, &*aux, &*star);
 	}
 	free(tbvv);
@@ -132,14 +146,12 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	help = 0;
 	j = 0;
 	i = 0;
-	*aux = *aux + 1;
+//	*aux = *aux + 1;
 //	tbv = malloc(malloc_index(fmt, &*aux));1111
 	tbvv = malloc(malloc_index(fmt, &*aux));
 	tbvv = converter(tbvv, fmt, &*aux);
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
-	if (tbvv[0] == '0')
-		p_int_pre_zero(tbv, &*star);
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
