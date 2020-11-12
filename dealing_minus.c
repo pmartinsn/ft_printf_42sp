@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 18:17:37 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 09:42:10 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,8 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	tbvv = converter(tbvv, fmt, &*aux);
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
+	if (tbvv[0] == '0')
+		p_int_pre_zero(tbv, &*star);
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;

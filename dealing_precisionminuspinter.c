@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 16:09:12 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 09:37:38 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,4 +149,44 @@ void	print_s_pre(char *tobeconv, t_bdr *star)
 		ft_putchar(star->aux_outnbr[help], &*star);
 		help++;
 	}
+}
+
+void	p_int_pre_zero(char *tobeconv, t_bdr *star)
+{
+	int		help;
+	int		j;
+	char	*character;
+
+	help = 0;
+	j = 0;
+	j = ft_atoi(tobeconv);
+	star->kpr8 = va_arg(star->list, int);
+	character = ft_itoa(star->kpr8);
+	star->ret__ = ft_strlen(character);
+	if (j > 0)
+	{
+		//j = j - star->ret__;
+		if(star->kpr8 >= 0)
+		{
+			while (help < j)
+			{
+				ft_putchar(' ', &*star);
+				help++;
+			}
+			//ft_putnbr(star->kpr8, &*star);
+		}
+		/*else
+		{
+			ft_putchar('-', &*star);
+			j = j + 1;
+			while (help < j)
+			{
+				ft_putchar('0', &*star);
+				help++;
+			}
+			star->kpr8 = star->kpr8 * -1;
+			ft_putnbr(star->kpr8, &*star);
+		}*/
+	}
+	free(character);
 }

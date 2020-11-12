@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:27:23 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/11 18:10:25 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 09:34:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,12 @@ void	vry_nfw_four(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 		{
 			*aux = *aux + 1;
 			if ((fmt[*aux] == 'i') | (fmt[*aux] == 'd'))
-				ft_print_int_pre(tobeconv, &*star);
+			{
+				*aux = *aux + 1;
+				p_int_pre_zero(tobeconv, &*star);
+			}
 		}
-		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+		else if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
 		{
 			tbv = converter(tbv, fmt, &*aux);
 			if (fmt[*aux] == 's')
@@ -107,7 +110,7 @@ void	vry_nfw_four(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 				p_nbr_pre_i(tobeconv, tbv, &*star);
 			}
 		}
-		else
+		else /*if (tbv[0] == '0')*/
 		{
 			*aux = *aux + 1;
 			pri_nbr_pre(tobeconv, &*star);
