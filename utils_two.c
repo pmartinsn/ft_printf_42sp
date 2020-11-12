@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 12:07:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 14:10:35 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,4 +196,5 @@ void	pri_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 		ft_putchar(star->aux_outnbr[help], &*star);
 		help++;
 	}*/
+	free(star->aux_outnbr);
 }
