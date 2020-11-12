@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 15:35:59 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/12 15:39:14 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
-
+	
+	tobeconv = malloc(malloc_index(fmt, &*aux));
 	if ((fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
 		no_flags(fmt, &*aux, &*star);
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
@@ -24,7 +25,13 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 		*aux = *aux + 1;
 		pri_i_pre_n(&*star);
 	}
-	tobeconv = malloc(malloc_index(fmt, &*aux));
+	if (fmt[*aux] == 'u') 
+	{
+		*aux = *aux + 1;
+		pri_pre_u_wzero(tobeconv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+	
 	tobeconv = converter(tobeconv, fmt, &*aux);
 	if (fmt[*aux] == '0')
 	{
