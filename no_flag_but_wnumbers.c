@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:41:07 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 14:49:18 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:31:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,4 +145,41 @@ void	print_xx_wnumb(char *tobeconv, t_bdr *star)
 	}
 	ft_putstr(character, &*star);
 	free(character);
+}
+
+void	p_p_cnumb(char *tbv, char *tbvv, t_bdr *star)
+{
+	int		help;
+	int		j;
+	int		i;
+	size_t	num;
+
+	help = 0;
+	j = 0;
+	i = 0;
+	j = ft_atoi(tbv);
+	i = ft_atoi(tbvv);
+	num = 0;
+	num = va_arg(star->list, size_t);
+	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
+	star->kpr5 = ft_strlen(star->aux_outnbr);
+	
+	j = j - (star->kpr5 + 2);
+	if (star->kpr5 >= i)
+		j = j - (star->kpr5 - i);
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
+	help = 0;
+	i = i - star->kpr5;
+	ft_putstr("0x", &*star);
+	while (help < i)
+	{
+		ft_putchar('0', &*star);
+		help++;
+	}
+	ft_putstr(star->aux_outnbr, &*star);
+	free(star->aux_outnbr);
 }
