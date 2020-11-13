@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:41:07 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 16:08:23 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 10:25:32 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	print_p_wnumb(char *tobeconv, t_bdr *star)
 	j = ft_atoi(tobeconv);
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'a');
-	if (j < 14)
+	/*if (j < 14)
 		j = 14;
-	else
-		j = j - 14;
+	else*/
+	j = j - 14;
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
