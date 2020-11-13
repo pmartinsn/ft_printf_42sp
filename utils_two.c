@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 17:42:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 17:53:21 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pri_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	int	help;
 	int	j;
 	int	i;
-//printf("xiiii");
+
 	help = 0;
 	j = 0;
 	i = 0;
@@ -160,9 +160,7 @@ void	pri_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	int		j;
 	int		i;
 	size_t	num;
-	//char	*character;
 
-//printf("xiiii");
 	help = 0;
 	j = 0;
 	i = 0;
@@ -172,9 +170,6 @@ void	pri_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-/*	if (star->hold < i)
-		j = j - star->hold;
-	else*/
 	j = j - i;
 	if (star->kpr5 >= i)
 		j = j - (star->kpr5 - i);
@@ -191,11 +186,6 @@ void	pri_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 		help++;
 	}
 	ft_putstr(star->aux_outnbr, &*star);
-	/*while ((help < i) && star->aux_outnbr[help] != '\0')
-	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
-	}*/
 	free(star->aux_outnbr);
 }
 
@@ -205,9 +195,7 @@ void	pri_pre_x_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	int		j;
 	int		i;
 	size_t	num;
-	//char	*character;
 
-//printf("xiiii");
 	help = 0;
 	j = 0;
 	i = 0;
@@ -250,9 +238,7 @@ void	pri_pre_xx_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	int		j;
 	int		i;
 	size_t	num;
-	//char	*character;
 
-//printf("xiiii");
 	help = 0;
 	j = 0;
 	i = 0;

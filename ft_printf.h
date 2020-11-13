@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 17:02:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:24:53 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,5 +138,6 @@ void	pri_pre_xx_wzero(char *tbv, t_bdr *star);
 void	p_p_snumb(char *tobeconv, t_bdr *star);
 void	p_p_cnumb(char *tbv, char *tbvv, t_bdr *star);
 void	print_p_pre(char *tobeconv, t_bdr *star);
+void	p_s_pre_width(t_bdr *star);
 
 #endif
