@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 10:44:03 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 15:15:57 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:38:58 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	print_p_minuswnumb(char *tobeconv, t_bdr *star)
 	/*if (j < 14)
 		j = 14;
 	else*/
-	j = j - (star->hold + 2);
+	j = j - star->hold;
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
