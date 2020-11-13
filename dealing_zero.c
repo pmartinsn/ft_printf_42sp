@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 17:42:12 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 17:46:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,15 +157,18 @@ void	print_s_zero(char *tbv,  t_bdr *star)
 			help++;
 		}
 	}
-	star->hold = ft_strlen(star->aux_outnbr);
-	if (star->hold > j)
-		j = 0;
 	else
-		j = j - star->hold;
-	while (help < j)
 	{
-		ft_putchar('0', &*star);
-		help++;
+		star->hold = ft_strlen(star->aux_outnbr);
+		if (star->hold > j)
+			j = 0;
+		else
+			j = j - star->hold;
+		while (help < j)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		ft_putstr(star->aux_outnbr, &*star);
 	}
-	ft_putstr(star->aux_outnbr, &*star);
 }
