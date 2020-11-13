@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/02 14:52:03 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 19:15:33 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,46 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 				i++;
 			}
 		}
+		else if (fmt[*aux] == '*')
+		{
+			*aux = *aux + 1;
+			if (fmt[*aux] == 's')
+			{
+				int i;
+				int j;
+				*aux = *aux + 1;
+				j = va_arg(star->list, int);
+				i = va_arg(star->list, int);
+				min_s_pre_ww(j, i, &*star);
+				
+			
+			}
+		}
+	}
+}
+
+void	min_s_pre_ww(int j, int i, t_bdr *star)
+{
+	int	help;
+
+	help = 0;
+	if (!(star->aux_outnbr = va_arg(star->list, char*)))
+				star->aux_outnbr = "(null)";
+	star->hold = ft_strlen(star->aux_outnbr);
+	if (star->hold < i)
+		j = j - star->hold;
+	else
+		j = j - i;
+	while ((help < i) && star->aux_outnbr[help] != '\0')
+	{
+		ft_putchar(star->aux_outnbr[help], &*star);
+		help++;
+	}
+	help = 0;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
 	}
 }
 
