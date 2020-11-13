@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:41:07 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 17:14:44 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/13 17:16:45 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ void	p_p_cnumb(char *tbv, char *tbvv, t_bdr *star)
 	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	j = j - i;
+	j = j - 2;
 	if (star->kpr5 >= i)
 		j = j - (star->kpr5 - i);
 	while (help < j)
