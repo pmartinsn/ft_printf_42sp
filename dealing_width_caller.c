@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 11:54:42 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 12:00:30 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ void	p_int_wid_zero(t_bdr *star)
 	else
 	{
 		ft_putchar('-', &*star);
+		j = j + 1;
 		while (help < j)
 		{
 			ft_putchar('0', &*star);
