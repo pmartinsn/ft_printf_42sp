@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 19:22:39 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 19:24:08 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 19:31:04 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,17 @@ void	d_pre_zero_two(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		s_pre(tbvv, &*aux, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	d_zero_diu(tbv, fmt, &*aux, &*star);
+	if ((fmt[*aux] == 'i') | (fmt[*aux] == 'd'))
+	{
+		*aux = *aux + 1;
+		star->kpr8 = va_arg(star->list, int);
+	}
+	else if (fmt[*aux] == 'u')
+	{
+		*aux = *aux + 1;
+		pri_pre_u_wzero(tbv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
 	free(tbvv);
 }
 
@@ -76,17 +86,3 @@ void	s_pre(char *tbvv, int *aux, t_bdr *star)
 	}
 }
 
-void	d_zero_diu(char *tbv, const char *fmt, int *aux, t_bdr *star)
-{
-	if ((fmt[*aux] == 'i') | (fmt[*aux] == 'd'))
-	{
-		*aux = *aux + 1;
-		star->kpr8 = va_arg(star->list, int);
-	}
-	else if (fmt[*aux] == 'u')
-	{
-		*aux = *aux + 1;
-		pri_pre_u_wzero(tbv, &*star);
-		print_while(fmt, &*aux, &*star);
-	}
-}
