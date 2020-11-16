@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 16:03:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 16:08:59 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 			int i;
 			int j;
 			*aux = *aux + 1;
-			j = ft_atoi(tbv);
-			i = va_arg(star->list, int);
+			i = ft_atoi(tbv);
+			j = va_arg(star->list, int);
 			min_s_pre_ww(j, i, &*star);
 		}
 		if (fmt[*aux] == '0')
