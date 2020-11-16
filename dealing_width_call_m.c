@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 14:52:56 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:59:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	min_s_pre_ww(int j, int i, t_bdr *star)
 			help++;
 		}
 	}
-		else if ((j < 0) && (i < 0))
+	else if ((j < 0) && (i < 0))
 	{
 		j = j * -1;
 		i = i * -1;
