@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 10:19:30 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 19:44:44 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		print_while(fmt, &*aux, &*star);
 	}
 	else if (fmt[*aux] == '.')
-	{//cai aqui se tiver dois numeros um antes e um depois do "."
+	{
 		*aux = *aux + 1;
 		if (fmt[*aux] == 's')
 		{
@@ -274,9 +274,6 @@ void	p_min_pre_i(char *tbv, char *tbvv, t_bdr *star)
 	star->kpr8 = va_arg(star->list, int);
 	star->aux_outnbr = ft_itoa(star->kpr8);
 	star->hold = ft_strlen(star->aux_outnbr);
-/*	if (star->hold > i)
-		j = j - star->hold;
-	else*/
 	star->keeper = i;
 	j = j - i;
 	if (star->kpr8 >= 0)
@@ -340,9 +337,6 @@ void	mim_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-/*	if (star->hold < i)
-		j = j - star->hold;
-	else*/
 	j = j - i;
 	star->keeper = i;
 	star->keeper  = star->keeper  - star->kpr5;
@@ -380,9 +374,6 @@ void	mim_pre_x_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-/*	if (star->hold < i)
-		j = j - star->hold;
-	else*/
 	j = j - i;
 	star->keeper = i;
 	star->keeper  = star->keeper  - star->kpr5;
@@ -420,9 +411,6 @@ void	mim_pre_xx_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 16, 'A');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-/*	if (star->hold < i)
-		j = j - star->hold;
-	else*/
 	j = j - i;
 	star->keeper = i;
 	star->keeper  = star->keeper  - star->kpr5;
