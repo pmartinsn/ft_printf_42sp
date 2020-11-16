@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 19:22:39 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 19:22:40 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 19:24:08 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	d_pre_zero_two(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		s_pre(tbvv, &*aux, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	d_zero_diu(fmt, &*aux, &*star);
+	d_zero_diu(tbv, fmt, &*aux, &*star);
 	free(tbvv);
 }
 
