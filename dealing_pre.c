@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 19:07:20 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 19:10:44 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ void	dealing_preci_two(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		d_pre_zero_two(tbv, fmt, &*aux, &*star);
-		if (fmt[*aux] == 'x')
+		if (fmt[*aux] == 'p')
+		{
+			*aux = *aux + 1;
+			p_p_snumb(tbv, &*star);
+			print_while(fmt, &*aux, &*star);
+		}
+		else if (fmt[*aux] == 'x')
 		{
 			*aux = *aux + 1;
 			pri_pre_x_wzero(tbv, &*star);
@@ -59,13 +65,7 @@ void	dealing_preci_two(char *tbv, const char *fmt, int *aux, t_bdr *star)
 
 void	dealing_preci_three(char *tbv, const char *fmt, int *aux, t_bdr *star)
 {
-	if (fmt[*aux] == 'p')
-	{
-		*aux = *aux + 1;
-		p_p_snumb(tbv, &*star);
-		print_while(fmt, &*aux, &*star);
-	}
-	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+	 if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
 		ft_print_int_pre(tbv, &*star);
