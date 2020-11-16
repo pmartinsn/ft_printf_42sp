@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:44:38 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 12:21:25 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:11:17 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,15 +186,27 @@ void	s_pre_width(t_bdr *star)
 	star->aux_outnbr = va_arg(star->list, char*);
 	star->hold = ft_strlen(star->aux_outnbr);
 	if (j < 0)
+	{
 		j = j * -1;
-	while ((help < j) && star->aux_outnbr[help] != '\0')
-	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
+		while ((help < j) && star->aux_outnbr[help] != '\0')
+		{
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
+		}
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}	
 	}
-	while (help < j)
+	else	
 	{
-		ft_putchar(' ', &*star);
-		help++;
+		j = j - star->hold;
+		ft_putstr(star->aux_outnbr, &*star);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
 	}
 }
