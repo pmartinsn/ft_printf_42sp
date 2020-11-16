@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:44:38 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 18:45:46 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 11:26:39 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,28 @@ void	print_s_width(t_bdr *star)
 	/*if (star->hold > j)
 		j = star->hold;
 	else*/
-	j = j - star->hold;
-	while (help < j)
+	if (j < 0)
 	{
-		ft_putchar(' ', &*star);
-		help++;
+		j = j * -1;
+		j = j - star->hold;
+		ft_putstr(star->aux_outnbr, &*star);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+		
 	}
-	ft_putstr(star->aux_outnbr, &*star);
+	else
+	{
+		j = j - star->hold;
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+		ft_putstr(star->aux_outnbr, &*star);
+	}
 }
 
 void	print_char_width(t_bdr *star)
