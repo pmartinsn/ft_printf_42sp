@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 19:22:39 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 19:31:04 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 19:59:47 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ void	d_pre_zero_two(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	}
 	else if (fmt[*aux] == 'u')
 	{
-		*aux = *aux + 1;
-		pri_pre_u_wzero(tbv, &*star);
+		d_u_pre(tbv, &*aux, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
 	free(tbvv);
@@ -86,3 +85,8 @@ void	s_pre(char *tbvv, int *aux, t_bdr *star)
 	}
 }
 
+void	d_u_pre(char *tbv, int *aux, t_bdr *star)
+{
+	*aux = *aux + 1;
+	pri_pre_u_wzero(tbv, &*star);
+}
