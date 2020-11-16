@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 19:15:33 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:35:42 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 				j = va_arg(star->list, int);
 				i = va_arg(star->list, int);
 				min_s_pre_ww(j, i, &*star);
-				
-			
 			}
 		}
 	}
@@ -58,12 +56,13 @@ void	min_s_pre_ww(int j, int i, t_bdr *star)
 
 	help = 0;
 	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-				star->aux_outnbr = "(null)";
+		star->aux_outnbr = "(null)";
 	star->hold = ft_strlen(star->aux_outnbr);
-	if (star->hold < i)
-		j = j - star->hold;
-	else
-		j = j - i;
+	if (j < 0)
+		j = j * -1;
+	if (i < 0)
+		i = i *-1;
+	j = j - i;
 	while ((help < i) && star->aux_outnbr[help] != '\0')
 	{
 		ft_putchar(star->aux_outnbr[help], &*star);
@@ -76,7 +75,6 @@ void	min_s_pre_ww(int j, int i, t_bdr *star)
 		help++;
 	}
 }
-
 void	verify_dwm_two(const char *fmt, int *aux, t_bdr *star)
 {
 	if (fmt[*aux] == 'p')
