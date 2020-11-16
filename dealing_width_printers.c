@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:44:38 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 14:11:17 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:14:00 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ void	s_pre_width(t_bdr *star)
 	if (j < 0)
 	{
 		j = j * -1;
+		j = j - star->hold;
 		while ((help < j) && star->aux_outnbr[help] != '\0')
 		{
 			ft_putchar(star->aux_outnbr[help], &*star);
@@ -201,7 +202,7 @@ void	s_pre_width(t_bdr *star)
 	}
 	else	
 	{
-		j = j - star->hold;
+		
 		ft_putstr(star->aux_outnbr, &*star);
 		while (help < j)
 		{
