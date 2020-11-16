@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 10:43:55 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 11:46:51 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 			p_int_wid_zero(&*star);
 			print_while(fmt, &*aux, &*star);
 		}
-		else if (fmt[*aux] == 's')
+		/*else if (fmt[*aux] == 's')
 		{
 			*aux = *aux + 1;
 			//print_s_width(&*star);
 			print_while(fmt, &*aux, &*star);
-		}
+		}*/
 	}
 	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
