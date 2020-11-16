@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 12:00:30 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 12:02:06 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,42 @@ void	print_p_width(t_bdr *star)
 }
 
 void	p_int_wid_zero(t_bdr *star)
+{
+	int		help;
+	int		j;
+	char	*character;
+
+	j = 0;
+	help = 0;
+	j = va_arg(star->list, int);
+	star->kpr8 = va_arg(star->list, int);
+	character = ft_itoa(star->kpr8);
+	star->ret__ = ft_strlen(character);
+	j = j - star->ret__;
+	if(star->kpr8 >= 0)
+	{
+		while (help < j)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		ft_putnbr(star->kpr8, &*star);
+	}
+	else
+	{
+		ft_putchar('-', &*star);
+		while (help < j)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		star->kpr8 = star->kpr8 * -1;
+		ft_putnbr(star->kpr8, &*star);
+	}
+	free(character);
+}
+
+void	p_int_wid_pre(t_bdr *star)
 {
 	int		help;
 	int		j;

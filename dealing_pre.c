@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 11:57:08 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 12:02:35 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 		else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 		{
 			*aux = *aux + 1;
-			p_int_wid_zero(&*star);
+			p_int_wid_pre(&*star);
 			print_while(fmt, &*aux, &*star);
 		}
 	}
