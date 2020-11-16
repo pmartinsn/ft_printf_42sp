@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 14:35:42 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:50:01 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,54 @@ void	min_s_pre_ww(int j, int i, t_bdr *star)
 	if (!(star->aux_outnbr = va_arg(star->list, char*)))
 		star->aux_outnbr = "(null)";
 	star->hold = ft_strlen(star->aux_outnbr);
-	if (j < 0)
-		j = j * -1;
-	if (i < 0)
-		i = i *-1;
-	j = j - i;
-	while ((help < i) && star->aux_outnbr[help] != '\0')
+	if ((j > 0) && (i > 0))
 	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
+		j = j - i;
+		while ((help < i) && star->aux_outnbr[help] != '\0')
+		{
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
+		}
+		help = 0;
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
 	}
-	help = 0;
-	while (help < j)
+	else if ((j > 0) && (i < 0))
 	{
-		ft_putchar(' ', &*star);
-		help++;
+		i = i * -1;
+		j = j - i -  star->hold;
+		ft_putstr(star->aux_outnbr, &*star);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+	}
+	else if ((j < 0) && (i > 0))
+	{
+		j = j * -1;
+		j = j - i -  star->hold;
+		ft_putstr(star->aux_outnbr, &*star);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+	}
+		else if ((j < 0) && (i < 0))
+	{
+		j = j * -1;
+		i = i * -1;
+		j = j - i -  star->hold;
+		ft_putstr(star->aux_outnbr, &*star);
+		while (help < j)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
 	}
 }
 void	verify_dwm_two(const char *fmt, int *aux, t_bdr *star)
