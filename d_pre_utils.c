@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 17:39:37 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 17:39:38 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 18:55:19 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,11 @@ void	p_p_snumb(char *tobeconv, t_bdr *star)
 	character = ft_itoa_base(num, 16, 'a');
 	star->hold = ft_strlen(character);
 	j = j - 2;
+	ft_putstr("0x", &*star);
 	while (help < j)
 	{
-		ft_putchar(' ', &*star);
+		ft_putchar('0', &*star);
 		help++;
 	}
-	ft_putstr("0x", &*star);
 	free(character);
 }
