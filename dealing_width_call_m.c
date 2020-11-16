@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 14:50:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:52:56 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	min_s_pre_ww(int j, int i, t_bdr *star)
 	else if ((j > 0) && (i < 0))
 	{
 		i = i * -1;
-		j = j - i -  star->hold;
+		j =  -  star->hold;
 		ft_putstr(star->aux_outnbr, &*star);
 		while (help < j)
 		{
@@ -87,7 +87,7 @@ void	min_s_pre_ww(int j, int i, t_bdr *star)
 	else if ((j < 0) && (i > 0))
 	{
 		j = j * -1;
-		j = j - i -  star->hold;
+		j = j - star->hold;
 		ft_putstr(star->aux_outnbr, &*star);
 		while (help < j)
 		{
@@ -99,7 +99,7 @@ void	min_s_pre_ww(int j, int i, t_bdr *star)
 	{
 		j = j * -1;
 		i = i * -1;
-		j = j - i -  star->hold;
+		j = j - star->hold;
 		ft_putstr(star->aux_outnbr, &*star);
 		while (help < j)
 		{
