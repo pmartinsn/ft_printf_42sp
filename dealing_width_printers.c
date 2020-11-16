@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:44:38 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 12:13:42 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/16 12:21:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void	print_x_width(t_bdr *star)
 	ft_putstr(character, &*star);
 	free(character);
 }
-
+/*
 void	p_s_pre_width(t_bdr *star)
 {
 	int	help;
@@ -162,10 +162,31 @@ void	p_s_pre_width(t_bdr *star)
 	j = va_arg(star->list, int);
 	star->aux_outnbr = va_arg(star->list, char*);
 	star->hold = ft_strlen(star->aux_outnbr);
-	/*if (star->hold > j)
-		j = star->hold;
-	else*/
-	//j = j - star->hold;
+	while ((help < j) && star->aux_outnbr[help] != '\0')
+	{
+		ft_putchar(star->aux_outnbr[help], &*star);
+		help++;
+	}
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
+}
+*/
+
+void	s_pre_width(t_bdr *star)
+{
+	int	help;
+	int	j;
+
+	help = 0;
+	j = 0;
+	j = va_arg(star->list, int);
+	star->aux_outnbr = va_arg(star->list, char*);
+	star->hold = ft_strlen(star->aux_outnbr);
+	if (j < 0)
+		j = j * -1;
 	while ((help < j) && star->aux_outnbr[help] != '\0')
 	{
 		ft_putchar(star->aux_outnbr[help], &*star);
