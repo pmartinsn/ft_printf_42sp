@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 17:53:21 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 09:54:34 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pri_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
 	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-				star->aux_outnbr = "(null)";
+		star->aux_outnbr = "(null)";
 	star->hold = ft_strlen(star->aux_outnbr);
 	if (star->hold < i)
 		j = j - star->hold;
@@ -79,12 +79,8 @@ void	pri_nbr_pre(char *tbv, t_bdr *star)
 	j = 0;
 	j = ft_atoi(tbv);
 	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-				star->aux_outnbr = "(null)";
+		star->aux_outnbr = "(null)";
 	star->hold = ft_strlen(star->aux_outnbr);
-/*	if (star->hold < i)
-		j = j - star->hold;
-	else
-		j = j - i;*/
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
@@ -106,11 +102,8 @@ void	p_nbr_pre_i(char *tbv, char *tbvv, t_bdr *star)
 	star->kpr8 = va_arg(star->list, int);
 	star->aux_outnbr = ft_itoa(star->kpr8);
 	star->hold = ft_strlen(star->aux_outnbr);
-/*	if (star->hold > i)
-		j = j - star->hold;
-	else*/
-		j = j - i;
-	if(star->kpr8 >= 0)
+	j = j - i;
+	if (star->kpr8 >= 0)
 	{
 		if (star->hold >= i)
 			j = j - (star->hold - i);
@@ -151,7 +144,7 @@ void	p_nbr_pre_i(char *tbv, char *tbvv, t_bdr *star)
 		star->kpr8 = star->kpr8 * -1;
 		ft_putnbr(star->kpr8, &*star);
 	}
-	free (star->aux_outnbr);
+	free(star->aux_outnbr);
 }
 
 void	pri_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
@@ -178,14 +171,7 @@ void	pri_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 		ft_putchar(' ', &*star);
 		help++;
 	}
-	help = 0;
-	i = i - star->kpr5;
-	while (help < i)
-	{
-		ft_putchar('0', &*star);
-		help++;
-	}
-	ft_putstr(star->aux_outnbr, &*star);
+	e_prexx(i, help, &*star);
 	free(star->aux_outnbr);
 }
 
@@ -205,9 +191,6 @@ void	pri_pre_x_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-/*	if (star->hold < i)
-		j = j - star->hold;
-	else*/
 	j = j - i;
 	if (star->kpr5 >= i)
 		j = j - (star->kpr5 - i);
@@ -216,19 +199,7 @@ void	pri_pre_x_wnbr(char *tbv, char *tbvv, t_bdr *star)
 		ft_putchar(' ', &*star);
 		help++;
 	}
-	help = 0;
-	i = i - star->kpr5;
-	while (help < i)
-	{
-		ft_putchar('0', &*star);
-		help++;
-	}
-	ft_putstr(star->aux_outnbr, &*star);
-	/*while ((help < i) && star->aux_outnbr[help] != '\0')
-	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
-	}*/
+	e_prexx(i, help, &*star);
 	free(star->aux_outnbr);
 }
 
@@ -248,9 +219,6 @@ void	pri_pre_xx_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	star->aux_outnbr = ft_itoa_base(num, 16, 'A');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
-/*	if (star->hold < i)
-		j = j - star->hold;
-	else*/
 	j = j - i;
 	if (star->kpr5 >= i)
 		j = j - (star->kpr5 - i);
@@ -259,6 +227,12 @@ void	pri_pre_xx_wnbr(char *tbv, char *tbvv, t_bdr *star)
 		ft_putchar(' ', &*star);
 		help++;
 	}
+	e_prexx(i, help, &*star);
+	free(star->aux_outnbr);
+}
+
+void	e_prexx(int i, int help, t_bdr *star)
+{
 	help = 0;
 	i = i - star->kpr5;
 	while (help < i)
@@ -267,10 +241,4 @@ void	pri_pre_xx_wnbr(char *tbv, char *tbvv, t_bdr *star)
 		help++;
 	}
 	ft_putstr(star->aux_outnbr, &*star);
-	/*while ((help < i) && star->aux_outnbr[help] != '\0')
-	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
-	}*/
-	free(star->aux_outnbr);
 }
