@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 17:04:21 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:46:35 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 	}
 	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
+	e_zhalf(tobeconv, fmt, &*aux, &*star);
+	dea_zero_two(tobeconv, fmt, &*aux, &*star);
+	free(tobeconv);
+}
+
+void	e_zhalf(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
+{
 	if (fmt[*aux] == 's')
 	{
 		*aux = *aux + 1;
@@ -54,22 +61,55 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 			print_while(fmt, &*aux, &*star);
 		}
 	}
+}
+
+void	dea_zero_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
+{
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
 		ft_print_int_zero(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	else
-		dea_zero_two(tobeconv, fmt, &*aux, &*star);
-	free(tobeconv);
+	e_dztwo(tobeconv, fmt, &*aux, &*star);
+	if (fmt[*aux] == '.')
+	{
+		*aux = *aux + 1;
+		if (fmt[*aux] == '0')
+			d_pre_zer(tobeconv, fmt, &*aux, &*star);
+		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+			e_zeronb(tobeconv, fmt, &*aux, &*star);
+		else
+		{
+			*aux = *aux + 1;
+			pri_nbr_pre(tobeconv, &*star);
+		}
+		print_while(fmt, &*aux, &*star);
+	}
 }
 
-void	dea_zero_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
+void	e_zeronb(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tbvv;
 
 	tbvv = malloc(malloc_index(fmt, &*aux));
+	tbvv = converter(tbvv, fmt, &*aux);
+	if (fmt[*aux] == 's')
+		pri_pre_wnbr(tobeconv, tbvv, &*star);
+	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+		p_nbr_pre_i(tobeconv, tbvv, &*star);
+	else if (fmt[*aux] == 'u')
+		pri_pre_u_wnbr(tobeconv, tbvv, &*star);
+	else if (fmt[*aux] == 'x')
+		pri_pre_x_wnbr(tobeconv, tbvv, &*star);
+	else if (fmt[*aux] == 'X')
+		pri_pre_xx_wnbr(tobeconv, tbvv, &*star);
+	*aux = *aux + 1;
+	free(tbvv);
+}
+
+void	e_dztwo(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
+{
 	if (fmt[*aux] == 'u')
 	{
 		*aux = *aux + 1;
@@ -93,90 +133,5 @@ void	dea_zero_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 		*aux = *aux + 1;
 		pri_per_zerownbr(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
-	}
-	else if (fmt[*aux] == '.')
-	{
-		*aux = *aux + 1;
-		if (fmt[*aux] == '0')
-			d_pre_zer(tobeconv, fmt, &*aux, &*star);
-		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
-		{
-			tbvv = converter(tbvv, fmt, &*aux);
-			if (fmt[*aux] == 's')
-			{
-			//	*aux = *aux + 1;
-				pri_pre_wnbr(tobeconv, tbvv, &*star);
-			}
-			else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
-			{
-			//	*aux = *aux + 1;
-				p_nbr_pre_i(tobeconv, tbvv, &*star);
-			}
-			else if (fmt[*aux] == 'u') 
-			{
-			//	*aux = *aux + 1;
-				pri_pre_u_wnbr(tobeconv, tbvv, &*star);
-			}
-			else if (fmt[*aux] == 'x') 
-			{
-			//	*aux = *aux + 1;
-				pri_pre_x_wnbr(tobeconv, tbvv, &*star);
-			}
-			else if (fmt[*aux] == 'X') 
-			{
-			//	*aux = *aux + 1;
-				pri_pre_xx_wnbr(tobeconv, tbvv, &*star);
-			}
-			*aux = *aux + 1;
-		}
-		else
-		{
-			*aux = *aux + 1;
-			pri_nbr_pre(tobeconv, &*star);
-		}
-		print_while(fmt, &*aux, &*star);
-	}
-	free(tbvv);
-}
-
-void	ft_jumpzero(const char *fmt, int *aux)
-{
-	while ((fmt[*aux] == '0') || (fmt[*aux] == '-'))
-	{
-		*aux = *aux + 1;
-	}
-}
-
-void	print_s_zero(char *tbv,  t_bdr *star)
-{
-	int	help;
-	int	j;
-
-	help = 0;
-	j = 0;
-	j = ft_atoi(tbv);
-	if(!(star->aux_outnbr = va_arg(star->list, char*)))
-	{
-		j = j - 6;
-		ft_putstr("(null)", &*star);
-		while (help < j)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}
-	}
-	else
-	{
-		star->hold = ft_strlen(star->aux_outnbr);
-		if (star->hold > j)
-			j = 0;
-		else
-			j = j - star->hold;
-		while (help < j)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}
-		ft_putstr(star->aux_outnbr, &*star);
 	}
 }
