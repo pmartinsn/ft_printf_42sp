@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:52:13 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 19:50:43 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 10:20:31 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,10 @@ void	deal_min_zero_perc(const char *fmt, int *aux, t_bdr *star)
 		print_while(fmt, &*aux, &*star);
 	}
 	free(tbv);
+}
+
+int		find_number_value(char *tobeconv, t_bdr *star)
+{
+	star->yndex = ft_atoi(tobeconv);
+	return (star->yndex);
 }
