@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 18:38:52 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:45:00 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,5 +177,6 @@ void	e_pwidpre(int j, int help, t_bdr *star);
 void	e_iwidzend(int j, int help, t_bdr *star);
 void	e_iwidzstart(int j, int help, t_bdr *star);
 void	e_minprei(int j, int i, int help, t_bdr *star);
+void	e_printshalf(int j, int help, t_bdr *star);
 
 #endif
