@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 11:43:48 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 15:29:50 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,23 @@ void	dealing_minus_three(char *tbv, const char *fmt, int *aux, t_bdr *star)
 
 void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 {
-	char	*tbvv;
+	if (fmt[*aux] == '.')
+	{
+		*aux = *aux + 1;
+		e_minuspre(tbv, fmt, &*aux, &*star);
+		if (fmt[*aux] == '0')
+		{
+			*aux = *aux + 1;
+			e_minuszero(tbv, fmt, &*aux, &*star);
+		}
+		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+			e_mnbr(tbv, fmt, &*aux, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+}
 
-	tbvv = malloc(malloc_index(fmt, &*aux));
+void	e_checkminus(char *tbv, const char *fmt, int *aux, t_bdr *star)
+{
 	if (fmt[*aux] == 'X')
 	{
 		*aux = *aux + 1;
@@ -90,240 +104,108 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		print_per_minwnbr(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	else if (fmt[*aux] == '.')
+}
+
+void	e_minuspre(char *tbv, const char *fmt, int *aux, t_bdr *star)
+{
+	if (fmt[*aux] == 's')
 	{
 		*aux = *aux + 1;
-		if (fmt[*aux] == 's')
-		{
-			*aux = *aux + 1;
-			pri_nbr_pre(tbv, &*star);
-		}
-		else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
-		{
-			*aux = *aux + 1;
-			p_int_pre_zero(tbv, &*star);
-		}
-		else if (fmt[*aux] == 'u') 
-		{
-			*aux = *aux + 1;
-			pri_pre_u_wzero(tbv, &*star);
-		}
-		else if (fmt[*aux] == 'x') 
-		{
-			*aux = *aux + 1;
-			pri_pre_x_wzero(tbv, &*star);
-			print_while(fmt, &*aux, &*star);
-		}
-		else if (fmt[*aux] == 'X') 
-		{
-			*aux = *aux + 1;
-			pri_pre_xx_wzero(tbv, &*star);
-			print_while(fmt, &*aux, &*star);
-		}
-		else if (fmt[*aux] == '0')
-		{
-			*aux = *aux + 1;
-			if (fmt[*aux] == 's')
-			{
-				*aux = *aux + 1;
-				pri_nbr_pre(tbv, &*star);
-			}		
-			else if ((fmt[*aux] == 'i')| (fmt[*aux] == 'd'))
-			{
-				*aux = *aux + 1;
-				p_int_pre_zero(tbv, &*star);
-			}
-			else if (fmt[*aux] == 'u') 
-			{
-				*aux = *aux + 1;
-				pri_pre_u_wzero(tbv, &*star);
-			}
-			else if (fmt[*aux] == 'x') 
-			{
-				*aux = *aux + 1;
-				pri_pre_x_wzero(tbv, &*star);
-				print_while(fmt, &*aux, &*star);
-			}
-			else if (fmt[*aux] == 'X') 
-			{
-				*aux = *aux + 1;
-				pri_pre_xx_wzero(tbv, &*star);
-				print_while(fmt, &*aux, &*star);
-			}
-			else
-				d_pre_zer(tbv, fmt, &*aux, &*star);
-		}
-		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
-		{
-			tbvv = converter(tbvv, fmt, &*aux);
-			if (fmt[*aux] == 's')
-			{
-				*aux = *aux + 1;
-				pri_min_pre_wnbr(tbv, tbvv, &*star);
-				
-			}
-			else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
-			{
-				*aux = *aux + 1;
-				p_min_pre_i(tbv, tbvv, &*star);
-			}
-			else if (fmt[*aux] == 'u') 
-			{
-				*aux = *aux + 1;
-				mim_pre_u_wnbr(tbv, tbvv, &*star);
-			}
-			else if (fmt[*aux] == 'x') 
-			{
-				*aux = *aux + 1;
-				mim_pre_x_wnbr(tbv, tbvv, &*star);
-			}
-			else if (fmt[*aux] == 'X') 
-			{
-				*aux = *aux + 1;
-				mim_pre_xx_wnbr(tbv, tbvv, &*star);
-			}
-		}
+		pri_nbr_pre(tbv, &*star);
+	}
+	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+	{
+		*aux = *aux + 1;
+		p_int_pre_zero(tbv, &*star);
+	}
+	else if (fmt[*aux] == 'u')
+	{
+		*aux = *aux + 1;
+		pri_pre_u_wzero(tbv, &*star);
+	}
+	else if (fmt[*aux] == 'x')
+	{
+		*aux = *aux + 1;
+		pri_pre_x_wzero(tbv, &*star);
+	}
+	else if (fmt[*aux] == 'X')
+	{
+		*aux = *aux + 1;
+		pri_pre_xx_wzero(tbv, &*star);
+	}
+}
+
+void	e_minuszero(char *tbv, const char *fmt, int *aux, t_bdr *star)
+{
+	if (fmt[*aux] == 'u')
+	{
+		*aux = *aux + 1;
+		pri_pre_u_wzero(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	free(tbvv);
+	else if (fmt[*aux] == 'x')
+	{
+		*aux = *aux + 1;
+		pri_pre_x_wzero(tbv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+	else if (fmt[*aux] == 'X')
+	{
+		*aux = *aux + 1;
+		pri_pre_xx_wzero(tbv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+	else
+		d_pre_zer(tbv, fmt, &*aux, &*star);
 }
 
-void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
+void	e_minuszerotwo(char *tbv, const char *fmt, int *aux, t_bdr *star)
 {
-	int		help;
-	int		j;
-	int		i;
+	if (fmt[*aux] == 's')
+	{
+		*aux = *aux + 1;
+		pri_nbr_pre(tbv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+	else if ((fmt[*aux] == 'i') | (fmt[*aux] == 'd'))
+	{
+		*aux = *aux + 1;
+		p_int_pre_zero(tbv, &*star);
+		print_while(fmt, &*aux, &*star);
+	}
+}
+
+void	e_mnbr(char *tbv, const char *fmt, int *aux, t_bdr *star)
+{
 	char	*tbvv;
 
-	help = 0;
-	j = 0;
-	i = 0;
 	tbvv = malloc(malloc_index(fmt, &*aux));
 	tbvv = converter(tbvv, fmt, &*aux);
-	j = ft_atoi(tbv);
-	i = ft_atoi(tbvv);
-	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+	*aux = *aux + 1;
+	if (fmt[*aux] == 's')
 	{
-		*aux = *aux + 1;
-		e_minusdzone(j, i, help, &*star);
 		
-	free(star->aux_outnbr);
+		pri_min_pre_wnbr(tbv, tbvv, &*star);
 	}
-	else if (fmt[*aux] == 's')
+	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
-		*aux = *aux + 1;
-		e_minusdz(j, i, help, &*star);
+	//	*aux = *aux + 1;
+		p_min_pre_i(tbv, tbvv, &*star);
+	}
+	else if (fmt[*aux] == 'u')
+	{
+		//*aux = *aux + 1;
+		mim_pre_u_wnbr(tbv, tbvv, &*star);
+	}
+	else if (fmt[*aux] == 'x')
+	{
+		//*aux = *aux + 1;
+		mim_pre_x_wnbr(tbv, tbvv, &*star);
+	}
+	else if (fmt[*aux] == 'X')
+	{
+		//*aux = *aux + 1;
+		mim_pre_xx_wnbr(tbv, tbvv, &*star);
 	}
 	free(tbvv);
-}
-
-void	e_minusdzone(int j, int i, int help, t_bdr *star)
-{
-	star->keeper = va_arg(star->list, int);
-	star->aux_outnbr = ft_itoa(star->keeper);
-	star->hold = ft_strlen(star->aux_outnbr);
-	if (star->hold < i)
-		j = j - star->hold;
-	else
-		j = j - i;
-	while ((help < i) && star->aux_outnbr[help] != '\0')
-	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
-	}
-	help = 0;
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
-}
-
-void	e_minusdz(int j, int i, int help, t_bdr *star)
-{
-	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-		star->aux_outnbr = "(null)";
-	star->hold = ft_strlen(star->aux_outnbr);
-	if (star->hold < i)
-		j = j - star->hold;
-	else
-		j = j - i;
-	while ((help < i) && star->aux_outnbr[help] != '\0')
-	{
-		ft_putchar(star->aux_outnbr[help], &*star);
-		help++;
-	}
-	help = 0;
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
-}
-
-void	p_min_pre_i(char *tbv, char *tbvv, t_bdr *star)
-{
-	int	help;
-	int	j;
-	int	i;
-
-	help = 0;
-	j = 0;
-	i = 0;
-	star->keeper = 0;
-	j = ft_atoi(tbv);
-	i = ft_atoi(tbvv);
-	star->kpr8 = va_arg(star->list, int);
-	star->aux_outnbr = ft_itoa(star->kpr8);
-	star->hold = ft_strlen(star->aux_outnbr);
-	star->keeper = i;
-	j = j - i;
-	if (star->kpr8 >= 0)
-		e_minuspreione(j, i, help, &*star);
-	else
-		e_minusprei(j, i, help, &*star);
-	free(star->aux_outnbr);
-}
-
-void	e_minuspreione(int j, int i, int help, t_bdr *star)
-{
-	star->keeper = star->keeper - star->hold;
-	while (help < star->keeper)
-	{
-		ft_putchar('0', &*star);
-		help++;
-	}
-	ft_putnbr(star->kpr8, &*star);
-	help = 0;
-	if (star->hold >= i)
-		j = j - (star->hold - i);
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
-}
-
-void	e_minusprei(int j, int i, int help, t_bdr *star)
-{
-	ft_putchar('-', &*star);
-	star->keeper = star->keeper - star->hold;
-	star->keeper = star->keeper + 1;
-	while (help < star->keeper)
-	{
-		ft_putchar('0', &*star);
-		help++;
-	}
-	star->kpr8 = star->kpr8 * -1;
-	ft_putnbr(star->kpr8, &*star);
-	help = 0;
-	if (star->hold >= i)
-		j = j - (star->hold - i);
-	else
-		j = j - 1;
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
 }
