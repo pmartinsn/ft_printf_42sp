@@ -6,14 +6,14 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:52:13 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 10:20:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:36:37 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf.two.h"
 
-int	pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
+int		pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 {
 	int	help;
 	int	j;
@@ -25,12 +25,18 @@ int	pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
 	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-				star->aux_outnbr = "(null)";
+		star->aux_outnbr = "(null)";
 	star->hold = ft_strlen(star->aux_outnbr);
 	if (star->hold < i)
 		j = j - star->hold;
 	else
 		j = j - i;
+	e_minprei(j, i, help, &*star);
+	return (0);
+}
+
+void	e_minprei(int j, int i, int help, t_bdr *star)
+{
 	while ((help < i) && star->aux_outnbr[help] != '\0')
 	{
 		ft_putchar(star->aux_outnbr[help], &*star);
@@ -42,7 +48,6 @@ int	pri_min_pre_wnbr(char *tbv, char *tbvv, t_bdr *star)
 		ft_putchar(' ', &*star);
 		help++;
 	}
-	return (0);
 }
 
 void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
@@ -74,7 +79,7 @@ void	deal_min_zero_perc(const char *fmt, int *aux, t_bdr *star)
 
 	tbv = malloc(malloc_index(fmt, &*aux));
 	tbv = converter(tbv, fmt, &*aux);
-	if(fmt[*aux] == '%')
+	if (fmt[*aux] == '%')
 	{
 		*aux = *aux + 1;
 		print_per_minwnbr(tbv, &*star);
