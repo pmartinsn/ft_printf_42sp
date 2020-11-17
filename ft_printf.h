@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 17:44:03 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:07:13 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,5 +173,8 @@ void	e_zhalf(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 void	e_zeronb(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 void	e_dztwo(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 void	e_pzeros(int j, int help, t_bdr *star);
+void	e_pwidpre(int j, int help, t_bdr *star);
+void	e_iwidzend(int j, int help, t_bdr *star);
+void	e_iwidzstart(int j, int help, t_bdr *star);
 
 #endif
