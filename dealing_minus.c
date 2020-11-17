@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 15:29:50 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 15:33:42 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,30 +181,29 @@ void	e_mnbr(char *tbv, const char *fmt, int *aux, t_bdr *star)
 
 	tbvv = malloc(malloc_index(fmt, &*aux));
 	tbvv = converter(tbvv, fmt, &*aux);
-	*aux = *aux + 1;
 	if (fmt[*aux] == 's')
 	{
-		
+		*aux = *aux + 1;
 		pri_min_pre_wnbr(tbv, tbvv, &*star);
 	}
 	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
-	//	*aux = *aux + 1;
+		*aux = *aux + 1;
 		p_min_pre_i(tbv, tbvv, &*star);
 	}
 	else if (fmt[*aux] == 'u')
 	{
-		//*aux = *aux + 1;
+		*aux = *aux + 1;
 		mim_pre_u_wnbr(tbv, tbvv, &*star);
 	}
 	else if (fmt[*aux] == 'x')
 	{
-		//*aux = *aux + 1;
+		*aux = *aux + 1;
 		mim_pre_x_wnbr(tbv, tbvv, &*star);
 	}
 	else if (fmt[*aux] == 'X')
 	{
-		//*aux = *aux + 1;
+		*aux = *aux + 1;
 		mim_pre_xx_wnbr(tbv, tbvv, &*star);
 	}
 	free(tbvv);
