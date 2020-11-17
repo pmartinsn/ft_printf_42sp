@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 10:44:03 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/13 15:40:12 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:46:11 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,39 +33,6 @@ void	ft_print_int_minuswnumb(char *tobeconv, t_bdr *star)
 		help++;
 	}
 	free(character);
-}
-
-int		print_s_minuswnumb(char *tobeconv, t_bdr *star)
-{
-	int	help;
-	int	j;
-
-	help = 0;
-	j = 0;
-	j = ft_atoi(tobeconv);
-	if(!(star->aux_outnbr = va_arg(star->list, char*)))
-	{
-		j = j - 6;
-		ft_putstr("(null)", &*star);
-		while (help < j)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}
-		return (0);
-	}
-	star->hold = ft_strlen(star->aux_outnbr);
-	ft_putstr(star->aux_outnbr, &*star);
-	if (star->hold > j)
-		j = 0;
-	else
-		j = j - star->hold;
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
-	return (0);
 }
 
 void	print_char_minuswnumb(char *tobeconv, t_bdr *star)
@@ -108,9 +75,6 @@ void	print_p_minuswnumb(char *tobeconv, t_bdr *star)
 	ft_putstr(character, &*star);
 	free(character);
 	star->hold = ft_strlen(character);
-	/*if (j < 14)
-		j = 14;
-	else*/
 	j = j - (star->hold + 2);
 	while (help < j)
 	{
@@ -133,9 +97,6 @@ void	print_u_minuswnumb(char *tobeconv, t_bdr *star)
 	character = ft_itoa_base(num, 10, 'a');
 	star->kpr5 = ft_strlen(character);
 	ft_putstr(character, &*star);
-	/*if (star->kpr5 > j)
-		j = star->kpr5;
-	else*/
 	j = j - star->kpr5;
 	while (help < j)
 	{
