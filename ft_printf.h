@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 10:56:16 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 11:43:03 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,5 +157,11 @@ void	e_prexx(int i, int help, t_bdr *star);
 void	e_nprei(int j, int i, int help, t_bdr *star);
 void	e_npreione(int j, int i, int help, t_bdr *star);
 void	e_prewn(int j, int help, int i, t_bdr *star);
+void	e_minusxx(int j, int i, int help, t_bdr *star);
+void	e_minusprei(int j, int i, int help, t_bdr *star);
+void	e_minuspreione(int j, int i, int help, t_bdr *star);
+void	e_minuspreu(int j, int i, int help, t_bdr *star);
+void	e_minusdz(int j, int i, int help, t_bdr *star);
+void	e_minusdzone(int j, int i, int help, t_bdr *star);
 
 #endif

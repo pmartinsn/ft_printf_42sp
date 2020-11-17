@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 19:44:44 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 11:43:48 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,6 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
 		{
 			tbvv = converter(tbvv, fmt, &*aux);
-			//*aux = *aux + 1;
 			if (fmt[*aux] == 's')
 			{
 				*aux = *aux + 1;
@@ -184,11 +183,6 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 				mim_pre_xx_wnbr(tbv, tbvv, &*star);
 			}
 		}
-		/*if (fmt[*aux] != '\0')
-		{
-			*aux = *aux + 1;
-			pri_nbr_pre(tbv, &*star);
-		}*/
 		print_while(fmt, &*aux, &*star);
 	}
 	free(tbvv);
@@ -199,14 +193,11 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	int		help;
 	int		j;
 	int		i;
-//	char	*tbv;
 	char	*tbvv;
-//printf("teste");
+
 	help = 0;
 	j = 0;
 	i = 0;
-//	*aux = *aux + 1;
-//	tbv = malloc(malloc_index(fmt, &*aux));1111
 	tbvv = malloc(malloc_index(fmt, &*aux));
 	tbvv = converter(tbvv, fmt, &*aux);
 	j = ft_atoi(tbv);
@@ -214,49 +205,60 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
-		star->keeper = va_arg(star->list, int);
-		star->aux_outnbr = ft_itoa(star->keeper);
-		star->hold = ft_strlen(star->aux_outnbr);
-		if (star->hold < i)
-			j = j - star->hold;
-		else
-			j = j - i;
-		while ((help < i) && star->aux_outnbr[help] != '\0')
-		{
-			ft_putchar(star->aux_outnbr[help], &*star);
-			help++;
-		}
-		help = 0;
-		while (help < j)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}
+		e_minusdzone(j, i, help, &*star);
+		
 	free(star->aux_outnbr);
 	}
 	else if (fmt[*aux] == 's')
 	{
 		*aux = *aux + 1;
-		if (!(star->aux_outnbr = va_arg(star->list, char*)))
-					star->aux_outnbr = "(null)";
-		star->hold = ft_strlen(star->aux_outnbr);
-		if (star->hold < i)
-			j = j - star->hold;
-		else
-			j = j - i;
-		while ((help < i) && star->aux_outnbr[help] != '\0')
-		{
-			ft_putchar(star->aux_outnbr[help], &*star);
-			help++;
-		}
-		help = 0;
-		while (help < j)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}	
+		e_minusdz(j, i, help, &*star);
 	}
 	free(tbvv);
+}
+
+void	e_minusdzone(int j, int i, int help, t_bdr *star)
+{
+	star->keeper = va_arg(star->list, int);
+	star->aux_outnbr = ft_itoa(star->keeper);
+	star->hold = ft_strlen(star->aux_outnbr);
+	if (star->hold < i)
+		j = j - star->hold;
+	else
+		j = j - i;
+	while ((help < i) && star->aux_outnbr[help] != '\0')
+	{
+		ft_putchar(star->aux_outnbr[help], &*star);
+		help++;
+	}
+	help = 0;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
+}
+
+void	e_minusdz(int j, int i, int help, t_bdr *star)
+{
+	if (!(star->aux_outnbr = va_arg(star->list, char*)))
+		star->aux_outnbr = "(null)";
+	star->hold = ft_strlen(star->aux_outnbr);
+	if (star->hold < i)
+		j = j - star->hold;
+	else
+		j = j - i;
+	while ((help < i) && star->aux_outnbr[help] != '\0')
+	{
+		ft_putchar(star->aux_outnbr[help], &*star);
+		help++;
+	}
+	help = 0;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
 }
 
 void	p_min_pre_i(char *tbv, char *tbvv, t_bdr *star)
@@ -277,156 +279,51 @@ void	p_min_pre_i(char *tbv, char *tbvv, t_bdr *star)
 	star->keeper = i;
 	j = j - i;
 	if (star->kpr8 >= 0)
-	{
-		star->keeper = star->keeper - star->hold;
-		while (help < star->keeper)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}
-		ft_putnbr(star->kpr8, &*star);
-		help = 0;
-		if (star->hold >= i)
-			j = j - (star->hold - i);
-		while (help < j)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}
-	}
+		e_minuspreione(j, i, help, &*star);
 	else
-	{
-		ft_putchar('-', &*star);
-		star->keeper = star->keeper - star->hold;
-		star->keeper = star->keeper + 1;
-		while (help < star->keeper)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}
-		star->kpr8 = star->kpr8 * -1;
-		ft_putnbr(star->kpr8, &*star);
-		help = 0;
-		if (star->hold >= i)
-			j = j - (star->hold - i);
-		else
-			j = j - 1;
-		while (help < j)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}
-	}
-	free (star->aux_outnbr);
+		e_minusprei(j, i, help, &*star);
+	free(star->aux_outnbr);
 }
 
-void	mim_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
+void	e_minuspreione(int j, int i, int help, t_bdr *star)
 {
-	int		help;
-	int		j;
-	int		i;
-	size_t	num;
-
-	help = 0;
-	j = 0;
-	i = 0;
-	j = ft_atoi(tbv);
-	i = ft_atoi(tbvv);
-	star->keeper = 0;
-	num = 0;
-	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
-	star->kpr5 = ft_strlen(star->aux_outnbr);
-	j = j - i;
-	star->keeper = i;
-	star->keeper  = star->keeper  - star->kpr5;
-	while (help < star->keeper )
+	star->keeper = star->keeper - star->hold;
+	while (help < star->keeper)
 	{
 		ft_putchar('0', &*star);
 		help++;
 	}
+	ft_putnbr(star->kpr8, &*star);
 	help = 0;
-	ft_putstr(star->aux_outnbr, &*star);
-		if (star->kpr5 >= i)
-		j = j - (star->kpr5 - i);
+	if (star->hold >= i)
+		j = j - (star->hold - i);
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
 		help++;
 	}
-	free(star->aux_outnbr);
 }
 
-void	mim_pre_x_wnbr(char *tbv, char *tbvv, t_bdr *star)
+void	e_minusprei(int j, int i, int help, t_bdr *star)
 {
-	int		help;
-	int		j;
-	int		i;
-	size_t	num;
-
-	help = 0;
-	j = 0;
-	i = 0;
-	j = ft_atoi(tbv);
-	i = ft_atoi(tbvv);
-	star->keeper = 0;
-	num = 0;
-	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
-	star->kpr5 = ft_strlen(star->aux_outnbr);
-	j = j - i;
-	star->keeper = i;
-	star->keeper  = star->keeper  - star->kpr5;
-	while (help < star->keeper )
+	ft_putchar('-', &*star);
+	star->keeper = star->keeper - star->hold;
+	star->keeper = star->keeper + 1;
+	while (help < star->keeper)
 	{
 		ft_putchar('0', &*star);
 		help++;
 	}
+	star->kpr8 = star->kpr8 * -1;
+	ft_putnbr(star->kpr8, &*star);
 	help = 0;
-	ft_putstr(star->aux_outnbr, &*star);
-		if (star->kpr5 >= i)
-		j = j - (star->kpr5 - i);
+	if (star->hold >= i)
+		j = j - (star->hold - i);
+	else
+		j = j - 1;
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
 		help++;
 	}
-	free(star->aux_outnbr);
-}
-
-void	mim_pre_xx_wnbr(char *tbv, char *tbvv, t_bdr *star)
-{
-	int		help;
-	int		j;
-	int		i;
-	size_t	num;
-
-	help = 0;
-	j = 0;
-	i = 0;
-	j = ft_atoi(tbv);
-	i = ft_atoi(tbvv);
-	star->keeper = 0;
-	num = 0;
-	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 16, 'A');
-	star->kpr5 = ft_strlen(star->aux_outnbr);
-	j = j - i;
-	star->keeper = i;
-	star->keeper  = star->keeper  - star->kpr5;
-	while (help < star->keeper )
-	{
-		ft_putchar('0', &*star);
-		help++;
-	}
-	help = 0;
-	ft_putstr(star->aux_outnbr, &*star);
-		if (star->kpr5 >= i)
-		j = j - (star->kpr5 - i);
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
-	free(star->aux_outnbr);
 }
