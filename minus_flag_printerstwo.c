@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:45:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 18:46:16 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 18:59:52 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int		print_s_minuswnumb(char *tobeconv, t_bdr *star)
 			ft_putchar(' ', &*star);
 			help++;
 		}
-		e_printshalf(j, help, &*star);
 		return (0);
 	}
+	e_printshalf(j, help, &*star);
 	return (0);
 }
 
