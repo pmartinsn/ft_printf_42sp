@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:16:58 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/12 17:08:34 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:02:06 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,8 @@ void	ft_print_int_zero(char *tobeconv, t_bdr *star)
 	star->kpr8 = va_arg(star->list, int);
 	character = ft_itoa(star->kpr8);
 	star->ret__ = ft_strlen(character);
-	/*if (star->ret__ > j)
-		j = star->ret__;
-	else*/
 	j = j - star->ret__;
-	if(star->kpr8 >= 0)
+	if (star->kpr8 >= 0)
 	{
 		while (help < j)
 		{
@@ -39,18 +36,20 @@ void	ft_print_int_zero(char *tobeconv, t_bdr *star)
 		ft_putnbr(star->kpr8, &*star);
 	}
 	else
-	{
-		ft_putchar('-', &*star);
-		//j = j + 1;
-		while (help < j)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}
-		star->kpr8 = star->kpr8 * -1;
-		ft_putnbr(star->kpr8, &*star);
-	}
+		ezeroi(j, help, &*star);
 	free(character);
+}
+
+void	ezeroi(int j, int help, t_bdr *star)
+{
+	ft_putchar('-', &*star);
+	while (help < j)
+	{
+		ft_putchar('0', &*star);
+		help++;
+	}
+	star->kpr8 = star->kpr8 * -1;
+	ft_putnbr(star->kpr8, &*star);
 }
 
 void	print_u_zero(char *tobeconv, t_bdr *star)
@@ -94,9 +93,6 @@ void	print_x_zero(char *tobeconv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'a');
 	star->kpr6 = ft_strlen(character);
-	/*if (star->kpr6 > j)
-		j = star->kpr6;
-	else*/
 	j = j - star->kpr6;
 	while (help < j)
 	{
@@ -121,10 +117,7 @@ void	print_xx_zero(char *tobeconv, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'A');
 	star->kpr6 = ft_strlen(character);
-/*	if (star->kpr6 > j)
-		j = star->kpr6;
-	else*/
-		j = j - star->kpr6;
+	j = j - star->kpr6;
 	while (help < j)
 	{
 		ft_putchar('0', &*star);
@@ -132,24 +125,4 @@ void	print_xx_zero(char *tobeconv, t_bdr *star)
 	}
 	ft_putstr(character, &*star);
 	free(character);
-}
-
-void	print_per_zero(char *tbv, t_bdr *star)
-{
-	int j;
-	int help;
-
-	j = 0;
-	help = 0;
-	j = ft_atoi(tbv);
-	if (j < 1)
-		j = 1;
-	else
-		j = j - 1;
-	while (help < j)
-	{
-		ft_putchar(' ', &*star);
-		help++;
-	}
-	ft_putchar('%', &*star);
 }

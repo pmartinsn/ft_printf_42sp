@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 11:56:25 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 17:04:21 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
-	//char	*tbv;
 
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i') | (fmt[*aux] == 'u')
 	| (fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
@@ -96,40 +95,39 @@ void	dea_zero_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 		print_while(fmt, &*aux, &*star);
 	}
 	else if (fmt[*aux] == '.')
-	{//cai aqui se tiver dois numeros um antes e um depois do "."
+	{
 		*aux = *aux + 1;
 		if (fmt[*aux] == '0')
 			d_pre_zer(tobeconv, fmt, &*aux, &*star);
 		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
 		{
 			tbvv = converter(tbvv, fmt, &*aux);
-			//*aux = *aux + 1;
 			if (fmt[*aux] == 's')
 			{
-				*aux = *aux + 1;
+			//	*aux = *aux + 1;
 				pri_pre_wnbr(tobeconv, tbvv, &*star);
-				
 			}
 			else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 			{
-				*aux = *aux + 1;
+			//	*aux = *aux + 1;
 				p_nbr_pre_i(tobeconv, tbvv, &*star);
 			}
 			else if (fmt[*aux] == 'u') 
 			{
-				*aux = *aux + 1;
+			//	*aux = *aux + 1;
 				pri_pre_u_wnbr(tobeconv, tbvv, &*star);
 			}
 			else if (fmt[*aux] == 'x') 
 			{
-				*aux = *aux + 1;
+			//	*aux = *aux + 1;
 				pri_pre_x_wnbr(tobeconv, tbvv, &*star);
 			}
 			else if (fmt[*aux] == 'X') 
 			{
-				*aux = *aux + 1;
+			//	*aux = *aux + 1;
 				pri_pre_xx_wnbr(tobeconv, tbvv, &*star);
 			}
+			*aux = *aux + 1;
 		}
 		else
 		{
