@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 15:18:42 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 15:32:08 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,5 +167,6 @@ void	e_minuspre(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	e_minuszero(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	e_minuszerotwo(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	e_checkminus(char *tbv, const char *fmt, int *aux, t_bdr *star);
+void	e_mnbr(char *tbv, const char *fmt, int *aux, t_bdr *star);
 
 #endif
