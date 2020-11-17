@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:51:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 11:52:11 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 19:02:36 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		e_minusdzone(j, i, help, &*star);
-		
-	free(star->aux_outnbr);
+		free(star->aux_outnbr);
 	}
 	else if (fmt[*aux] == 's')
 	{
@@ -40,6 +39,7 @@ void	d_pre_zer(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		e_minusdz(j, i, help, &*star);
 	}
 	free(tbvv);
+	free(tbv);
 }
 
 void	e_minusdzone(int j, int i, int help, t_bdr *star)
