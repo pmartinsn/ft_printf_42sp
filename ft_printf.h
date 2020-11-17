@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 20:00:03 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 08:45:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,8 @@ void	e_pre_x_xxdiu(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 void	d_pre_zero_two(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	dealing_preci_four(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	d_u_pre(char *tbv, int *aux, t_bdr *star);
+void	e_spre(int j, int help, t_bdr *star);
+void	e_prei(int j, int help, t_bdr *star);
+void	e_presw(int j, int help, t_bdr *star);
 
 #endif
