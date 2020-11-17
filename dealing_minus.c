@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 15:40:06 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/17 16:20:43 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 			e_minuszero(tbv, fmt, &*aux, &*star);
 		}
 		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+		{
 			e_mnbr(tbv, fmt, &*aux, &*star);
+			
+		}
 		print_while(fmt, &*aux, &*star);
 	}
 }
@@ -184,28 +187,29 @@ void	e_mnbr(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	tbvv = converter(tbvv, fmt, &*aux);
 	if (fmt[*aux] == 's')
 	{
-		*aux = *aux + 1;
+		//*aux = *aux + 1;
 		pri_min_pre_wnbr(tbv, tbvv, &*star);
 	}
 	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
-		*aux = *aux + 1;
+		//*aux = *aux + 1;
 		p_min_pre_i(tbv, tbvv, &*star);
 	}
 	else if (fmt[*aux] == 'u')
 	{
-		*aux = *aux + 1;
+		//*aux = *aux + 1;
 		mim_pre_u_wnbr(tbv, tbvv, &*star);
 	}
 	else if (fmt[*aux] == 'x')
 	{
-		*aux = *aux + 1;
+		//*aux = *aux + 1;
 		mim_pre_x_wnbr(tbv, tbvv, &*star);
 	}
 	else if (fmt[*aux] == 'X')
 	{
-		*aux = *aux + 1;
+		//*aux = *aux + 1;
 		mim_pre_xx_wnbr(tbv, tbvv, &*star);
 	}
+	*aux = *aux + 1;
 	free(tbvv);
 }
