@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 10:27:54 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 10:36:52 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 {
-//	int		i;
-//	int		j;
+	int		i;
+	int		j;
 	char	*tbv;
 
 	tbv = malloc(malloc_index(fmt, &*aux));
@@ -27,12 +27,25 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 		{
 			tbv = converter(tbv, fmt, &*aux);
 			*aux = *aux + 1;
-			star->kpr3 = ft_atoi(tbv);
-			star->kpr2 = va_arg(star->list, int);
-			min_s_pre_ww(star->kpr3, star->hold, &*star);
+			i = ft_atoi(tbv);
+			j = va_arg(star->list, int);
+			min_s_pre_ww(j, i, &*star);
 		}
-		e_vdwm(fmt, &*aux, &*star);
-		if (fmt[*aux] == '*')
+		if (fmt[*aux] == '0')
+			*aux = *aux + 1;
+		if (fmt[*aux] == 's')
+		{
+			i = 0;
+			*aux = *aux + 1;
+			star->hold = va_arg(star->list, int);
+			star->aux_outnbr = va_arg(star->list, char*);
+			while (i < star->hold)
+			{
+				ft_putchar(' ', &*star);
+				i++;
+			}
+		}
+		else if (fmt[*aux] == '*')
 		{
 			*aux = *aux + 1;
 			if (fmt[*aux] == 's')
@@ -48,23 +61,10 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 	}
 }
 
-void	e_vdwm(const char *fmt, int *aux, t_bdr *star)
+/*void	e_vdwm(int j, int i, int *aux, t_bdr *star)
 {
-	if (fmt[*aux] == '0')
-		*aux = *aux + 1;
-	if (fmt[*aux] == 's')
-	{
-		star->kpr3 = 0;
-		*aux = *aux + 1;
-		star->hold = va_arg(star->list, int);
-		star->aux_outnbr = va_arg(star->list, char*);
-		while (star->kpr3 < star->hold)
-		{
-			ft_putchar(' ', &*star);
-			star->kpr3++;
-		}
-	}
-}
+	
+}*/
 
 void	min_s_pre_ww(int j, int i, t_bdr *star)
 {

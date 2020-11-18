@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 10:26:10 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 10:36:26 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,6 @@ void	e_minprei(int j, int i, int help, t_bdr *star);
 void	e_printshalf(int j, int help, t_bdr *star);
 void	e_ppcnumb(int j, int i, int help, t_bdr *star);
 void	e_pswnumb(int j, int help, t_bdr *star);
-void	e_vdwm(const char *fmt, int *aux, t_bdr *star);
+//void	e_vdwm(const char *fmt, int *aux, t_bdr *star);
 
 #endif
