@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 10:24:42 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 10:27:54 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 		{
 			tbv = converter(tbv, fmt, &*aux);
 			*aux = *aux + 1;
-			star->hold = ft_atoi(tbv);
+			star->kpr3 = ft_atoi(tbv);
 			star->kpr2 = va_arg(star->list, int);
-			min_s_pre_ww(star->kpr2, star->hold, &*star);
+			min_s_pre_ww(star->kpr3, star->hold, &*star);
 		}
 		e_vdwm(fmt, &*aux, &*star);
 		if (fmt[*aux] == '*')
@@ -54,14 +54,14 @@ void	e_vdwm(const char *fmt, int *aux, t_bdr *star)
 		*aux = *aux + 1;
 	if (fmt[*aux] == 's')
 	{
-		i = 0;
+		star->kpr3 = 0;
 		*aux = *aux + 1;
 		star->hold = va_arg(star->list, int);
 		star->aux_outnbr = va_arg(star->list, char*);
-		while (i < star->hold)
+		while (star->kpr3 < star->hold)
 		{
 			ft_putchar(' ', &*star);
-			i++;
+			star->kpr3++;
 		}
 	}
 }
