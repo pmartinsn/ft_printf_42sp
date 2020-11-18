@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:51:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 19:07:15 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 17:56:15 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	e_minusdzone(int j, int i, int help, t_bdr *star)
 		ft_putchar(' ', &*star);
 		help++;
 	}
+	free(star->aux_outnbr);
 }
 
 void	e_minusdz(int j, int i, int help, t_bdr *star)
