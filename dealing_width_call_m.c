@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 11:13:39 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 11:33:49 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 				//int i;
 				//int j;
 				*aux = *aux + 1;
-				star->kpr2 = va_arg(star->list, int);
-				star->kpr3  = va_arg(star->list, int);
+				star->kpr3 = va_arg(star->list, int);
+				star->kpr2  = va_arg(star->list, int);
 				min_s_pre_ww(&*star);
 			}
 		}
@@ -92,7 +92,7 @@ void	min_s_pre_ww(/*int j, int i,*/ t_bdr *star)
 	}
 	else if ((star->kpr3 > 0) && (star->kpr2  < 0))
 	{
-		star->kpr2 = star->kpr2  * -1;
+		star->kpr2 = star->kpr2 * -1;
 		star->kpr3 = star->kpr3 - star->hold;
 		ft_putstr(star->aux_outnbr, &*star);
 		while (help < star->kpr3)
