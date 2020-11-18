@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 13:06:23 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 13:48:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,5 +184,7 @@ void	e_vdwm(char *tbv, const char *fmt, int *aux, t_bdr *star);
 void	e_swwone(int help, t_bdr *star);
 void	e_swwtwo(int help, t_bdr *star);
 void	e_swwthree(int help, t_bdr *star);
+void	e_nfwfour(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
+void	e_nfwfive(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 
 #endif

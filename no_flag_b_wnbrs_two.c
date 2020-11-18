@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:40:59 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/10 11:53:04 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 09:36:45 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		print_s_wnumb(char *tobeconv, t_bdr *star)
 	help = 0;
 	j = 0;
 	j = ft_atoi(tobeconv);
-	if(!(star->aux_outnbr = va_arg(star->list, char*)))
+	if (!(star->aux_outnbr = va_arg(star->list, char*)))
 	{
 		j = j - 6;
 		while (help < j)
@@ -54,6 +54,12 @@ int		print_s_wnumb(char *tobeconv, t_bdr *star)
 		ft_putstr("(null)", &*star);
 		return (0);
 	}
+	e_pswnumb(j, help, &*star);
+	return (0);
+}
+
+void	e_pswnumb(int j, int help, t_bdr *star)
+{
 	star->hold = ft_strlen(star->aux_outnbr);
 	if (star->hold > j)
 		j = 0;
@@ -65,7 +71,6 @@ int		print_s_wnumb(char *tobeconv, t_bdr *star)
 		help++;
 	}
 	ft_putstr(star->aux_outnbr, &*star);
-	return (0);
 }
 
 void	pri_per_wnbr(char *tbv, t_bdr *star)
