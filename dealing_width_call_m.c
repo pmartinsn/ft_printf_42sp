@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 13:00:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 13:25:18 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,65 +59,6 @@ void	e_vdwm(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		{
 			ft_putchar(' ', &*star);
 			star->kpr2++;
-		}
-	}
-}
-
-void	min_s_pre_ww(t_bdr *star)
-{
-	int	help;
-
-	help = 0;
-	if (!(star->aux_outnbr = va_arg(star->list, char*)))
-		star->aux_outnbr = "(null)";
-	star->hold = ft_strlen(star->aux_outnbr);
-	if ((star->kpr3 > 0) && (star->kpr2 > 0))
-	{
-		star->kpr3 = star->kpr3 - star->kpr2;
-		while ((help < star->kpr2) && star->aux_outnbr[help] != '\0')
-		{
-			ft_putchar(star->aux_outnbr[help], &*star);
-			help++;
-		}
-		help = 0;
-		while (help < star->kpr3)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}
-	}
-	else if ((star->kpr3 > 0) && (star->kpr2 < 0))
-	{
-		star->kpr2 = star->kpr2 * -1;
-		star->kpr3 = star->kpr3 - star->hold;
-		ft_putstr(star->aux_outnbr, &*star);
-		while (help < star->kpr3)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}
-	}
-	else if ((star->kpr3 < 0) && (star->kpr2 > 0))
-	{
-		star->kpr3 = star->kpr3 * -1;
-		star->kpr3 = star->kpr3 - star->hold;
-		ft_putstr(star->aux_outnbr, &*star);
-		while (help < star->kpr3)
-		{
-			ft_putchar(' ', &*star);
-			help++;
-		}
-	}
-	else if ((star->kpr3 < 0) && (star->kpr2 < 0))
-	{
-		star->kpr3 = star->kpr3 * -1;
-		star->kpr2 = star->kpr2 * -1;
-		star->kpr3 = star->kpr3 - star->hold;
-		ft_putstr(star->aux_outnbr, &*star);
-		while (help < star->kpr3)
-		{
-			ft_putchar(' ', &*star);
-			help++;
 		}
 	}
 }
