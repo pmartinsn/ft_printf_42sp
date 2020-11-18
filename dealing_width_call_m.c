@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 11:33:49 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 12:57:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,59 +15,54 @@
 
 void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 {
-//	int		i;kpr2
-//	int		j; kpr3
-
 	char	*tbv;
 
 	tbv = malloc(malloc_index(fmt, &*aux));
 	if (fmt[*aux] == '.')
 	{
 		*aux = *aux + 1;
-		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
-		{
-			tbv = converter(tbv, fmt, &*aux);
-			*aux = *aux + 1;
-			star->kpr2 = ft_atoi(tbv);
-			star->kpr3 = va_arg(star->list, int);
-			min_s_pre_ww(&*star);
-		}
-		if (fmt[*aux] == '0')
-			*aux = *aux + 1;
-		if (fmt[*aux] == 's')
-		{
-			star->kpr2 = 0;
-			*aux = *aux + 1;
-			star->hold = va_arg(star->list, int);
-			star->aux_outnbr = va_arg(star->list, char*);
-			while (star->kpr2 < star->hold)
-			{
-				ft_putchar(' ', &*star);
-				star->kpr2 ++;
-			}
-		}
-		else if (fmt[*aux] == '*')
+		e_vdwm(tbv, fmt, &*aux, &*star);
+		if (fmt[*aux] == '*')
 		{
 			*aux = *aux + 1;
 			if (fmt[*aux] == 's')
 			{
-				//int i;
-				//int j;
 				*aux = *aux + 1;
 				star->kpr3 = va_arg(star->list, int);
-				star->kpr2  = va_arg(star->list, int);
+				star->kpr2 = va_arg(star->list, int);
 				min_s_pre_ww(&*star);
 			}
 		}
 	}
 }
 
-/*void	e_vdwm(int j, int i, int *aux, t_bdr *star)
+void	e_vdwm(char *tbv, const char *fmt, int *aux, t_bdr *star)
 {
-	
-}*/
+	if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+	{
+		tbv = converter(tbv, fmt, &*aux);
+		*aux = *aux + 1;
+		star->kpr2 = ft_atoi(tbv);
+		star->kpr3 = va_arg(star->list, int);
+		min_s_pre_ww(&*star);
+	}
+	if (fmt[*aux] == '0')
+		*aux = *aux + 1;
+	if (fmt[*aux] == 's')
+	{
+		star->kpr2 = 0;
+		*aux = *aux + 1;
+		star->hold = va_arg(star->list, int);
+		star->aux_outnbr = va_arg(star->list, char*);
+		while (star->kpr2 < star->hold)
+		{
+			ft_putchar(' ', &*star);
+			star->kpr2++;
+		}
+	}
+}
 
-void	min_s_pre_ww(/*int j, int i,*/ t_bdr *star)
+void	min_s_pre_ww(t_bdr *star)
 {
 	int	help;
 
@@ -77,8 +72,8 @@ void	min_s_pre_ww(/*int j, int i,*/ t_bdr *star)
 	star->hold = ft_strlen(star->aux_outnbr);
 	if ((star->kpr3 > 0) && (star->kpr2 > 0))
 	{
-		star->kpr3 = star->kpr3 - star->kpr2 ;
-		while ((help < star->kpr2 ) && star->aux_outnbr[help] != '\0')
+		star->kpr3 = star->kpr3 - star->kpr2;
+		while ((help < star->kpr2) && star->aux_outnbr[help] != '\0')
 		{
 			ft_putchar(star->aux_outnbr[help], &*star);
 			help++;
@@ -90,7 +85,7 @@ void	min_s_pre_ww(/*int j, int i,*/ t_bdr *star)
 			help++;
 		}
 	}
-	else if ((star->kpr3 > 0) && (star->kpr2  < 0))
+	else if ((star->kpr3 > 0) && (star->kpr2 < 0))
 	{
 		star->kpr2 = star->kpr2 * -1;
 		star->kpr3 = star->kpr3 - star->hold;
@@ -101,7 +96,7 @@ void	min_s_pre_ww(/*int j, int i,*/ t_bdr *star)
 			help++;
 		}
 	}
-	else if ((star->kpr3 < 0) && (star->kpr2  > 0))
+	else if ((star->kpr3 < 0) && (star->kpr2 > 0))
 	{
 		star->kpr3 = star->kpr3 * -1;
 		star->kpr3 = star->kpr3 - star->hold;
