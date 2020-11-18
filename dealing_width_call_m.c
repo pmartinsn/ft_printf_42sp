@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 12:57:29 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/18 13:00:31 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 	if (fmt[*aux] == '.')
 	{
 		*aux = *aux + 1;
-		e_vdwm(tbv, fmt, &*aux, &*star);
-		if (fmt[*aux] == '*')
+		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+			e_vdwm(tbv, fmt, &*aux, &*star);
+		else if (fmt[*aux] == '*')
 		{
 			*aux = *aux + 1;
 			if (fmt[*aux] == 's')
