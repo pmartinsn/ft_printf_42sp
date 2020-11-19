@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:39:44 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 19:08:40 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:53:02 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,15 @@ int	print_s_noflag(t_bdr *star)
 
 int	print_int_noflag(t_bdr *star)
 {
+	char	*character;
+
 	star->hold = va_arg(star->list, int);
-	star->helpint = ft_itoa(star->hold);
+	character = ft_itoa(star->hold);
 	ft_putnbr(star->hold, &*star);
-	star->hold = ft_strlen(star->helpint);
+	star->hold = ft_strlen(character);
 	star->keeper = star->keeper + star->hold;
-	free(star->helpint);
+	free(character);
+	character = NULL;
 	return (star->keeper);
 }
 
@@ -60,6 +63,7 @@ int	print_p_noflag(t_bdr *star)
 	ft_putstr("0x", &*star);
 	ft_putstr(character, &*star);
 	free(character);
+	character = NULL;
 	return (star->kpr3 + 2);
 }
 
@@ -74,5 +78,6 @@ int	print_u_noflag(t_bdr *star)
 	star->kpr5 = ft_strlen(character);
 	ft_putstr(character, &*star);
 	free(character);
+	character = NULL;
 	return (star->kpr5);
 }
