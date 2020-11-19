@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 15:14:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 15:17:42 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 			p_int_wid_zero(&*star);
 			print_while(fmt, &*aux, &*star);
 		}
-	/*	else if (fmt[*aux] == '.')
+		else if (fmt[*aux] == '.')
 		{
 			*aux = *aux + 1;
 			if (fmt[*aux] == '*')
@@ -41,7 +41,7 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 					e_starprestari(&*star);
 				}
 			}
-		}*/
+		}
 	}
 	tobeconv = malloc(malloc_index(fmt, &*aux));
 	tobeconv = converter(tobeconv, fmt, &*aux);
@@ -68,7 +68,7 @@ void	e_starprestari(t_bdr *star)
 void	e_starprei(int help, t_bdr *star)
 {
 	if (star->kpr4 == 0)
-		star->kpr2 = star->kpr2 + 1;
+		ft_putchar(' ', &*star);
 	else
 		ft_putnbr(star->kpr4, &*star);
 	help = 0;
