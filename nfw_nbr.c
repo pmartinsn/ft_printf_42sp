@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:27:23 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 10:47:55 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 11:21:57 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,10 @@ void	vry_nfw_four(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		if ((fmt[*aux] == 'i') | (fmt[*aux] == 'd'))
-			ft_print_int_zero(tobeconv, &*star);
+		{
+			*aux = *aux + 1;
+			pri_nbr_prei(tobeconv, &*star);
+		}
 		else if (fmt[*aux] == '0')
 			e_nfwfour(tobeconv, fmt, &*aux, &*star);
 		else if (fmt[*aux] == 'p')
