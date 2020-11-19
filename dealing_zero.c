@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 13:33:51 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 13:55:14 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 				if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 				{
 					*aux = *aux + 1;
-					star->kpr3 = va_arg(star->list, int);
-					star->kpr2 = va_arg(star->list, int);
 					e_starprestari(&*star);
-					
 				}
 			}
 		}
@@ -58,19 +55,24 @@ void	e_starprestari(t_bdr *star)
 	int	help;
 
 	help = 0;
+	star->kpr3 = va_arg(star->list, int);
+	star->kpr2 = va_arg(star->list, int);
 	star->kpr4 = va_arg(star->list, int);
 	star->aux_outnbr = ft_itoa(star->kpr4);
 	star->hold = ft_strlen(star->aux_outnbr);
 	/*if (star->hold < star->kpr3)
 		star->kpr2 = star->kpr2 - star->hold;
 	else*/
-	star->kpr2 = star->kpr2 - star->kpr3;
+	star->kpr2 = star->kpr2 - star->kpr3 - star->hold;
 	e_starprei(help, &*star);
 }
 
 void	e_starprei(int help, t_bdr *star)
 {
-	ft_putnbr(star->kpr4, &*star);
+	if (star->kpr4 == 0)
+		star->kpr2 = star->kpr2 + 1;
+	else
+		ft_putnbr(star->kpr4, &*star);
 	help = 0;
 	while (help < star->kpr2)
 	{
