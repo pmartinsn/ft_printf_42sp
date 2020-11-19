@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 11:41:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 13:33:51 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,15 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 			*aux = *aux + 1;
 			if (fmt[*aux] == '*')
 			{
-				p_int_wid_pre(&*star);
-				print_while(fmt, &*aux, &*star);
+				*aux = *aux + 1;
+				if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+				{
+					*aux = *aux + 1;
+					star->kpr3 = va_arg(star->list, int);
+					star->kpr2 = va_arg(star->list, int);
+					e_starprestari(&*star);
+					
+				}
 			}
 		}
 	}
@@ -45,6 +52,33 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 	dea_zero_two(tobeconv, fmt, &*aux, &*star);
 	free(tobeconv);
 }
+
+void	e_starprestari(t_bdr *star)
+{
+	int	help;
+
+	help = 0;
+	star->kpr4 = va_arg(star->list, int);
+	star->aux_outnbr = ft_itoa(star->kpr4);
+	star->hold = ft_strlen(star->aux_outnbr);
+	/*if (star->hold < star->kpr3)
+		star->kpr2 = star->kpr2 - star->hold;
+	else*/
+	star->kpr2 = star->kpr2 - star->kpr3;
+	e_starprei(help, &*star);
+}
+
+void	e_starprei(int help, t_bdr *star)
+{
+	ft_putnbr(star->kpr4, &*star);
+	help = 0;
+	while (help < star->kpr2)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
+}
+
 
 void	e_zhalf(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 {

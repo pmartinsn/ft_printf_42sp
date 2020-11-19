@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 11:17:58 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 13:12:28 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,5 +191,6 @@ void	verify_nfw_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 void	ft_bzero(void *s, size_t n);
 void	pri_nbr_prei(char *tbv, t_bdr *star);
 void	*ft_calloc(size_t count, size_t size);
-
+void	e_starprestari(t_bdr *star);
+void	e_starprei(int help, t_bdr *star);
 #endif
