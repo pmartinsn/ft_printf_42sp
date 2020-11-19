@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 10:42:44 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 11:41:01 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 			*aux = *aux + 1;
 			p_int_wid_zero(&*star);
 			print_while(fmt, &*aux, &*star);
+		}
+		else if (fmt[*aux] == '.')
+		{
+			*aux = *aux + 1;
+			if (fmt[*aux] == '*')
+			{
+				p_int_wid_pre(&*star);
+				print_while(fmt, &*aux, &*star);
+			}
 		}
 	}
 	tobeconv = malloc(malloc_index(fmt, &*aux));
