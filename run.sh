@@ -1,1 +1,1 @@
-gcc -Wall -Wextra -Werror -g *.c  *.h
+gcc -Wall -Wextra -Werror -g *.c  *.h 
