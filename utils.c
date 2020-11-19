@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/09 18:42:35 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 15:35:50 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 
 	tbv = malloc(malloc_index(fmt, &*aux));
 	*aux = *aux + 1;
+	if (fmt[*aux] == '*')
+	{
+		*aux = *aux + 1;
+		if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+		{
+			*aux = *aux + 1;
+			e_starprestari(&*star);
+		}
+	}
 	if (fmt[*aux] == '0')
 		*aux = *aux + 1;
 	if (fmt[*aux] == 's')
