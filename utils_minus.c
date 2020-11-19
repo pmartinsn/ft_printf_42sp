@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:52:13 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 18:36:37 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 15:32:08 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,17 @@ void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
 	else if (fmt[*aux] == '.')
 	{
 		*aux = *aux + 1;
-		dealing_precision(fmt, &*aux, &*star);
+		if (fmt[*aux] == '*')
+		{
+			*aux = *aux + 1;
+			if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+			{
+				*aux = *aux + 1;
+				e_starprestari(&*star);
+			}
+		}
+		else
+			dealing_precision(fmt, &*aux, &*star);
 	}
 	else if (fmt[*aux] == '*')
 	{
