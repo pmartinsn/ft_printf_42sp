@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 10:30:36 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 10:36:36 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	dea_zero_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		if ((fmt[*aux] == 'i') | (fmt[*aux] == 'd'))
-			e_pre_x_xxdiu(tobeconv, fmt, &*aux, &*star);
+			ft_print_int_zero(tobeconv, &*star);
 		if (fmt[*aux] == '0')
 			d_pre_zer(tobeconv, fmt, &*aux, &*star);
 		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
