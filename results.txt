@@ -1,0 +1,68 @@
+ -12, 123456789, 0, -12345678, abcdefghijklmnop, a, 97, 8589934580, 1fffffff4, 1FFFFFFF4
+HERE---->>>> ,  ,  ,  ,  
+abcdefghijklmnop, -a  , -12 , 0   , %%  , -2147483648, 0x12345678, -0  
+, , , , , , , 
+abcdefghijklmnop, -a  , -12 , 0   , %%  , -2147483648, 0x12345678, -0  
+HERE---->>>>, , , , , , , 
+HERE---->>>>, , , , , , , 
+HERE---->>>>, , , , , , , 
+, , , , , , , , , , , , , , , , , , , , , , , 00000000004294967292, 0, 8, 00000000004294967292, 0, 100000008, 00000000008589934588, 100000000, 100000008, 00000000008589934588, 100000000, 1FFFFFFF4, 00000000008589934588, 100000000, 1FFFFFFF4, 00000000008589934588, 100000000, 1FFFFFFF4, 00000000008589934588, 7fff00000000, 1075BCD15, 00000000008589934588, 0, 1075BCD15
+HERE---->>>>, , , , , , , , , , , , , , , , , , , , , , , 
+0xc7e1ab0, c7e1ab0, 0xc5729c0, c5729c0, 0x1, 100000001, 0x0, 100000000
+              0xc7e1ab0,        c7e1ab0,               0xc5729c0,          10c5729c0,               0x1,          100000001,               0x0,          100000000, , , , , , , 
+8   , -12 , 123456789,     , -12345678, 97  
+./a	, , , , , , , , , , , , , , , , , , , , , , , 
+, , , , , , , 
+(null), (n, (null), (nul, (null)  , (null),   (null), (null), %       .*s, , (, (n, (nul, (null)
+ -12, 123456789, 0, -12345678, abcdefghijklmnop, a, 97, 4294967284, fffffff4, FFFFFFF4
+...return_printf:87
+return_ft_printf:89
+HERE---->>>> ,  ,  ,  ,  
+...return_printf:26
+return_ft_printf:26
+abcdefghijklmnop, -a  , -12 , 0   , %%  , -2147483648, 0x12345678, -0  
+...return_printf:72
+return_ft_printf:72
+abcdefghijklmnop, -a  , -12 , 0   , %%  , -2147483648, 0x12345678, -0  
+...return_printf:72
+return_ft_printf:15
+abcdefghijklmnop, -a, -12, 0, %%, -2147483648, 0x12345678, -0
+...return_printf:62
+return_ft_printf:72
+HERE---->>>>    ,     ,     ,     ,     ,     ,     ,     
+...return_printf:59
+return_ft_printf:27
+HERE---->>>>    ,     ,     ,     ,     ,     ,     ,     
+...return_printf:59
+return_ft_printf:27
+HERE---->>>>    ,     ,     ,     ,     ,     ,     ,     
+...return_printf:59
+return_ft_printf:27
+8   , 8   , 8   , 4294967284, fffffff4, FFFFFFF4, 123456789, 75bcd15, 75BCD15,     ,     ,     , 4282621618, ff439eb2, FF439EB2, 97  , 61  , 61  , 2147483647, 7fffffff, 7FFFFFFF, 2147483648, 80000000, 80000000...return_printf:209
+return_ft_printf:46
+8   , 8   , 8   , 4294967284, fffffff4, FFFFFFF4, 123456789, 75bcd15, 75BCD15,     ,     ,     , 4282621618, ff439eb2, FF439EB2, 97  , 61  , 61  , 2147483647, 7fffffff, 7FFFFFFF, 2147483648, 80000000, 80000000
+...return_printf:210
+return_ft_printf:322
+HERE---->>>>8   , 8   , 8   , 4294967284, fffffff4, FFFFFFF4, 123456789, 75bcd15, 75BCD15,     ,     ,     , 4282621618, ff439eb2, FF439EB2, 97  , 61  , 61  , 2147483647, 7fffffff, 7FFFFFFF, 2147483648, 80000000, 80000000
+...return_printf:222
+return_ft_printf:59
+0xc7e1ab0, c7e1ab0, 0xc5729c0, c5729c0, 0x1, 1, 0x0, 0
+...return_printf:55
+return_ft_printf:71
+0xc7e1ab0, c7e1ab0, 0xc5729c0, c5729c0, 0x1 , 1   , 0x0 , 0   ...return_printf:62
+return_ft_printf:162
+0xc7e1ab0, c7e1ab0, 0xc5729c0, c5729c0, 0x1 , 1   , 0x0 , 0   
+...return_printf:63
+return_ft_printf:15
+8   , -12 , 123456789,     , -12345678, 97  
+...return_printf:45
+return_ft_printf:45
+./a	8   , 8   , 8   , 4294967284, fffffff4, FFFFFFF4, 123456789, 75bcd15, 75BCD15,     ,     ,     , 4282621618, ff439eb2, FF439EB2, 97  , 61  , 61  , 2147483647, 7fffffff, 7FFFFFFF, 2147483648, 80000000, 80000000
+...return_printf:214
+return_ft_printf:51
+0xc7e1ab0, c7e1ab0, 0xc5729c0, c5729c0, 0x1 , 1   , 0x0 , 0   
+...return_printf:63
+return_ft_printf:15
+(null), , (null), (nul, (null)  , (null),   (null), (null), (null), , (, (n, (nul, (null)
+...return_printf:90
+return_ft_printf:97
