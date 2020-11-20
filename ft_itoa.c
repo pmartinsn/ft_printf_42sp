@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 11:30:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 10:06:08 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 16:16:51 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char				*ft_itoa(int n)
 	aux = n;
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	if (!(str = ft_calloc( len + 1, sizeof(char))))
+	if (!(str = ft_calloc(len + 1, sizeof(char))))
 		return (NULL);
 	str[len] = '\0';
 	if (n == 0)

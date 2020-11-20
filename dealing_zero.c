@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 15:28:45 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/19 19:57:59 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 			}
 		}
 	}
-	tobeconv = malloc(malloc_index(fmt, &*aux));
+	tobeconv = ft_calloc(malloc_index(fmt, &*aux), sizeof(char));
 	tobeconv = converter(tobeconv, fmt, &*aux);
 	e_zhalf(tobeconv, fmt, &*aux, &*star);
 	dea_zero_two(tobeconv, fmt, &*aux, &*star);
 	free(tobeconv);
+	tobeconv = NULL;
 }
 
 void	e_starprestari(t_bdr *star)

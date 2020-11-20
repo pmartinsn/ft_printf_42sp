@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 15:35:50 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/20 10:35:51 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,32 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 			*aux = *aux + 1;
 			e_starprestari(&*star);
 		}
+		if (fmt[*aux] == 's')
+		{
+			i = 0;
+			*aux = *aux + 1;
+			star->hold = va_arg(star->list, int);
+			star->hold = va_arg(star->list, int);
+			star->aux_outnbr = va_arg(star->list, char*);
+			while (i < star->hold)
+			{
+				ft_putchar(' ', &*star);
+				i++;
+			}
+		}
+		if ((fmt[*aux] == 'X') | (fmt[*aux] == 'x') | (fmt[*aux] == 'u'))
+		{
+			i = 0;
+			*aux = *aux + 1;
+			star->hold = va_arg(star->list, int);
+			star->hold = va_arg(star->list, int);
+			star->aux_outnbr = va_arg(star->list, char*);
+			while (i < star->hold)
+			{
+				ft_putchar(' ', &*star);
+				i++;
+			}
+		}
 	}
 	if (fmt[*aux] == '0')
 		*aux = *aux + 1;
@@ -44,6 +70,7 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 		}
 	}
 	free(tbv);
+	tbv = NULL;
 }
 
 void	dealing_width_two(const char *fmt, int *aux, t_bdr *star)
