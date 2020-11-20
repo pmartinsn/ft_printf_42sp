@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/20 10:35:51 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/20 19:52:15 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 			i = 0;
 			*aux = *aux + 1;
 			star->hold = va_arg(star->list, int);
-			star->hold = va_arg(star->list, int);
+			star->kpr5 = va_arg(star->list, int);
+			if (star->hold < 0)
+				star->hold = star->hold * -1;
+			if (star->kpr5 < 0)
+				star->kpr5 = star->kpr5 * -1;
 			star->aux_outnbr = va_arg(star->list, char*);
+			star->hold = star->hold - star->kpr5;
 			while (i < star->hold)
 			{
 				ft_putchar(' ', &*star);
