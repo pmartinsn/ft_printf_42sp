@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/20 18:51:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/20 18:52:15 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ int main()
 	return_ft_printf = ft_printf(" %i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n",i, j, k, l, m, n, c, c, j, j, j);
 	  printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-//	  return_printf = printf("HERE---->>>>%1.s, %1.s, %1.s, %1.s, %1.s\n", n, o, p, q, r);
+	  return_printf = printf("HERE---->>>>%1.s, %1.s, %1.s, %1.s, %1.s\n", n, o, p, q, r);
 	 return_ft_printf = ft_printf("HERE---->>>>%1.s, %1.s, %1.s, %1.s, %1.s\n", n, o, p, q, r);
-//	   printf("...return_printf:%i\n", return_printf);
+	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-//	  return_printf = printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
+	  return_printf = printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	 return_ft_printf = ft_printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 //	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
