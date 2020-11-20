@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/20 11:32:20 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/20 11:33:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int main()
 	char	*t = "0x12345678";
 	char	*u = "-0";
 
-	      return_printf = printf("%u, %x, %X\n", j, j, j);
-	return_ft_printf = ft_printf("%u, %x, %X\n", j, j, j);
+	      return_printf = printf(" %u, %x, %X\n", j, j, j);
+	return_ft_printf = ft_printf(" %u, %x, %X\n", j, j, j);
 	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
 	  return_printf = printf("HERE---->>>>%1.s, %1.s, %1.s, %1.s, %1.s\n", n, o, p, q, r);
