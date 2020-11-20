@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/20 19:11:11 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/20 19:31:37 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main()
 	
 	//testes do Mazoize
 	int		a = -4;
-
 	int		b = 0;
 	char	c = 'a';
 	int		d = 2147483647;
@@ -54,11 +53,7 @@ int main()
 	char	*u = "-0";
 
 
-	       return_printf = printf("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
-	 return_ft_printf = ft_printf("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
-	   printf("...return_printf:%i\n", return_printf);
-	   printf("return_ft_printf:%i\n", return_ft_printf);
-	  return_printf = printf("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
+	       return_printf = printf("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	 return_ft_printf = ft_printf("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
@@ -113,7 +108,7 @@ int main()
 	  return_printf = printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
 	 return_ft_printf = ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
 	   printf("...return_printf:%i\n", return_printf);
-printf("these arte right\n");
+printf("\nThese are right......These are right.........These are right.......These are right....These are right\n");
 	   printf("return_ft_printf:%i\n", return_ft_printf);
 	      return_printf = printf(" %i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n",i,  j, k, l, m, n, c, c, j, j, j);
 	return_ft_printf = ft_printf(" %i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n",i, j, k, l, m, n, c, c, j, j, j);
@@ -125,6 +120,10 @@ printf("these arte right\n");
 	   printf("return_ft_printf:%i\n", return_ft_printf);
 	    return_printf = printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	 return_ft_printf = ft_printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
+	   printf("...return_printf:%i\n", return_printf);
+	   printf("return_ft_printf:%i\n", return_ft_printf);
+	          return_printf = printf("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
+	 return_ft_printf = ft_printf("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
 	/*ft_printf
