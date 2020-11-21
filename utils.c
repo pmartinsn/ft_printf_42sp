@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/21 10:36:55 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 10:39:00 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ e_starprestar(const char *fmt, int *aux, t_bdr *star)
 	i = 0;
 	*aux = *aux + 1;
 	if (fmt[*aux] == 'X')
-		p_uxxx_starpstarp_uxxx_starpstar(&*aux, 16, 'A', &*star);
+		p_uxxx_starpstar(&*aux, 16, 'A', &*star);
 	else if (fmt[*aux] == 'x')
 		p_uxxx_starpstar(&*aux, 16, 'a', &*star);
 	else if (fmt[*aux] == 'u')
