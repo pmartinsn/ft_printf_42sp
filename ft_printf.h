@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 13:49:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 10:37:01 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,4 +193,6 @@ void	pri_nbr_prei(char *tbv, t_bdr *star);
 void	*ft_calloc(size_t count, size_t size);
 void	e_starprestari(t_bdr *star);
 void	e_starprei(int help, t_bdr *star);
+void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star);
+
 #endif

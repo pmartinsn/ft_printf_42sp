@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/20 19:52:15 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 10:36:55 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tbv;
 	int		i;
-
 	tbv = malloc(malloc_index(fmt, &*aux));
 	*aux = *aux + 1;
 	if (fmt[*aux] == '*')
@@ -48,16 +47,8 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 		}
 		if ((fmt[*aux] == 'X') | (fmt[*aux] == 'x') | (fmt[*aux] == 'u'))
 		{
-			i = 0;
-			*aux = *aux + 1;
-			star->hold = va_arg(star->list, int);
-			star->hold = va_arg(star->list, int);
-			star->aux_outnbr = va_arg(star->list, char*);
-			while (i < star->hold)
-			{
-				ft_putchar(' ', &*star);
-				i++;
-			}
+			e_starprestar(fmt, &*aux, &*star);
+			
 		}
 	}
 	if (fmt[*aux] == '0')
@@ -76,6 +67,49 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 	}
 	free(tbv);
 	tbv = NULL;
+}
+
+e_starprestar(const char *fmt, int *aux, t_bdr *star)
+{
+	int	i;
+
+	i = 0;
+	*aux = *aux + 1;
+	if (fmt[*aux] == 'X')
+		p_uxxx_starpstarp_uxxx_starpstar(&*aux, 16, 'A', &*star);
+	else if (fmt[*aux] == 'x')
+		p_uxxx_starpstar(&*aux, 16, 'a', &*star);
+	else if (fmt[*aux] == 'u')
+		p_uxxx_starpstar(&*aux, 10, 'a', &*star);
+}
+
+void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star)
+{
+	int		help;
+	int		j;
+	size_t	num;
+	char	*character;
+
+	help = 0;
+	j = 0;
+	star->hold = va_arg(star->list, int);
+	j = va_arg(star->list, int);
+	num = va_arg(star->list, size_t);
+	character = ft_itoa_base(num, c, a);
+	star->kpr5 = ft_strlen(character);
+	/*if (star->kpr5 > j)
+		j = star->kpr5;
+	else*/
+		j = j - star->hold;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
+	ft_putstr(character, &*star);
+	free(character);
+	character = NULL;
+	*aux = *aux + 1;
 }
 
 void	dealing_width_two(const char *fmt, int *aux, t_bdr *star)
