@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/21 10:40:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 11:08:15 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 			*aux = *aux + 1;
 			e_starprestari(&*star);
 		}
-		if (fmt[*aux] == 's')
+		else if (fmt[*aux] == 's')
 		{
 			i = 0;
 			*aux = *aux + 1;
@@ -45,7 +45,7 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 				i++;
 			}
 		}
-		if ((fmt[*aux] == 'X') | (fmt[*aux] == 'x') | (fmt[*aux] == 'u'))
+		else if ((fmt[*aux] == 'X') | (fmt[*aux] == 'x') | (fmt[*aux] == 'u'))
 		{
 			e_starprestar(fmt, &*aux, &*star);
 			
@@ -74,7 +74,7 @@ void	e_starprestar(const char *fmt, int *aux, t_bdr *star)
 	int	i;
 
 	i = 0;
-	*aux = *aux + 1;
+	//*aux = *aux + 1;
 	if (fmt[*aux] == 'X')
 		p_uxxx_starpstar(&*aux, 16, 'A', &*star);
 	else if (fmt[*aux] == 'x')
