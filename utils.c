@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/21 11:08:15 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 11:16:17 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 
 void	e_starprestar(const char *fmt, int *aux, t_bdr *star)
 {
-	int	i;
+	//int	i;
 
-	i = 0;
+	//i = 0;
 	//*aux = *aux + 1;
 	if (fmt[*aux] == 'X')
 		p_uxxx_starpstar(&*aux, 16, 'A', &*star);
