@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/21 11:16:17 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 11:23:26 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 			*aux = *aux + 1;
 			e_starprestari(&*star);
 		}
-		else if (fmt[*aux] == 's')
+		if (fmt[*aux] == 's')
 		{
 			i = 0;
 			*aux = *aux + 1;
@@ -45,7 +45,7 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 				i++;
 			}
 		}
-		else if ((fmt[*aux] == 'X') | (fmt[*aux] == 'x') | (fmt[*aux] == 'u'))
+		if ((fmt[*aux] == 'X') | (fmt[*aux] == 'x') | (fmt[*aux] == 'u'))
 		{
 			e_starprestar(fmt, &*aux, &*star);
 			
