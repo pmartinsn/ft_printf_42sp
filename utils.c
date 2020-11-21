@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/21 12:25:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 12:37:50 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,10 @@ void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star)
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, c, a);
 	star->kpr5 = ft_strlen(character);
-	/*if (star->kpr5 > j)
-		j = star->kpr5;
-	else*/
+	if (star->hold < 0)
+			star->hold = star->hold * -1;
+		if (j < 0)
+			j = j * -1;
 	j = j - star->hold;
 	ft_putstr(character, &*star);
 	while (help < j)
