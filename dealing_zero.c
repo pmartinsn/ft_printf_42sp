@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/23 12:05:13 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/23 15:21:20 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i') | (fmt[*aux] == 'u')
 	| (fmt[*aux] == 'x') | (fmt[*aux] == 'X'))
 		no_flags(fmt, &*aux, &*star);
-	if (fmt[*aux] == '*')
+	else if (fmt[*aux] == '*')
 	{
 		*aux = *aux + 1;
 		if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
@@ -29,7 +29,7 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 			p_int_wid_zero(&*star);
 			print_while(fmt, &*aux, &*star);
 		}
-		if (fmt[*aux] == '.')
+		else if (fmt[*aux] == '.')
 		{
 			*aux = *aux + 1;
 			if (fmt[*aux] == '*')
