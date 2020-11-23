@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/21 12:44:35 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/21 13:03:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star)
 			star->hold = star->hold * -1;
 		if (j < 0)
 			j = j * -1;
-	j = j - star->hold;
+	j = j - star->hold - star->kpr5;
 	ft_putstr(character, &*star);
 	while (help < j)
 	{
