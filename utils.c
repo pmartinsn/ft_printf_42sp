@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/23 15:07:19 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/23 15:08:55 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star)
 	char	*character;
 
 	help = 0;
-	j = &*aux;
+	j = *aux;
 	j = 0;
 	star->hold = 0;
 	j = va_arg(star->list, int);
