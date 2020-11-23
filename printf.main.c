@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/23 11:12:07 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/23 11:13:48 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main()
 	//testes do Mazoize
 	int		a = -4;
 	int		b = 0;
+	int 	bb = 0;
 	char	c = 'a';
 	int		d = 2147483647;
 	int		e = -2147483648;
@@ -54,8 +55,8 @@ int main()
 
 //	 return_ft_printf = ft_printf("beging here%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
 	  
-	       return_printf = printf("%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, l, a, b, l, a, b, l, a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
-	 return_ft_printf = ft_printf("%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, l, a, b, l, a, b, l, a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
+	       return_printf = printf("%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, l, a, bb, l, a, b, l, a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
+	 return_ft_printf = ft_printf("%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, l, a, bb, l, a, b, l, a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
 	   printf("HERE---->>>>...return_printf:%i\n", return_printf);
 	   printf("HERE---->>>>return_ft_printf:%i\n", return_ft_printf);
 //	  return_printf = printf("%0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X, %0*.*u, %0*.*x, %0*.*X\n", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e);
