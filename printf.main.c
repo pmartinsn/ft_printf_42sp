@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/23 11:53:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/23 11:54:12 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main()
 	//testes do Mazoize
 	int		a = -4;
 	int		b = 0;
-	int 	bb = 0;
+//	int 	bb = 0;
 	char	c = 'a';
 	int		d = 2147483647;
 	int		e = -2147483648;
