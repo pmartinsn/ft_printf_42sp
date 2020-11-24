@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/24 15:47:02 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/24 15:50:15 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 		tobeconv = ft_calloc(malloc_index(fmt, &*aux), sizeof(char));
 		tobeconv = converter(tobeconv, fmt, &*aux);
 	}
+	else
+		tobeconv = NULL;
 	e_zhalf(tobeconv, fmt, &*aux, &*star);
 	dea_zero_two(tobeconv, fmt, &*aux, &*star);
 	free(tobeconv);
