@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 16:49:35 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/24 13:43:53 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	dealing_minus(const char *fmt, int *aux, t_bdr *star)
 	char	*tobeconv;
 
 	verify_flags_minus(fmt, &*aux, &*star);
-	tobeconv = malloc(malloc_index(fmt, &*aux));
+	tobeconv = ft_calloc(malloc_index(fmt, &*aux), sizeof(char));
 	tobeconv = converter(tobeconv, fmt, &*aux);
 	e_checkminus(tobeconv, fmt, &*aux, &*star);
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
@@ -36,6 +36,7 @@ void	dealing_minus(const char *fmt, int *aux, t_bdr *star)
 	else
 		dealing_min_two(tobeconv, fmt, &*aux, &*star);
 	free(tobeconv);
+	tobeconv = NULL;
 }
 
 void	dealing_min_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star)

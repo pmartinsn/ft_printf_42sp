@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:40:29 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 13:27:56 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/24 13:44:12 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	verify_dwm(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tbv;
 
-	tbv = malloc(malloc_index(fmt, &*aux));
+	tbv = ft_calloc(malloc_index(fmt, &*aux), sizeof(char));
 	if (fmt[*aux] == '.')
 	{
 		*aux = *aux + 1;
