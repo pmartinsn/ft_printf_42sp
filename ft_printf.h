@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 17:55:22 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 20:16:35 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,7 @@ void	e_starprestari(t_bdr *star);
 void	e_starprei(int help, t_bdr *star);
 void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star);
 void	e_starprestar(const char *fmt, int *aux, t_bdr *star);
-void	p_u_starpstar(int *aux, int c, char a, t_bdr *star);
-char	*ft_itoa_u(size_t nb, int base, char updown);
+void	p_u_starpstar(int *aux, int c,/* char a,*/ t_bdr *star);
+char	*ft_itoa_u(unsigned int nb, int base/*, char updown*/);
 
 #endif

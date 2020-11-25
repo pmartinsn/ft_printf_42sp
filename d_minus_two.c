@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:31:31 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 18:23:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 20:14:49 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	mim_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	star->keeper = 0;
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_u(num, 10, 'a');
+	star->aux_outnbr = ft_itoa_u(num, 10/*, 'a'*/);
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	j = j - i;
 	star->keeper = i;

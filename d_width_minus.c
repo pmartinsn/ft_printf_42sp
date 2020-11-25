@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 09:42:35 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 18:08:51 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 20:14:12 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	print_u_width_m(t_bdr *star)
 	j = va_arg(star->list, int);
 	num = 0;
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_u(num, 10, 'a');
+	character = ft_itoa_u(num, 10/*, 'a'*/);
 	star->kpr5 = ft_strlen(character);
 	ft_putstr(character, &*star);
 	if (star->kpr5 > j)

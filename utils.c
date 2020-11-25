@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 19:38:53 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 20:16:18 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	e_starprestar(const char *fmt, int *aux, t_bdr *star)
 	else if (fmt[*aux] == 'x')
 		p_uxxx_starpstar(&*aux, 16, 'a', &*star);
 	else if (fmt[*aux] == 'u')
-		p_u_starpstar(&*aux, 10, 'a', &*star);
+		p_u_starpstar(&*aux, 10, /*'a',*/ &*star);
 }
 
 void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star)
@@ -118,7 +118,7 @@ void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star)
 	*aux = *aux + 1;
 }
 
-void	p_u_starpstar(int *aux, int c, char a, t_bdr *star)
+void	p_u_starpstar(int *aux, int c, /*char a, */t_bdr *star)
 {
 	int		help;
 	int		j;
@@ -133,7 +133,7 @@ void	p_u_starpstar(int *aux, int c, char a, t_bdr *star)
 	j = va_arg(star->list, int);
 	star->hold = va_arg(star->list, int);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_u(num, c, a);
+	character = ft_itoa_u(num, c/*, a*/);
 	star->kpr5 = ft_strlen(character);
 	if (star->hold < 0)
 			star->hold = star->hold * -1;
