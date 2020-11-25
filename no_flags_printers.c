@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:39:44 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 19:28:22 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 19:29:40 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	print_u_noflag(t_bdr *star)
 	character = ft_itoa_base(num, 10, 'a', &*star);
 	star->kpr5 = ft_strlen(character);
 	ft_putstr(character, &*star);
-	free(character);
+//	free(character);
 	character = NULL;
 	return (star->kpr5);
 }
