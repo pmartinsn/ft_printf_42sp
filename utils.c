@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 19:07:10 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 19:38:53 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 {
-	char	*tbv;
+	//char	*tbv;
 	int		i;
-	tbv = ft_calloc((malloc_index(fmt, &*aux)), sizeof(char));
+	//tbv = ft_calloc((malloc_index(fmt, &*aux)), sizeof(char));
 	*aux = *aux + 1;
 	if (fmt[*aux] == '*')
 	{
@@ -63,7 +63,7 @@ void	check_and_pass(const char *fmt, int *aux, t_bdr *star)
 		}
 	}
 //	free(tbv);
-	tbv = NULL;
+//	tbv = NULL;
 }
 
 void	e_starprestar(const char *fmt, int *aux, t_bdr *star)
