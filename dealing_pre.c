@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/24 13:43:10 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 19:02:34 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 	}
 	tobeconv = converter(tobeconv, fmt, &*aux);
 	dealing_preci_two(tobeconv, fmt, &*aux, &*star);
-	free(tobeconv);
+//	free(tobeconv);
 	tobeconv = NULL;
 }
 
