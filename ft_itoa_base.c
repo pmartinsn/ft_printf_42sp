@@ -6,14 +6,26 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 10:44:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/02 13:59:47 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:06:38 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf.two.h"
 
-char			*ft_itoa_base(size_t nb, int base, char updown)
+static char		*ft_long_number(char *str, t_bdr *star)
+{
+	int	i;
+	
+	i = 0;
+	if (ft_strlen(str) > 8 && star->conversion != 'p')
+		i = ft_strlen(str) - 8;
+	while (str[i] == '0' && i < ft_strlen(str) - 1)
+		i++;
+	return (&str[i]);
+}
+
+char			*ft_itoa_base(size_t nb, int base, char updown, t_bdr *star)
 {
 	int				cont_num;
 	size_t			aux;
@@ -23,7 +35,7 @@ char			*ft_itoa_base(size_t nb, int base, char updown)
 	aux = nb;
 	while ((aux = aux / base) > 0)
 		cont_num++;
-	str = (char *)malloc((cont_num + 1) * sizeof(char));
+	str = (char *)ft_calloc((cont_num + 1), sizeof(char));
 	if (!str)
 		return (NULL);
 	str[cont_num--] = '\0';
@@ -36,5 +48,5 @@ char			*ft_itoa_base(size_t nb, int base, char updown)
 		nb = nb / base;
 		cont_num--;
 	}
-	return (str);
+	return (ft_long_number(str, &*star));
 }

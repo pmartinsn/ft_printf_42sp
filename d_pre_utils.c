@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 17:39:37 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 18:59:18 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:19:10 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	pri_pre_u_wzero(char *tbv, t_bdr *star)
 	j = ft_atoi(tbv);
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
+	star->aux_outnbr = ft_itoa_u(num, 10, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	while (help < j)
 	{
@@ -53,10 +53,11 @@ void	pri_pre_x_wzero(char *tbv, t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'x';
 	j = ft_atoi(tbv);
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
+	star->aux_outnbr = ft_itoa_base(num, 16, 'a', &*star);
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	while (help < j)
 	{
@@ -74,10 +75,11 @@ void	pri_pre_xx_wzero(char *tbv, t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'X';
 	j = ft_atoi(tbv);
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 16, 'A');
+	star->aux_outnbr = ft_itoa_base(num, 16, 'A', &*star);
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	while (help < j)
 	{
@@ -97,9 +99,10 @@ void	p_p_snumb(char *tobeconv, t_bdr *star)
 	help = 0;
 	j = 0;
 	num = 0;
+	star->conversion = 'p';
 	j = ft_atoi(tobeconv);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'a');
+	character = ft_itoa_base(num, 16, 'a', &*star);
 	star->hold = ft_strlen(character);
 	j = j - 2;
 	while (help < j)

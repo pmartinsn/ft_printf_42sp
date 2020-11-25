@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:31:31 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 16:52:08 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:23:31 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	mim_pre_u_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	star->keeper = 0;
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 10, 'a');
+	star->aux_outnbr = ft_itoa_u(num, 10, 'a');
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	j = j - i;
 	star->keeper = i;
@@ -65,12 +65,13 @@ void	mim_pre_x_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	help = 0;
 	j = 0;
 	i = 0;
+	star->conversion = 'x';
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
 	star->keeper = 0;
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
+	star->aux_outnbr = ft_itoa_base(num, 16, 'a', &*star);
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	j = j - i;
 	star->keeper = i;
@@ -89,12 +90,13 @@ void	mim_pre_xx_wnbr(char *tbv, char *tbvv, t_bdr *star)
 	help = 0;
 	j = 0;
 	i = 0;
+	star->conversion = 'X';
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
 	star->keeper = 0;
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 16, 'A');
+	star->aux_outnbr = ft_itoa_base(num, 16, 'A', &*star);
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	j = j - i;
 	star->keeper = i;

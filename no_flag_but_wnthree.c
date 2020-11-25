@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 09:28:41 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 09:33:59 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:01:32 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ void	p_p_cnumb(char *tbv, char *tbvv, t_bdr *star)
 	help = 0;
 	j = 0;
 	i = 0;
+	star->conversion = 'p';
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
 	num = 0;
 	num = va_arg(star->list, size_t);
-	star->aux_outnbr = ft_itoa_base(num, 16, 'a');
+	star->aux_outnbr = ft_itoa_base(num, 16, 'a', &*star);
 	star->kpr5 = ft_strlen(star->aux_outnbr);
 	j = j - i;
 	j = j - 2;

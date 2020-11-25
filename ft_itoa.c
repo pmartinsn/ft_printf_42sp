@@ -6,14 +6,14 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 11:30:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 16:16:51 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:28:27 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf.two.h"
 
-static int			ft_len(int n)
+static int			ft_len(long n)
 {
 	unsigned long int	i;
 	long				nb;
@@ -79,7 +79,7 @@ static	char		*ft_check_itoa(char *str, int n, int len)
 	return (str);
 }
 
-char				*ft_itoa(int n)
+char				*ft_itoa(long n)
 {
 	char	*str;
 	int		len;
@@ -99,3 +99,4 @@ char				*ft_itoa(int n)
 	else
 		return (ft_check_itoa(str, n, len));
 }
+

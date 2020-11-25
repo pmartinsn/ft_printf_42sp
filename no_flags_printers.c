@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:39:44 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 09:53:02 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:58:02 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ int	print_p_noflag(t_bdr *star)
 	char	*character;
 
 	num = 0;
+	star->conversion = 'p';
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'a');
+	character = ft_itoa_base(num, 16, 'a', &*star);
 	star->kpr3 = ft_strlen(character);
 	ft_putstr("0x", &*star);
 	ft_putstr(character, &*star);
@@ -74,7 +75,7 @@ int	print_u_noflag(t_bdr *star)
 
 	num = 0;
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 10, 'a');
+	character = ft_itoa_u(num, 10, 'a');
 	star->kpr5 = ft_strlen(character);
 	ft_putstr(character, &*star);
 	free(character);

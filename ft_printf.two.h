@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/02 14:06:06 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:47:40 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef	struct	s_pf
 	int		returned_s;
 	char	*aux_outnbr;
 	char	*helpint;
+	int		conversion;
 	int		hold;
 	int		keeper;
 	int		kpr2;

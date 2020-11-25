@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:37:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/02 13:59:43 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:48:05 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	init_bdr(t_bdr *star)
 {
 	star->count = 0;
+	star->conversion = 0;
 	star->variables_counted = 0;
 	star->hold = 0;
 	star->keeper = 0;

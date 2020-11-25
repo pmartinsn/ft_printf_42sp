@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 18:06:48 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:29:11 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ void	print_xx_width_m(t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'x';
 	j = va_arg(star->list, int);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'A');
+	character = ft_itoa_base(num, 16, 'A', &*star);
 	star->kpr6 = ft_strlen(character);
 	ft_putstr(character, &*star);
 	if (star->kpr6 > j)
@@ -74,9 +75,10 @@ void	print_p_width_m(t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'p';
 	j = va_arg(star->list, int);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'a');
+	character = ft_itoa_base(num, 16, 'a', &*star);
 	ft_putstr("0x", &*star);
 	ft_putstr(character, &*star);
 	if (j < 14)
@@ -100,9 +102,10 @@ void	print_xx_width(t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'x';
 	j = va_arg(star->list, int);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'A');
+	character = ft_itoa_base(num, 16, 'A', &*star);
 	star->kpr6 = ft_strlen(character);
 	if (star->kpr6 > j)
 		j = star->kpr6;
@@ -126,9 +129,10 @@ void	print_p_width(t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'p';
 	j = va_arg(star->list, int);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'a');
+	character = ft_itoa_base(num, 16, 'a', &*star);
 	if (j < 14)
 		j = 14;
 	else

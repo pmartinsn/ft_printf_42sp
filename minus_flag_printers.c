@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 10:44:03 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/19 08:53:50 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:02:33 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,10 @@ void	print_p_minuswnumb(char *tobeconv, t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'p';
 	j = ft_atoi(tobeconv);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'a');
+	character = ft_itoa_base(num, 16, 'a', &*star);
 	ft_putstr("0x", &*star);
 	ft_putstr(character, &*star);
 	free(character);
@@ -95,7 +96,7 @@ void	print_u_minuswnumb(char *tobeconv, t_bdr *star)
 	j = 0;
 	j = ft_atoi(tobeconv);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 10, 'a');
+	character = ft_itoa_u(num, 10, 'a');
 	star->kpr5 = ft_strlen(character);
 	ft_putstr(character, &*star);
 	j = j - star->kpr5;

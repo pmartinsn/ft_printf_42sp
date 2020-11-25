@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/21 10:40:23 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:55:22 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 void	ft_putnbr(int nb, t_bdr *star);
 void	ft_putchar(char c, t_bdr *star);
 void	ft_putstr(char *s, t_bdr *star);
-char	*ft_itoa(int n);
+char	*ft_itoa(long n);
 int		ft_atoi(const char *str);
 char	*ft_strdup(const char *src);
 int		ft_strlen(const char *str);
@@ -39,7 +39,7 @@ int		print_int_noflag(t_bdr *star);
 int		print_s_noflag(t_bdr *star);
 int		print_p_noflag(t_bdr *star);
 void	no_flags2(const char *fmt, int *aux, t_bdr *star);
-char	*ft_itoa_base(size_t nb, int base, char updownne);
+char	*ft_itoa_base(size_t nb, int base, char updownne, t_bdr *star);
 int		print_percent_noflag(t_bdr *star);
 int		print_x_noflag(t_bdr *star);
 int		print_xx_noflag(t_bdr *star);
@@ -195,5 +195,7 @@ void	e_starprestari(t_bdr *star);
 void	e_starprei(int help, t_bdr *star);
 void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star);
 void	e_starprestar(const char *fmt, int *aux, t_bdr *star);
+void	p_u_starpstar(int *aux, int c, char a, t_bdr *star);
+char	*ft_itoa_u(size_t nb, int base, char updown);
 
 #endif

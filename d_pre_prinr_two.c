@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 17:12:21 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/16 19:43:27 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:22:27 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ void	print_xx_pre(char *tobeconv, t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'X';
 	j = ft_atoi(tobeconv);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'A');
+	character = ft_itoa_base(num, 16, 'A', &*star);
 	star->kpr6 = ft_strlen(character);
 	j = j - star->kpr6;
 	while (help < j)
@@ -89,9 +90,10 @@ void	print_p_pre(char *tobeconv, t_bdr *star)
 
 	help = 0;
 	j = 0;
+	star->conversion = 'p';
 	j = ft_atoi(tobeconv);
 	num = va_arg(star->list, size_t);
-	character = ft_itoa_base(num, 16, 'a');
+	character = ft_itoa_base(num, 16, 'a', &*star);
 	star->kpr6 = ft_strlen(character);
 	j = j - star->kpr6;
 	ft_putstr("0x", &*star);
