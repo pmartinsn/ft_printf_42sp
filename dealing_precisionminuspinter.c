@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 11:06:49 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 18:30:19 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:47:00 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,5 @@ void	print_x_pre(char *tobeconv, t_bdr *star)
 		help++;
 	}
 	ft_putstr(character, &*star);
-	free(character);
+//	free(character);
 }
