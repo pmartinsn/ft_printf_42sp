@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:00:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/24 16:08:30 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/25 07:14:11 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	pri_per_zerownbr(char *tbv, t_bdr *star)
 
 	j = 0;
 	help = 0;
-	/*if (tbv == NULL)
-		j = 0;
-	else*/
-		j = ft_atoi(tbv);
+	j = ft_atoi(tbv);
 	if (j < 1)
 		j = 1;
 	else
