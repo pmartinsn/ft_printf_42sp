@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 08:24:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 14:26:34 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,21 @@ int main()
 	int		k = 123456789;
 	int		l = 0;
 	int		m = -12345678;
-	char	*n = "abcdefghijklmnop";
-	char	*o = "-a";
-	char	*p = "-12";
-	char	*q = "0";
-	char	*r = "%%";
-	char	*s = "-2147483648";
-	char	*t = "0x12345678";
-	char	*u = "-0";
+///	char	*n = "abcdefghijklmnop";
+//	char	*o = "-a";
+//	char	*p = "-12";
+//	char	*q = "0";
+//	char	*r = "%%";
+//	char	*s = "-2147483648";
+//	char	*t = "0x12345678";
+//	char	*u = "-0";
 
 
 
-
-	       return_printf = printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0);
-	 return_ft_printf = ft_printf("%*p, %*x, %*p, %*x, %*p, %*x, %*p, %*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0);
-	   printf("...return_printf:%i\n", return_printf);
-	   printf("return_ft_printf:%i\n", return_ft_printf);
+return_printf = printf("%0.i, %0.d, %0.d, %0.d, %0.d, %0.d, %0d, %0d\n", i, j, k, l, m, c, e, d);
+return_ft_printf = ft_printf("%0.i, %0.d, %0.d, %0.d, %0.d, %0.d, %0d, %0d\n", i, j, k, l, m, c, e, d);
 	       return_printf = printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0);
-	 return_ft_printf = ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0);
+	 return_ft_printf = ft_printf("%-*x, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0);
 	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
 
@@ -91,64 +88,69 @@ printf("\nTNot working as it should......Not working as it should........Not wor
 
 	   
 printf("\nThese are right......These are right.........These are right.......These are right....These are right\n");
-   	      return_printf = printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c);
-	return_ft_printf = ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c);
-	   printf("...return_printf:%i\n", return_printf);
+/*//   	      return_printf = printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c);
+ status
+ 	return_ft_printf = ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-   printf("%0*.*u, %0*.*u, %0*.*X,%0*.*u, %0*.*u, %0*.*X\n", a, b, i, a, b, i, a, b, i, a, b, i, a, b, i, a, b, i);
+  // printf("%0*.*u, %0*.*u, %0*.*X,%0*.*u, %0*.*u, %0*.*X\n", a, b, i, a, b, i, a, b, i, a, b, i, a, b, i, a, b, i);
 ft_printf("%0*.*u, %0*.*u, %0*.*X,%0*.*u, %0*.*u, %0*.*X\n", a, b, i, a, b, i, a, b, i, a, b, i, a, b, i, a, b, i);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-	  return_printf = printf("HERE---->>>>%1.s, %1.s, %1.s, %1.s, %1.s\n", n, o, p, q, r);
+//	  return_printf = printf("HERE---->>>>%1.s, %1.s, %1.s, %1.s, %1.s\n", n, o, p, q, r);
 	 return_ft_printf = ft_printf("HERE---->>>>%1.s, %1.s, %1.s, %1.s, %1.s\n", n, o, p, q, r);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-	    return_printf = printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
+//	    return_printf = printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	 return_ft_printf = ft_printf("%*s, %*s, %*s, %*s, %*s, %*s, %*s, %*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-	          return_printf = printf("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
+//	          return_printf = printf("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	 return_ft_printf = ft_printf("%-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s, %-*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-	   return_printf = printf("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
+//	   return_printf = printf("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
 	 return_ft_printf = ft_printf("%.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s, %.*s\n", a, n, a, o, a, p, a, q, a, r, a, s, a, t, a, u);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-	       return_printf = printf("HERE---->>>>%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
+//	       return_printf = printf("HERE---->>>>%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
 	 return_ft_printf = ft_printf("HERE---->>>>%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-	  return_printf = printf("HERE---->>>>%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
+//	  return_printf = printf("HERE---->>>>%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
 	 return_ft_printf = ft_printf("HERE---->>>>%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-	  return_printf = printf("HERE---->>>>%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
+//	  return_printf = printf("HERE---->>>>%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
 	 return_ft_printf = ft_printf("HERE---->>>>%-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s, %-*.*s\n", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
-	   printf("...return_printf:%i\n", return_printf);
+//	   printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
-		  //Partially working
-	       return_printf = printf(" %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, l, a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
+//		  //Partially working
+//	       return_printf = printf(" %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, l, a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
 	 return_ft_printf = ft_printf(" %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x,9 %*.*X, %*.*u, %*.*x, %*.*X, %*.*u\n", a, b, l, a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m);
-		printf("HERE---->>>>...return_printf:%i\n", return_printf);
+//		printf("HERE---->>>>...return_printf:%i\n", return_printf);
 	   printf("HERE---->>>>return_ft_printf:%i\n", return_ft_printf);
- printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j);
+ //printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j);
 ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j);
-     printf("HERE---->>>>...return_printf:%i\n", return_printf);
+   //  printf("HERE---->>>>...return_printf:%i\n", return_printf);
 	   printf("HERE---->>>>return_ft_printf:%i\n", return_ft_printf);
-	   	      return_printf = printf(" %i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n",i,  j, k, l, m, n, c, c, j, j, j);
+	 //  	      return_printf = printf(" %i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n",i,  j, k, l, m, n, c, c, j, j, j);
 	return_ft_printf = ft_printf(" %i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n",i, j, k, l, m, n, c, c, j, j, j);
-  printf("...return_printf:%i\n", return_printf);
+ // printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
 	
-printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j);
+//printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j);
 	ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j);
-	printf("...return_printf:%i\n", return_printf);
+//	printf("...return_printf:%i\n", return_printf);
 	printf("return_ft_printf:%i\n", return_ft_printf);
-		  return_printf = printf("%p, %x, %p, %x, %p, %x, %p, %x\n", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0);
+//		  return_printf = printf("%p, %x, %p, %x, %p, %x, %p, %x\n", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0);
 	 return_ft_printf = ft_printf("%p, %x, %p, %x, %p, %x, %p, %x\n", (void *)209590960, 209590960, (void *)207038912, 207038912, (void *)1, 1, NULL, 0);
-		 printf("...return_printf:%i\n", return_printf);
+//		 printf("...return_printf:%i\n", return_printf);
 	   printf("return_ft_printf:%i\n", return_ft_printf);
+//	       return_printf = printf("%*p, %*x, %*p, %*x,    %*p, %*x, %*p, %*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912,   a, (void *)1,   a, 1,   a, NULL,   a, 0);
+	 return_ft_printf = ft_printf("%*p, %*x, %*p, %*x,    %*p, %*x, %*p, %*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912,   a, (void *)1,   a, 1,   a, NULL,   a, 0);
+//	   printf("...return_printf:%i\n", return_printf);
+	   printf("return_ft_printf:%i\n", return_ft_printf);*/
 	//////////testes antigos 
 //	return_ft_printf = ft_printf("%-09s.", "ho low\0 hidden");
 //	  printf("\nreturn_ft_printf:%i\n", return_ft_printf);
