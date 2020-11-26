@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:39:44 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 14:47:00 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 14:50:13 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ int	print_s_noflag(t_bdr *star)
 }
 
 int	print_int_noflag(t_bdr *star)
+{
+	char	*character;
+
+	star->hold = va_arg(star->list, int);
+	character = ft_itoa(star->hold);
+	ft_putnbr(star->hold, &*star);
+	star->hold = ft_strlen(character);
+	star->keeper = star->keeper + star->hold;
+	free(character);
+	character = NULL;
+	return (star->keeper);
+}
+
+int	print_int_zflag(t_bdr *star)
 {
 	char	*character;
 
