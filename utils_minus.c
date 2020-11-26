@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:52:13 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 11:18:16 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 17:33:02 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,13 @@ void	e_minprei(int j, int i, int help, t_bdr *star)
 }
 
 void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
-{
+{	
 	if (fmt[*aux] == '*')
 	{
 		*aux = *aux + 1;
 		dealing_width(fmt, &*aux, &*star);
 	}
-	else if (fmt[*aux] == '-')
-	{
-		*aux = *aux + 1;
-		while (fmt[*aux] == '-')
-		{
-			*aux = *aux + 1;
-		}
-		*aux = *aux + 1;
-	}
-	if ((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
+	else if ((fmt[*aux] >= 'a' && fmt[*aux] <= 'z') | (fmt[*aux] == 'X'))
 	{
 		no_flags(fmt, &*aux, &*star);
 	}
@@ -85,7 +76,7 @@ void	verify_flags_minus(const char *fmt, int *aux, t_bdr *star)
 		else
 			dealing_precision(fmt, &*aux, &*star);
 	}
-	else if (fmt[*aux] == '*')
+	else if (fmt[*aux] == '*')//suspeito que essa parte do código não esteja sendo usarda... fazer testes
 	{
 		*aux = *aux + 1;
 		if (fmt[*aux] == 's')

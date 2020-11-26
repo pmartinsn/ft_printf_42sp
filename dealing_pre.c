@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 19:02:34 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 15:55:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@ void	dealing_precision(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
 
+	if (fmt[*aux] == '0')
+	{
+		*aux = *aux + 1;	
+		if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+		{
+			*aux = *aux + 1;
+			print_int_zflag(&*star);
+		}
+		if (fmt[*aux] == 's')
+		{
+			*aux = *aux + 1;
+			s_pre_width(&*star);
+			print_while(fmt, &*aux, &*star);
+		}
+	}
 	tobeconv = ft_calloc(malloc_index(fmt, &*aux), sizeof(char));
 	if (fmt[*aux] == '*')
 		e_pre_star(fmt, &*aux, &*star);

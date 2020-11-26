@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 08:46:31 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 10:56:25 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 15:53:08 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	s_pre_width(t_bdr *star)
 	help = 0;
 	j = 0;
 	j = va_arg(star->list, int);
-	star->aux_outnbr = va_arg(star->list, char*);
+	if (!(star->aux_outnbr = va_arg(star->list, char*)))
+			star->aux_outnbr = "(null)";
 	star->hold = ft_strlen(star->aux_outnbr);
 	if (j < 0)
 	{

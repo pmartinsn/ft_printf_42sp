@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/24 13:43:53 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 17:33:31 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,30 @@
 void	dealing_minus(const char *fmt, int *aux, t_bdr *star)
 {
 	char	*tobeconv;
+	int i;
 
 	verify_flags_minus(fmt, &*aux, &*star);
+	if (fmt[*aux] == '-')
+	{
+		i = 1;
+		//*aux = *aux + 1;
+		while (fmt[*aux] == '-')
+		{
+			*aux = *aux + 1;
+			i++;		
+		}
+		if (i % 2 == 1)
+		{
+			i = i -1;
+			while (i > 0)
+			{
+				ft_putchar('-', &*star);
+				i--;
+			}				
+		}
+	}
 	tobeconv = ft_calloc(malloc_index(fmt, &*aux), sizeof(char));
 	tobeconv = converter(tobeconv, fmt, &*aux);
-	e_checkminus(tobeconv, fmt, &*aux, &*star);
 	if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
@@ -33,6 +52,8 @@ void	dealing_minus(const char *fmt, int *aux, t_bdr *star)
 		print_s_minuswnumb(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
+	else if ((fmt[*aux] == 'X') | (fmt[*aux] == '%'))
+		e_checkminus(tobeconv, fmt, &*aux, &*star);
 	else
 		dealing_min_two(tobeconv, fmt, &*aux, &*star);
 	free(tobeconv);
