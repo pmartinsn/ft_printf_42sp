@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 08:29:48 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 10:50:23 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,16 +133,23 @@ void	print_p_width(t_bdr *star)
 	j = va_arg(star->list, int);
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'a', &*star);
+	star->hold = ft_strlen(character);
+	if (j < 0)
+		j = j * -1;
 	/*if (j < 14)
 		j = 14;
 	else*/
+	if (star->hold == 12)
 		j = j - 14;
+	else
+		j = j - 2 - star->hold;
+	ft_putstr("0x", &*star);
+	ft_putstr(character, &*star);
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
 		help++;
 	}
-	ft_putstr("0x", &*star);
-	ft_putstr(character, &*star);
+	
 //	free(character);
 }
