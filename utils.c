@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:46:50 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 20:16:18 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 13:11:01 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ void	dealing_width_two(const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		print_p_width(&*star);
-		print_while(fmt, &*aux, &*star);
+		//print_while(fmt, &*aux, &*star);
 	}
 	else if (fmt[*aux] == 'u')
 	{
@@ -173,13 +173,13 @@ void	dealing_width_two(const char *fmt, int *aux, t_bdr *star)
 	{
 		*aux = *aux + 1;
 		print_x_width(&*star);
-		print_while(fmt, &*aux, &*star);
+	//	print_while(fmt, &*aux, &*star);
 	}
 	else if (fmt[*aux] == 'X')
 	{
 		*aux = *aux + 1;
 		print_xx_width(&*star);
-		print_while(fmt, &*aux, &*star);
+		//print_while(fmt, &*aux, &*star);
 	}
 }
 
