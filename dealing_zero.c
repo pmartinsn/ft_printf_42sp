@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 17:11:45 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 13:36:02 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ void	e_dztwo(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 		print_xx_zero(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	else if (fmt[*aux] == '%')
+	else if (((fmt[*aux] == '%') && (fmt[*aux - 1] == '0')) || ((fmt[*aux] == '%') && (fmt[*aux - 1] >= '1' && fmt[*aux -1] <= '9')))
 	{
 		*aux = *aux + 1;
 		pri_per_zerownbr(tobeconv, &*star);
