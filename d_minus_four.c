@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:51:42 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 18:21:34 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 18:24:35 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,10 @@ void	e_minusdzone(int j, int i, int help, t_bdr *star)
 		j = j - star->hold;
 	else
 		j = j - i;
-	if (star->keeper != 0)
+	while ((help < i) && star->aux_outnbr[help] != '\0')
 	{
-		while ((help < i) && star->aux_outnbr[help] != '\0')
-		{
-			ft_putchar(star->aux_outnbr[help], &*star);
-			help++;
-		}
+		ft_putchar(star->aux_outnbr[help], &*star);
+		help++;
 	}
 	help = 0;
 	while (help < j)
