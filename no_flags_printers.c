@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:39:44 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 20:12:50 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 14:43:27 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	print_int_noflag(t_bdr *star)
 
 	star->hold = va_arg(star->list, int);
 	character = ft_itoa(star->hold);
-	ft_putnbr(star->hold, &*star);
+	if (star->hold == 0)
+		ft_putchar(' ', &*star);
+	else
+		ft_putnbr(star->hold, &*star);
 	star->hold = ft_strlen(character);
 	star->keeper = star->keeper + star->hold;
 	free(character);
