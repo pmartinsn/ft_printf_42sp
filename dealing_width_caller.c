@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 18:53:48 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 08:29:48 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	print_xx_width_m(t_bdr *star)
 	character = ft_itoa_base(num, 16, 'A', &*star);
 	star->kpr6 = ft_strlen(character);
 	ft_putstr(character, &*star);
-	if (star->kpr6 > j)
+	/*if (star->kpr6 > j)
 		j = star->kpr6;
-	else
+	else*/
 		j = j - star->kpr6;
 	while (help < j)
 	{
@@ -81,9 +81,9 @@ void	print_p_width_m(t_bdr *star)
 	character = ft_itoa_base(num, 16, 'a', &*star);
 	ft_putstr("0x", &*star);
 	ft_putstr(character, &*star);
-	if (j < 14)
+	/*if (j < 14)
 		j = 14;
-	else
+	else*/
 		j = j - 14;
 	while (help < j)
 	{
@@ -107,10 +107,10 @@ void	print_xx_width(t_bdr *star)
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'A', &*star);
 	star->kpr6 = ft_strlen(character);
-	if (star->kpr6 > j)
+	/*if (star->kpr6 > j)
 		j = star->kpr6;
-	else
-		j = j - star->kpr6;
+	else*/
+	j = j - star->kpr6;
 	while (help < j)
 	{
 		ft_putchar(' ', &*star);
@@ -133,9 +133,9 @@ void	print_p_width(t_bdr *star)
 	j = va_arg(star->list, int);
 	num = va_arg(star->list, size_t);
 	character = ft_itoa_base(num, 16, 'a', &*star);
-	if (j < 14)
+	/*if (j < 14)
 		j = 14;
-	else
+	else*/
 		j = j - 14;
 	while (help < j)
 	{
