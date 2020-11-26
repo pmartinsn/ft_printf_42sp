@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 18:36:08 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/26 18:43:46 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ void	dealing_zero(const char *fmt, int *aux, t_bdr *star)
 		}
 		if (fmt[*aux] == '0')
 		{
+			*aux = *aux + 1;
 			if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
-				{
-					*aux = *aux + 1;
-					e_starprestari(&*star);
-				}
+			{
+				*aux = *aux + 1;
+				print_int_zflag(&*star);
+			}
 		}
 	}
 	else if (fmt[*aux] == '*')
