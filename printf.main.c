@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 15:30:49 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 16:00:01 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,12 @@ int main()
 	
 //		  return_printf = printf("%0-i, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d\n", i, j, k, l, m, c, e, d); 
 //return_ft_printf = ft_printf("%0*d, %0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, l,a, j,a, k,a, e,a, m,a, c,a, i,a, d); 
-	return_ft_printf = ft_printf("%.*d, %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, l,a, j,a, k,a, e,a, m,a, c,a, i,a, d); 
 	
+	while (a < 5)
+	{
+		return_ft_printf = ft_printf("%.*d, %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, l,a, j,a, k,a, e,a, m,a, c,a, i,a, d); 
+		a++;
+	}
 	
 // printf("...return_printf:%i\n", return_printf);
 		printf("return_ft_printf:%i\n", return_ft_printf);
