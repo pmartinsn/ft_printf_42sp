@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 10:43:01 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 17:18:58 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 17:20:13 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void	e_pre_star(const char *fmt, int *aux, t_bdr *star)
 	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
-		p_int_wid_pre(&*star); ///change de function for a test
+		p_wid_pre(&*star);
 		print_while(fmt, &*aux, &*star);
 	}
 }
