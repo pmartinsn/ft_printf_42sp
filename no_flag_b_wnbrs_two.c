@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:40:59 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 10:00:58 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:06:45 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	ft_pzero_int_wnumb(char *tobeconv, t_bdr *star)
 	}
 	if (star->kpr8 != 0)
 		ft_putnbr(star->kpr8, &*star);
+	if (star->kpr8 == 0)
+		ft_putchar(' ', &*star);
 	free(character);
 }
 
