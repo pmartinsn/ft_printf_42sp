@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:06:16 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 17:10:09 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 17:11:29 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	p_int_wid_zero(t_bdr *star)
 {
 	int		help;
 	int		j;
-	char	*character;
+	//char	*character;
 
 	j = 0;
 	help = 0;
@@ -29,7 +29,7 @@ void	p_int_wid_zero(t_bdr *star)
 		e_iwidzstart(j, help, &*star);
 	else if (j <= 0)
 		e_iwidzend(j, help, &*star);
-	free(character);
+	free(star->aux_outnbr);
 }
 
 void	e_iwidzstart(int j, int help, t_bdr *star)
