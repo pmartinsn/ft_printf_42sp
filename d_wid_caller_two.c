@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:06:16 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 16:13:10 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 17:10:09 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	p_int_wid_zero(t_bdr *star)
 	help = 0;
 	j = va_arg(star->list, int);
 	star->kpr8 = va_arg(star->list, int);
-	character = ft_itoa(star->kpr8);
-	star->ret__ = ft_strlen(character);
+	star->aux_outnbr = ft_itoa(star->kpr8);
+	star->ret__ = ft_strlen(star->aux_outnbr);
 	if (j > 0)
 		e_iwidzstart(j, help, &*star);
 	else if (j <= 0)
@@ -52,8 +52,12 @@ void	e_iwidzstart(int j, int help, t_bdr *star)
 			ft_putchar('0', &*star);
 			help++;
 		}
-		star->kpr8 = star->kpr8 * -1;
-		ft_putnbr(star->kpr8, &*star);
+		help = 1;
+		while (star->aux_outnbr[help] != '\0')
+		{
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
+		}
 	}
 }
 
@@ -124,7 +128,7 @@ void	p_wid_pre(t_bdr *star)
 		ft_putnbr(star->kpr8, &*star);
 	}
 	else*/
-	if ((j < 0))
+	if ((j <= 0))
 		ft_putnbr(star->kpr8, &*star);//e_pwidpre(j, help, &*star);
 	else if ((j >= 0) && star->kpr8 != 0)
 		ft_putnbr(star->kpr8, &*star);
