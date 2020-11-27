@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 18:47:35 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 08:53:18 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,14 @@ void	e_zhalf(char *tobeconv, const char *fmt, int *aux, t_bdr *star)
 		if (fmt[*aux] == '-')
 		{
 			*aux = *aux + 1;
-			dealing_minus(fmt, &*aux, &*star);
-			print_while(fmt, &*aux, &*star);
+			if ((fmt[*aux] == 'd') || (fmt[*aux] == 'i'))
+			{
+				*aux = *aux + 1;
+				print_int_noflag(&*star);
+				print_while(fmt, &*aux, &*star);
+			}
+			/*dealing_minus(fmt, &*aux, &*star);
+			print_while(fmt, &*aux, &*star);*/
 		}
 		ft_jumpzero(fmt, &*aux);
 		if (fmt[*aux] == 's')
