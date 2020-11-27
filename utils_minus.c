@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:52:13 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 17:55:26 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:31:27 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,16 @@ void	deal_min_zero_perc(const char *fmt, int *aux, t_bdr *star)
 		*aux = *aux + 1;
 		print_s_minuswnumb(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
+	}
+	else if ((fmt[*aux] == '.') && (fmt[*aux + 1] == '0'))
+	{
+		*aux = *aux + 2;
+		if ((fmt[*aux] == 'i') | (fmt[*aux] == 'd'))
+		{
+			*aux = *aux + 1;
+			print_int_zflag(&*star);
+			print_while(fmt, &*aux, &*star);
+		}
 	}
 	free(tbv);
 }
