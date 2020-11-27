@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:06:16 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 15:12:01 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 15:14:55 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	e_iwidzend(int j, int help, t_bdr *star)
 {
 	j = j * -1;
 	j = j - star->ret__;
-	if (star->kpr8 !=0)
+//	if (star->kpr8 !=0)
 		ft_putnbr(star->kpr8, &*star);
 	while (help < j)
 	{
