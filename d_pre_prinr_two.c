@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 17:12:21 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 13:26:49 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 13:29:11 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ void	print_s_pre(char *tobeconv, t_bdr *star)
 
 void	p_int_pre_zero(char *tobeconv, t_bdr *star)
 {
-	int		help;
+	//int		help;
 	int		j;
 	char	*character;
 
-	help = 0;
+	//help = 0;
 	j = 0;
 	j = ft_atoi(tobeconv);
 	star->kpr8 = va_arg(star->list, int);
@@ -71,14 +71,14 @@ void	p_int_pre_zero(char *tobeconv, t_bdr *star)
 	{
 		if (star->kpr8 != 0)
 			ft_putnbr(star->kpr8, &*star);
-		if (star->kpr8 >= 0)
+		/*if (star->kpr8 >= 0)
 		{
 			while (help < j)
 			{
 				ft_putchar(' ', &*star);
 				help++;
 			}
-		}
+		}*/
 	}
 	free(character);
 }
