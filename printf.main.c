@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 14:39:41 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 15:30:49 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 //	char 			*test = "teste";
 	
 	//testes do Mazoize
-	int		a = -4;
+	int		a = 0;
 //	int		b = 0;
 //	int 	bb = 0;
 	char	c = 'a';
@@ -54,7 +54,10 @@ int main()
 //	char	*u = "-0";
 	
 //		  return_printf = printf("%0-i, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d\n", i, j, k, l, m, c, e, d); 
-	return_ft_printf = ft_printf("%0*d, %0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, e,a, j,a, k,a, l,a, m,a, c,a, i,a, d); 
+//return_ft_printf = ft_printf("%0*d, %0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, l,a, j,a, k,a, e,a, m,a, c,a, i,a, d); 
+	return_ft_printf = ft_printf("%.*d, %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, l,a, j,a, k,a, e,a, m,a, c,a, i,a, d); 
+	
+	
 // printf("...return_printf:%i\n", return_printf);
 		printf("return_ft_printf:%i\n", return_ft_printf);
 /*//	return_printf = printf("%---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, -2, NULL, NULL, NULL, NULL, NULL, "star", NULL);
