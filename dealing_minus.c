@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 17:33:31 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:11:56 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,22 @@ void	dealing_minus(const char *fmt, int *aux, t_bdr *star)
 		print_s_minuswnumb(tobeconv, &*star);
 		print_while(fmt, &*aux, &*star);
 	}
-	else if ((fmt[*aux] == 'X') | (fmt[*aux] == '%'))
+	else if (((fmt[*aux] == 'X') | (fmt[*aux] == '%') && (fmt[*aux -1] == '-')) || ((fmt[*aux -1] == '-') && (fmt[*aux - 1] >= '1' && fmt[*aux - 1] <= '9')))
+	{	
 		e_checkminus(tobeconv, fmt, &*aux, &*star);
+		/*if (fmt[*aux] == 'X')
+		{
+			*aux = *aux + 1;
+			print_xx_minuswnumb(tobeconv, &*star);
+			print_while(fmt, &*aux, &*star);
+		}
+		else if (fmt[*aux] == '%')
+		{
+			*aux = *aux + 1;
+			print_per_minwnbr(tobeconv, &*star);
+			print_while(fmt, &*aux, &*star);
+		}*/
+	}
 	else
 		dealing_min_two(tobeconv, fmt, &*aux, &*star);
 	free(tobeconv);
