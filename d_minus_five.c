@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:48:38 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 11:51:14 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 11:57:00 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ void	e_minuszero(char *tbv, const char *fmt, int *aux, t_bdr *star)
 		*aux = *aux + 1;
 		pri_pre_xx_wzero(tbv, &*star);
 		print_while(fmt, &*aux, &*star);
+	}
+	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
+	{
+		*aux = *aux + 1;
+		ft_pzero_int_wnumb(tbv, &*star);
+		//p_int_pre_zero(tbv, &*star);
 	}
 	else
 		d_pre_zer(tbv, fmt, &*aux, &*star);
