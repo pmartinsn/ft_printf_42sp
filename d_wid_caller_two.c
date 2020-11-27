@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:06:16 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 17:13:33 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 17:15:42 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void	p_wid_pre(t_bdr *star)
 		ft_putnbr(star->kpr8, &*star);
 	}
 	else*/
-	if ((j <= 0))
+	if ((j < 0))
 		ft_putnbr(star->kpr8, &*star);//e_pwidpre(j, help, &*star);
 	else if ((j > 0) && star->kpr8 != 0)
 		ft_putnbr(star->kpr8, &*star);
