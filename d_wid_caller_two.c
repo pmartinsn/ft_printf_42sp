@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 18:06:16 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 13:50:35 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 13:56:38 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ void	p_int_wid_pre(t_bdr *star)
 	help = 0;
 	j = va_arg(star->list, int);
 	star->kpr8 = va_arg(star->list, int);
-	star->aux_outnbr = ft_itoa(star->kpr8);
-	star->ret__ = ft_strlen(star->aux_outnbr);
-	if (j < 0)
+//	star->aux_outnbr = ft_itoa(star->kpr8);
+//	star->ret__ = ft_strlen(star->aux_outnbr);
+	/*if (j < 0)
 		j = j * -1;
 	j = j - star->ret__;
 	if (star->kpr8 > 0)
@@ -93,9 +93,9 @@ void	p_int_wid_pre(t_bdr *star)
 		}
 		ft_putnbr(star->kpr8, &*star);
 	}
-	else
+	else*/
 		ft_putnbr(star->kpr8, &*star);//e_pwidpre(j, help, &*star);
-	free(star->aux_outnbr);
+//	free(star->aux_outnbr);
 }
 
 void	e_pwidpre(int j, int help, t_bdr *star)
