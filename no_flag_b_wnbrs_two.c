@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:40:59 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/18 09:36:45 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:00:58 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,29 @@ void	ft_print_int_wnumb(char *tobeconv, t_bdr *star)
 		help++;
 	}
 	ft_putnbr(star->kpr8, &*star);
+	free(character);
+}
+
+void	ft_pzero_int_wnumb(char *tobeconv, t_bdr *star)
+{
+	int		help;
+	int		j;
+	char	*character;
+
+	help = 0;
+	j = 0;
+	j = ft_atoi(tobeconv);
+	star->kpr8 = va_arg(star->list, int);
+	character = ft_itoa(star->kpr8);
+	star->ret__ = ft_strlen(character);
+	j = j - star->ret__;
+	while (help < j)
+	{
+		ft_putchar(' ', &*star);
+		help++;
+	}
+	if (star->kpr8 != 0)
+		ft_putnbr(star->kpr8, &*star);
 	free(character);
 }
 

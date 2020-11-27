@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 14:50:46 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:00:04 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,4 +198,6 @@ void	e_starprestar(const char *fmt, int *aux, t_bdr *star);
 void	p_u_starpstar(int *aux, int c,/* char a,*/ t_bdr *star);
 char	*ft_itoa_u(unsigned int nb, int base/*, char updown*/);
 int		print_int_zflag(t_bdr *star);
+void	ft_pzero_int_wnumb(char *tobeconv, t_bdr *star);
+
 #endif

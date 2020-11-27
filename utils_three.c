@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 09:58:08 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/25 20:12:04 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:52:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,6 @@ void	pri_nbr_prei(char *tbv, t_bdr *star)
 	help = 0;
 	j = 0;
 	j = ft_atoi(tbv);
-	
 	star->aux_outnbr = ft_itoa(star->hold);
 	star->hold = ft_strlen(star->aux_outnbr);
 	while (help < j)
