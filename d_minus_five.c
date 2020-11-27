@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:48:38 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 11:07:55 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 11:24:28 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	e_minuspre(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	else if ((fmt[*aux] == 'd') | (fmt[*aux] == 'i'))
 	{
 		*aux = *aux + 1;
-		ft_pzero_int_wnumb(tbv, &*star);
+		ft_print_int_wnumb(tbv, &*star);
 		//p_int_pre_zero(tbv, &*star);
 	}
 	else if (fmt[*aux] == 'u')
