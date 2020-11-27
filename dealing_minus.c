@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:18 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 09:11:56 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 11:21:28 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ void	dealing_minus_four(char *tbv, const char *fmt, int *aux, t_bdr *star)
 	if (fmt[*aux] == '.')
 	{
 		*aux = *aux + 1;
+		if ((fmt[*aux] != '0') && (fmt[*aux] >= '1' && fmt[*aux] <= '9'))
+			tbv = converter(tbv, fmt, &*aux);
 		e_minuspre(tbv, fmt, &*aux, &*star);
 		if (fmt[*aux] == '0')
 		{
