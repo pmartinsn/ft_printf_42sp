@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:50:35 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/17 11:51:06 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/27 13:14:18 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	p_min_pre_i(char *tbv, char *tbvv, t_bdr *star)
 	star->keeper = 0;
 	j = ft_atoi(tbv);
 	i = ft_atoi(tbvv);
-	star->kpr8 = va_arg(star->list, int);
+	star->kpr8 = va_arg(star->list, long);
 	star->aux_outnbr = ft_itoa(star->kpr8);
 	star->hold = ft_strlen(star->aux_outnbr);
 	star->keeper = i;
@@ -66,8 +66,12 @@ void	e_minusprei(int j, int i, int help, t_bdr *star)
 		ft_putchar('0', &*star);
 		help++;
 	}
-	star->kpr8 = star->kpr8 * -1;
-	ft_putnbr(star->kpr8, &*star);
+	help = 1;
+	while (star->aux_outnbr[help] != '\0')
+	{
+		ft_putchar(star->aux_outnbr[help], &*star);
+		help++;
+	}
 	help = 0;
 	if (star->hold >= i)
 		j = j - (star->hold - i);
