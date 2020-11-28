@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 11:21:15 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 11:23:18 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,17 @@ void	e_starprestari(t_bdr *star)
 
 void	e_starprei(int help, t_bdr *star)
 {
-	int j;
-	j = 0;
+	//int j;
+	//j = 0;
 	if ((star->kpr5 == 0) && star->kpr4 == 0)
 		ft_putchar(' ', &*star);
 	else if ((star->kpr4 == 0) && (star->kpr5 > star->hold))
 	{
 		star->kpr5 = star->kpr5 -star->hold;
-		while(j <= star->kpr5)
+		while(help <= star->kpr5)
 		{
 			ft_putchar('0', &*star);
-			j++;
+			help++;
 		}
 	}
 	else if ((star->kpr4 == 0) && (star->kpr2 != 0) && (star->kpr2 > 0))
@@ -115,10 +115,10 @@ void	e_starprei(int help, t_bdr *star)
 	else if ((star->kpr5 > star->kpr2) && (star->kpr4 > 0))
 	{
 		star->kpr5 = star->kpr5 -star->hold;
-		while(j < star->kpr5)
+		while(help < star->kpr5)
 		{
 			ft_putchar('0', &*star);
-			j++;
+			help++;
 		}
 		ft_putnbr(star->kpr4, &*star);
 	}
@@ -126,16 +126,16 @@ void	e_starprei(int help, t_bdr *star)
 	{
 		ft_putchar('-', &*star);
 		star->kpr5 = star->kpr5 -star->hold;
-		while(j < star->kpr5)
+		while(help < star->kpr5)
 		{
 			ft_putchar('0', &*star);
-			j++;
+			help++;
 		}
-		j = 1;
-		while (j < star->hold)
+		help = 1;
+		while (help < star->hold)
 		{
-			ft_putchar(star->aux_outnbr[j], &*star);
-			j++;
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
 		}
 	}
 	else if (star->kpr2 >= star->kpr5)
