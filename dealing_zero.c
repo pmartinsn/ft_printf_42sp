@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 14:59:12 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 15:12:19 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ void	e_starprestari(t_bdr *star)
 
 void	e_starprei(int help, t_bdr *star)
 {
-	int j;
-	j = 0;
-	if (star->kpr5 <= 1)
-		j = 1;
+//	int j;
+//	j = 0;
+//	if (star->kpr5 <= 1)
+//		j = 1;
 	if ((star->kpr5 == 0) && star->kpr4 == 0)
 		ft_putchar(' ', &*star);
 	else if ((star->kpr4 == 0) && (star->kpr5 > star->hold))
@@ -148,10 +148,20 @@ void	e_starprei(int help, t_bdr *star)
 	}
 	else if (star->kpr2 >= star->kpr5)
 		ft_putnbr(star->kpr4, &*star);
-	if ((j == 1) && (star->kpr3 <= 3))
+	/*if ((j == 1) && (star->kpr3 <= 3))
 	{
 		help = 0;
 		while (help < star->kpr2)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+	}*/
+	if ((star->kpr3 > star->kpr5 ))
+	{
+		star->kpr5 = star->kpr3 -star->kpr5 -star->hold;		
+		help = 0;
+		while (help < star->kpr5)
 		{
 			ft_putchar(' ', &*star);
 			help++;
