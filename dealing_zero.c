@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 13:05:58 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:13:50 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void	e_starprei(int help, t_bdr *star)
 	}
 	else if (star->kpr2 >= star->kpr5)
 		ft_putnbr(star->kpr4, &*star);
-	if ((j == 1) && (star->kpr3 < 3))
+	if ((j == 1) && (star->kpr3 <= 3))
 	{
 		help = 0;
 		while (help < star->kpr2)
