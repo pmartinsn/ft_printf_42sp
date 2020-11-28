@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/16 13:23:17 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 16:02:53 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 11:07:50 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_printf(const char *fmt, ...);
 int main()
 {
 //	int 	return_printf = 0;
-	int 	return_ft_printf = 0;
+//	int 	return_ft_printf = 0;
 //	unsigned int 	numero = 243;
 //	int				nbr = 64;
 //	unsigned int 	hexa = 22222;
@@ -30,8 +30,8 @@ int main()
 //	char 			*test = "teste";
 	
 	//testes do Mazoize
-	int		a = -4;
-//	int		b = 0;
+	int		a = 3;
+	int		b = 0;
 //	int 	bb = 0;
 	char	c = 'a';
 	int		d = 2147483647;
@@ -55,15 +55,26 @@ int main()
 	
 //		  return_printf = printf("%0-i, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d, %0-d\n", i, j, k, l, m, c, e, d); 
 //return_ft_printf = ft_printf("%0*d, %0*i, %0*d, %0*d, %0*d, %0*d, %0*d, %0*d\n", a, l,a, j,a, k,a, e,a, m,a, c,a, i,a, d); 
-	
-	while (a < 5)
+int test;
+test = 70;
+while (a < 5)
+{
+	b = -2;
+	while (b < 5)
 	{
-		return_ft_printf = ft_printf("%.*d, %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d\n", a, l,a, j,a, k,a, e,a, m,a, c,a, i,a, d); 
-		a++;
+		ft_printf("test nº%d: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", test, a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+		test++;
+		ft_printf("test nº%d: %-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", test, a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+		test++;
+		ft_printf("test nº%d: %0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d\n", test, a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+		test++;
+		printf(" a = %d  , b = %d\n", a, b);
+		b++;
 	}
-	
+	a++;
+}	
 // printf("...return_printf:%i\n", return_printf);
-		printf("return_ft_printf:%i\n", return_ft_printf);
+	//	printf("return_ft_printf:%i\n", return_ft_printf);
 /*//	return_printf = printf("%---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, -2, NULL, NULL, NULL, NULL, NULL, "star", NULL);
 	 return_ft_printf = ft_printf("%---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, -2, NULL, NULL, NULL, NULL, NULL, "star", NULL);
 // printf("...return_printf:%i\n", return_printf);
