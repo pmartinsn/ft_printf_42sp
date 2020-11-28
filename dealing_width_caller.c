@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:46 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/26 10:50:23 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 08:22:12 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	dealing_width(const char *fmt, int *aux, t_bdr *star)
 	}
 	else
 		dealing_width_two(fmt, &*aux, &*star);
+	print_while(fmt, &*aux, &*star);
 }
 
 void	print_xx_width_m(t_bdr *star)
