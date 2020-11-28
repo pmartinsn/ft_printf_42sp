@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 09:05:38 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 09:53:32 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	e_starprestari(t_bdr *star)
 	star->kpr4 = va_arg(star->list, int);
 	star->aux_outnbr = ft_itoa(star->kpr4);
 	star->hold = ft_strlen(star->aux_outnbr);
+	star->kpr5 = star->kpr2; 
 	if (star->kpr2 < 0)
 		star->kpr2 = star->kpr2 * -1;
 	if (star->hold == 1)
@@ -96,7 +97,9 @@ void	e_starprestari(t_bdr *star)
 
 void	e_starprei(int help, t_bdr *star)
 {
-	if (star->kpr4 == 0)
+	if ((star->kpr5 == 0) && star->kpr4 == 0)
+		ft_putchar(' ', &*star);
+	else if ((star->kpr4 == 0) && (star->kpr2 != 0))
 		ft_putchar('0', &*star);
 	else
 		ft_putnbr(star->kpr4, &*star);
