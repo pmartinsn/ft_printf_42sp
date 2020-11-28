@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 13:36:52 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:44:25 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,7 @@ void	e_starpreitwo(int help, t_bdr *star)
 	}
 	else if (star->kpr2 >= star->kpr5)
 		ft_putnbr(star->kpr4, &*star);
-	if ((j == 1) && (star->kpr3 <= 2))
+/*	if ((j == 1) && (star->kpr3 <= 2))
 	{
 		help = 0;
 		while (help < star->kpr5)
@@ -214,7 +214,7 @@ void	e_starpreitwo(int help, t_bdr *star)
 			ft_putchar(' ', &*star);
 			help++;
 		}
-	}
+	}*/
 }
 
 
