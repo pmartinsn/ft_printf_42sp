@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 18:05:49 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 18:25:36 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ void	e_starprestari(t_bdr *star)
 	star->kpr5 = star->kpr2; 
 	if (star->kpr2 < 0)
 		star->kpr2 = star->kpr2 * -1;
-	if (star->hold == 1)
-		star->kpr2 = 1;
-	else
-		star->kpr2 = star->kpr2 - star->hold;
-	star->kpr2 = star->kpr2 - star->kpr3 - star->hold;
+	/*if (star->hold == 1)
+		star->kpr2 = 1;*/
+	//else
+	star->kpr2 = star->kpr2 - star->hold;
+	//star->kpr2 = star->kpr2 - star->kpr3 - star->hold;
 	//if (star->kpr5 > 0)
 	//	e_starpreitwo(help, &*star);
 	//else
@@ -110,7 +110,7 @@ void	e_starprei(int help, t_bdr *star)
 		ft_putchar(' ', &*star);
 		ft_putchar(' ', &*star);
 	}
-	else if ((star->kpr4 == 0) && (star->kpr5 > star->hold))
+	else if ((star->kpr4 == 0) && (star->kpr5 > star->hold) )
 	{
 		star->kpr5 = star->kpr5 -star->hold;
 		while(help <= star->kpr5)
@@ -118,6 +118,16 @@ void	e_starprei(int help, t_bdr *star)
 			ft_putchar('0', &*star);
 			help++;
 		}
+	}
+	else if ((star->hold == 1) && (star->kpr5 > star->hold) && (star->kpr4 != 0))
+	{
+		star->kpr5 = star->kpr5 -star->hold -1;
+		while(help <= star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		ft_putnbr(star->kpr4 , &*star);
 	}
 	else if ((star->hold == 1) && (star->kpr5 <= 0 ) /*&& (star->kpr2 > 0)*/)
 	{
