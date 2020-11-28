@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 09:53:32 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 11:05:04 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,48 @@ void	e_starprestari(t_bdr *star)
 
 void	e_starprei(int help, t_bdr *star)
 {
+	int j;
+	j = 0;
 	if ((star->kpr5 == 0) && star->kpr4 == 0)
 		ft_putchar(' ', &*star);
-	else if ((star->kpr4 == 0) && (star->kpr2 != 0))
+	else if ((star->kpr4 == 0) && (star->kpr2 > 0))
+	{
+		star->kpr5 = star->kpr5 -star->hold;
+		while(j <= star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			j++;
+		}
+	}
+	else if ((star->kpr4 == 0) && (star->kpr2 != 0) && (star->kpr2 > 0))
 		ft_putchar('0', &*star);
-	else
+	else if ((star->kpr5 > star->kpr2) && (star->kpr4 > 0))
+	{
+		star->kpr5 = star->kpr5 -star->hold;
+		while(j < star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			j++;
+		}
+		ft_putnbr(star->kpr4, &*star);
+	}
+	else if ((star->kpr5 > star->kpr2) && (star->kpr4 < 0))
+	{
+		ft_putchar('-', &*star);
+		star->kpr5 = star->kpr5 -star->hold;
+		while(j < star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			j++;
+		}
+		j = 1;
+		while (j < star->hold)
+		{
+			ft_putchar(star->aux_outnbr[j], &*star);
+			j++;
+		}
+	}
+	else if (star->kpr2 > star->kpr5)
 		ft_putnbr(star->kpr4, &*star);
 	help = 0;
 	while (help < star->kpr2)
