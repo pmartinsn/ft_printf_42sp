@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/27 20:42:24 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:34:44 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,5 +202,6 @@ void	ft_pzero_int_wnumb(char *tobeconv, t_bdr *star);
 void	p_wid_pre(t_bdr *star);
 void	ft_star_int_width(t_bdr *star);
 void	e_pi(int j, int help, t_bdr *star);
+void	e_starpreitwo(int help, t_bdr *star);
 
 #endif

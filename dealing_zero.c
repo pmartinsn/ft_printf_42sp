@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/28 13:29:54 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:36:52 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,76 @@ void	e_starprestari(t_bdr *star)
 	else
 		star->kpr2 = star->kpr2 - star->hold;
 	//star->kpr2 = star->kpr2 - star->kpr3 - star->hold;
-	e_starprei(help, &*star);
+	if (star->kpr5 > 0)
+		e_starpreitwo(help, &*star);
+	else
+		e_starprei(help, &*star);
+	
 	free(star->aux_outnbr);
 	star->aux_outnbr = NULL;
 }
 
 
 void	e_starprei(int help, t_bdr *star)
+{
+	int j;
+	j = 0;
+	if (star->kpr5 <= 1)
+		j = 1;
+	if ((star->kpr5 == 0) && star->kpr4 == 0)
+		ft_putchar(' ', &*star);
+	else if ((star->kpr4 == 0) && (star->kpr5 > star->hold))
+	{
+		star->kpr5 = star->kpr5 -star->hold;
+		while(help <= star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+	}
+	else if ((star->kpr4 == 0) && (star->kpr2 != 0) && (star->kpr2 > 0))
+		ft_putchar('0', &*star);
+	else if ((star->kpr5 > star->kpr2) && (star->kpr4 > 0))
+	{
+		star->kpr5 = star->kpr5 -star->hold;
+		while(help < star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		ft_putnbr(star->kpr4, &*star);
+	}
+	else if ((star->kpr5 > star->kpr2) && (star->kpr4 < 0))
+	{
+		ft_putchar('-', &*star);
+		star->kpr5 = star->kpr5 +1;
+		star->kpr5 = star->kpr5 -star->hold;
+		while(help < star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}
+		help = 1;
+		while (help < star->hold)
+		{
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
+		}
+	}
+	else if (star->kpr2 >= star->kpr5)
+		ft_putnbr(star->kpr4, &*star);
+	if ((j == 1) && (star->kpr3 <= 3))
+	{
+		help = 0;
+		while (help < star->kpr2)
+		{
+			ft_putchar(' ', &*star);
+			help++;
+		}
+	}
+}
+
+void	e_starpreitwo(int help, t_bdr *star)
 {
 	int j;
 	j = 0;
