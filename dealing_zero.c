@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/29 10:00:27 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/29 10:02:24 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,7 +185,7 @@ void	e_starprei(int help, t_bdr *star)
 	{
 		ft_putchar('-', &*star);
 		help = 0;
-	//	star->kpr5 = star->kpr5 - star->hold;
+		star->kpr5 = star->kpr5 + 1;
 		star->kpr5 = star->kpr5 -star->hold;
 		while(help < star->kpr5)
 		{
