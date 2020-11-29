@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/29 09:55:53 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/29 10:00:27 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,55 @@ void	e_starprei(int help, t_bdr *star)
 		}
 		ft_putnbr(star->kpr4 , &*star);
 	}
+	else if ((star->hold == 1) && (star->kpr5 = 0 ) )
+	{
+			ft_putnbr(star->kpr4 , &*star);
+			ft_putchar(' ', &*star);	
+	}
+	else if ((star->hold == 1) && (star->kpr5 = 1 ))
+	{
+			ft_putnbr(star->kpr4 , &*star);
+			ft_putchar(' ', &*star);	
+	}
+	else if ((star->kpr4 == 0) && (star->kpr5 = 1 ))
+	{
+			//ft_putnbr(star->kpr4 , &*star);
+			ft_putchar('0', &*star);
+			ft_putchar(' ', &*star);	
+	}
+	else if ((star->kpr4 == 0) && (star->kpr2 != 0) )
+	{
+			ft_putchar('0', &*star);
+			if (star->kpr5 > 0)
+				ft_putchar(' ', &*star);
+	}
+	else if ((star->kpr5 < 0 ) && (star->kpr4 > 0))
+	{
+	/*	star->kpr5 = star->kpr5 -star->hold;
+		while(help < star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}*/
+		ft_putnbr(star->kpr4, &*star);
+	}
+	else if ((star->kpr5 < 0) && (star->kpr4 < 0))
+	{
+		ft_putchar('-', &*star);
+		/*star->kpr5 = star->kpr5 +1;
+		star->kpr5 = star->kpr5 -star->hold;
+		while(help < star->kpr5)
+		{
+			ft_putchar('0', &*star);
+			help++;
+		}*/
+		help = 1;
+		while (help < star->hold)
+		{
+			ft_putchar(star->aux_outnbr[help], &*star);
+			help++;
+		}
+	}
 	else if ((star->kpr4 < 0))
 	{
 		ft_putchar('-', &*star);
@@ -173,56 +222,6 @@ void	e_starprei(int help, t_bdr *star)
 		while(help < star->kpr5)
 		{
 			ft_putchar(' ', &*star);
-			help++;
-		}
-	}
-	/*else if ((star->hold == 1) && (star->kpr5 = 0 ) 
-	{
-			ft_putnbr(star->kpr4 , &*star);
-			ft_putchar(' ', &*star);	
-	}
-	else if ((star->hold == 1) && (star->kpr5 = 1 ))
-	{
-			ft_putnbr(star->kpr4 , &*star);
-			ft_putchar(' ', &*star);	
-	}
-	else if ((star->kpr4 == 0) && (star->kpr5 = 1 ))
-	{
-			//ft_putnbr(star->kpr4 , &*star);
-			ft_putchar('0', &*star);
-			ft_putchar(' ', &*star);	
-	}
-	*/
-	else if ((star->kpr4 == 0) && (star->kpr2 != 0) )
-	{
-			ft_putchar('0', &*star);
-			if (star->kpr5 > 0)
-				ft_putchar(' ', &*star);
-	}
-	else if ((star->kpr5 < 0 ) && (star->kpr4 > 0))
-	{
-	/*	star->kpr5 = star->kpr5 -star->hold;
-		while(help < star->kpr5)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}*/
-		ft_putnbr(star->kpr4, &*star);
-	}
-	else if ((star->kpr5 < 0) && (star->kpr4 < 0))
-	{
-		ft_putchar('-', &*star);
-		/*star->kpr5 = star->kpr5 +1;
-		star->kpr5 = star->kpr5 -star->hold;
-		while(help < star->kpr5)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}*/
-		help = 1;
-		while (help < star->hold)
-		{
-			ft_putchar(star->aux_outnbr[help], &*star);
 			help++;
 		}
 	}
