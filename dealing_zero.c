@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/29 10:35:35 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/29 11:11:17 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	e_starprei(int help, t_bdr *star)
 			help++;
 		}
 	}
-	else if ((star->hold == 1) && (star->kpr5 > star->hold) && (star->kpr4 != 0))
+	/*else if ((star->hold == 1) && (star->kpr5 > star->hold) && (star->kpr4 != 0))
 	{
 		star->kpr5 = star->kpr5 -star->hold -1;
 		while(help <= star->kpr5)
@@ -120,7 +120,7 @@ void	e_starprei(int help, t_bdr *star)
 			help++;
 		}
 		ft_putnbr(star->kpr4 , &*star);
-	}
+	}*/
 	/*else if ((star->kpr5 > star->hold) && star->kpr4 > 0)
 	{
 		star->kpr5 = star->kpr5 -star->hold;
@@ -132,21 +132,27 @@ void	e_starprei(int help, t_bdr *star)
 		}
 		ft_putnbr(star->kpr4 , &*star);
 	}*/
-	else if ((star->hold == 1) && (star->kpr5 = 0 ) )
+	else if ((star->hold == 1) && (star->kpr5 == 0 ) )
 	{
 			ft_putnbr(star->kpr4 , &*star);
 			ft_putchar(' ', &*star);	
 	}
-	else if ((star->hold == 1) && (star->kpr5 = 1 ))
+	else if ((star->hold == 1) && (star->kpr5 == 1 ))
 	{
 			ft_putnbr(star->kpr4 , &*star);
 			ft_putchar(' ', &*star);	
 	}
-	else if ((star->kpr4 == 0) && (star->kpr5 = 1 ))
+	else if ((star->kpr4 == 0) && (star->kpr5 == 1 ))
 	{
 			//ft_putnbr(star->kpr4 , &*star);
 			ft_putchar('0', &*star);
 			ft_putchar(' ', &*star);	
+	}
+	else if ((star->kpr4 == 0) && (star->kpr5 == -1 ))
+	{
+			//ft_putnbr(star->kpr4 , &*star);
+			ft_putchar('0', &*star);
+			//ft_putchar(' ', &*star);	
 	}
 	else if ((star->kpr4 == 0) && (star->kpr2 != 0) )
 	{
