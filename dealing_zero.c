@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/30 09:20:21 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/30 09:40:11 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,26 +205,27 @@ void	e_starprei(int help, t_bdr *star)
 		if ((star->kpr4 == 0) || (star->hold == 1))
 		{
 			star->kpr3 = star->kpr3 *-1;
-			/*star->hold = star->hold +1;
-			star->kpr5 = star->kpr5 +1;*/
+			//star->hold = star->hold +1;
+			//star->kpr5 = star->kpr5 +1;
 		}
-		j = star->kpr5;
+		j = 0;
 	//	star->kpr5 = star->kpr5 - star->hold;
 		star->kpr5 = star->kpr5 - star->hold;
-		while(help < star->kpr5)
+		while(j < star->kpr5)
 		{
 			ft_putchar('0', &*star);
-			help++;
+			j++;
 		}
 		ft_putnbr(star->kpr4, &*star);
 		help = 0;
 		//if (star->kpr5 < 0)
 		//	star->kpr5 = star->kpr5 * -1;
-		/*if (j < 0)
-			j = j * -1;*/
-		if (star->kpr5 < star->kpr3)
+		/*if (j < 0)*/
+		/*	j = star->kpr3;
+			j = j -1;*/
+		if (star->kpr3 > j)
 		{
-			star->kpr3 = star->kpr3 - star->hold;
+			star->kpr3 = star->kpr3 - star->hold - j;
 			while(help < star->kpr3)
 			{
 				ft_putchar(' ', &*star);
