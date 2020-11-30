@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 13:49:45 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/30 10:58:46 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/30 11:09:26 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void	verify_nfw_two(char *tobeconv, const char *fmt, int *aux, t_bdr *star);
 void	ft_bzero(void *s, size_t n);
 void	pri_nbr_prei(char *tbv, t_bdr *star);
 void	*ft_calloc(size_t count, size_t size);
-int	e_starprestari(t_bdr *star);
+int		e_starprestari(t_bdr *star);
 void	e_starprei(int help, t_bdr *star);
 void	p_uxxx_starpstar(int *aux, int c, char a, t_bdr *star);
 void	e_starprestar(const char *fmt, int *aux, t_bdr *star);
@@ -203,5 +203,8 @@ void	p_wid_pre(t_bdr *star);
 void	ft_star_int_width(t_bdr *star);
 void	e_pi(int j, int help, t_bdr *star);
 void	e_starpreitwo(int help, t_bdr *star);
+int		e_mstarprestari(t_bdr *star);
+void	e_mstarpreitwo(int help, t_bdr *star);
+void	e_mstarprei(int help, t_bdr *star);
 
 #endif
