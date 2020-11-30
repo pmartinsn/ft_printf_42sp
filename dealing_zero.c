@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/30 11:29:56 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/30 11:37:16 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	e_starprestari(t_bdr *star)
 	star->kpr2 = star->kpr2 - star->hold;
 	if ((star->kpr3 == 0) && (star->kpr4 == 0) && ((star->kpr5 > -1) && (star->kpr5 <= 0)))
 		return (0);
-	else if ((star->kpr3 == 2) && (star->kpr5 == -2))
+	else if ((star->kpr3 == 2) && ((star->kpr5 == -2) || (star->kpr5 == -1)))
 		e_starpreitwo(help, &*star);
 	else
 		e_starprei(help, &*star);
