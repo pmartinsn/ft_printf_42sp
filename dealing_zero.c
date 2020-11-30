@@ -6,7 +6,7 @@
 /*   By: pmartins <pmartins@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 09:17:10 by pmartins          #+#    #+#             */
-/*   Updated: 2020/11/29 11:11:17 by pmartins         ###   ########.fr       */
+/*   Updated: 2020/11/30 09:20:21 by pmartins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	e_starprei(int help, t_bdr *star)
 		ft_putchar(' ', &*star);
 		ft_putchar(' ', &*star);
 	}
-	else if ((star->kpr4 == 0) && (star->kpr5 > star->hold) )
+	/*else if ((star->kpr4 == 0) && (star->kpr5 > star->hold) )
 	{
 		star->kpr5 = star->kpr5 -star->hold;
 		while(help <= star->kpr5)
@@ -110,7 +110,7 @@ void	e_starprei(int help, t_bdr *star)
 			ft_putchar('0', &*star);
 			help++;
 		}
-	}
+	}*/
 	/*else if ((star->hold == 1) && (star->kpr5 > star->hold) && (star->kpr4 != 0))
 	{
 		star->kpr5 = star->kpr5 -star->hold -1;
@@ -132,7 +132,7 @@ void	e_starprei(int help, t_bdr *star)
 		}
 		ft_putnbr(star->kpr4 , &*star);
 	}*/
-	else if ((star->hold == 1) && (star->kpr5 == 0 ) )
+/*	else if ((star->hold == 1) && (star->kpr5 == 0 ) )
 	{
 			ft_putnbr(star->kpr4 , &*star);
 			ft_putchar(' ', &*star);	
@@ -153,40 +153,26 @@ void	e_starprei(int help, t_bdr *star)
 			//ft_putnbr(star->kpr4 , &*star);
 			ft_putchar('0', &*star);
 			//ft_putchar(' ', &*star);	
-	}
-	else if ((star->kpr4 == 0) && (star->kpr2 != 0) )
+	}*/
+/*	else if (((star->kpr4 == 0) && (star->kpr5 < 0)) || ((star->hold == 1) && (star->kpr5 < 0)) )
 	{
-			ft_putchar('0', &*star);
-			if (star->kpr5 > 0)
-				ft_putchar(' ', &*star);
-	}
-	else if ((star->kpr5 < 0 ) && (star->kpr4 > 0))
+			ft_putnbr(star->kpr4, &*star);
+			//if (star->kpr5 > 0)
+			ft_putchar(' ', &*star);
+	}*/
+	/*else if ((star->kpr5 < 0 ) && (star->kpr4 > 0))
 	{
-	/*	star->kpr5 = star->kpr5 -star->hold;
-		while(help < star->kpr5)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}*/
+	
 		ft_putnbr(star->kpr4, &*star);
-	}
-	else if ((star->kpr5 < 0) && (star->kpr4 < 0))
-	{
-		ft_putchar('-', &*star);
-		/*star->kpr5 = star->kpr5 +1;
-		star->kpr5 = star->kpr5 -star->hold;
-		while(help < star->kpr5)
-		{
-			ft_putchar('0', &*star);
-			help++;
-		}*/
+	}*/
+	/*else if ((star->kpr5 < 0) && (star->kpr4 < 0))
 		help = 1;
 		while (help < star->hold)
 		{
 			ft_putchar(star->aux_outnbr[help], &*star);
 			help++;
 		}
-	}
+	}*/
 	else if ((star->kpr4 < 0))
 	{
 		ft_putchar('-', &*star);
@@ -213,9 +199,15 @@ void	e_starprei(int help, t_bdr *star)
 			help++;
 		}
 	}
-		else if ((star->kpr4 > 0))
+	else if ((star->kpr4 >= 0))
 	{
 		help = 0;
+		if ((star->kpr4 == 0) || (star->hold == 1))
+		{
+			star->kpr3 = star->kpr3 *-1;
+			/*star->hold = star->hold +1;
+			star->kpr5 = star->kpr5 +1;*/
+		}
 		j = star->kpr5;
 	//	star->kpr5 = star->kpr5 - star->hold;
 		star->kpr5 = star->kpr5 - star->hold;
@@ -228,11 +220,16 @@ void	e_starprei(int help, t_bdr *star)
 		help = 0;
 		//if (star->kpr5 < 0)
 		//	star->kpr5 = star->kpr5 * -1;
-		star->kpr3 = star->kpr3 - j;
-		while(help < star->kpr3)
+		/*if (j < 0)
+			j = j * -1;*/
+		if (star->kpr5 < star->kpr3)
 		{
-			ft_putchar(' ', &*star);
-			help++;
+			star->kpr3 = star->kpr3 - star->hold;
+			while(help < star->kpr3)
+			{
+				ft_putchar(' ', &*star);
+				help++;
+			}
 		}
 	}
 /*	else if (star->kpr2 >= star->kpr5)
